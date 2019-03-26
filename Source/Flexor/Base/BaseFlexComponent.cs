@@ -9,9 +9,7 @@ namespace Flexor.Base
 {
     public abstract class BaseFlexComponent : ComponentBase
     {
-       
-
-
-
+        [Parameter]
+        protected RenderFragment ChildContent { get; set; }
     }
 }
