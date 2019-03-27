@@ -1,6 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="BaseFlexGroup.cs" company="Derek Chasse">
+// Copyright (c) Derek Chasse. All rights reserved.
+// </copyright>
+
+using Microsoft.AspNetCore.Components;
 
 namespace Flexor.Base
 {
@@ -9,47 +11,62 @@ namespace Flexor.Base
         private Direction direction = Direction.Horizontal;
         private GroupAlignment groupAlignment = GroupAlignment.Start;
         private ItemAlignment itemAlignment = ItemAlignment.Stretch;
-        private bool isWrap;
+        private bool isWrap = false;
 
-        public Direction Direction
+        /// <summary>
+        /// Gets or sets a value indicating the direction a which group and its items span.
+        /// </summary>
+        [Parameter]
+        protected Direction Direction
         {
-            get => direction;
+            get => this.direction;
             set
             {
-                direction = value;
-                StateHasChanged();
+                this.direction = value;
+                this.StateHasChanged();
             }
         }
 
-        public GroupAlignment GroupAlignment
+        /// <summary>
+        /// Gets or sets a value indicating how items are aligned across a group.
+        /// </summary>
+        [Parameter]
+        protected GroupAlignment GroupAlignment
         {
-            get => groupAlignment;
+            get => this.groupAlignment;
             set
             {
-                groupAlignment = value;
-                StateHasChanged();
+                this.groupAlignment = value;
+                this.StateHasChanged();
             }
         }
 
-        public ItemAlignment ItemAlignment
+        /// <summary>
+        /// Gets or sets a value indicating how items are aligned against a group.
+        /// </summary>
+        [Parameter]
+        protected ItemAlignment ItemAlignment
         {
-            get => itemAlignment;
+            get => this.itemAlignment;
             set
             {
-                itemAlignment = value;
-                StateHasChanged();
+                this.itemAlignment = value;
+                this.StateHasChanged();
             }
         }
 
-        public bool IsWrap
+        /// <summary>
+        /// Gets or sets a value indicating that a groups items will wrap.
+        /// </summary>
+        [Parameter]
+        protected bool IsWrap
         {
-            get => isWrap;
+            get => this.isWrap;
             set
             {
-                isWrap = value;
-                StateHasChanged();
+                this.isWrap = value;
+                this.StateHasChanged();
             }
         }
-
     }
 }

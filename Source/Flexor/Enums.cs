@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="Enums.cs" company="Derek Chasse">
+// Copyright (c) Derek Chasse. All rights reserved.
+// </copyright>
 
 namespace Flexor
 {
@@ -8,7 +8,7 @@ namespace Flexor
     {
         Horizontal,
 
-        Vertical
+        Vertical,
     }
 
     public enum GroupAlignment
@@ -23,7 +23,7 @@ namespace Flexor
 
         SpaceBetween,
 
-        SpaceEvenly
+        SpaceEvenly,
     }
 
     public enum ItemAlignment
@@ -34,6 +34,6 @@ namespace Flexor
 
         Center,
 
-        End
+        End,
     }
 }
