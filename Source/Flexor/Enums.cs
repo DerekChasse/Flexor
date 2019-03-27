@@ -12,7 +12,7 @@ namespace Flexor
 
         RowReverse,
 
-        ColumnReverse
+        ColumnReverse,
     }
 
     public enum MainAxisAlignment
@@ -40,6 +40,21 @@ namespace Flexor
 
         Stretch,
 
-        Baseline
+        Baseline,
+    }
+
+    public enum Breakpoint
+    {
+        None,
+
+        Mobile,
+
+        Tablet,
+
+        Desktop,
+
+        Widescreen,
+
+        FullHD,
     }
 }

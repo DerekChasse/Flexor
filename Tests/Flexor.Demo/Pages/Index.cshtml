@@ -1,2 +1,21 @@
 ﻿@page "/"
 
+<FlexLayout MainAxisAlignment="MainAxisAlignment.Start" CrossAxisAlignment="CrossAxisAlignment.Stretch" Show="this.ShoudShow">
+
+</FlexLayout>
+
+
+@functions {
+
+
+
+    private IFluentShow ShoudShow
+    {
+        get
+        {
+            return Show.OnMobile(false).OnWidescreen(false);
+        }
+    }
+
+
+}
