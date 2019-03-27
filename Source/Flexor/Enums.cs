@@ -6,12 +6,16 @@ namespace Flexor
 {
     public enum Direction
     {
-        Horizontal,
+        Row,
 
-        Vertical,
+        Column,
+
+        RowReverse,
+
+        ColumnReverse
     }
 
-    public enum GroupAlignment
+    public enum MainAxisAlignment
     {
         Start,
 
@@ -26,14 +30,16 @@ namespace Flexor
         SpaceEvenly,
     }
 
-    public enum ItemAlignment
+    public enum CrossAxisAlignment
     {
-        Stretch,
-
         Start,
 
         Center,
 
         End,
+
+        Stretch,
+
+        Baseline
     }
 }

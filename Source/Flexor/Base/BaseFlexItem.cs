@@ -2,18 +2,44 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using Microsoft.AspNetCore.Components;
+
 namespace Flexor.Base
 {
     public abstract class BaseFlexItem : BaseFlexComponent
     {
-        private ItemAlignment selfAlignment;
+        private int order;
+        private CrossAxisAlignment itemAlignment;
+        private bool fill;
 
-        protected ItemAlignment SelfAlignment
+        [Parameter]
+        protected int Order
         {
-            get => this.selfAlignment;
+            get => this.order;
             set
             {
-                this.selfAlignment = value;
+                this.order = value;
+                this.StateHasChanged();
+            }
+        }
+
+        [Parameter]
+        protected CrossAxisAlignment ItemAlignment
+        {
+            get => this.itemAlignment;
+            set
+            {
+                this.itemAlignment = value;
+                this.StateHasChanged();
+            }
+        }
+
+        [Parameter]
+        protected bool Fill
+        {
+            get => this.fill; set
+            {
+                this.fill = value;
                 this.StateHasChanged();
             }
         }
