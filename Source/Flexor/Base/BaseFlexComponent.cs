@@ -6,23 +6,25 @@ using Microsoft.AspNetCore.Components;
 
 namespace Flexor.Base
 {
+    /// <summary>
+    /// Base class for all Flexor componets.
+    /// </summary>
     public abstract class BaseFlexComponent : ComponentBase
     {
-        private bool hide;
-        private IFluentShow show;
+        private IFluentVisible visible;
 
+        /// <summary>
+        /// Gets or sets a configuration describing when a component is visible.
+        /// </summary>
         [Parameter]
-        protected bool Hide
+        protected IFluentVisible Visible
         {
-            get { return this.hide; }
-            set { this.hide = value; }
-        }
-
-        [Parameter]
-        protected IFluentShow Show
-        {
-            get { return this.show; }
-            set { this.show = value; }
+            get => this.visible;
+            set
+            {
+                this.visible = value;
+                this.StateHasChanged();
+            }
         }
     }
 }

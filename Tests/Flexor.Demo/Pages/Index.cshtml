@@ -1,19 +1,21 @@
 ﻿@page "/"
 
-<FlexLayout MainAxisAlignment="MainAxisAlignment.Start" CrossAxisAlignment="CrossAxisAlignment.Stretch" Show="this.ShoudShow">
+<FlexLayout MainAxisAlignment="MainAxisAlignment.Start" CrossAxisAlignment="CrossAxisAlignment.Stretch" Visible="this.ShoudShow">
+
+    <FlexItem Order="Order.OnDesktop(1).OnMobile(2).OnTablet(3)"> </FlexItem>
 
 </FlexLayout>
 
 
 @functions {
 
+    bool buttonClicked = false;
 
-
-    private IFluentShow ShoudShow
+    private IFluentVisible ShoudShow
     {
         get
         {
-            return Show.OnMobile(false).OnWidescreen(false);
+            return Visible.Only.OnDesktop().OnMobile(buttonClicked);
         }
     }
 

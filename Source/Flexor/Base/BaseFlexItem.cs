@@ -6,14 +6,20 @@ using Microsoft.AspNetCore.Components;
 
 namespace Flexor.Base
 {
+    /// <summary>
+    /// Base class for an item to be rendered in a FlexLayout.
+    /// </summary>
     public abstract class BaseFlexItem : BaseFlexComponent
     {
-        private int order;
+        private IFluentOrder order;
         private CrossAxisAlignment itemAlignment;
         private bool fill;
 
+        /// <summary>
+        /// Gets or sets the order the item is rendered in within the flex layout.
+        /// </summary>
         [Parameter]
-        protected int Order
+        protected IFluentOrder Order
         {
             get => this.order;
             set
@@ -23,6 +29,9 @@ namespace Flexor.Base
             }
         }
 
+        /// <summary>
+        /// Gets or sets a description of how an individual item is alligned within a flex layout.
+        /// </summary>
         [Parameter]
         protected CrossAxisAlignment ItemAlignment
         {
@@ -34,6 +43,9 @@ namespace Flexor.Base
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether an item should take up all remaining room within a flex layout.
+        /// </summary>
         [Parameter]
         protected bool Fill
         {
