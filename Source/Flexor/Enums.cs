@@ -15,7 +15,7 @@ namespace Flexor
         ColumnReverse,
     }
 
-    public enum MainAxisAlignment
+    public enum SpanAxisAlignment
     {
         Start,
 
@@ -30,7 +30,7 @@ namespace Flexor
         SpaceEvenly,
     }
 
-    public enum CrossAxisAlignment
+    public enum ItemAxisAlignment
     {
         Start,
 

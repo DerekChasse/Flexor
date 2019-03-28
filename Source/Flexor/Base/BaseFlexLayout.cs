@@ -10,8 +10,8 @@ namespace Flexor.Base
     {
         private Direction direction;
         private bool wrap;
-        private MainAxisAlignment mainAxisAlignment;
-        private CrossAxisAlignment crossAxisAlignment;
+        private IFluentAlignment spanAlignment;
+        private IFluentAlignment itemAlignment;
 
         [Parameter]
         protected Direction Direction
@@ -36,23 +36,23 @@ namespace Flexor.Base
         }
 
         [Parameter]
-        protected MainAxisAlignment MainAxisAlignment
+        protected IFluentAlignment SpanAlignment
         {
-            get => this.mainAxisAlignment;
+            get => this.spanAlignment;
             set
             {
-                this.mainAxisAlignment = value;
+                this.spanAlignment = value;
                 this.StateHasChanged();
             }
         }
 
         [Parameter]
-        protected CrossAxisAlignment CrossAxisAlignment
+        protected IFluentAlignment ItemAlignment
         {
-            get => this.crossAxisAlignment;
+            get => this.itemAlignment;
             set
             {
-                this.crossAxisAlignment = value;
+                this.itemAlignment = value;
                 this.StateHasChanged();
             }
         }

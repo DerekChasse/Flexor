@@ -2,7 +2,7 @@
 
 <FlexLayout MainAxisAlignment="MainAxisAlignment.Start" CrossAxisAlignment="CrossAxisAlignment.Stretch" Visible="this.ShoudShow">
 
-    <FlexItem Order="Order.OnDesktop(1).OnMobile(2).OnTablet(3)"> </FlexItem>
+    <FlexItem Order="Order.OnDesktop(1).OnMobile(2).OnTablet(3)" ItemAlignment="Alignment.Item"> </FlexItem>
 
 </FlexLayout>
 
@@ -10,6 +10,15 @@
 @functions {
 
     bool buttonClicked = false;
+
+
+    private IFluentAlignment Aligned
+    {
+        get
+        {
+            return Alignment.ItemsWithDefaultAlignment(ItemAxisAlignment.Start).OnDesktop(ItemAxisAlignment.Stretch);
+        }
+    }
 
     private IFluentVisible ShoudShow
     {

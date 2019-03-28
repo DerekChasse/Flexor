@@ -31,7 +31,7 @@ namespace Flexor
 
     public class FluentOrder : IFluentOrderOnBreakpointWithValue, IFluentOrderOnBreakpoint, IFluentOrder
     {
-        private Dictionary<Breakpoint, int?> breakpointDictionary;
+        private readonly Dictionary<Breakpoint, int?> breakpointDictionary;
 
         public FluentOrder()
         {
@@ -80,6 +80,5 @@ namespace Flexor
         public static IFluentOrderOnBreakpointWithValue OnWidescreen(int? value) => new FluentOrder().OnWidescreen(value);
 
         public static IFluentOrderOnBreakpointWithValue OnFullHD(int? value) => new FluentOrder().OnFullHD(value);
-
     }
 }
