@@ -4,7 +4,7 @@
 
 namespace Flexor
 {
-    public enum Direction
+    public enum FlexDirection
     {
         Row,
 

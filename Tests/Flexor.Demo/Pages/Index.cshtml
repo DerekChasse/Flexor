@@ -20,6 +20,14 @@
         }
     }
 
+    private IFluentDirection MyDirection
+    {
+        get
+        {
+            return Direction.Row.OnMobile(FlexDirection.Column);
+        }
+    }
+
     private IFluentVisible ShoudShow
     {
         get
@@ -27,6 +35,4 @@
             return Visible.Only.OnDesktop().OnMobile(buttonClicked);
         }
     }
-
-
 }

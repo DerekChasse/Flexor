@@ -10,7 +10,6 @@ namespace Flexor
 
     public interface IFluentSpanAlignment : IFluentAlignment
     {
-
     }
 
     public interface IFluentItemAlignment : IFluentAlignment
@@ -53,7 +52,7 @@ namespace Flexor
 
     public class FluentAlignment : IFluentSpanAlignmentOnBreakpointWithValue, IFluentItemAlignmentOnBreakpointWithValue, IFluentSpanAlignmentOnBreakpoint, IFluentItemAlignmentOnBreakpoint, IFluentItemAlignment, IFluentSpanAlignment
     {
-        private Dictionary<Breakpoint, ItemAxisAlignment> ItemAxisBreakpointDictionary;
+        private Dictionary<Breakpoint, ItemAxisAlignment> itemAxisBreakpointDictionary;
         private Dictionary<Breakpoint, SpanAxisAlignment> mainAxisBreakpointDictionary;
 
         public FluentAlignment()
@@ -71,14 +70,14 @@ namespace Flexor
         {
         }
 
-        private FluentAlignment(SpanAxisAlignment mainAxisDefault, ItemAxisAlignment ItemAxisDefault)
+        private FluentAlignment(SpanAxisAlignment mainAxisDefault, ItemAxisAlignment itemAxisDefault)
         {
-            this.InitializeBreakpointDictionaries(mainAxisDefault, ItemAxisDefault);
+            this.InitializeBreakpointDictionaries(mainAxisDefault, itemAxisDefault);
         }
 
         public IFluentItemAlignmentOnBreakpointWithValue OnDesktop(ItemAxisAlignment value)
         {
-            this.ItemAxisBreakpointDictionary[Breakpoint.Desktop] = value;
+            this.itemAxisBreakpointDictionary[Breakpoint.Desktop] = value;
             return this;
         }
 
@@ -90,7 +89,7 @@ namespace Flexor
 
         public IFluentItemAlignmentOnBreakpointWithValue OnFullHD(ItemAxisAlignment value)
         {
-            this.ItemAxisBreakpointDictionary[Breakpoint.FullHD] = value;
+            this.itemAxisBreakpointDictionary[Breakpoint.FullHD] = value;
             return this;
         }
 
@@ -102,7 +101,7 @@ namespace Flexor
 
         public IFluentItemAlignmentOnBreakpointWithValue OnMobile(ItemAxisAlignment value)
         {
-            this.ItemAxisBreakpointDictionary[Breakpoint.Mobile] = value;
+            this.itemAxisBreakpointDictionary[Breakpoint.Mobile] = value;
             return this;
         }
 
@@ -114,7 +113,7 @@ namespace Flexor
 
         public IFluentItemAlignmentOnBreakpointWithValue OnTablet(ItemAxisAlignment value)
         {
-            this.ItemAxisBreakpointDictionary[Breakpoint.Tablet] = value;
+            this.itemAxisBreakpointDictionary[Breakpoint.Tablet] = value;
             return this;
         }
 
@@ -126,7 +125,7 @@ namespace Flexor
 
         public IFluentItemAlignmentOnBreakpointWithValue OnWidescreen(ItemAxisAlignment value)
         {
-            this.ItemAxisBreakpointDictionary[Breakpoint.Widescreen] = value;
+            this.itemAxisBreakpointDictionary[Breakpoint.Widescreen] = value;
             return this;
         }
 
@@ -136,11 +135,11 @@ namespace Flexor
             return this;
         }
 
-        private void InitializeBreakpointDictionaries(SpanAxisAlignment SpanAxisAlignment, ItemAxisAlignment ItemAxisAlignment)
+        private void InitializeBreakpointDictionaries(SpanAxisAlignment spanAxisAlignment, ItemAxisAlignment itemAxisAlignment)
         {
-            this.mainAxisBreakpointDictionary = Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>().ToDictionary(breakpoint => breakpoint, x => SpanAxisAlignment);
+            this.mainAxisBreakpointDictionary = Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>().ToDictionary(breakpoint => breakpoint, x => spanAxisAlignment);
 
-            this.ItemAxisBreakpointDictionary = Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>().ToDictionary(breakpoint => breakpoint, x => ItemAxisAlignment);
+            this.itemAxisBreakpointDictionary = Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>().ToDictionary(breakpoint => breakpoint, x => itemAxisAlignment);
         }
     }
 
