@@ -57,4 +57,19 @@ namespace Flexor
 
         FullHD,
     }
+
+    public enum SizeModifier
+    {
+        Auto,
+
+        None,
+
+        Grow,
+
+        Shrink,
+
+        NoGrow,
+
+        NoShrink
+    }
 }

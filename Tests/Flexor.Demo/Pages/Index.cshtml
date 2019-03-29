@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<FlexLayout MainAxisAlignment="MainAxisAlignment.Start" CrossAxisAlignment="CrossAxisAlignment.Stretch" Visible="this.ShoudShow">
+<FlexLayout MainAxisAlignment="MainAxisAlignment.Start" CrossAxisAlignment="CrossAxisAlignment.Stretch">
 
     <FlexItem Order="Order.OnDesktop(1).OnMobile(2).OnTablet(3)" ItemAlignment="Alignment.Item"> </FlexItem>
 
@@ -8,31 +8,8 @@
 
 
 @functions {
-
-    bool buttonClicked = false;
-
-
-    private IFluentAlignment Aligned
+    void foo()
     {
-        get
-        {
-            return Alignment.ItemsWithDefaultAlignment(ItemAxisAlignment.Start).OnDesktop(ItemAxisAlignment.Stretch);
-        }
-    }
-
-    private IFluentDirection MyDirection
-    {
-        get
-        {
-            return Direction.Row.OnMobile(FlexDirection.Column);
-        }
-    }
-
-    private IFluentVisible ShoudShow
-    {
-        get
-        {
-            return Visible.Only.OnDesktop().OnMobile(buttonClicked);
-        }
+        Size.Is.Percent(50).
     }
 }
