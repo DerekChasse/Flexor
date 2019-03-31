@@ -2,7 +2,7 @@
 
 <FlexLayout MainAxisAlignment="MainAxisAlignment.Start" CrossAxisAlignment="CrossAxisAlignment.Stretch">
 
-    <FlexItem Order="Order.OnDesktop(1).OnMobile(2).OnTablet(3)" ItemAlignment="Alignment.Item"> </FlexItem>
+
 
 </FlexLayout>
 
@@ -10,6 +10,12 @@
 @functions {
     void foo()
     {
-        Size.Is.Percent(50).
+        ItemAlignment.Is.OnDesktopAndLarger(ItemAxisAlignment.Stretch);
+
+
+        var f = ItemAlignment.Stretch.OnDesktop(ItemAxisAlignment.End);
+
+        var g = Order.ForAll(1);
+
     }
 }

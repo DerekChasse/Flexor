@@ -12,17 +12,8 @@ namespace Flexor
     {
     }
 
-    public interface IFluentDirectionOnBreakpoint : IFluentDirection
+    public interface IFluentDirectionOnBreakpoint : IFluentDirection, IFluentReactive<IFluentDirectionOnBreakpointWithValue, FlexDirection>
     {
-        IFluentDirectionOnBreakpointWithValue OnMobile(FlexDirection value);
-
-        IFluentDirectionOnBreakpointWithValue OnTablet(FlexDirection value);
-
-        IFluentDirectionOnBreakpointWithValue OnDesktop(FlexDirection value);
-
-        IFluentDirectionOnBreakpointWithValue OnWidescreen(FlexDirection value);
-
-        IFluentDirectionOnBreakpointWithValue OnFullHD(FlexDirection value);
     }
 
     public interface IFluentDirectionOnBreakpointWithValue : IFluentDirectionOnBreakpoint
@@ -43,34 +34,87 @@ namespace Flexor
             this.InitializeBreakpointDictionary(initialValue);
         }
 
+        /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnDesktop(FlexDirection value)
         {
             this.breakpointDictionary[Breakpoint.Desktop] = value;
             return this;
         }
 
+        /// <inheritdoc/>
+        public IFluentDirectionOnBreakpointWithValue OnDesktopAndLarger(FlexDirection value)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <inheritdoc/>
+        public IFluentDirectionOnBreakpointWithValue OnDesktopAndSmaller(FlexDirection value)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnFullHD(FlexDirection value)
         {
             this.breakpointDictionary[Breakpoint.FullHD] = value;
             return this;
         }
 
+        /// <inheritdoc/>
+        public IFluentDirectionOnBreakpointWithValue OnFullHDAndSmaller(FlexDirection value)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnMobile(FlexDirection value)
         {
             this.breakpointDictionary[Breakpoint.Mobile] = value;
             return this;
         }
 
+        /// <inheritdoc/>
+        public IFluentDirectionOnBreakpointWithValue OnMobileAndLarger(FlexDirection value)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnTablet(FlexDirection value)
         {
             this.breakpointDictionary[Breakpoint.Tablet] = value;
             return this;
         }
 
+        /// <inheritdoc/>
+        public IFluentDirectionOnBreakpointWithValue OnTabletAndLarger(FlexDirection value)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <inheritdoc/>
+        public IFluentDirectionOnBreakpointWithValue OnTabletAndSmaller(FlexDirection value)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnWidescreen(FlexDirection value)
         {
             this.breakpointDictionary[Breakpoint.Widescreen] = value;
             return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentDirectionOnBreakpointWithValue OnWidescreenAndLarger(FlexDirection value)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <inheritdoc/>
+        public IFluentDirectionOnBreakpointWithValue OnWidescreenAndSmaller(FlexDirection value)
+        {
+            throw new NotImplementedException();
         }
 
         private void InitializeBreakpointDictionary(FlexDirection initialValue)
@@ -89,5 +133,4 @@ namespace Flexor
 
         public static IFluentDirectionOnBreakpointWithValue ColumnReverse => new FluentDirection(FlexDirection.ColumnReverse);
     }
-
 }

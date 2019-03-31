@@ -53,9 +53,7 @@ namespace Flexor
 
     public interface IFluentSizeOnBreakpointWithValueAndModifier : IFluentSize, IFluentSizeOnBreakpoint, IFluentSizeWithModifier, IFluentSizeWithValue
     {
-
     }
-
 
     public class FluentSize : IFluentSize, IFluentSizeOnBreakpointWithValueAndModifier, IFluentSizeOnBreakpoint, IFluentSizeWithModifier, IFluentSizeWithValue
     {
@@ -105,7 +103,5 @@ namespace Flexor
     public static class Size
     {
         public static IFluentSizeOnBreakpointWithValueAndModifier Is => new FluentSize();
-
-        
     }
 }
