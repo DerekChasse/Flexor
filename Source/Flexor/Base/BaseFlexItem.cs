@@ -12,7 +12,7 @@ namespace Flexor.Base
     public abstract class BaseFlexItem : BaseFlexComponent
     {
         private IFluentOrder order;
-        private IFluentAlignment itemAlignment;
+        private IFluentAlignItems itemAlignment;
         private bool fill;
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Flexor.Base
         /// Gets or sets a description of how an individual item is aligned within a flex layout.
         /// </summary>
         [Parameter]
-        protected IFluentAlignment ItemAlignment
+        protected IFluentAlignItems ItemAlignment
         {
             get => this.itemAlignment;
             set

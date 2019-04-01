@@ -7,7 +7,7 @@ namespace Flexor
     /// <summary>
     /// Enumeration of ways items can be rendered within a layout.
     /// </summary>
-    public enum FlexDirection
+    public enum Direction
     {
         /// <summary>
         /// Items within a layout are rendered horizontally.
@@ -74,7 +74,6 @@ namespace Flexor
         /// Placed along the start of the cross axis.
         /// </summary>
         Start,
-
 
         /// <summary>
         /// Centered along the primary axis.

@@ -20,13 +20,6 @@ namespace Flexor
     {
     }
 
-    public static class Order
-    {
-        public static IFluentOrderOnBreakpointWithValue Is => new FluentOrder();
-
-        public static IFluentOrder ForAll(int? value) => new FluentOrder().OnMobileAndLarger(value);
-    }
-
     public class FluentOrder : IFluentOrderOnBreakpointWithValue
     {
         private readonly Dictionary<Breakpoint, int?> breakpointDictionary = new Dictionary<Breakpoint, int?>();

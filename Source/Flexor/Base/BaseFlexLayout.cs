@@ -8,13 +8,13 @@ namespace Flexor.Base
 {
     public abstract class BaseFlexLayout : BaseFlexComponent
     {
-        private IFluentDirection direction;
+        private IFluentFlexDirection direction;
         private bool wrap;
-        private IFluentAlignment spanAlignment;
-        private IFluentAlignment itemAlignment;
+        private IFluentJustifyContent spanAlignment;
+        private IFluentAlignItems itemAlignment;
 
         [Parameter]
-        protected IFluentDirection Direction
+        protected IFluentFlexDirection Direction
         {
             get => this.direction;
             set
@@ -36,7 +36,7 @@ namespace Flexor.Base
         }
 
         [Parameter]
-        protected IFluentAlignment SpanAlignment
+        protected IFluentJustifyContent SpanAlignment
         {
             get => this.spanAlignment;
             set
@@ -47,7 +47,7 @@ namespace Flexor.Base
         }
 
         [Parameter]
-        protected IFluentAlignment ItemAlignment
+        protected IFluentAlignItems ItemAlignment
         {
             get => this.itemAlignment;
             set
