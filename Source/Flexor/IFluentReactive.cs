@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="IFluentReactive.cs" company="Derek Chasse">
+// Copyright (c) Derek Chasse. All rights reserved.
+// </copyright>
 
 namespace Flexor
 {
-    public interface IFluentReactive<TReturn>
+    public interface IFluentReactive<out TReturn>
     {
         TReturn OnMobile();
 
@@ -33,33 +33,32 @@ namespace Flexor
         TReturn OnFullHDAndSmaller();
     }
 
-    public interface IFluentReactive<TFuent, TProp>
+    public interface IFluentReactive<out TFluent, in TProp>
     {
-        TFuent OnMobile(TProp value);
+        TFluent OnMobile(TProp value);
 
-        TFuent OnMobileAndLarger(TProp value);
+        TFluent OnMobileAndLarger(TProp value);
 
-        TFuent OnTablet(TProp value);
+        TFluent OnTablet(TProp value);
 
-        TFuent OnTabletAndLarger(TProp value);
+        TFluent OnTabletAndLarger(TProp value);
 
-        TFuent OnTabletAndSmaller(TProp value);
+        TFluent OnTabletAndSmaller(TProp value);
 
-        TFuent OnDesktop(TProp value);
+        TFluent OnDesktop(TProp value);
 
-        TFuent OnDesktopAndLarger(TProp value);
+        TFluent OnDesktopAndLarger(TProp value);
 
-        TFuent OnDesktopAndSmaller(TProp value);
+        TFluent OnDesktopAndSmaller(TProp value);
 
-        TFuent OnWidescreen(TProp value);
+        TFluent OnWidescreen(TProp value);
 
-        TFuent OnWidescreenAndLarger(TProp value);
+        TFluent OnWidescreenAndLarger(TProp value);
 
-        TFuent OnWidescreenAndSmaller(TProp value);
+        TFluent OnWidescreenAndSmaller(TProp value);
 
-        TFuent OnFullHD(TProp value);
+        TFluent OnFullHD(TProp value);
 
-        TFuent OnFullHDAndSmaller(TProp value);
-
+        TFluent OnFullHDAndSmaller(TProp value);
     }
 }

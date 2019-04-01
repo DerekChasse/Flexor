@@ -30,7 +30,7 @@ namespace Flexor.Base
         }
 
         /// <summary>
-        /// Gets or sets a description of how an individual item is alligned within a flex layout.
+        /// Gets or sets a description of how an individual item is aligned within a flex layout.
         /// </summary>
         [Parameter]
         protected IFluentAlignment ItemAlignment

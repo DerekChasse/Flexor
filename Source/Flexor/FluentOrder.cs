@@ -20,7 +20,14 @@ namespace Flexor
     {
     }
 
-    public class FluentOrder : IFluentOrderOnBreakpointWithValue, IFluentOrderOnBreakpoint, IFluentOrder
+    public static class Order
+    {
+        public static IFluentOrderOnBreakpointWithValue Is => new FluentOrder();
+
+        public static IFluentOrder ForAll(int? value) => new FluentOrder().OnMobileAndLarger(value);
+    }
+
+    public class FluentOrder : IFluentOrderOnBreakpointWithValue
     {
         private readonly Dictionary<Breakpoint, int?> breakpointDictionary = new Dictionary<Breakpoint, int?>();
 
@@ -130,12 +137,5 @@ namespace Flexor
                 this.breakpointDictionary[breakpoint] = value;
             }
         }
-    }
-
-    public static class Order
-    {
-        public static IFluentOrderOnBreakpointWithValue Is => new FluentOrder();
-
-        public static IFluentOrder ForAll(int? value) => new FluentOrder().OnMobileAndLarger(value);
     }
 }

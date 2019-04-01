@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Components;
 namespace Flexor.Base
 {
     /// <summary>
-    /// Base class for all Flexor componets.
+    /// Base class for all Flexor components.
     /// </summary>
     public abstract class BaseFlexComponent : ComponentBase
     {

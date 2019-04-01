@@ -20,7 +20,18 @@ namespace Flexor
     {
     }
 
-    public class FluentDirection : IFluentDirectionOnBreakpointWithValue, IFluentDirectionOnBreakpoint, IFluentDirection
+    public static class Direction
+    {
+        public static IFluentDirectionOnBreakpointWithValue Row => new FluentDirection(FlexDirection.Row);
+
+        public static IFluentDirectionOnBreakpointWithValue Column => new FluentDirection(FlexDirection.Column);
+
+        public static IFluentDirectionOnBreakpointWithValue RowReverse => new FluentDirection(FlexDirection.RowReverse);
+
+        public static IFluentDirectionOnBreakpointWithValue ColumnReverse => new FluentDirection(FlexDirection.ColumnReverse);
+    }
+
+    public class FluentDirection : IFluentDirectionOnBreakpointWithValue
     {
         private Dictionary<Breakpoint, FlexDirection> breakpointDictionary;
 
@@ -121,16 +132,5 @@ namespace Flexor
         {
             this.breakpointDictionary = Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>().ToDictionary(breakpoint => breakpoint, x => initialValue);
         }
-    }
-
-    public static class Direction
-    {
-        public static IFluentDirectionOnBreakpointWithValue Row => new FluentDirection(FlexDirection.Row);
-
-        public static IFluentDirectionOnBreakpointWithValue Column => new FluentDirection(FlexDirection.Column);
-
-        public static IFluentDirectionOnBreakpointWithValue RowReverse => new FluentDirection(FlexDirection.RowReverse);
-
-        public static IFluentDirectionOnBreakpointWithValue ColumnReverse => new FluentDirection(FlexDirection.ColumnReverse);
     }
 }

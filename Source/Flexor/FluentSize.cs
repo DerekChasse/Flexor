@@ -1,6 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="FluentSize.cs" company="Derek Chasse">
+// Copyright (c) Derek Chasse. All rights reserved.
+// </copyright>
+
+using System;
 
 namespace Flexor
 {
@@ -51,11 +53,16 @@ namespace Flexor
     {
     }
 
-    public interface IFluentSizeOnBreakpointWithValueAndModifier : IFluentSize, IFluentSizeOnBreakpoint, IFluentSizeWithModifier, IFluentSizeWithValue
+    public interface IFluentSizeOnBreakpointWithValueAndModifier : IFluentSizeOnBreakpoint, IFluentSizeWithModifier, IFluentSizeWithValue
     {
     }
 
-    public class FluentSize : IFluentSize, IFluentSizeOnBreakpointWithValueAndModifier, IFluentSizeOnBreakpoint, IFluentSizeWithModifier, IFluentSizeWithValue
+    public static class Size
+    {
+        public static IFluentSizeOnBreakpointWithValueAndModifier Is => new FluentSize();
+    }
+
+    public class FluentSize : IFluentSizeOnBreakpointWithValueAndModifier
     {
         public IFluentSizeWithModifier OnMobile => throw new NotImplementedException();
 
@@ -98,10 +105,5 @@ namespace Flexor
         {
             throw new NotImplementedException();
         }
-    }
-
-    public static class Size
-    {
-        public static IFluentSizeOnBreakpointWithValueAndModifier Is => new FluentSize();
     }
 }

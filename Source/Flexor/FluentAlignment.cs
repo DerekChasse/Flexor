@@ -1,6 +1,8 @@
-﻿using System;
+﻿// <copyright file="FluentAlignment.cs" company="Derek Chasse">
+// Copyright (c) Derek Chasse. All rights reserved.
+// </copyright>
+
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Flexor
 {
@@ -24,15 +26,47 @@ namespace Flexor
     {
     }
 
-    public interface IFluentItemAlignmentOnBreakpointWithValue : IFluentItemAlignmentOnBreakpoint, IFluentItemAlignment
+    public interface IFluentItemAlignmentOnBreakpointWithValue : IFluentItemAlignmentOnBreakpoint
     {
     }
 
-    public interface IFluentSpanAlignmentOnBreakpointWithValue : IFluentSpanAlignmentOnBreakpoint, IFluentItemAlignment
+    public interface IFluentSpanAlignmentOnBreakpointWithValue : IFluentSpanAlignmentOnBreakpoint
     {
     }
 
-    public class FluentItemAlignment : IFluentItemAlignmentOnBreakpointWithValue, IFluentItemAlignmentOnBreakpoint, IFluentItemAlignment, IFluentAlignment
+    public static class SpanAlignment
+    {
+        public static IFluentSpanAlignmentOnBreakpoint Is => new FluentSpanAlignment();
+
+        public static IFluentSpanAlignmentOnBreakpoint Start => new FluentSpanAlignment(SpanAxisAlignment.Start);
+
+        public static IFluentSpanAlignmentOnBreakpoint Center => new FluentSpanAlignment(SpanAxisAlignment.Center);
+
+        public static IFluentSpanAlignmentOnBreakpoint End => new FluentSpanAlignment(SpanAxisAlignment.End);
+
+        public static IFluentSpanAlignmentOnBreakpoint SpaceAround => new FluentSpanAlignment(SpanAxisAlignment.SpaceAround);
+
+        public static IFluentSpanAlignmentOnBreakpoint SpaceBetween => new FluentSpanAlignment(SpanAxisAlignment.SpaceBetween);
+
+        public static IFluentSpanAlignmentOnBreakpoint SpaceEvenly => new FluentSpanAlignment(SpanAxisAlignment.SpaceEvenly);
+    }
+
+    public static class ItemAlignment
+    {
+        public static IFluentItemAlignmentOnBreakpoint Is => new FluentItemAlignment();
+
+        public static IFluentItemAlignmentOnBreakpoint Start => new FluentItemAlignment(ItemAxisAlignment.Start);
+
+        public static IFluentItemAlignmentOnBreakpoint Center => new FluentItemAlignment(ItemAxisAlignment.Center);
+
+        public static IFluentItemAlignmentOnBreakpoint End => new FluentItemAlignment(ItemAxisAlignment.End);
+
+        public static IFluentItemAlignmentOnBreakpoint Stretch => new FluentItemAlignment(ItemAxisAlignment.Stretch);
+
+        public static IFluentItemAlignmentOnBreakpoint Baseline => new FluentItemAlignment(ItemAxisAlignment.Baseline);
+    }
+
+    public class FluentItemAlignment : IFluentItemAlignmentOnBreakpointWithValue
     {
         private Dictionary<Breakpoint, ItemAxisAlignment> breakpointDictionary = new Dictionary<Breakpoint, ItemAxisAlignment>();
 
@@ -146,7 +180,7 @@ namespace Flexor
         }
     }
 
-    public class FluentSpanAlignment : IFluentSpanAlignmentOnBreakpointWithValue, IFluentSpanAlignmentOnBreakpoint, IFluentSpanAlignment, IFluentAlignment
+    public class FluentSpanAlignment : IFluentSpanAlignmentOnBreakpointWithValue, IFluentSpanAlignment
     {
         private Dictionary<Breakpoint, SpanAxisAlignment> breakpointDictionary = new Dictionary<Breakpoint, SpanAxisAlignment>();
 
@@ -258,37 +292,5 @@ namespace Flexor
                 this.breakpointDictionary[breakpoint] = value;
             }
         }
-    }
-
-    public static class SpanAlignment
-    {
-        public static IFluentSpanAlignmentOnBreakpoint Is => new FluentSpanAlignment();
-
-        public static IFluentSpanAlignmentOnBreakpoint Start => new FluentSpanAlignment(SpanAxisAlignment.Start);
-
-        public static IFluentSpanAlignmentOnBreakpoint Center => new FluentSpanAlignment(SpanAxisAlignment.Center);
-
-        public static IFluentSpanAlignmentOnBreakpoint End => new FluentSpanAlignment(SpanAxisAlignment.End);
-
-        public static IFluentSpanAlignmentOnBreakpoint SpaceAround => new FluentSpanAlignment(SpanAxisAlignment.SpaceAround);
-
-        public static IFluentSpanAlignmentOnBreakpoint SpaceBetween => new FluentSpanAlignment(SpanAxisAlignment.SpaceBetween);
-
-        public static IFluentSpanAlignmentOnBreakpoint SpaceEvenly => new FluentSpanAlignment(SpanAxisAlignment.SpaceEvenly);
-    }
-
-    public static class ItemAlignment
-    {
-        public static IFluentItemAlignmentOnBreakpoint Is => new FluentItemAlignment();
-
-        public static IFluentItemAlignmentOnBreakpoint Start => new FluentItemAlignment(ItemAxisAlignment.Start);
-
-        public static IFluentItemAlignmentOnBreakpoint Center => new FluentItemAlignment(ItemAxisAlignment.Center);
-
-        public static IFluentItemAlignmentOnBreakpoint End => new FluentItemAlignment(ItemAxisAlignment.End);
-
-        public static IFluentItemAlignmentOnBreakpoint Stretch => new FluentItemAlignment(ItemAxisAlignment.Stretch);
-
-        public static IFluentItemAlignmentOnBreakpoint Baseline => new FluentItemAlignment(ItemAxisAlignment.Baseline);
     }
 }
