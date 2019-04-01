@@ -70,14 +70,30 @@ namespace Flexor
 
     public enum ItemAxisAlignment
     {
+        /// <summary>
+        /// Placed along the start of the cross axis.
+        /// </summary>
         Start,
 
+
+        /// <summary>
+        /// Centered along the primary axis.
+        /// </summary>
         Center,
 
+        /// <summary>
+        /// Placed along the end of the cross axis.
+        /// </summary>
         End,
 
+        /// <summary>
+        /// Stretch to fill the layout
+        /// </summary>
         Stretch,
 
+        /// <summary>
+        /// Items are aligned such that their baselines align.
+        /// </summary>
         Baseline,
     }
 

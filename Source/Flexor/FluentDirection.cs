@@ -2,9 +2,7 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Flexor
 {
@@ -42,7 +40,7 @@ namespace Flexor
 
         public FluentDirection(FlexDirection initialValue)
         {
-            this.InitializeBreakpointDictionary(initialValue);
+            this.SetBreakpointValues(initialValue, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
         }
 
         /// <inheritdoc/>
@@ -55,13 +53,15 @@ namespace Flexor
         /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnDesktopAndLarger(FlexDirection value)
         {
-            throw new NotImplementedException();
+            this.SetBreakpointValues(value, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            return this;
         }
 
         /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnDesktopAndSmaller(FlexDirection value)
         {
-            throw new NotImplementedException();
+            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
+            return this;
         }
 
         /// <inheritdoc/>
@@ -74,7 +74,8 @@ namespace Flexor
         /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnFullHDAndSmaller(FlexDirection value)
         {
-            throw new NotImplementedException();
+            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            return this;
         }
 
         /// <inheritdoc/>
@@ -87,7 +88,8 @@ namespace Flexor
         /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnMobileAndLarger(FlexDirection value)
         {
-            throw new NotImplementedException();
+            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            return this;
         }
 
         /// <inheritdoc/>
@@ -100,13 +102,15 @@ namespace Flexor
         /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnTabletAndLarger(FlexDirection value)
         {
-            throw new NotImplementedException();
+            this.SetBreakpointValues(value, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            return this;
         }
 
         /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnTabletAndSmaller(FlexDirection value)
         {
-            throw new NotImplementedException();
+            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet);
+            return this;
         }
 
         /// <inheritdoc/>
@@ -119,18 +123,23 @@ namespace Flexor
         /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnWidescreenAndLarger(FlexDirection value)
         {
-            throw new NotImplementedException();
+            this.SetBreakpointValues(value, Breakpoint.Widescreen, Breakpoint.FullHD);
+            return this;
         }
 
         /// <inheritdoc/>
         public IFluentDirectionOnBreakpointWithValue OnWidescreenAndSmaller(FlexDirection value)
         {
-            throw new NotImplementedException();
+            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
+            return this;
         }
 
-        private void InitializeBreakpointDictionary(FlexDirection initialValue)
+        private void SetBreakpointValues(FlexDirection value, params Breakpoint[] breakpoints)
         {
-            this.breakpointDictionary = Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>().ToDictionary(breakpoint => breakpoint, x => initialValue);
+            foreach (var breakpoint in breakpoints)
+            {
+                this.breakpointDictionary[breakpoint] = value;
+            }
         }
     }
 }
