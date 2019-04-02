@@ -13,7 +13,7 @@ namespace Flexor
     {
     }
 
-    public interface IFluentJustifyContentOnBreakpoint : IFluentJustifyContent, IFluentReactive<IFluentJustifyContentOnBreakpointWithValue, Justification>
+    public interface IFluentJustifyContentOnBreakpoint : IFluentJustifyContent, IFluentReactive<IFluentJustifyContentOnBreakpointWithValue, JustificationValue>
     {
     }
 
@@ -27,13 +27,13 @@ namespace Flexor
     /// </summary>
     public class FluentJustifyContent : IFluentJustifyContentOnBreakpointWithValue
     {
-        private readonly Dictionary<Breakpoint, Justification> breakpointDictionary = new Dictionary<Breakpoint, Justification>();
+        private readonly Dictionary<BreakpointValue, JustificationValue> breakpointDictionary = new Dictionary<BreakpointValue, JustificationValue>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentJustifyContent"/> class.
         /// </summary>
         public FluentJustifyContent()
-            : this(Justification.Start)
+            : this(JustificationValue.Start)
         {
         }
 
@@ -41,106 +41,106 @@ namespace Flexor
         /// Initializes a new instance of the <see cref="FluentJustifyContent"/> class.
         /// </summary>
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
-        public FluentJustifyContent(Justification initialValue)
+        public FluentJustifyContent(JustificationValue initialValue)
         {
-            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
+            foreach (var breakpoint in Enum.GetValues(typeof(BreakpointValue)).Cast<BreakpointValue>())
             {
                 this.breakpointDictionary.Add(breakpoint, initialValue);
             }
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnDesktop(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnDesktop(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Desktop);
+            this.SetBreakpointValues(value, BreakpointValue.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnDesktopAndLarger(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnDesktopAndLarger(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnDesktopAndSmaller(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnDesktopAndSmaller(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnFullHD(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnFullHD(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnFullHDAndSmaller(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnFullHDAndSmaller(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnMobile(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnMobile(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnMobileAndLarger(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnMobileAndLarger(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnTablet(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnTablet(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Tablet);
+            this.SetBreakpointValues(value, BreakpointValue.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnTabletAndLarger(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnTabletAndLarger(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnTabletAndSmaller(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnTabletAndSmaller(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnWidescreen(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnWidescreen(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Widescreen);
+            this.SetBreakpointValues(value, BreakpointValue.Widescreen);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnWidescreenAndLarger(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnWidescreenAndLarger(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnWidescreenAndSmaller(Justification value)
+        public IFluentJustifyContentOnBreakpointWithValue OnWidescreenAndSmaller(JustificationValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen);
             return this;
         }
 
-        private void SetBreakpointValues(Justification value, params Breakpoint[] breakpoints)
+        private void SetBreakpointValues(JustificationValue value, params BreakpointValue[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
             {

@@ -13,7 +13,7 @@ namespace Flexor
     {
     }
 
-    public interface IFluentAlignItemsOnBreakpoint : IFluentAlignItems, IFluentReactive<IFluentAlignItemsOnBreakpointWithValue, ItemAlignment>
+    public interface IFluentAlignItemsOnBreakpoint : IFluentAlignItems, IFluentReactive<IFluentAlignItemsOnBreakpointWithValue, ItemAlignmentValue>
     {
     }
 
@@ -27,13 +27,13 @@ namespace Flexor
     /// </summary>
     public class FluentAlignItems : IFluentAlignItemsOnBreakpointWithValue
     {
-        private readonly Dictionary<Breakpoint, ItemAlignment> breakpointDictionary = new Dictionary<Breakpoint, ItemAlignment>();
+        private readonly Dictionary<BreakpointValue, ItemAlignmentValue> breakpointDictionary = new Dictionary<BreakpointValue, ItemAlignmentValue>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentAlignItems"/> class.
         /// </summary>
         public FluentAlignItems()
-            : this(ItemAlignment.Stretch)
+            : this(ItemAlignmentValue.Stretch)
         {
         }
 
@@ -41,106 +41,106 @@ namespace Flexor
         /// Initializes a new instance of the <see cref="FluentAlignItems"/> class.
         /// </summary>
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
-        public FluentAlignItems(ItemAlignment initialValue)
+        public FluentAlignItems(ItemAlignmentValue initialValue)
         {
-            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
+            foreach (var breakpoint in Enum.GetValues(typeof(BreakpointValue)).Cast<BreakpointValue>())
             {
                 this.breakpointDictionary.Add(breakpoint, initialValue);
             }
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnDesktop(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnDesktop(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Desktop);
+            this.SetBreakpointValues(value, BreakpointValue.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnDesktopAndLarger(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnDesktopAndLarger(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnDesktopAndSmaller(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnDesktopAndSmaller(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnFullHD(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnFullHD(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnFullHDAndSmaller(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnFullHDAndSmaller(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnMobile(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnMobile(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnMobileAndLarger(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnMobileAndLarger(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnTablet(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnTablet(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Tablet);
+            this.SetBreakpointValues(value, BreakpointValue.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnTabletAndLarger(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnTabletAndLarger(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnTabletAndSmaller(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnTabletAndSmaller(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnWidescreen(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnWidescreen(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Widescreen);
+            this.SetBreakpointValues(value, BreakpointValue.Widescreen);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnWidescreenAndLarger(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnWidescreenAndLarger(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsOnBreakpointWithValue OnWidescreenAndSmaller(ItemAlignment value)
+        public IFluentAlignItemsOnBreakpointWithValue OnWidescreenAndSmaller(ItemAlignmentValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen);
             return this;
         }
 
-        private void SetBreakpointValues(ItemAlignment value, params Breakpoint[] breakpoints)
+        private void SetBreakpointValues(ItemAlignmentValue value, params BreakpointValue[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
             {

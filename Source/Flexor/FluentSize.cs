@@ -6,139 +6,32 @@ using System;
 
 namespace Flexor
 {
+#pragma warning disable SA1600 // Elements should be documented
     public interface IFluentSize
     {
     }
 
-    public interface IFluentSizeOnBreakpoint : IFluentReactive<IFluentSizeWithValueAndModifier>
+    public interface IFluentSizeOnBreakpoint : IFluentReactive<IFluentSizeOnBreakpointWithValue>
     {
     }
 
-    public interface IFluentSizeWithValue : IFluentSize
+    public interface IFluentSizeOnBreakpointWithValue : IFluentSize
     {
         IFluentSizeOnBreakpoint Pixels(int value);
 
         IFluentSizeOnBreakpoint Percent(int value);
 
+        IFluentSizeOnBreakpoint Element(decimal value);
+
         IFluentSizeOnBreakpoint ViewportWidth(int value);
 
         IFluentSizeOnBreakpoint ViewportHeight(int value);
     }
+#pragma warning restore SA1600 // Elements should be documented
 
-    public interface IFluentSizeWithModifier : IFluentSize
+    public class FluentSize : IFluentSizeOnBreakpointWithValue
     {
-        IFluentSizeOnBreakpointWithModifier Grow { get; }
-
-        IFluentSizeOnBreakpointWithModifier Shrink { get; }
-
-        IFluentSizeOnBreakpointWithModifier Initial { get; }
-
-        IFluentSizeOnBreakpointWithModifier Auto { get; }
-
-        IFluentSizeOnBreakpointWithModifier NoGrow { get; }
-
-        IFluentSizeOnBreakpointWithModifier NoShrink { get; }
-    }
-
-    public interface IFluentSizeWithValueAndModifier : IFluentSizeWithValue, IFluentSizeWithModifier
-    {
-
-    }
-
-    public interface IFluentSizeOnBreakpointWithModifier : IFluentSize, IFluentSizeOnBreakpoint, IFluentSizeWithModifier
-    {
-    }
-
-    public interface IFluentSizeOnBreakpointWithValue : IFluentSize, IFluentSizeOnBreakpoint, IFluentSizeWithValue
-    {
-    }
-
-    public interface IFluentSizeOnBreakpointWithValueAndModifier : IFluentSizeOnBreakpointWithValue,
-                                                                   IFluentSizeOnBreakpointWithModifier,
-                                                                   IFluentSizeWithValueAndModifier,
-                                                                   IFluentSizeOnBreakpoint,
-                                                                   IFluentSizeWithValue,
-                                                                   IFluentSizeWithModifier,
-                                                                   IFluentSize
-    {
-
-    }
-
-    public class FluentSize : IFluentSizeOnBreakpointWithValueAndModifier
-    {
-        public IFluentSizeOnBreakpointWithModifier Grow => throw new NotImplementedException();
-
-        public IFluentSizeOnBreakpointWithModifier Shrink => throw new NotImplementedException();
-
-        public IFluentSizeOnBreakpointWithModifier Initial => throw new NotImplementedException();
-
-        public IFluentSizeOnBreakpointWithModifier Auto => throw new NotImplementedException();
-
-        public IFluentSizeOnBreakpointWithModifier NoGrow => throw new NotImplementedException();
-
-        public IFluentSizeOnBreakpointWithModifier NoShrink => throw new NotImplementedException();
-
-        public IFluentSizeWithValueAndModifier OnDesktop()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IFluentSizeWithValueAndModifier OnDesktopAndLarger()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IFluentSizeWithValueAndModifier OnDesktopAndSmaller()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IFluentSizeWithValueAndModifier OnFullHD()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IFluentSizeWithValueAndModifier OnFullHDAndSmaller()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IFluentSizeWithValueAndModifier OnMobile()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IFluentSizeWithValueAndModifier OnMobileAndLarger()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IFluentSizeWithValueAndModifier OnTablet()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IFluentSizeWithValueAndModifier OnTabletAndLarger()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IFluentSizeWithValueAndModifier OnTabletAndSmaller()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IFluentSizeWithValueAndModifier OnWidescreen()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IFluentSizeWithValueAndModifier OnWidescreenAndLarger()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IFluentSizeWithValueAndModifier OnWidescreenAndSmaller()
+        public IFluentSizeOnBreakpoint Element(decimal value)
         {
             throw new NotImplementedException();
         }

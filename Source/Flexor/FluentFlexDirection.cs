@@ -13,7 +13,7 @@ namespace Flexor
     {
     }
 
-    public interface IFluentFlexDirectionOnBreakpoint : IFluentFlexDirection, IFluentReactive<IFluentFlexDirectionOnBreakpointWithValue, Direction>
+    public interface IFluentFlexDirectionOnBreakpoint : IFluentFlexDirection, IFluentReactive<IFluentFlexDirectionOnBreakpointWithValue, DirectionValue>
     {
     }
 
@@ -27,13 +27,13 @@ namespace Flexor
     /// </summary>
     public class FluentFlexDirection : IFluentFlexDirectionOnBreakpointWithValue
     {
-        private readonly Dictionary<Breakpoint, Direction> breakpointDictionary = new Dictionary<Breakpoint, Direction>();
+        private readonly Dictionary<BreakpointValue, DirectionValue> breakpointDictionary = new Dictionary<BreakpointValue, DirectionValue>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentFlexDirection"/> class.
         /// </summary>
         public FluentFlexDirection()
-            : this(Direction.Row)
+            : this(DirectionValue.Row)
         {
         }
 
@@ -41,106 +41,106 @@ namespace Flexor
         /// Initializes a new instance of the <see cref="FluentFlexDirection"/> class.
         /// </summary>
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
-        public FluentFlexDirection(Direction initialValue)
+        public FluentFlexDirection(DirectionValue initialValue)
         {
-            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
+            foreach (var breakpoint in Enum.GetValues(typeof(BreakpointValue)).Cast<BreakpointValue>())
             {
                 this.breakpointDictionary.Add(breakpoint, initialValue);
             }
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnDesktop(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnDesktop(DirectionValue value)
         {
-            this.breakpointDictionary[Breakpoint.Desktop] = value;
+            this.breakpointDictionary[BreakpointValue.Desktop] = value;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnDesktopAndLarger(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnDesktopAndLarger(DirectionValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnDesktopAndSmaller(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnDesktopAndSmaller(DirectionValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnFullHD(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnFullHD(DirectionValue value)
         {
-            this.breakpointDictionary[Breakpoint.FullHD] = value;
+            this.breakpointDictionary[BreakpointValue.FullHD] = value;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnFullHDAndSmaller(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnFullHDAndSmaller(DirectionValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnMobile(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnMobile(DirectionValue value)
         {
-            this.breakpointDictionary[Breakpoint.Mobile] = value;
+            this.breakpointDictionary[BreakpointValue.Mobile] = value;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnMobileAndLarger(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnMobileAndLarger(DirectionValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnTablet(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnTablet(DirectionValue value)
         {
-            this.breakpointDictionary[Breakpoint.Tablet] = value;
+            this.breakpointDictionary[BreakpointValue.Tablet] = value;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnTabletAndLarger(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnTabletAndLarger(DirectionValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnTabletAndSmaller(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnTabletAndSmaller(DirectionValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnWidescreen(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnWidescreen(DirectionValue value)
         {
-            this.breakpointDictionary[Breakpoint.Widescreen] = value;
+            this.breakpointDictionary[BreakpointValue.Widescreen] = value;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnWidescreenAndLarger(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnWidescreenAndLarger(DirectionValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(value, BreakpointValue.Widescreen, BreakpointValue.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentFlexDirectionOnBreakpointWithValue OnWidescreenAndSmaller(Direction value)
+        public IFluentFlexDirectionOnBreakpointWithValue OnWidescreenAndSmaller(DirectionValue value)
         {
-            this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
+            this.SetBreakpointValues(value, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen);
             return this;
         }
 
-        private void SetBreakpointValues(Direction value, params Breakpoint[] breakpoints)
+        private void SetBreakpointValues(DirectionValue value, params BreakpointValue[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
             {

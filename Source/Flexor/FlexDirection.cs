@@ -12,21 +12,21 @@ namespace Flexor
         /// <summary>
         /// Flex items are rendered horizontally in the order they are defined within a container.
         /// </summary>
-        public static IFluentFlexDirectionOnBreakpointWithValue Row => new FluentFlexDirection(Direction.Row);
+        public static IFluentFlexDirectionOnBreakpointWithValue Row => new FluentFlexDirection(DirectionValue.Row);
 
         /// <summary>
         /// Flex items are rendered vertically in the order they are defined within a container.
         /// </summary>
-        public static IFluentFlexDirectionOnBreakpointWithValue Column => new FluentFlexDirection(Direction.Column);
+        public static IFluentFlexDirectionOnBreakpointWithValue Column => new FluentFlexDirection(DirectionValue.Column);
 
         /// <summary>
         /// Flex items are rendered horizontally in the reverse order they are defined within a container.
         /// </summary>
-        public static IFluentFlexDirectionOnBreakpointWithValue RowReverse => new FluentFlexDirection(Direction.RowReverse);
+        public static IFluentFlexDirectionOnBreakpointWithValue RowReverse => new FluentFlexDirection(DirectionValue.RowReverse);
 
         /// <summary>
         /// Flex items are rendered vertically in the reverse order they are defined within a container.
         /// </summary>
-        public static IFluentFlexDirectionOnBreakpointWithValue ColumnReverse => new FluentFlexDirection(Direction.ColumnReverse);
+        public static IFluentFlexDirectionOnBreakpointWithValue ColumnReverse => new FluentFlexDirection(DirectionValue.ColumnReverse);
     }
 }
