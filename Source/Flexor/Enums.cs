@@ -32,9 +32,9 @@ namespace Flexor
 
     /// <summary>
     /// Enumeration of ways items can be rendered across a layout.
-    /// This impact items along the layout's primary axis.
+    /// This impacts items along the layout's primary axis.
     /// </summary>
-    public enum SpanAxisAlignment
+    public enum Justification
     {
         /// <summary>
         /// Items are packed along start of the layout's primary axis
@@ -68,7 +68,7 @@ namespace Flexor
         SpaceEvenly,
     }
 
-    public enum ItemAxisAlignment
+    public enum ItemAlignment
     {
         /// <summary>
         /// Placed along the start of the cross axis.
@@ -96,18 +96,39 @@ namespace Flexor
         Baseline,
     }
 
+    /// <summary>
+    /// CSS media query breakpoints
+    /// </summary>
     public enum Breakpoint
     {
+        /// <summary>
+        /// Unspecified on not impacted by media queries.
+        /// </summary>
         None,
 
+        /// <summary>
+        /// Applicable to device widths of XXX pixels and smaller.
+        /// </summary>
         Mobile,
 
+        /// <summary>
+        /// Applicable to device widths between XXX and YYY pixels.
+        /// </summary>
         Tablet,
 
+        /// <summary>
+        /// Applicable to device widths between XXX and YYY pixels.
+        /// </summary>
         Desktop,
 
+        /// <summary>
+        /// Applicable to device widths between XXX and YYY pixels.
+        /// </summary>
         Widescreen,
 
+        /// <summary>
+        /// Applicable to device widths greater than XXX pixels.
+        /// </summary>
         FullHD,
     }
 

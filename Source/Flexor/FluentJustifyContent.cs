@@ -13,7 +13,7 @@ namespace Flexor
     {
     }
 
-    public interface IFluentJustifyContentOnBreakpoint : IFluentJustifyContent, IFluentReactive<IFluentJustifyContentOnBreakpointWithValue, SpanAxisAlignment>
+    public interface IFluentJustifyContentOnBreakpoint : IFluentJustifyContent, IFluentReactive<IFluentJustifyContentOnBreakpointWithValue, Justification>
     {
     }
 
@@ -27,13 +27,13 @@ namespace Flexor
     /// </summary>
     public class FluentJustifyContent : IFluentJustifyContentOnBreakpointWithValue
     {
-        private readonly Dictionary<Breakpoint, SpanAxisAlignment> breakpointDictionary = new Dictionary<Breakpoint, SpanAxisAlignment>();
+        private readonly Dictionary<Breakpoint, Justification> breakpointDictionary = new Dictionary<Breakpoint, Justification>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentJustifyContent"/> class.
         /// </summary>
         public FluentJustifyContent()
-            : this(SpanAxisAlignment.Start)
+            : this(Justification.Start)
         {
         }
 
@@ -41,7 +41,7 @@ namespace Flexor
         /// Initializes a new instance of the <see cref="FluentJustifyContent"/> class.
         /// </summary>
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
-        public FluentJustifyContent(SpanAxisAlignment initialValue)
+        public FluentJustifyContent(Justification initialValue)
         {
             foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
             {
@@ -50,97 +50,97 @@ namespace Flexor
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnDesktop(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnDesktop(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnDesktopAndLarger(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnDesktopAndLarger(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnDesktopAndSmaller(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnDesktopAndSmaller(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnFullHD(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnFullHD(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnFullHDAndSmaller(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnFullHDAndSmaller(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnMobile(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnMobile(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.Mobile);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnMobileAndLarger(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnMobileAndLarger(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnTablet(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnTablet(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnTabletAndLarger(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnTabletAndLarger(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnTabletAndSmaller(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnTabletAndSmaller(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnWidescreen(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnWidescreen(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.Widescreen);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnWidescreenAndLarger(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnWidescreenAndLarger(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentOnBreakpointWithValue OnWidescreenAndSmaller(SpanAxisAlignment value)
+        public IFluentJustifyContentOnBreakpointWithValue OnWidescreenAndSmaller(Justification value)
         {
             this.SetBreakpointValues(value, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
         }
 
-        private void SetBreakpointValues(SpanAxisAlignment value, params Breakpoint[] breakpoints)
+        private void SetBreakpointValues(Justification value, params Breakpoint[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
             {

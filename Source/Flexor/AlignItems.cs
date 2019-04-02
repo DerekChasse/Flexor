@@ -10,33 +10,33 @@ namespace Flexor
     public static class AlignItems
     {
         /// <summary>
-        /// The default alignment of <see cref="ItemAxisAlignment.Stretch"/> for items within a flex-container across all CSS media query breakpoints.
+        /// The default alignment of <see cref="ItemAlignment.Stretch"/> for items within a flex-container across all CSS media query breakpoints.
         /// </summary>
         public static IFluentAlignItemsOnBreakpoint Is => new FluentAlignItems();
 
         /// <summary>
         /// Items are aligned along the start of the flex-container's cross axis.
         /// </summary>
-        public static IFluentAlignItemsOnBreakpoint Start => new FluentAlignItems(ItemAxisAlignment.Start);
+        public static IFluentAlignItemsOnBreakpoint Start => new FluentAlignItems(ItemAlignment.Start);
 
         /// <summary>
         /// Items are aligned along the center of the flex-container's cross axis.
         /// </summary>
-        public static IFluentAlignItemsOnBreakpoint Center => new FluentAlignItems(ItemAxisAlignment.Center);
+        public static IFluentAlignItemsOnBreakpoint Center => new FluentAlignItems(ItemAlignment.Center);
 
         /// <summary>
         /// Items are aligned along the end of the flex-container's cross axis.
         /// </summary>
-        public static IFluentAlignItemsOnBreakpoint End => new FluentAlignItems(ItemAxisAlignment.End);
+        public static IFluentAlignItemsOnBreakpoint End => new FluentAlignItems(ItemAlignment.End);
 
         /// <summary>
         /// Items are stretched along the entirety of the flex-container's cross axis.
         /// </summary>
-        public static IFluentAlignItemsOnBreakpoint Stretch => new FluentAlignItems(ItemAxisAlignment.Stretch);
+        public static IFluentAlignItemsOnBreakpoint Stretch => new FluentAlignItems(ItemAlignment.Stretch);
 
         /// <summary>
         /// Items are aligned as their baseline is aligned.
         /// </summary>
-        public static IFluentAlignItemsOnBreakpoint Baseline => new FluentAlignItems(ItemAxisAlignment.Baseline);
+        public static IFluentAlignItemsOnBreakpoint Baseline => new FluentAlignItems(ItemAlignment.Baseline);
     }
 }
