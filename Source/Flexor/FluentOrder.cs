@@ -8,6 +8,7 @@ using System.Linq;
 
 namespace Flexor
 {
+#pragma warning disable SA1600 // Elements should be documented
     public interface IFluentOrder
     {
     }
@@ -19,16 +20,23 @@ namespace Flexor
     public interface IFluentOrderOnBreakpointWithValue : IFluentOrderOnBreakpoint
     {
     }
+#pragma warning restore SA1600 // Elements should be documented
 
+    /// <summary>
+    /// Define the order in which an item is displayed in a flex-container.
+    /// </summary>
     public class FluentOrder : IFluentOrderOnBreakpointWithValue
     {
         private readonly Dictionary<Breakpoint, int?> breakpointDictionary = new Dictionary<Breakpoint, int?>();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FluentOrder"/> class.
+        /// </summary>
         public FluentOrder()
         {
             foreach (var item in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
             {
-                this.breakpointDictionary.Add(item, default);
+                this.breakpointDictionary.Add(item, default(int?));
             }
         }
 

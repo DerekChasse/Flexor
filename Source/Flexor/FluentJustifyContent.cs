@@ -2,10 +2,13 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Flexor
 {
+#pragma warning disable SA1600 // Elements should be documented
     public interface IFluentJustifyContent
     {
     }
@@ -17,21 +20,36 @@ namespace Flexor
     public interface IFluentJustifyContentOnBreakpointWithValue : IFluentJustifyContentOnBreakpoint
     {
     }
+#pragma warning restore SA1600 // Elements should be documented
 
-    internal class FluentJustifyContent : IFluentJustifyContentOnBreakpointWithValue
+    /// <summary>
+    /// Define item justification across a flex-container's main axis.
+    /// </summary>
+    public class FluentJustifyContent : IFluentJustifyContentOnBreakpointWithValue
     {
         private readonly Dictionary<Breakpoint, SpanAxisAlignment> breakpointDictionary = new Dictionary<Breakpoint, SpanAxisAlignment>();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FluentJustifyContent"/> class.
+        /// </summary>
         public FluentJustifyContent()
             : this(SpanAxisAlignment.Start)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FluentJustifyContent"/> class.
+        /// </summary>
+        /// <param name="initialValue">The initial value across all CSS media queries.</param>
         public FluentJustifyContent(SpanAxisAlignment initialValue)
         {
-            this.SetBreakpointValues(initialValue, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
+            {
+                this.breakpointDictionary.Add(breakpoint, initialValue);
+            }
         }
 
+        /// <inheritdoc/>
         public IFluentJustifyContentOnBreakpointWithValue OnDesktop(SpanAxisAlignment value)
         {
             this.SetBreakpointValues(value, Breakpoint.Desktop);

@@ -2,10 +2,13 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Flexor
 {
+#pragma warning disable SA1600 // Elements should be documented
     public interface IFluentFlexDirection
     {
     }
@@ -17,19 +20,33 @@ namespace Flexor
     public interface IFluentFlexDirectionOnBreakpointWithValue : IFluentFlexDirectionOnBreakpoint
     {
     }
+#pragma warning restore SA1600 // Elements should be documented
 
+    /// <summary>
+    /// Define the direction items are added to a flex-container.
+    /// </summary>
     public class FluentFlexDirection : IFluentFlexDirectionOnBreakpointWithValue
     {
-        private readonly Dictionary<Breakpoint, Direction> breakpointDictionary;
+        private readonly Dictionary<Breakpoint, Direction> breakpointDictionary = new Dictionary<Breakpoint, Direction>();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FluentFlexDirection"/> class.
+        /// </summary>
         public FluentFlexDirection()
             : this(Direction.Row)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FluentFlexDirection"/> class.
+        /// </summary>
+        /// <param name="initialValue">The initial value across all CSS media queries.</param>
         public FluentFlexDirection(Direction initialValue)
         {
-            this.SetBreakpointValues(initialValue, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
+            {
+                this.breakpointDictionary.Add(breakpoint, initialValue);
+            }
         }
 
         /// <inheritdoc/>

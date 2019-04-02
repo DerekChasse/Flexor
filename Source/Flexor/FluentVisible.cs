@@ -2,31 +2,29 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Flexor
 {
-    /// <summary>
-    /// Fluent interface which describes when a component should be visible.
-    /// </summary>
+#pragma warning disable SA1600 // Elements should be documented
     public interface IFluentVisible
     {
     }
 
-    /// <summary>
-    /// Fluent interface which describes when a component should be visible.
-    /// </summary>
     public interface IFluentVisibleOnBreakpoint : IFluentVisible, IFluentReactive<IFluentVisibleOnBreakpointWithValue>
     {
     }
 
-    /// <summary>
-    /// Fluent interface which describes when a component should be visible.
-    /// </summary>
     public interface IFluentVisibleOnBreakpointWithValue : IFluentVisibleOnBreakpoint
     {
     }
+#pragma warning restore SA1600 // Elements should be documented
 
+    /// <summary>
+    /// Definition of when a flex-item should be visible.
+    /// </summary>
     public class FluentVisible : IFluentVisibleOnBreakpointWithValue
     {
         private readonly Dictionary<Breakpoint, bool> breakpointDictionary = new Dictionary<Breakpoint, bool>();
@@ -45,7 +43,10 @@ namespace Flexor
         /// <param name="initialValue">The initial visibility across all media query breakpoints.</param>
         public FluentVisible(bool initialValue)
         {
-            this.SetBreakpointValues(initialValue, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
+            {
+                this.breakpointDictionary.Add(breakpoint, initialValue);
+            }
         }
 
         /// <inheritdoc/>

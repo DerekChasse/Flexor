@@ -10,7 +10,7 @@
       "companyName": "Derek Chasse",
       "documentInterfaces": false,
       "documentInternalElements": false
-    },
+      },
     "layoutRules": {
       "newlineAtEndOfFile": "require"
     },
