@@ -10,41 +10,50 @@ namespace Flexor
     public static class JustifyContent
     {
         /// <summary>
-        /// The default alignment of <see cref="JustificationValue.Start"/> across all CSS media query breakpoints.
-        /// </summary>
-        public static IFluentJustifyContentOnBreakpointWithValue Is => new FluentJustifyContent();
-
-        /// <summary>
         /// Content is aligned along the start line of the flex-container's main axis.
+        /// Content is rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IFluentJustifyContentOnBreakpointWithValue Start => new FluentJustifyContent(JustificationValue.Start);
+        public static IFluentJustifyContent Start => new FluentJustifyContent(JustificationValue.Start);
 
         /// <summary>
         /// Content is centered along the midpoint of the flex-container's main axis.
+        /// Content is rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IFluentJustifyContentOnBreakpointWithValue Center => new FluentJustifyContent(JustificationValue.Center);
+        public static IFluentJustifyContent Center => new FluentJustifyContent(JustificationValue.Center);
 
         /// <summary>
         /// Content is aligned along the end line of the flex-container's main axis.
+        /// Content is rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IFluentJustifyContentOnBreakpointWithValue End => new FluentJustifyContent(JustificationValue.End);
+        public static IFluentJustifyContent End => new FluentJustifyContent(JustificationValue.End);
 
         /// <summary>
         /// Content is spaced evenly along the flex container's main axis.
+        /// Content is rendered this way consistently across all CSS media query breakpoints.
         /// The space between container and adjacent items is half the space between items.
         /// </summary>
-        public static IFluentJustifyContentOnBreakpointWithValue SpaceAround => new FluentJustifyContent(JustificationValue.SpaceAround);
+        public static IFluentJustifyContent SpaceAround => new FluentJustifyContent(JustificationValue.SpaceAround);
 
         /// <summary>
         /// Content is spaced evenly along the flex container's main axis.
+        /// Content is rendered this way consistently across all CSS media query breakpoints.
         /// Items touch the container's start and end.
         /// </summary>
-        public static IFluentJustifyContentOnBreakpointWithValue SpaceBetween => new FluentJustifyContent(JustificationValue.SpaceBetween);
+        public static IFluentJustifyContent SpaceBetween => new FluentJustifyContent(JustificationValue.SpaceBetween);
 
         /// <summary>
         /// Content is spaced evenly along the flex container's main axis.
+        /// Content is rendered this way consistently across all CSS media query breakpoints.
         /// The space between all items and container ends are equal.
         /// </summary>
-        public static IFluentJustifyContentOnBreakpointWithValue SpaceEvenly => new FluentJustifyContent(JustificationValue.SpaceEvenly);
+        public static IFluentJustifyContent SpaceEvenly => new FluentJustifyContent(JustificationValue.SpaceEvenly);
+
+        /// <summary>
+        /// Content is rendered by default according to the supplied justification value.
+        /// Rendering is configurable based on CSS media query breakpoints.
+        /// </summary>
+        /// <param name="justification">The default justification value.</param>
+        /// <returns>The justification configuration.</returns>
+        public static IFluentJustifyContentWithValueOnBreakpoint Is(JustificationValue justification) => new FluentJustifyContent(justification);
     }
 }

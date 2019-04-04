@@ -9,10 +9,25 @@
 
 @functions {
 
-
     void x()
     {
-        var f = Resizability.Grow;
+        FlexDirection.Is(DirectionValue.Row).OnDesktopAndLarger().Is(DirectionValue.Column).OnTabletAndSmaller();
+
+        ItemAlignment.Is(ItemAlignmentValue.Start).OnDesktopAndLarger().Is(ItemAlignmentValue.Stretch).OnTabletAndSmaller();
+
+
+
+        Size.IsPixels(200).OnDesktop().IsPercent(100).OnWidescreenAndLarger();
+
+        
+
+        Order.Is(2).OnDesktop().Is(3).OnTabletAndSmaller();
+
+        var f = Visible.Always;
+
+        Visible.Only.OnWidescreen().And.OnMobile();
+
+        // Order.Is(1).OnDesktopAndLarger().Is(2).OnTabletAndSmaller();
     }
 
 }

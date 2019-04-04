@@ -3,6 +3,8 @@
 // </copyright>
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Flexor
 {
@@ -11,49 +13,202 @@ namespace Flexor
     {
     }
 
-    public interface IFluentSizeOnBreakpoint : IFluentReactive<IFluentSizeOnBreakpointWithValue>
+    public interface IFluentSizeWithValue : IFluentSize
+    {
+        IFluentSizeWithValueOnBreakpoint IsPixels(int value);
+
+        IFluentSizeWithValueOnBreakpoint IsPercent(int value);
+
+        IFluentSizeWithValueOnBreakpoint IsElement(decimal value);
+
+        IFluentSizeWithValueOnBreakpoint IsViewportWidth(int value);
+
+        IFluentSizeWithValueOnBreakpoint IsViewportHeight(int value);
+    }
+
+    public interface ISizeSetValue
+    {
+        void SetSize(decimal value, SizeUnit unit);
+    }
+
+    public interface IFluentSizeWithValueOnBreakpoint : IFluentReactive<IFluentSizeWithValue>, IFluentSize
     {
     }
 
-    public interface IFluentSizeOnBreakpointWithValue : IFluentSize
-    {
-        IFluentSizeOnBreakpoint Pixels(int value);
-
-        IFluentSizeOnBreakpoint Percent(int value);
-
-        IFluentSizeOnBreakpoint Element(decimal value);
-
-        IFluentSizeOnBreakpoint ViewportWidth(int value);
-
-        IFluentSizeOnBreakpoint ViewportHeight(int value);
-    }
 #pragma warning restore SA1600 // Elements should be documented
 
-    public class FluentSize : IFluentSizeOnBreakpointWithValue
+    /// <summary>
+    /// Define the size of an item displayed in a flex-container.
+    /// </summary>
+    public class FluentSize : IFluentSizeWithValue, IFluentSizeWithValueOnBreakpoint, ISizeSetValue
     {
-        public IFluentSizeOnBreakpoint Element(decimal value)
+        private readonly Dictionary<BreakpointValue, SizingUnit> breakpointDictionary = new Dictionary<BreakpointValue, SizingUnit>();
+        private SizingUnit valueToApply;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FluentSize"/> class.
+        /// </summary>
+        public FluentSize()
         {
-            throw new NotImplementedException();
+            foreach (var breakpoint in Enum.GetValues(typeof(BreakpointValue)).Cast<BreakpointValue>())
+            {
+                this.breakpointDictionary.Add(breakpoint, new SizingUnit());
+            }
         }
 
-        public IFluentSizeOnBreakpoint Percent(int value)
+        internal FluentSize(decimal value, SizeUnit unit)
+            : this()
         {
-            throw new NotImplementedException();
+            this.SetSize(value, unit);
+
+            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
         }
 
-        public IFluentSizeOnBreakpoint Pixels(int value)
+        /// <inheritdoc/>
+        public IFluentSizeWithValueOnBreakpoint IsElement(decimal value)
         {
-            throw new NotImplementedException();
+            this.SetSize(value, SizeUnit.Element);
+            return this;
         }
 
-        public IFluentSizeOnBreakpoint ViewportHeight(int value)
+        /// <inheritdoc/>
+        public IFluentSizeWithValueOnBreakpoint IsPercent(int value)
         {
-            throw new NotImplementedException();
+            this.SetSize(value, SizeUnit.Percent);
+            return this;
         }
 
-        public IFluentSizeOnBreakpoint ViewportWidth(int value)
+        /// <inheritdoc/>
+        public IFluentSizeWithValueOnBreakpoint IsPixels(int value)
         {
-            throw new NotImplementedException();
+            this.SetSize(value, SizeUnit.Pixels);
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValueOnBreakpoint IsViewportHeight(int value)
+        {
+            this.SetSize(value, SizeUnit.ViewportHeight);
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValueOnBreakpoint IsViewportWidth(int value)
+        {
+            this.SetSize(value, SizeUnit.ViewportWidth);
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnDesktop()
+        {
+            this.breakpointDictionary[BreakpointValue.Desktop] = this.valueToApply;
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnDesktopAndLarger()
+        {
+            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnDesktopAndSmaller()
+        {
+            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop);
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnFullHD()
+        {
+            this.breakpointDictionary[BreakpointValue.FullHD] = this.valueToApply;
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnFullHDAndSmaller()
+        {
+            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnMobile()
+        {
+            this.breakpointDictionary[BreakpointValue.Mobile] = this.valueToApply;
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnMobileAndLarger()
+        {
+            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnTablet()
+        {
+            this.breakpointDictionary[BreakpointValue.Tablet] = this.valueToApply;
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnTabletAndLarger()
+        {
+            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnTabletAndSmaller()
+        {
+            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Mobile, BreakpointValue.Tablet);
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnWidescreen()
+        {
+            this.breakpointDictionary[BreakpointValue.Widescreen] = this.valueToApply;
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnWidescreenAndLarger()
+        {
+            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IFluentSizeWithValue OnWidescreenAndSmaller()
+        {
+            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen);
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public void SetSize(decimal value, SizeUnit unit)
+        {
+            this.valueToApply = new SizingUnit { Value = value, Unit = unit };
+        }
+
+        private void SetBreakpointValues(SizingUnit value, params BreakpointValue[] breakpoints)
+        {
+            foreach (var breakpoint in breakpoints)
+            {
+                this.breakpointDictionary[breakpoint] = value;
+            }
+        }
+
+        private class SizingUnit
+        {
+            public decimal Value { get; set; }
+
+            public SizeUnit Unit { get; set; }
         }
     }
 }

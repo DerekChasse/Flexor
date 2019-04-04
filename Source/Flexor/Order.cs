@@ -10,15 +10,17 @@ namespace Flexor
     public static class Order
     {
         /// <summary>
-        /// The default order of an item within a flex-container across all CSS media query breakpoints.
+        /// The default order configuration of an item within a flex-container across all CSS media query breakpoints.
+        /// The default order is unspecified, and will honor the definition as defined within the flex-container.
         /// </summary>
-        public static IFluentOrderOnBreakpointWithValue Is => new FluentOrder();
+        /// <returns>The order configuration.</returns>
+        public static IFluentOrder Default() => new FluentOrder();
 
         /// <summary>
-        /// A specified order of an item within a flex-container across all CSS media query breakpoints.
+        /// The default order configuration of an item within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <param name="value">The order of the item.</param>
-        /// <returns>The customized order definition.</returns>
-        public static IFluentOrder ForAll(int? value) => new FluentOrder().OnMobileAndLarger(value);
+        /// <returns>The order configuration.</returns>
+        public static IFluentOrderWithValueOnBreakpoint Is(int value) => new FluentOrder(value);
     }
 }

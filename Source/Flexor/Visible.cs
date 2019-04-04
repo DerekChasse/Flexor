@@ -17,13 +17,13 @@ namespace Flexor
         /// <summary>
         /// The item is only visible on certain CSS media queries.
         /// </summary>
-        public static IFluentVisibleOnBreakpointWithValue Only => new FluentVisible(false);
+        public static IFluentVisibleWithValueOnBreakpoint Only => new FluentVisible(false);
 
         /// <summary>
         /// The item is visible when a certain condition is met.
         /// </summary>
         /// <param name="condition">The condition which should trigger visibility.</param>
         /// <returns>The visibility configuration.</returns>
-        public static IFluentVisibleOnBreakpointWithValue When(bool condition) => new FluentVisible(condition);
+        public static IFluentVisibleWithValueOnBreakpoint When(bool condition) => new FluentVisible(condition);
     }
 }

@@ -153,4 +153,35 @@ namespace Flexor
 
         NoShrink,
     }
+
+    /// <summary>
+    /// Enumeration of sizing units used to describe a flex-item.
+    /// </summary>
+    public enum SizeUnit
+    {
+        /// <summary>
+        /// Sized in pixels ('px').
+        /// </summary>
+        Pixels,
+
+        /// <summary>
+        /// Size is a percentage of the flex-container's main-axis.
+        /// </summary>
+        Percent,
+
+        /// <summary>
+        /// Size is in CSS elements ('em').
+        /// </summary>
+        Element,
+
+        /// <summary>
+        /// Size is a representation of viewport height ('vh').
+        /// </summary>
+        ViewportHeight,
+
+        /// <summary>
+        /// Size is a representation of viewport width ('vw').
+        /// </summary>
+        ViewportWidth,
+    }
 }
