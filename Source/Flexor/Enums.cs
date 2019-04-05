@@ -141,16 +141,29 @@ namespace Flexor
     /// </summary>
     public enum ResizabilityValue
     {
+        /// <summary>
+        /// Item will be sized automatically.
+        /// </summary>
         Auto,
 
+        /// <summary>
+        /// Item will not resize.
+        /// </summary>
         None,
 
+        /// <summary>
+        /// Item is allowed to grow to fill remaining space.
+        /// </summary>
         Grow,
 
-        Shrink,
-
+        /// <summary>
+        /// Item is not allowed to grow.
+        /// </summary>
         NoGrow,
 
+        /// <summary>
+        /// Item is not allowed to shrink.
+        /// </summary>
         NoShrink,
     }
 
