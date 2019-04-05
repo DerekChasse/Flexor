@@ -28,7 +28,7 @@ namespace Flexor
     /// </summary>
     public class FluentOrder : IFluentOrderWithValueOnBreakpoint, IFluentOrderWithValue
     {
-        private readonly Dictionary<BreakpointValue, int?> breakpointDictionary = new Dictionary<BreakpointValue, int?>();
+        private readonly Dictionary<Breakpoint, int?> breakpointDictionary = new Dictionary<Breakpoint, int?>();
         private int valueToApply;
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Flexor
         /// <param name="value">The default item order.</param>
         public FluentOrder(int? value)
         {
-            foreach (var item in Enum.GetValues(typeof(BreakpointValue)).Cast<BreakpointValue>())
+            foreach (var item in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
             {
                 this.breakpointDictionary.Add(item, value);
             }
@@ -61,95 +61,95 @@ namespace Flexor
         /// <inheritdoc/>
         public IFluentOrderWithValue OnDesktop()
         {
-            this.breakpointDictionary[BreakpointValue.Desktop] = this.valueToApply;
+            this.breakpointDictionary[Breakpoint.Desktop] = this.valueToApply;
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnDesktopAndLarger()
         {
-            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnDesktopAndSmaller()
         {
-            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop);
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnFullHD()
         {
-            this.breakpointDictionary[BreakpointValue.FullHD] = this.valueToApply;
+            this.breakpointDictionary[Breakpoint.FullHD] = this.valueToApply;
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnFullHDAndSmaller()
         {
-            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnMobile()
         {
-            this.breakpointDictionary[BreakpointValue.Mobile] = this.valueToApply;
+            this.breakpointDictionary[Breakpoint.Mobile] = this.valueToApply;
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnMobileAndLarger()
         {
-            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnTablet()
         {
-            this.breakpointDictionary[BreakpointValue.Tablet] = this.valueToApply;
+            this.breakpointDictionary[Breakpoint.Tablet] = this.valueToApply;
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnTabletAndLarger()
         {
-            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnTabletAndSmaller()
         {
-            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Mobile, BreakpointValue.Tablet);
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnWidescreen()
         {
-            this.breakpointDictionary[BreakpointValue.Widescreen] = this.valueToApply;
+            this.breakpointDictionary[Breakpoint.Widescreen] = this.valueToApply;
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnWidescreenAndLarger()
         {
-            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnWidescreenAndSmaller()
         {
-            this.SetBreakpointValues(this.valueToApply, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen);
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
         }
 
-        private void SetBreakpointValues(int? value, params BreakpointValue[] breakpoints)
+        private void SetBreakpointValues(int? value, params Breakpoint[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
             {

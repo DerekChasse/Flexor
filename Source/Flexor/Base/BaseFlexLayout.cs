@@ -11,8 +11,8 @@ namespace Flexor.Base
     /// </summary>
     public abstract class BaseFlexLayout : BaseFlexComponent
     {
-        private IFluentFlexDirection direction = FlexDirection.Row;
-        private IFluentWrap wrap = LayoutWrap.NoWrap;
+        private IFluentFlexDirection direction = Flexor.Direction.Row;
+        private IFluentWrap wrap = Flexor.Wrap.NoWrap;
         private IFluentJustifyContent justifyContent = Flexor.JustifyContent.Start;
         private IFluentAlignItems itemAlignment = Flexor.ItemAlignment.Stretch;
 

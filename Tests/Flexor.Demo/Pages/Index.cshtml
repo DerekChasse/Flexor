@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<FlexLayout MainAxisAlignment="MainAxisAlignment.Start" CrossAxisAlignment="CrossAxisAlignment.Stretch">
+<FlexLayout>
 
 
 
@@ -11,9 +11,9 @@
 
     void x()
     {
-        FlexDirection.Is(DirectionValue.Row).OnDesktopAndLarger().Is(DirectionValue.Column).OnTabletAndSmaller();
+        Direction.Is(DirectionOption.Row).OnDesktopAndLarger().Is(DirectionOption.Column).OnTabletAndSmaller();
 
-        ItemAlignment.Is(ItemAlignmentValue.Start).OnDesktopAndLarger().Is(ItemAlignmentValue.Stretch).OnTabletAndSmaller();
+        ItemAlignment.Is(ItemAlignmentOption.Start).OnDesktopAndLarger().Is(ItemAlignmentOption.Stretch).OnTabletAndSmaller();
 
 
 

@@ -7,7 +7,7 @@ namespace Flexor
     /// <summary>
     /// Enumeration of ways items can be rendered within a layout.
     /// </summary>
-    public enum DirectionValue
+    public enum DirectionOption
     {
         /// <summary>
         /// Items within a layout are rendered horizontally.
@@ -34,7 +34,7 @@ namespace Flexor
     /// Enumeration of ways items can be rendered across a layout.
     /// This impacts items along the layout's primary axis.
     /// </summary>
-    public enum JustificationValue
+    public enum JustificationOption
     {
         /// <summary>
         /// Items are packed along start of the layout's primary axis
@@ -72,7 +72,7 @@ namespace Flexor
     /// Enumeration of ways items can be rendered within a layout.
     /// This impacts items along the layout's cross axis.
     /// </summary>
-    public enum ItemAlignmentValue
+    public enum ItemAlignmentOption
     {
         /// <summary>
         /// Placed along the start of the cross axis.
@@ -103,7 +103,7 @@ namespace Flexor
     /// <summary>
     /// Enumeration of CSS media query breakpoints.
     /// </summary>
-    public enum BreakpointValue
+    public enum Breakpoint
     {
         /// <summary>
         /// Unspecified on not impacted by media queries.
@@ -139,7 +139,7 @@ namespace Flexor
     /// <summary>
     /// Enumeration of ways items are allowed to resize within a flex-container.
     /// </summary>
-    public enum ResizabilityValue
+    public enum ResizabilityOption
     {
         /// <summary>
         /// Item will be sized automatically.
@@ -201,7 +201,7 @@ namespace Flexor
     /// <summary>
     /// Enumeration of possibilities which layouts may wrap.
     /// </summary>
-    public enum WrapValue
+    public enum WrapOption
     {
         /// <summary>
         /// Items remain on a single line and will overflow.

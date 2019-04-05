@@ -31,7 +31,7 @@ namespace Flexor
     /// </summary>
     public class FluentVisible : IFluentVisibleWithValueOnBreakpoint, IFluentVisibleWithValue
     {
-        private readonly Dictionary<BreakpointValue, bool> breakpointDictionary = new Dictionary<BreakpointValue, bool>();
+        private readonly Dictionary<Breakpoint, bool> breakpointDictionary = new Dictionary<Breakpoint, bool>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentVisible"/> class.
@@ -47,7 +47,7 @@ namespace Flexor
         /// <param name="initialValue">The initial visibility across all media query breakpoints.</param>
         public FluentVisible(bool initialValue)
         {
-            foreach (var breakpoint in Enum.GetValues(typeof(BreakpointValue)).Cast<BreakpointValue>())
+            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
             {
                 this.breakpointDictionary.Add(breakpoint, initialValue);
             }
@@ -65,95 +65,95 @@ namespace Flexor
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnDesktop()
         {
-            this.breakpointDictionary[BreakpointValue.Desktop] = true;
+            this.breakpointDictionary[Breakpoint.Desktop] = true;
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnDesktopAndLarger()
         {
-            this.SetBreakpointValues(true, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            this.SetBreakpointValues(true, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnDesktopAndSmaller()
         {
-            this.SetBreakpointValues(true, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop);
+            this.SetBreakpointValues(true, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnFullHD()
         {
-            this.breakpointDictionary[BreakpointValue.FullHD] = true;
+            this.breakpointDictionary[Breakpoint.FullHD] = true;
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnFullHDAndSmaller()
         {
-            this.SetBreakpointValues(true, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            this.SetBreakpointValues(true, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnMobile()
         {
-            this.breakpointDictionary[BreakpointValue.Mobile] = true;
+            this.breakpointDictionary[Breakpoint.Mobile] = true;
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnMobileAndLarger()
         {
-            this.SetBreakpointValues(true, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            this.SetBreakpointValues(true, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnTablet()
         {
-            this.breakpointDictionary[BreakpointValue.Tablet] = true;
+            this.breakpointDictionary[Breakpoint.Tablet] = true;
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnTabletAndLarger()
         {
-            this.SetBreakpointValues(true, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            this.SetBreakpointValues(true, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnTabletAndSmaller()
         {
-            this.SetBreakpointValues(true, BreakpointValue.Mobile, BreakpointValue.Tablet);
+            this.SetBreakpointValues(true, Breakpoint.Mobile, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnWidescreen()
         {
-            this.breakpointDictionary[BreakpointValue.Widescreen] = true;
+            this.breakpointDictionary[Breakpoint.Widescreen] = true;
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnWidescreenAndLarger()
         {
-            this.SetBreakpointValues(true, BreakpointValue.Widescreen, BreakpointValue.FullHD);
+            this.SetBreakpointValues(true, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnWidescreenAndSmaller()
         {
-            this.SetBreakpointValues(true, BreakpointValue.Mobile, BreakpointValue.Tablet, BreakpointValue.Desktop, BreakpointValue.Widescreen);
+            this.SetBreakpointValues(true, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
         }
 
-        private void SetBreakpointValues(bool value, params BreakpointValue[] breakpoints)
+        private void SetBreakpointValues(bool value, params Breakpoint[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
             {
