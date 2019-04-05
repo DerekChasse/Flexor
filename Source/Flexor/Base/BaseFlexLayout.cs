@@ -6,13 +6,21 @@ using Microsoft.AspNetCore.Components;
 
 namespace Flexor.Base
 {
+    /// <summary>
+    /// Base class for all Flexor flex-layouts.
+    /// </summary>
     public abstract class BaseFlexLayout : BaseFlexComponent
     {
-        private IFluentFlexDirection direction;
-        private bool wrap;
-        private IFluentJustifyContent spanAlignment;
-        private IFluentAlignItems itemAlignment;
+        private IFluentFlexDirection direction = FlexDirection.Row;
+        private IFluentWrap wrap = LayoutWrap.NoWrap;
+        private IFluentJustifyContent justifyContent = Flexor.JustifyContent.Start;
+        private IFluentAlignItems itemAlignment = Flexor.ItemAlignment.Stretch;
 
+        /// <summary>
+        /// Defines the direction in which items are added to the layout.
+        ///
+        /// Default is 'row'.
+        /// </summary>
         [Parameter]
         protected IFluentFlexDirection Direction
         {
@@ -24,8 +32,13 @@ namespace Flexor.Base
             }
         }
 
+        /// <summary>
+        /// Items within the flex-layout will wrap on to multiple lines if necessary.
+        ///
+        /// Default is 'false'.
+        /// </summary>
         [Parameter]
-        protected bool Wrap
+        protected IFluentWrap Wrap
         {
             get => this.wrap;
             set
@@ -35,17 +48,27 @@ namespace Flexor.Base
             }
         }
 
+        /// <summary>
+        /// Defines the alignment of items across the layout's main axis.
+        ///
+        /// Default is 'start'.
+        /// </summary>
         [Parameter]
-        protected IFluentJustifyContent SpanAlignment
+        protected IFluentJustifyContent JustifyContent
         {
-            get => this.spanAlignment;
+            get => this.justifyContent;
             set
             {
-                this.spanAlignment = value;
+                this.justifyContent = value;
                 this.StateHasChanged();
             }
         }
 
+        /// <summary>
+        /// Defines the alignment of items across the layout's cross axis.
+        ///
+        /// Default is 'stretch'.
+        /// </summary>
         [Parameter]
         protected IFluentAlignItems ItemAlignment
         {

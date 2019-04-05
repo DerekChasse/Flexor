@@ -13,8 +13,7 @@ namespace Flexor
         /// The default order configuration of an item within a flex-container across all CSS media query breakpoints.
         /// The default order is unspecified, and will honor the definition as defined within the flex-container.
         /// </summary>
-        /// <returns>The order configuration.</returns>
-        public static IFluentOrder Default() => new FluentOrder();
+        public static IFluentOrder Default => new FluentOrder();
 
         /// <summary>
         /// The default order configuration of an item within a flex-container across all CSS media query breakpoints.

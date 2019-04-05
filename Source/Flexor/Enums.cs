@@ -197,4 +197,26 @@ namespace Flexor
         /// </summary>
         ViewportWidth,
     }
+
+    /// <summary>
+    /// Enumeration of possibilities which layouts may wrap.
+    /// </summary>
+    public enum WrapValue
+    {
+        /// <summary>
+        /// Items remain on a single line and will overflow.
+        /// </summary>
+        NoWrap,
+
+        /// <summary>
+        /// Items will be distributed across multiple lines if necessary.
+        /// </summary>
+        Wrap,
+
+        /// <summary>
+        /// Items will be distributed across multiple lines if necessary.
+        /// Additional lines will appear before the previous ones.
+        /// </summary>
+        WrapReverse,
+    }
 }

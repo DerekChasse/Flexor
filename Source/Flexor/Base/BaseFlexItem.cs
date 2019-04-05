@@ -11,12 +11,14 @@ namespace Flexor.Base
     /// </summary>
     public abstract class BaseFlexItem : BaseFlexComponent
     {
-        private IFluentOrder order;
-        private IFluentAlignItems itemAlignment;
-        private bool fill;
+        private IFluentOrder order = Flexor.Order.Default;
+        private IFluentAlignItems itemAlignment = null;
+        ////private bool fill;
 
         /// <summary>
-        /// Gets or sets the order the item is rendered in within the flex layout.
+        /// Defines the order in which items are rendered within the layout.
+        ///
+        /// Default is 'default'.
         /// </summary>
         [Parameter]
         protected IFluentOrder Order
@@ -30,7 +32,9 @@ namespace Flexor.Base
         }
 
         /// <summary>
-        /// Gets or sets a description of how an individual item is aligned within a flex layout.
+        /// Defines the alignment of an individual item across the layout's cross axis.
+        ///
+        /// Default is 'inherit'.
         /// </summary>
         [Parameter]
         protected IFluentAlignItems ItemAlignment
@@ -46,14 +50,14 @@ namespace Flexor.Base
         /// <summary>
         /// Gets or sets a value indicating whether an item should take up all remaining room within a flex layout.
         /// </summary>
-        [Parameter]
-        protected bool Fill
-        {
-            get => this.fill; set
-            {
-                this.fill = value;
-                this.StateHasChanged();
-            }
-        }
+        ////[Parameter]
+        ////protected bool Fill
+        ////{
+        ////    get => this.fill; set
+        ////    {
+        ////        this.fill = value;
+        ////        this.StateHasChanged();
+        ////    }
+        ////}
     }
 }

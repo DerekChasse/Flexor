@@ -11,10 +11,12 @@ namespace Flexor.Base
     /// </summary>
     public abstract class BaseFlexComponent : ComponentBase
     {
-        private IFluentVisible visible;
+        private IFluentVisible visible = Flexor.Visible.Always;
 
         /// <summary>
-        /// Gets or sets a configuration describing when a component is visible.
+        /// Defines when a flex-item is visible.
+        ///
+        /// Default is 'always'.
         /// </summary>
         [Parameter]
         protected IFluentVisible Visible
