@@ -13,7 +13,6 @@ namespace Flexor.Base
     {
         private IFluentOrder order = Flexor.Order.Default;
         private IFluentAlignItems itemAlignment = null;
-        ////private bool fill;
 
         /// <summary>
         /// Defines the order in which items are rendered within the layout.
@@ -46,18 +45,5 @@ namespace Flexor.Base
                 this.StateHasChanged();
             }
         }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether an item should take up all remaining room within a flex layout.
-        /// </summary>
-        ////[Parameter]
-        ////protected bool Fill
-        ////{
-        ////    get => this.fill; set
-        ////    {
-        ////        this.fill = value;
-        ////        this.StateHasChanged();
-        ////    }
-        ////}
     }
 }
