@@ -1,33 +1,12 @@
 ﻿@page "/"
 
-<FlexLayout>
 
-
-
-</FlexLayout>
+<div></div>
 
 
 @functions {
 
-    void x()
-    {
-        Direction.Is(DirectionOption.Row).OnDesktopAndLarger().Is(DirectionOption.Column).OnTabletAndSmaller();
+  
 
-        ItemAlignment.Is(ItemAlignmentOption.Start).OnDesktopAndLarger().Is(ItemAlignmentOption.Stretch).OnTabletAndSmaller();
-
-
-
-        Size.IsPixels(200).OnDesktop().IsPercent(100).OnWidescreenAndLarger();
-
-        
-
-        Order.Is(2).OnDesktop().Is(3).OnTabletAndSmaller();
-
-        var f = Visible.Always;
-
-        Visible.Only.OnWidescreen().And.OnMobile();
-
-        // Order.Is(1).OnDesktopAndLarger().Is(2).OnTabletAndSmaller();
-    }
 
 }

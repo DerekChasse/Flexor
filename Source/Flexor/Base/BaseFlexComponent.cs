@@ -28,5 +28,12 @@ namespace Flexor.Base
                 this.StateHasChanged();
             }
         }
+
+        [Parameter]
+        protected RenderFragment ChildContent
+        {
+            get;
+            set;
+        }
     }
 }
