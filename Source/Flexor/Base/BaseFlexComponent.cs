@@ -29,6 +29,9 @@ namespace Flexor.Base
             }
         }
 
+        /// <summary>
+        /// The inner content of the component.
+        /// </summary>
         [Parameter]
         protected RenderFragment ChildContent
         {
