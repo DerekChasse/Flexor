@@ -5,11 +5,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentSize
+    public interface IFluentSize : ICssClassBacked
     {
     }
 
@@ -50,10 +51,11 @@ namespace Flexor
         /// </summary>
         public FluentSize()
         {
-            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
-            {
-                this.breakpointDictionary.Add(breakpoint, new SizingUnit());
-            }
+            this.breakpointDictionary.Add(Breakpoint.Mobile, default);
+            this.breakpointDictionary.Add(Breakpoint.Tablet, default);
+            this.breakpointDictionary.Add(Breakpoint.Desktop, default);
+            this.breakpointDictionary.Add(Breakpoint.Widescreen, default);
+            this.breakpointDictionary.Add(Breakpoint.FullHD, default);
         }
 
         internal FluentSize(decimal value, SizeUnit unit)
@@ -63,6 +65,9 @@ namespace Flexor
 
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
         }
+
+        /// <inheritdoc/>
+        public string Class => this.BuildClass();
 
         /// <inheritdoc/>
         public IFluentSizeWithValueOnBreakpoint IsElement(decimal value)
@@ -204,11 +209,29 @@ namespace Flexor
             }
         }
 
+        private string BuildClass()
+        {
+            // TODO: This won't work. Maybe 'style' instead?
+            StringBuilder builder = new StringBuilder();
+
+            foreach (var kvp in this.breakpointDictionary)
+            {
+                builder.Append($"flex-basis{kvp.Key}{kvp.Value} ");
+            }
+
+            return builder.ToString();
+        }
+
         private class SizingUnit
         {
             public decimal Value { get; set; }
 
             public SizeUnit Unit { get; set; }
+
+            public override string ToString()
+            {
+                return $"{this.Value.ToString()}{this.Unit}";
+            }
         }
     }
 }

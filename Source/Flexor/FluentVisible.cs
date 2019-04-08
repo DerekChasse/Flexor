@@ -5,11 +5,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentVisible
+    public interface IFluentVisible : ICssClassBacked
     {
     }
 
@@ -47,10 +48,11 @@ namespace Flexor
         /// <param name="initialValue">The initial visibility across all media query breakpoints.</param>
         public FluentVisible(bool initialValue)
         {
-            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
-            {
-                this.breakpointDictionary.Add(breakpoint, initialValue);
-            }
+            this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Widescreen, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.FullHD, initialValue);
         }
 
         /// <inheritdoc/>
@@ -61,6 +63,9 @@ namespace Flexor
                 return this;
             }
         }
+
+        /// <inheritdoc/>
+        public string Class => this.BuildClass();
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnDesktop()
@@ -151,6 +156,19 @@ namespace Flexor
         {
             this.SetBreakpointValues(true, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
+        }
+
+        private string BuildClass()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            foreach (var kvp in this.breakpointDictionary)
+            {
+                string shouldShow = kvp.Value ? "-show" : "-hide";
+                builder.Append($"flex-{kvp.Key}{shouldShow} ");
+            }
+
+            return builder.ToString();
         }
 
         private void SetBreakpointValues(bool value, params Breakpoint[] breakpoints)

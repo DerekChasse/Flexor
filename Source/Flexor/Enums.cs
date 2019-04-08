@@ -183,32 +183,45 @@ namespace Flexor
     /// <summary>
     /// Enumeration of ways items are allowed to resize within a flex-container.
     /// </summary>
-    public enum ResizabilityOption
+    public class ResizabilityOption
     {
+        private readonly string value;
+
+        private ResizabilityOption(string value)
+        {
+            this.value = value;
+        }
+
         /// <summary>
         /// Item will be sized automatically.
         /// </summary>
-        Auto,
+        public static ResizabilityOption Auto => new ResizabilityOption("-auto");
 
         /// <summary>
         /// Item will not resize.
         /// </summary>
-        None,
+        public static ResizabilityOption None => new ResizabilityOption("-none");
 
         /// <summary>
         /// Item is allowed to grow to fill remaining space.
         /// </summary>
-        Grow,
+        public static ResizabilityOption Grow => new ResizabilityOption("-grow");
 
         /// <summary>
         /// Item is not allowed to grow.
         /// </summary>
-        NoGrow,
+        public static ResizabilityOption NoGrow => new ResizabilityOption("-nogrow");
 
         /// <summary>
         /// Item is not allowed to shrink.
         /// </summary>
-        NoShrink,
+        public static ResizabilityOption NoShrink => new ResizabilityOption("-noshrink");
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return this.value;
+        }
     }
 
     /// <summary>
@@ -249,31 +262,44 @@ namespace Flexor
     /// <summary>
     /// Enumeration of sizing units used to describe a flex-item.
     /// </summary>
-    public enum SizeUnit
+    public class SizeUnit
     {
+        private readonly string value;
+
+        private SizeUnit(string value)
+        {
+            this.value = value;
+        }
+
         /// <summary>
         /// Sized in pixels ('px').
         /// </summary>
-        Pixels,
+        public static SizeUnit Pixels => new SizeUnit("px");
 
         /// <summary>
         /// Size is a percentage of the flex-container's main-axis.
         /// </summary>
-        Percent,
+        public static SizeUnit Percent => new SizeUnit("%");
 
         /// <summary>
         /// Size is in CSS elements ('em').
         /// </summary>
-        Element,
+        public static SizeUnit Element => new SizeUnit("em");
 
         /// <summary>
         /// Size is a representation of viewport height ('vh').
         /// </summary>
-        ViewportHeight,
+        public static SizeUnit ViewportHeight => new SizeUnit("vh");
 
         /// <summary>
         /// Size is a representation of viewport width ('vw').
         /// </summary>
-        ViewportWidth,
+        public static SizeUnit ViewportWidth => new SizeUnit("vw");
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return this.value;
+        }
     }
 }

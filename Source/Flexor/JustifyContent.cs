@@ -42,13 +42,6 @@ namespace Flexor
         public static IFluentJustifyContent SpaceBetween => new FluentJustifyContent(JustificationOption.SpaceBetween);
 
         /// <summary>
-        /// Content is spaced evenly along the flex container's main axis.
-        /// Content is rendered this way consistently across all CSS media query breakpoints.
-        /// The space between all items and container ends are equal.
-        /// </summary>
-        public static IFluentJustifyContent SpaceEvenly => new FluentJustifyContent(JustificationOption.SpaceEvenly);
-
-        /// <summary>
         /// Content is rendered by default according to the supplied justification value.
         /// Rendering is configurable based on CSS media query breakpoints.
         /// </summary>

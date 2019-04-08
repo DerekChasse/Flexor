@@ -10,9 +10,8 @@ using System.Text;
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentFlexDirection
+    public interface IFluentFlexDirection : ICssClassBacked
     {
-        string Class { get; }
     }
 
     public interface IFluentFlexDirectionWithValue : IFluentFlexDirection
@@ -54,9 +53,7 @@ namespace Flexor
             this.breakpointDictionary.Add(Breakpoint.FullHD, initialValue);
         }
 
-        /// <summary>
-        /// Gets the CSS class definition for this flex layout.
-        /// </summary>
+        /// <inheritdoc/>
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>

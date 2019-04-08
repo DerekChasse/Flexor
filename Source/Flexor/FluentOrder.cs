@@ -5,16 +5,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentOrder
+    public interface IFluentOrder : ICssClassBacked
     {
     }
 
     public interface IFluentOrderWithValue : IFluentOrder
     {
+        ////TODO: Add Is0 through Is12
+        ////TODO: Add IsFirst / IsLast
+
         IFluentOrderWithValueOnBreakpoint Is(int value);
     }
 
@@ -42,14 +46,18 @@ namespace Flexor
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentOrder"/> class.
         /// </summary>
-        /// <param name="value">The default item order.</param>
-        public FluentOrder(int? value)
+        /// <param name="initialValue">The default item order.</param>
+        public FluentOrder(int? initialValue)
         {
-            foreach (var item in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
-            {
-                this.breakpointDictionary.Add(item, value);
-            }
+            this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Widescreen, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.FullHD, initialValue);
         }
+
+        /// <inheritdoc/>
+        public string Class => this.BuildClass();
 
         /// <inheritdoc/>
         public IFluentOrderWithValueOnBreakpoint Is(int value)
@@ -147,6 +155,21 @@ namespace Flexor
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
+        }
+
+        private string BuildClass()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            foreach (var kvp in this.breakpointDictionary)
+            {
+                if (kvp.Value.HasValue)
+                {
+                    builder.Append($"order{kvp.Key}{kvp.Value} ");
+                }
+            }
+
+            return builder.ToString();
         }
 
         private void SetBreakpointValues(int? value, params Breakpoint[] breakpoints)
