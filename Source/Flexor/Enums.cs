@@ -2,138 +2,182 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
+
 namespace Flexor
 {
     /// <summary>
     /// Enumeration of ways items can be rendered within a layout.
     /// </summary>
-    public enum DirectionOption
+    public class DirectionOption
     {
+        private readonly string value;
+
+        private DirectionOption(string value)
+        {
+            this.value = value;
+        }
+
         /// <summary>
         /// Items within a layout are rendered horizontally.
         /// </summary>
-        Row,
+        public static DirectionOption Row => new DirectionOption("-row");
 
         /// <summary>
         /// Items within a layout are rendered vertically.
         /// </summary>
-        Column,
+        public static DirectionOption Column => new DirectionOption("-column");
 
         /// <summary>
         /// Items within a layout are rendered horizontally in reverse order.
         /// </summary>
-        RowReverse,
+        public static DirectionOption RowReverse => new DirectionOption("-row-reverse");
 
         /// <summary>
         /// Items within a layout are rendered vertically in reverse order.
         /// </summary>
-        ColumnReverse,
+        public static DirectionOption ColumnReverse => new DirectionOption("-column-reverse");
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return this.value;
+        }
     }
 
     /// <summary>
     /// Enumeration of ways items can be rendered across a layout.
     /// This impacts items along the layout's primary axis.
     /// </summary>
-    public enum JustificationOption
+    public class JustificationOption
     {
+        private readonly string value;
+
+        private JustificationOption(string value)
+        {
+            this.value = value;
+        }
+
         /// <summary>
-        /// Items are packed along start of the layout's primary axis
+        /// Items are packed along start of the layout's primary axis.
         /// </summary>
-        Start,
+        public static JustificationOption Start => new JustificationOption("-start");
 
         /// <summary>
         /// Items are centered around the layout's center-line.
         /// </summary>
-        Center,
+        public static JustificationOption Center => new JustificationOption("-center");
 
         /// <summary>
         /// Items are packed along the end of the layout's primary axis.
         /// </summary>
-        End,
+        public static JustificationOption End => new JustificationOption("-end");
 
         /// <summary>
         /// All items are spaced equally apart.
         /// </summary>
-        SpaceAround,
+        public static JustificationOption SpaceAround => new JustificationOption("-around");
 
         /// <summary>
         /// Items are spaced evenly with first and last items in contact
         /// with the start and end of a layout.
         /// </summary>
-        SpaceBetween,
+        public static JustificationOption SpaceBetween => new JustificationOption("-between");
 
-        /// <summary>
-        /// All items and layout start and end are spaced equally apart.
-        /// </summary>
-        SpaceEvenly,
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return this.value;
+        }
     }
 
     /// <summary>
     /// Enumeration of ways items can be rendered within a layout.
     /// This impacts items along the layout's cross axis.
     /// </summary>
-    public enum ItemAlignmentOption
+    public class ItemAlignmentOption
     {
+        private readonly string value;
+
+        private ItemAlignmentOption(string value)
+        {
+            this.value = value;
+        }
+
         /// <summary>
         /// Placed along the start of the cross axis.
         /// </summary>
-        Start,
+        public static ItemAlignmentOption Start => new ItemAlignmentOption("-start");
 
         /// <summary>
         /// Centered along the primary axis.
         /// </summary>
-        Center,
+        public static ItemAlignmentOption Center => new ItemAlignmentOption("-center");
 
         /// <summary>
         /// Placed along the end of the cross axis.
         /// </summary>
-        End,
+        public static ItemAlignmentOption End => new ItemAlignmentOption("-end");
 
         /// <summary>
-        /// Stretch to fill the layout
+        /// Stretch to fill the layout.
         /// </summary>
-        Stretch,
+        public static ItemAlignmentOption Stretch => new ItemAlignmentOption("-stretch");
 
         /// <summary>
         /// Items are aligned such that their baselines align.
         /// </summary>
-        Baseline,
+        public static ItemAlignmentOption Baseline => new ItemAlignmentOption("-baseline");
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return this.value;
+        }
     }
 
     /// <summary>
     /// Enumeration of CSS media query breakpoints.
     /// </summary>
-    public enum Breakpoint
+    public class Breakpoint
     {
-        /// <summary>
-        /// Unspecified on not impacted by media queries.
-        /// </summary>
-        None,
+        private readonly string value;
+
+        private Breakpoint(string value)
+        {
+            this.value = value;
+        }
 
         /// <summary>
         /// Applicable to device widths of XXX pixels and smaller.
         /// </summary>
-        Mobile,
+        public static Breakpoint Mobile => new Breakpoint(string.Empty);
 
         /// <summary>
         /// Applicable to device widths between XXX and YYY pixels.
         /// </summary>
-        Tablet,
+        public static Breakpoint Tablet => new Breakpoint("-sm");
 
         /// <summary>
         /// Applicable to device widths between XXX and YYY pixels.
         /// </summary>
-        Desktop,
+        public static Breakpoint Desktop => new Breakpoint("-md");
 
         /// <summary>
         /// Applicable to device widths between XXX and YYY pixels.
         /// </summary>
-        Widescreen,
+        public static Breakpoint Widescreen => new Breakpoint("-lg");
 
         /// <summary>
         /// Applicable to device widths greater than XXX pixels.
         /// </summary>
-        FullHD,
+        public static Breakpoint FullHD => new Breakpoint("-xl");
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return this.value;
+        }
     }
 
     /// <summary>
@@ -168,6 +212,41 @@ namespace Flexor
     }
 
     /// <summary>
+    /// Enumeration of possibilities which layouts may wrap.
+    /// </summary>
+    public class WrapOption
+    {
+        private readonly string value;
+
+        private WrapOption(string value)
+        {
+            this.value = value;
+        }
+
+        /// <summary>
+        /// Items remain on a single line and will overflow.
+        /// </summary>
+        public static WrapOption NoWrap => new WrapOption("-nowrap");
+
+        /// <summary>
+        /// Items will be distributed across multiple lines if necessary.
+        /// </summary>
+        public static WrapOption Wrap => new WrapOption("-wrap");
+
+        /// <summary>
+        /// Items will be distributed across multiple lines if necessary.
+        /// Additional lines will appear before the previous ones.
+        /// </summary>
+        public static WrapOption WrapReverse => new WrapOption("-wrap-reverse");
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return this.value;
+        }
+    }
+
+    /// <summary>
     /// Enumeration of sizing units used to describe a flex-item.
     /// </summary>
     public enum SizeUnit
@@ -196,27 +275,5 @@ namespace Flexor
         /// Size is a representation of viewport width ('vw').
         /// </summary>
         ViewportWidth,
-    }
-
-    /// <summary>
-    /// Enumeration of possibilities which layouts may wrap.
-    /// </summary>
-    public enum WrapOption
-    {
-        /// <summary>
-        /// Items remain on a single line and will overflow.
-        /// </summary>
-        NoWrap,
-
-        /// <summary>
-        /// Items will be distributed across multiple lines if necessary.
-        /// </summary>
-        Wrap,
-
-        /// <summary>
-        /// Items will be distributed across multiple lines if necessary.
-        /// Additional lines will appear before the previous ones.
-        /// </summary>
-        WrapReverse,
     }
 }

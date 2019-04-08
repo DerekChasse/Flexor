@@ -5,12 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
     public interface IFluentFlexDirection
     {
+        string Class { get; }
     }
 
     public interface IFluentFlexDirectionWithValue : IFluentFlexDirection
@@ -45,11 +47,17 @@ namespace Flexor
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
         public FluentFlexDirection(DirectionOption initialValue)
         {
-            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
-            {
-                this.breakpointDictionary.Add(breakpoint, initialValue);
-            }
+            this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Widescreen, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.FullHD, initialValue);
         }
+
+        /// <summary>
+        /// Gets the CSS class definition for this flex layout.
+        /// </summary>
+        public string Class => this.BuildClass();
 
         /// <inheritdoc/>
         public IFluentFlexDirectionWithValueOnBreakpoint Is(DirectionOption direction)
@@ -155,6 +163,18 @@ namespace Flexor
             {
                 this.breakpointDictionary[breakpoint] = value;
             }
+        }
+
+        private string BuildClass()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            foreach (var kvp in this.breakpointDictionary)
+            {
+                builder.Append($"flex{kvp.Key}{kvp.Value} ");
+            }
+
+            return builder.ToString();
         }
     }
 }
