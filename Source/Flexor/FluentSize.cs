@@ -10,7 +10,7 @@ using System.Text;
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentSize : ICssClassBacked
+    public interface IFluentSize : ICssBacked
     {
     }
 
@@ -67,7 +67,10 @@ namespace Flexor
         }
 
         /// <inheritdoc/>
-        public string Class => this.BuildClass();
+        public string Class => string.Empty;
+
+        /// <inheritdoc/>
+        public string Style => this.BuildStyle();
 
         /// <inheritdoc/>
         public IFluentSizeWithValueOnBreakpoint IsElement(decimal value)
@@ -209,14 +212,14 @@ namespace Flexor
             }
         }
 
-        private string BuildClass()
+        private string BuildStyle()
         {
-            // TODO: This won't work. Maybe 'style' instead?
+            // TODO: IMPL
             StringBuilder builder = new StringBuilder();
 
             foreach (var kvp in this.breakpointDictionary)
             {
-                builder.Append($"flex-basis{kvp.Key}{kvp.Value} ");
+                builder.Append($"flex-basis: {kvp.Key}{kvp.Value} ");
             }
 
             return builder.ToString();

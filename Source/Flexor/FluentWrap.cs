@@ -10,7 +10,7 @@ using System.Text;
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentWrap : ICssClassBacked
+    public interface IFluentWrap : ICssBacked
     {
     }
 
@@ -55,6 +55,9 @@ namespace Flexor
 
         /// <inheritdoc/>
         public string Class => this.BuildClass();
+
+        /// <inheritdoc/>
+        public string Style => string.Empty;
 
         /// <inheritdoc/>
         public IFluentWrapWithValueOnBreakpoint Is(WrapOption direction)

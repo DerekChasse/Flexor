@@ -10,7 +10,7 @@ using System.Text;
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentVisible : ICssClassBacked
+    public interface IFluentVisible : ICssBacked
     {
     }
 
@@ -66,6 +66,9 @@ namespace Flexor
 
         /// <inheritdoc/>
         public string Class => this.BuildClass();
+
+        /// <inheritdoc/>
+        public string Style => string.Empty;
 
         /// <inheritdoc/>
         public IFluentVisibleWithValue OnDesktop()

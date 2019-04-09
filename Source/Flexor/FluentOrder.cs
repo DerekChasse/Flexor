@@ -10,16 +10,41 @@ using System.Text;
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentOrder : ICssClassBacked
+    public interface IFluentOrder : ICssBacked
     {
     }
 
     public interface IFluentOrderWithValue : IFluentOrder
     {
-        ////TODO: Add Is0 through Is12
-        ////TODO: Add IsFirst / IsLast
+        IFluentOrderWithValueOnBreakpoint Is0 { get; }
 
-        IFluentOrderWithValueOnBreakpoint Is(int value);
+        IFluentOrderWithValueOnBreakpoint Is1 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is2 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is3 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is4 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is5 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is6 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is7 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is8 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is9 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is10 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is11 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is12 { get; }
+
+        IFluentOrderWithValueOnBreakpoint IsFirst { get; }
+
+        IFluentOrderWithValueOnBreakpoint IsLast { get; }
     }
 
     public interface IFluentOrderWithValueOnBreakpoint : IFluentReactive<IFluentOrderWithValue>, IFluentOrder
@@ -60,11 +85,52 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is(int value)
-        {
-            this.valueToApply = value;
-            return this;
-        }
+        public string Style => string.Empty;
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is0 => this.Is(0);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is1 => this.Is(1);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is2 => this.Is(2);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is3 => this.Is(3);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is4 => this.Is(4);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is5 => this.Is(5);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is6 => this.Is(6);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is7 => this.Is(7);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is8 => this.Is(8);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is9 => this.Is(9);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is10 => this.Is(10);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is11 => this.Is(11);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is12 => this.Is(12);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint IsFirst => this.Is(int.MinValue);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint IsLast => this.Is(int.MaxValue);
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnDesktop()
@@ -157,6 +223,12 @@ namespace Flexor
             return this;
         }
 
+        private IFluentOrderWithValueOnBreakpoint Is(int value)
+        {
+            this.valueToApply = value;
+            return this;
+        }
+
         private string BuildClass()
         {
             StringBuilder builder = new StringBuilder();
@@ -165,7 +237,18 @@ namespace Flexor
             {
                 if (kvp.Value.HasValue)
                 {
-                    builder.Append($"order{kvp.Key}{kvp.Value} ");
+                    if (kvp.Value.Value == int.MinValue)
+                    {
+                        builder.Append($"order{kvp.Key}-first ");
+                    }
+                    else if (kvp.Value.Value == int.MaxValue)
+                    {
+                        builder.Append($"order{kvp.Key}-last ");
+                    }
+                    else
+                    {
+                        builder.Append($"order{kvp.Key}{kvp.Value} ");
+                    }
                 }
             }
 

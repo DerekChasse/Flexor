@@ -1,4 +1,4 @@
-﻿// <copyright file="ICssClassBacked.cs" company="Derek Chasse">
+﻿// <copyright file="ICssBacked.cs" company="Derek Chasse">
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
@@ -7,13 +7,16 @@ namespace Flexor
     /// <summary>
     /// Backed by a collection of CSS classes.
     /// </summary>
-    public interface ICssClassBacked
+    public interface ICssBacked
     {
         /// <summary>
         /// Gets the CSS class definition.
         /// </summary>
         string Class { get; }
 
-        ////TODO: rename to ICssBacked and Add Style getter.
+        /// <summary>
+        /// Gets the CSS style definition.
+        /// </summary>
+        string Style { get; }
     }
 }
