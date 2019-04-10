@@ -2,24 +2,22 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentWrap : ICssBacked
+    public interface IWrap : ICssBacked
     {
     }
 
-    public interface IFluentWrapWithValue : IFluentWrap
+    public interface IFluentWrapWithValue : IWrap
     {
         IFluentWrapWithValueOnBreakpoint Is(WrapOption direction);
     }
 
-    public interface IFluentWrapWithValueOnBreakpoint : IFluentReactive<IFluentWrapWithValue>, IFluentWrap
+    public interface IFluentWrapWithValueOnBreakpoint : IFluentReactive<IFluentWrapWithValue>, IWrap
     {
     }
 #pragma warning restore SA1600 // Elements should be documented
@@ -46,6 +44,8 @@ namespace Flexor
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
         public FluentWrap(WrapOption initialValue)
         {
+            this.valueToApply = initialValue;
+
             this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
@@ -166,7 +166,7 @@ namespace Flexor
                 builder.Append($"flex{kvp.Key}{kvp.Value} ");
             }
 
-            return builder.ToString();
+            return builder.ToString().Trim();
         }
 
         private void SetBreakpointValues(WrapOption value, params Breakpoint[] breakpoints)

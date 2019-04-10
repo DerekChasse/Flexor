@@ -2,19 +2,17 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentOrder : ICssBacked
+    public interface IOrder : ICssBacked
     {
     }
 
-    public interface IFluentOrderWithValue : IFluentOrder
+    public interface IFluentOrderWithValue : IOrder
     {
         IFluentOrderWithValueOnBreakpoint Is0 { get; }
 
@@ -47,7 +45,7 @@ namespace Flexor
         IFluentOrderWithValueOnBreakpoint IsLast { get; }
     }
 
-    public interface IFluentOrderWithValueOnBreakpoint : IFluentReactive<IFluentOrderWithValue>, IFluentOrder
+    public interface IFluentOrderWithValueOnBreakpoint : IFluentReactive<IFluentOrderWithValue>, IOrder
     {
     }
 #pragma warning restore SA1600 // Elements should be documented
@@ -58,7 +56,7 @@ namespace Flexor
     public class FluentOrder : IFluentOrderWithValueOnBreakpoint, IFluentOrderWithValue
     {
         private readonly Dictionary<Breakpoint, int?> breakpointDictionary = new Dictionary<Breakpoint, int?>();
-        private int valueToApply;
+        private int? valueToApply;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentOrder"/> class.
@@ -74,6 +72,8 @@ namespace Flexor
         /// <param name="initialValue">The default item order.</param>
         public FluentOrder(int? initialValue)
         {
+            this.valueToApply = initialValue;
+
             this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
@@ -247,12 +247,12 @@ namespace Flexor
                     }
                     else
                     {
-                        builder.Append($"order{kvp.Key}{kvp.Value} ");
+                        builder.Append($"order{kvp.Key}-{kvp.Value} ");
                     }
                 }
             }
 
-            return builder.ToString();
+            return builder.ToString().Trim();
         }
 
         private void SetBreakpointValues(int? value, params Breakpoint[] breakpoints)

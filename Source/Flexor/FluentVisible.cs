@@ -2,19 +2,17 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentVisible : ICssBacked
+    public interface IVisible : ICssBacked
     {
     }
 
-    public interface IFluentVisibleWithValue : IFluentVisible
+    public interface IFluentVisibleWithValue : IVisible
     {
         /// <summary>
         /// Chains visibility breakpoint conditional.
@@ -22,7 +20,7 @@ namespace Flexor
         IFluentVisibleWithValueOnBreakpoint And { get; }
     }
 
-    public interface IFluentVisibleWithValueOnBreakpoint : IFluentVisible, IFluentReactive<IFluentVisibleWithValue>
+    public interface IFluentVisibleWithValueOnBreakpoint : IVisible, IFluentReactive<IFluentVisibleWithValue>
     {
     }
 #pragma warning restore SA1600 // Elements should be documented
@@ -167,11 +165,11 @@ namespace Flexor
 
             foreach (var kvp in this.breakpointDictionary)
             {
-                string shouldShow = kvp.Value ? "-show" : "-hide";
-                builder.Append($"flex-{kvp.Key}{shouldShow} ");
+                string shouldShow = kvp.Value ? "show" : "hide";
+                builder.Append($"flex{kvp.Key}-{shouldShow} ");
             }
 
-            return builder.ToString();
+            return builder.ToString().Trim();
         }
 
         private void SetBreakpointValues(bool value, params Breakpoint[] breakpoints)

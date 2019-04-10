@@ -12,7 +12,7 @@ namespace Flexor
         /// <summary>
         /// The item should always be visible.
         /// </summary>
-        public static IFluentVisible Always => new FluentVisible(true);
+        public static IVisible Always => new FluentVisible(true);
 
         /// <summary>
         /// The item is only visible on certain CSS media queries.

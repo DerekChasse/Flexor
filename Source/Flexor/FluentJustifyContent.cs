@@ -2,24 +2,22 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentJustifyContent : ICssBacked
+    public interface IJustifyContent : ICssBacked
     {
     }
 
-    public interface IFluentJustifyContentWithValue : IFluentJustifyContent
+    public interface IFluentJustifyContentWithValue : IJustifyContent
     {
         IFluentJustifyContentWithValueOnBreakpoint Is(JustificationOption value);
     }
 
-    public interface IFluentJustifyContentWithValueOnBreakpoint : IFluentJustifyContent, IFluentReactive<IFluentJustifyContentWithValue>
+    public interface IFluentJustifyContentWithValueOnBreakpoint : IJustifyContent, IFluentReactive<IFluentJustifyContentWithValue>
     {
     }
 #pragma warning restore SA1600 // Elements should be documented
@@ -46,6 +44,8 @@ namespace Flexor
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
         public FluentJustifyContent(JustificationOption initialValue)
         {
+            this.valueToApply = initialValue;
+
             this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
@@ -174,7 +174,7 @@ namespace Flexor
                 builder.Append($"justify-content{kvp.Key}{kvp.Value} ");
             }
 
-            return builder.ToString();
+            return builder.ToString().Trim();
         }
     }
 }

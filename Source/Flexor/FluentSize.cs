@@ -2,19 +2,17 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentSize : ICssBacked
+    public interface ISize : ICssBacked
     {
     }
 
-    public interface IFluentSizeWithValue : IFluentSize
+    public interface IFluentSizeWithValue : ISize
     {
         IFluentSizeWithValueOnBreakpoint IsPixels(int value);
 
@@ -32,7 +30,7 @@ namespace Flexor
         void SetSize(decimal value, SizeUnit unit);
     }
 
-    public interface IFluentSizeWithValueOnBreakpoint : IFluentReactive<IFluentSizeWithValue>, IFluentSize
+    public interface IFluentSizeWithValueOnBreakpoint : IFluentReactive<IFluentSizeWithValue>, ISize
     {
     }
 

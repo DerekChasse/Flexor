@@ -2,8 +2,6 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
-
 namespace Flexor
 {
     /// <summary>
@@ -42,23 +40,6 @@ namespace Flexor
         public override string ToString()
         {
             return this.value;
-        }
-
-        /// <inheritdoc/>
-        public override bool Equals(object obj)
-        {
-            if (obj is DirectionOption)
-            {
-                return ((DirectionOption)obj).value == this.value;
-            }
-
-            return false;
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return this.value.GetHashCode();
         }
     }
 
@@ -106,23 +87,6 @@ namespace Flexor
         {
             return this.value;
         }
-
-        /// <inheritdoc/>
-        public override bool Equals(object obj)
-        {
-            if (obj is JustificationOption)
-            {
-                return ((JustificationOption)obj).value == this.value;
-            }
-
-            return false;
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return this.value.GetHashCode();
-        }
     }
 
     /// <summary>
@@ -167,23 +131,6 @@ namespace Flexor
         public override string ToString()
         {
             return this.value;
-        }
-
-        /// <inheritdoc/>
-        public override bool Equals(object obj)
-        {
-            if (obj is ItemAlignmentOption)
-            {
-                return ((ItemAlignmentOption)obj).value == this.value;
-            }
-
-            return false;
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return this.value.GetHashCode();
         }
     }
 
@@ -233,6 +180,11 @@ namespace Flexor
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
+            if (obj is Breakpoint bp)
+            {
+                return bp.value == this.value;
+            }
+
             if (obj is Breakpoint)
             {
                 return ((Breakpoint)obj).value == this.value;
@@ -290,23 +242,6 @@ namespace Flexor
         {
             return this.value;
         }
-
-        /// <inheritdoc/>
-        public override bool Equals(object obj)
-        {
-            if (obj is ResizabilityOption)
-            {
-                return ((ResizabilityOption)obj).value == this.value;
-            }
-
-            return false;
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return this.value.GetHashCode();
-        }
     }
 
     /// <summary>
@@ -341,23 +276,6 @@ namespace Flexor
         public override string ToString()
         {
             return this.value;
-        }
-
-        /// <inheritdoc/>
-        public override bool Equals(object obj)
-        {
-            if (obj is WrapOption)
-            {
-                return ((WrapOption)obj).value == this.value;
-            }
-
-            return false;
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return this.value.GetHashCode();
         }
     }
 

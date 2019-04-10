@@ -11,8 +11,8 @@ namespace Flexor.Base
     /// </summary>
     public abstract class BaseFlexItem : BaseFlexComponent
     {
-        private IFluentOrder order = Flexor.Order.Default;
-        private IFluentAlignItems itemAlignment = null;
+        private IOrder order = Flexor.Order.Default;
+        private IAlignItems itemAlignment = null;
 
         /// <summary>
         /// Defines the order in which items are rendered within the layout.
@@ -20,7 +20,7 @@ namespace Flexor.Base
         /// Default is 'default'.
         /// </summary>
         [Parameter]
-        protected IFluentOrder Order
+        protected IOrder Order
         {
             get => this.order;
             set
@@ -36,7 +36,7 @@ namespace Flexor.Base
         /// Default is 'inherit'.
         /// </summary>
         [Parameter]
-        protected IFluentAlignItems ItemAlignment
+        protected IAlignItems ItemAlignment
         {
             get => this.itemAlignment;
             set

@@ -2,19 +2,17 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentResizability : ICssBacked
+    public interface IResizability : ICssBacked
     {
     }
 
-    public interface IFluentResizabilityWithValue : IFluentResizability
+    public interface IFluentResizabilityWithValue : IResizability
     {
         ////TODO: Add Fill
 
@@ -29,7 +27,7 @@ namespace Flexor
         IFluentResizabilityWithValueOnBreakpoint CanNotShrink();
     }
 
-    public interface IFluentResizabilityWithValueOnBreakpoint : IFluentResizability, IFluentReactive<IFluentResizabilityWithValue>
+    public interface IFluentResizabilityWithValueOnBreakpoint : IResizability, IFluentReactive<IFluentResizabilityWithValue>
     {
     }
 #pragma warning restore SA1600 // Elements should be documented
@@ -56,6 +54,8 @@ namespace Flexor
         /// <param name="initialValue">The initial <see cref="ResizabilityOption"/> across all media query breakpoints.</param>
         public FluentResizability(ResizabilityOption initialValue)
         {
+            this.valueToApply = initialValue;
+
             this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
@@ -204,7 +204,7 @@ namespace Flexor
                 builder.Append($"flex-resize{kvp.Key}{kvp.Value} ");
             }
 
-            return builder.ToString();
+            return builder.ToString().Trim();
         }
 
         private void SetBreakpointValues(ResizabilityOption value, params Breakpoint[] breakpoints)
