@@ -85,9 +85,6 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public string Style => string.Empty;
-
-        /// <inheritdoc/>
         public IFluentOrderWithValueOnBreakpoint Is0 => this.Is(0);
 
         /// <inheritdoc/>

@@ -13,10 +13,16 @@ namespace Flexor
         /// Gets the CSS class definition.
         /// </summary>
         string Class { get; }
+    }
 
+    /// <summary>
+    /// Backed by a dynamic definition of CSS classes.
+    /// </summary>
+    public interface IDynamicCssBacked
+    {
         /// <summary>
-        /// Gets the CSS style definition.
+        /// Gets the dynamic CSS definition.
         /// </summary>
-        string Style { get; }
+        string Css { get; }
     }
 }

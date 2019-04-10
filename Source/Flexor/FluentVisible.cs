@@ -66,9 +66,6 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public string Style => string.Empty;
-
-        /// <inheritdoc/>
         public IFluentVisibleWithValue OnDesktop()
         {
             this.breakpointDictionary[Breakpoint.Desktop] = true;

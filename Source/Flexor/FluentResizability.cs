@@ -67,9 +67,6 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public string Style => string.Empty;
-
-        /// <inheritdoc/>
         public IFluentResizabilityWithValueOnBreakpoint CanGrow()
         {
             this.valueToApply = ResizabilityOption.Grow;

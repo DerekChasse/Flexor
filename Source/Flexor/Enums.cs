@@ -141,35 +141,41 @@ namespace Flexor
     {
         private readonly string value;
 
-        private Breakpoint(string value)
+        private Breakpoint(string value, int minWidth)
         {
             this.value = value;
+            this.MinWidth = minWidth;
         }
 
         /// <summary>
-        /// Applicable to device widths of XXX pixels and smaller.
+        /// Applicable to device widths of 575 pixels and smaller.
         /// </summary>
-        public static Breakpoint Mobile => new Breakpoint(string.Empty);
+        public static Breakpoint Mobile => new Breakpoint(string.Empty, 0);
 
         /// <summary>
-        /// Applicable to device widths between XXX and YYY pixels.
+        /// Applicable to device widths between 576 and 767 pixels.
         /// </summary>
-        public static Breakpoint Tablet => new Breakpoint("-sm");
+        public static Breakpoint Tablet => new Breakpoint("-sm", 576);
 
         /// <summary>
-        /// Applicable to device widths between XXX and YYY pixels.
+        /// Applicable to device widths between 768 and 991 pixels.
         /// </summary>
-        public static Breakpoint Desktop => new Breakpoint("-md");
+        public static Breakpoint Desktop => new Breakpoint("-md", 768);
 
         /// <summary>
-        /// Applicable to device widths between XXX and YYY pixels.
+        /// Applicable to device widths between 992 and 1199 pixels.
         /// </summary>
-        public static Breakpoint Widescreen => new Breakpoint("-lg");
+        public static Breakpoint Widescreen => new Breakpoint("-lg", 992);
 
         /// <summary>
-        /// Applicable to device widths greater than XXX pixels.
+        /// Applicable to device widths greater than 1200 pixels.
         /// </summary>
-        public static Breakpoint FullHD => new Breakpoint("-xl");
+        public static Breakpoint FullHD => new Breakpoint("-xl", 1200);
+
+        /// <summary>
+        /// Gets the media query trigger's minimum width.
+        /// </summary>
+        public int MinWidth { get; }
 
         /// <inheritdoc/>
         public override string ToString()

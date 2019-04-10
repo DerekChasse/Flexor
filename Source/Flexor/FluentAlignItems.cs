@@ -57,9 +57,6 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public string Style => string.Empty;
-
-        /// <inheritdoc/>
         public IFluentAlignItemsWithValueOnBreakpoint Is(ItemAlignmentOption value)
         {
             this.valueToApply = value;

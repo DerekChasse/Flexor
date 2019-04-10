@@ -2,6 +2,7 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -43,12 +44,17 @@ namespace Flexor
     {
         private readonly Dictionary<Breakpoint, SizingUnit> breakpointDictionary = new Dictionary<Breakpoint, SizingUnit>();
         private SizingUnit valueToApply;
+        private readonly Lazy<string> lazyClass;
+        private readonly Lazy<string> lazyStyle;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentSize"/> class.
         /// </summary>
         public FluentSize()
         {
+            this.lazyClass = new Lazy<string>(this.ClassValueFactory);
+            this.lazyStyle = new Lazy<string>(this.StyleValueFactory);
+
             this.breakpointDictionary.Add(Breakpoint.Mobile, default);
             this.breakpointDictionary.Add(Breakpoint.Tablet, default);
             this.breakpointDictionary.Add(Breakpoint.Desktop, default);
@@ -65,10 +71,7 @@ namespace Flexor
         }
 
         /// <inheritdoc/>
-        public string Class => string.Empty;
-
-        /// <inheritdoc/>
-        public string Style => this.BuildStyle();
+        public string Class => this.lazyClass.Value;
 
         /// <inheritdoc/>
         public IFluentSizeWithValueOnBreakpoint IsElement(decimal value)
@@ -210,6 +213,18 @@ namespace Flexor
             }
         }
 
+        private string StyleValueFactory()
+        {
+            ////TODO: Implement
+            throw new NotImplementedException();
+        }
+
+        private string ClassValueFactory()
+        {
+            ////TODO: Implement
+            throw new NotImplementedException();
+        }
+
         private string BuildStyle()
         {
             // TODO: IMPL
@@ -217,10 +232,29 @@ namespace Flexor
 
             foreach (var kvp in this.breakpointDictionary)
             {
-                builder.Append($"flex-basis: {kvp.Key}{kvp.Value} ");
+                string className = this.BuildDynamicCssClass(builder, kvp.Key, kvp.Value);
             }
 
             return builder.ToString();
+        }
+
+        private string BuildDynamicCssClass(StringBuilder builder, Breakpoint breakpoint, SizingUnit sizingUnit)
+        {
+            if (breakpoint != Breakpoint.Mobile)
+            {
+                builder.Append($"@media (min-width: {breakpoint.MinWidth}px) {{");
+            }
+
+            string className = Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 12);
+
+            builder.Append($".{className} {{-webkit-flex-basis: {sizingUnit}; flex-basis: {sizingUnit};}}  }}");
+
+            if (breakpoint != Breakpoint.Mobile)
+            {
+                builder.Append("}");
+            }
+
+            return className;
         }
 
         private class SizingUnit

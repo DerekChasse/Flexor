@@ -57,9 +57,6 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public string Style => string.Empty;
-
-        /// <inheritdoc/>
         public IFluentFlexDirectionWithValueOnBreakpoint Is(DirectionOption direction)
         {
             this.valueToApply = direction;
