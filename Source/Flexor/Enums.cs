@@ -177,6 +177,16 @@ namespace Flexor
         /// </summary>
         public int MinWidth { get; }
 
+        public static bool operator ==(Breakpoint obj1, Breakpoint obj2)
+        {
+            return obj1.Equals(obj2);
+        }
+
+        public static bool operator !=(Breakpoint obj1, Breakpoint obj2)
+        {
+            return !obj1.Equals(obj2);
+        }
+
         /// <inheritdoc/>
         public override string ToString()
         {

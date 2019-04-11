@@ -4,12 +4,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface ISize : ICssBacked
+    public interface ISize : ICssBacked, IDynamicCssBacked
     {
     }
 
@@ -42,18 +43,20 @@ namespace Flexor
     /// </summary>
     public class FluentSize : IFluentSizeWithValue, IFluentSizeWithValueOnBreakpoint, ISizeSetValue
     {
-        private readonly Dictionary<Breakpoint, SizingUnit> breakpointDictionary = new Dictionary<Breakpoint, SizingUnit>();
-        private SizingUnit valueToApply;
+        private readonly Dictionary<Breakpoint, Measurement> breakpointDictionary = new Dictionary<Breakpoint, Measurement>();
         private readonly Lazy<string> lazyClass;
-        private readonly Lazy<string> lazyStyle;
+        private readonly Lazy<string> lazyCss;
+        private readonly List<string> generatedCssClasses = new List<string>();
+
+        private Measurement valueToApply;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentSize"/> class.
         /// </summary>
         public FluentSize()
         {
-            this.lazyClass = new Lazy<string>(this.ClassValueFactory);
-            this.lazyStyle = new Lazy<string>(this.StyleValueFactory);
+            this.lazyClass = new Lazy<string>(this.InitLayClass);
+            this.lazyCss = new Lazy<string>(this.InitLazyCss);
 
             this.breakpointDictionary.Add(Breakpoint.Mobile, default);
             this.breakpointDictionary.Add(Breakpoint.Tablet, default);
@@ -71,7 +74,10 @@ namespace Flexor
         }
 
         /// <inheritdoc/>
-        public string Class => this.lazyClass.Value;
+        public string Class => this.lazyClass.Value.Trim();
+
+        /// <inheritdoc/>
+        public string Css => this.lazyCss.Value;
 
         /// <inheritdoc/>
         public IFluentSizeWithValueOnBreakpoint IsElement(decimal value)
@@ -202,10 +208,10 @@ namespace Flexor
         /// <inheritdoc/>
         public void SetSize(decimal value, SizeUnit unit)
         {
-            this.valueToApply = new SizingUnit { Value = value, Unit = unit };
+            this.valueToApply = new Measurement { Value = value, Unit = unit };
         }
 
-        private void SetBreakpointValues(SizingUnit value, params Breakpoint[] breakpoints)
+        private void SetBreakpointValues(Measurement value, params Breakpoint[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
             {
@@ -213,32 +219,31 @@ namespace Flexor
             }
         }
 
-        private string StyleValueFactory()
+        private string InitLazyCss()
         {
-            ////TODO: Implement
-            throw new NotImplementedException();
-        }
-
-        private string ClassValueFactory()
-        {
-            ////TODO: Implement
-            throw new NotImplementedException();
-        }
-
-        private string BuildStyle()
-        {
-            // TODO: IMPL
             StringBuilder builder = new StringBuilder();
 
-            foreach (var kvp in this.breakpointDictionary)
+            foreach (var kvp in this.breakpointDictionary.Where(pair => pair.Value != null))
             {
                 string className = this.BuildDynamicCssClass(builder, kvp.Key, kvp.Value);
+
+                this.generatedCssClasses.Add(className);
             }
 
             return builder.ToString();
         }
 
-        private string BuildDynamicCssClass(StringBuilder builder, Breakpoint breakpoint, SizingUnit sizingUnit)
+        private string InitLayClass()
+        {
+            if (!this.lazyCss.IsValueCreated)
+            {
+                _ = this.lazyCss.Value;
+            }
+
+            return string.Join(" ", this.generatedCssClasses);
+        }
+
+        private string BuildDynamicCssClass(StringBuilder builder, Breakpoint breakpoint, Measurement sizingUnit)
         {
             if (breakpoint != Breakpoint.Mobile)
             {
@@ -247,7 +252,7 @@ namespace Flexor
 
             string className = Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 12);
 
-            builder.Append($".{className} {{-webkit-flex-basis: {sizingUnit}; flex-basis: {sizingUnit};}}  }}");
+            builder.Append($".{className} {{-webkit-flex-basis: {sizingUnit}; flex-basis: {sizingUnit};}}");
 
             if (breakpoint != Breakpoint.Mobile)
             {
@@ -257,7 +262,7 @@ namespace Flexor
             return className;
         }
 
-        private class SizingUnit
+        private class Measurement
         {
             public decimal Value { get; set; }
 
