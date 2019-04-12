@@ -10,6 +10,12 @@ namespace Flexor
     public static class Size
     {
         /// <summary>
+        /// The flex item's size is unspecified.
+        /// </summary>
+        /// <returns>The size configuration.</returns>
+        public static ISize Default => new FluentSize();
+
+        /// <summary>
         /// The flex item's size is defined in pixels.
         /// </summary>
         /// <param name="value">The flex item's size defined in pixels.</param>

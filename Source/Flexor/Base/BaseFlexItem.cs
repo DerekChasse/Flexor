@@ -2,6 +2,7 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace Flexor.Base
@@ -12,7 +13,8 @@ namespace Flexor.Base
     public abstract class BaseFlexItem : BaseFlexComponent
     {
         private IOrder order = Flexor.Order.Default;
-        private IAlignItems itemAlignment = null;
+        private IAlignItems itemAlignment = Flexor.ItemAlignment.Start;
+        private ISize size = Flexor.Size.Default;
 
         /// <summary>
         /// Defines the order in which items are rendered within the layout.
@@ -44,6 +46,32 @@ namespace Flexor.Base
                 this.itemAlignment = value;
                 this.StateHasChanged();
             }
+        }
+
+        /// <summary>
+        /// Defines the size of a flex-item.
+        ///
+        /// Default is 'unspecified'.
+        /// </summary>
+        [Parameter]
+        protected ISize Size
+        {
+            get => this.size;
+            set
+            {
+                this.size = value;
+                this.StateHasChanged();
+            }
+        }
+
+        /// <inheritdoc/>
+        protected override Task OnParametersSetAsync()
+        {
+            base.OnParametersSetAsync();
+
+            this.Interop.AddDynamicStyle(this.Size.Css);
+
+            return Task.CompletedTask;
         }
     }
 }

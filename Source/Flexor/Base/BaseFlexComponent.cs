@@ -38,5 +38,11 @@ namespace Flexor.Base
             get;
             set;
         }
+
+        /// <summary>
+        /// Flexor specific javascript interop layer.
+        /// </summary>
+        [Inject]
+        protected IFlexorJSInterop Interop { get; set; }
     }
 }

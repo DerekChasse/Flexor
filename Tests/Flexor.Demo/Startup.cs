@@ -7,6 +7,7 @@ namespace Flexor.Demo
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddFlexor();
         }
 
         public void Configure(IComponentsApplicationBuilder app)
