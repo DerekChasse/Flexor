@@ -30,7 +30,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Baseline_Correcty()
+        public void GetClass_ItemAlignment_Baseline_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Baseline;
@@ -50,7 +50,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Center_Correcty()
+        public void GetClass_ItemAlignment_Center_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Center;
@@ -70,7 +70,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_End_Correcty()
+        public void GetClass_ItemAlignment_End_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.End;
@@ -90,7 +90,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Start_Correcty()
+        public void GetClass_ItemAlignment_Start_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Start;
@@ -110,7 +110,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Stretch_Correcty()
+        public void GetClass_ItemAlignment_Stretch_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Stretch;
@@ -130,7 +130,127 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnMobile_SetsValue_Correcty()
+        public void GetClass_SelfAlignment_Baseline_Correctly()
+        {
+            // Arrange
+            this.underTest = SelfAlignment.Baseline;
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .Match(x => x.All(v => v.StartsWith("align-items") && v.EndsWith("-baseline")));
+        }
+
+        [TestMethod]
+        public void GetClass_SelfAlignment_Center_Correctly()
+        {
+            // Arrange
+            this.underTest = SelfAlignment.Center;
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .Match(x => x.All(v => v.StartsWith("align-items") && v.EndsWith("-center")));
+        }
+
+        [TestMethod]
+        public void GetClass_SelfAlignment_End_Correctly()
+        {
+            // Arrange
+            this.underTest = SelfAlignment.End;
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .Match(x => x.All(v => v.StartsWith("align-items") && v.EndsWith("-end")));
+        }
+
+        [TestMethod]
+        public void GetClass_SelfAlignment_Start_Correctly()
+        {
+            // Arrange
+            this.underTest = SelfAlignment.Start;
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .Match(x => x.All(v => v.StartsWith("align-items") && v.EndsWith("-start")));
+        }
+
+        [TestMethod]
+        public void GetClass_SelfAlignment_Stretch_Correctly()
+        {
+            // Arrange
+            this.underTest = SelfAlignment.Stretch;
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .Match(x => x.All(v => v.StartsWith("align-items") && v.EndsWith("-stretch")));
+        }
+
+        [TestMethod]
+        public void GetClass_SelfAlignment_Is_Stretch_Correctly()
+        {
+            // Arrange
+            this.underTest = SelfAlignment.Is(ItemAlignmentOption.Stretch);
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .Match(x => x.All(v => v.StartsWith("align-items") && v.EndsWith("-stretch")));
+        }
+
+        [TestMethod]
+        public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnMobile();
@@ -150,7 +270,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnMobileAndLarger_SetsValue_Correcty()
+        public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnMobileAndLarger();
@@ -178,7 +298,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTablet_SetsValue_Correcty()
+        public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnTablet();
@@ -198,7 +318,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTabletAndLarger_SetsValue_Correcty()
+        public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnTabletAndLarger();
@@ -226,7 +346,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTabletAndSmaller_SetsValue_Correcty()
+        public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnTabletAndSmaller();
@@ -254,7 +374,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktop_SetsValue_Correcty()
+        public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnDesktop();
@@ -274,7 +394,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktopAndLarger_SetsValue_Correcty()
+        public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnDesktopAndLarger();
@@ -302,7 +422,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktopAndSmaller_SetsValue_Correcty()
+        public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnDesktopAndSmaller();
@@ -330,7 +450,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreen_SetsValue_Correcty()
+        public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnWidescreen();
@@ -350,7 +470,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreenAndLarger_SetsValue_Correcty()
+        public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnWidescreenAndLarger();
@@ -378,7 +498,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreenAndSmaller_SetsValue_Correcty()
+        public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnWidescreenAndSmaller();
@@ -406,7 +526,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnFullHD_SetsValue_Correcty()
+        public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnFullHD();
@@ -426,7 +546,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnFullHDAndSmaller_SetsValue_Correcty()
+        public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnFullHDAndSmaller();

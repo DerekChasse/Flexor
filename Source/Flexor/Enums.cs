@@ -196,14 +196,9 @@ namespace Flexor
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj is Breakpoint bp)
+            if (obj is Breakpoint breakpoint)
             {
-                return bp.value == this.value;
-            }
-
-            if (obj is Breakpoint)
-            {
-                return ((Breakpoint)obj).value == this.value;
+                return breakpoint.value == this.value;
             }
 
             return false;
@@ -336,23 +331,6 @@ namespace Flexor
         public override string ToString()
         {
             return this.value;
-        }
-
-        /// <inheritdoc/>
-        public override bool Equals(object obj)
-        {
-            if (obj is SizeUnit)
-            {
-                return ((SizeUnit)obj).value == this.value;
-            }
-
-            return false;
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return this.value.GetHashCode();
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Row_Correcty()
+        public void GetClass_Row_Correctly()
         {
             // Arrange
             this.underTest = Direction.Row;
@@ -50,7 +50,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Column_Correcty()
+        public void GetClass_Column_Correctly()
         {
             // Arrange
             this.underTest = Direction.Column;
@@ -70,7 +70,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_RowReverse_Correcty()
+        public void GetClass_RowReverse_Correctly()
         {
             // Arrange
             this.underTest = Direction.RowReverse;
@@ -90,7 +90,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_ColumnReverse_Correcty()
+        public void GetClass_ColumnReverse_Correctly()
         {
             // Arrange
             this.underTest = Direction.ColumnReverse;
@@ -110,7 +110,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnMobile_SetsValue_Correcty()
+        public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnMobile();
@@ -130,7 +130,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnMobileAndLarger_SetsValue_Correcty()
+        public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnMobileAndLarger();
@@ -158,7 +158,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTablet_SetsValue_Correcty()
+        public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnTablet();
@@ -178,7 +178,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTabletAndLarger_SetsValue_Correcty()
+        public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnTabletAndLarger();
@@ -206,7 +206,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTabletAndSmaller_SetsValue_Correcty()
+        public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnTabletAndSmaller();
@@ -234,7 +234,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktop_SetsValue_Correcty()
+        public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnDesktop();
@@ -254,7 +254,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktopAndLarger_SetsValue_Correcty()
+        public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnDesktopAndLarger();
@@ -282,7 +282,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktopAndSmaller_SetsValue_Correcty()
+        public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnDesktopAndSmaller();
@@ -310,7 +310,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreen_SetsValue_Correcty()
+        public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnWidescreen();
@@ -330,7 +330,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreenAndLarger_SetsValue_Correcty()
+        public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnWidescreenAndLarger();
@@ -358,7 +358,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreenAndSmaller_SetsValue_Correcty()
+        public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnWidescreenAndSmaller();
@@ -386,7 +386,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnFullHD_SetsValue_Correcty()
+        public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnFullHD();
@@ -406,7 +406,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnFullHDAndSmaller_SetsValue_Correcty()
+        public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Direction.Is(DirectionOption.Row).OnMobileAndLarger().Is(DirectionOption.Column).OnFullHDAndSmaller();

@@ -55,7 +55,7 @@ namespace Flexor
         /// </summary>
         public FluentSize()
         {
-            this.lazyClass = new Lazy<string>(this.InitLayClass);
+            this.lazyClass = new Lazy<string>(this.InitLazyClass);
             this.lazyCss = new Lazy<string>(this.InitLazyCss);
 
             this.breakpointDictionary.Add(Breakpoint.Mobile, default);
@@ -230,10 +230,10 @@ namespace Flexor
                 this.generatedCssClasses.Add(className);
             }
 
-            return builder.ToString();
+            return builder.ToString().Trim();
         }
 
-        private string InitLayClass()
+        private string InitLazyClass()
         {
             if (!this.lazyCss.IsValueCreated)
             {
@@ -245,19 +245,23 @@ namespace Flexor
 
         private string BuildDynamicCssClass(StringBuilder builder, Breakpoint breakpoint, Measurement sizingUnit)
         {
+            StringBuilder lineBuilder = new StringBuilder();
+
             if (breakpoint != Breakpoint.Mobile)
             {
-                builder.Append($"@media (min-width: {breakpoint.MinWidth}px) {{");
+                lineBuilder.Append($"@media (min-width: {breakpoint.MinWidth}px) {{");
             }
 
             string className = Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 12);
 
-            builder.Append($".{className} {{-webkit-flex-basis: {sizingUnit}; flex-basis: {sizingUnit};}}");
+            lineBuilder.Append($".{className} {{-webkit-flex-basis: {sizingUnit}; flex-basis: {sizingUnit};}}");
 
             if (breakpoint != Breakpoint.Mobile)
             {
-                builder.Append("}");
+                lineBuilder.Append("}");
             }
+
+            builder.AppendLine(lineBuilder.ToString());
 
             return className;
         }

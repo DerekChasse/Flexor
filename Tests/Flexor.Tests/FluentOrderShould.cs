@@ -23,7 +23,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Default_Correcty()
+        public void GetClass_Default_Correctly()
         {
             // Arrange
             this.underTest = Order.Default;
@@ -36,7 +36,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_0_Correcty()
+        public void GetClass_0_Correctly()
         {
             // Arrange
             this.underTest = Order.Is0;
@@ -56,7 +56,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_1_Correcty()
+        public void GetClass_1_Correctly()
         {
             // Arrange
             this.underTest = Order.Is1;
@@ -76,7 +76,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_2_Correcty()
+        public void GetClass_2_Correctly()
         {
             // Arrange
             this.underTest = Order.Is2;
@@ -96,7 +96,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_3_Correcty()
+        public void GetClass_3_Correctly()
         {
             // Arrange
             this.underTest = Order.Is3;
@@ -116,7 +116,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_4_Correcty()
+        public void GetClass_4_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4;
@@ -136,7 +136,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_5_Correcty()
+        public void GetClass_5_Correctly()
         {
             // Arrange
             this.underTest = Order.Is5;
@@ -156,7 +156,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_6_Correcty()
+        public void GetClass_6_Correctly()
         {
             // Arrange
             this.underTest = Order.Is6;
@@ -176,7 +176,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_7_Correcty()
+        public void GetClass_7_Correctly()
         {
             // Arrange
             this.underTest = Order.Is7;
@@ -196,7 +196,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_8_Correcty()
+        public void GetClass_8_Correctly()
         {
             // Arrange
             this.underTest = Order.Is8;
@@ -216,7 +216,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_9_Correcty()
+        public void GetClass_9_Correctly()
         {
             // Arrange
             this.underTest = Order.Is9;
@@ -236,7 +236,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_10_Correcty()
+        public void GetClass_10_Correctly()
         {
             // Arrange
             this.underTest = Order.Is10;
@@ -256,7 +256,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_11_Correcty()
+        public void GetClass_11_Correctly()
         {
             // Arrange
             this.underTest = Order.Is11;
@@ -276,7 +276,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_12_Correcty()
+        public void GetClass_12_Correctly()
         {
             // Arrange
             this.underTest = Order.Is12;
@@ -296,7 +296,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_First_Correcty()
+        public void GetClass_First_Correctly()
         {
             // Arrange
             this.underTest = Order.IsFirst;
@@ -316,7 +316,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Last_Correcty()
+        public void GetClass_Last_Correctly()
         {
             // Arrange
             this.underTest = Order.IsLast;
@@ -335,11 +335,8 @@ namespace Flexor.Tests
                 .Match(x => x.All(v => v.StartsWith("order") && v.EndsWith("-last")));
         }
 
-
-
-
         [TestMethod]
-        public void OnMobile_SetsValue_Correcty()
+        public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnMobile();
@@ -359,7 +356,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnMobileAndLarger_SetsValue_Correcty()
+        public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnMobileAndLarger();
@@ -387,7 +384,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTablet_SetsValue_Correcty()
+        public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnTablet();
@@ -407,7 +404,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTabletAndLarger_SetsValue_Correcty()
+        public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnTabletAndLarger();
@@ -435,7 +432,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTabletAndSmaller_SetsValue_Correcty()
+        public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnTabletAndSmaller();
@@ -463,7 +460,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktop_SetsValue_Correcty()
+        public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnDesktop();
@@ -483,7 +480,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktopAndLarger_SetsValue_Correcty()
+        public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnDesktopAndLarger();
@@ -511,7 +508,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktopAndSmaller_SetsValue_Correcty()
+        public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnDesktopAndSmaller();
@@ -539,7 +536,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreen_SetsValue_Correcty()
+        public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnWidescreen();
@@ -559,7 +556,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreenAndLarger_SetsValue_Correcty()
+        public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnWidescreenAndLarger();
@@ -587,7 +584,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreenAndSmaller_SetsValue_Correcty()
+        public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnWidescreenAndSmaller();
@@ -615,7 +612,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnFullHD_SetsValue_Correcty()
+        public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnFullHD();
@@ -635,7 +632,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnFullHDAndSmaller_SetsValue_Correcty()
+        public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnFullHDAndSmaller();
@@ -663,5 +660,304 @@ namespace Flexor.Tests
         }
 
 
+        [TestMethod]
+        public void Is0_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is0.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-0");
+        }
+
+        [TestMethod]
+        public void Is1_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is1.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-1");
+        }
+
+        [TestMethod]
+        public void Is2_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is2.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-2");
+        }
+
+        [TestMethod]
+        public void Is3_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is3.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-3");
+        }
+
+        [TestMethod]
+        public void Is4_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is4.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-4");
+        }
+
+        [TestMethod]
+        public void Is5_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is5.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-5");
+        }
+
+        [TestMethod]
+        public void Is6_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is6.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-6");
+        }
+
+        [TestMethod]
+        public void Is7_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-7");
+        }
+
+        [TestMethod]
+        public void Is8_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is8.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-8");
+        }
+
+        [TestMethod]
+        public void Is9_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is9.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-9");
+        }
+
+        [TestMethod]
+        public void Is10_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is10.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-10");
+        }
+
+        [TestMethod]
+        public void Is11_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is11.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-11");
+        }
+
+        [TestMethod]
+        public void Is12_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().Is12.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-12");
+        }
+
+        [TestMethod]
+        public void IsFirst_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().IsFirst.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-first");
+        }
+
+        [TestMethod]
+        public void IsLast_SetsValue_Correctly()
+        {
+            // Arrange
+            this.underTest = Order.Is4.OnMobileAndLarger().IsLast.OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "order-last");
+        }
     }
 }

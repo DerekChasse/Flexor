@@ -30,7 +30,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Center_Correcty()
+        public void GetClass_Center_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Center;
@@ -50,7 +50,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_End_Correcty()
+        public void GetClass_End_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.End;
@@ -70,7 +70,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Start_Correcty()
+        public void GetClass_Start_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Start;
@@ -90,7 +90,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_SpaceAround_Correcty()
+        public void GetClass_SpaceAround_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.SpaceAround;
@@ -110,7 +110,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_SpaceBetween_Correcty()
+        public void GetClass_SpaceBetween_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.SpaceBetween;
@@ -130,7 +130,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnMobile_SetsValue_Correcty()
+        public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnMobile();
@@ -150,7 +150,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnMobileAndLarger_SetsValue_Correcty()
+        public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnMobileAndLarger();
@@ -178,7 +178,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTablet_SetsValue_Correcty()
+        public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnTablet();
@@ -198,7 +198,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTabletAndLarger_SetsValue_Correcty()
+        public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnTabletAndLarger();
@@ -226,7 +226,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTabletAndSmaller_SetsValue_Correcty()
+        public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnTabletAndSmaller();
@@ -254,7 +254,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktop_SetsValue_Correcty()
+        public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnDesktop();
@@ -274,7 +274,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktopAndLarger_SetsValue_Correcty()
+        public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnDesktopAndLarger();
@@ -302,7 +302,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktopAndSmaller_SetsValue_Correcty()
+        public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnDesktopAndSmaller();
@@ -330,7 +330,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreen_SetsValue_Correcty()
+        public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnWidescreen();
@@ -350,7 +350,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreenAndLarger_SetsValue_Correcty()
+        public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnWidescreenAndLarger();
@@ -378,7 +378,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreenAndSmaller_SetsValue_Correcty()
+        public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnWidescreenAndSmaller();
@@ -406,7 +406,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnFullHD_SetsValue_Correcty()
+        public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnFullHD();
@@ -426,7 +426,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnFullHDAndSmaller_SetsValue_Correcty()
+        public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = JustifyContent.Is(JustificationOption.Center).OnMobileAndLarger().Is(JustificationOption.Start).OnFullHDAndSmaller();

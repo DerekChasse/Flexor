@@ -30,7 +30,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Auto_Correcty()
+        public void GetClass_Auto_Correctly()
         {
             // Arrange
             this.underTest = Resizability.Auto;
@@ -50,7 +50,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Grow_Correcty()
+        public void GetClass_Grow_Correctly()
         {
             // Arrange
             this.underTest = Resizability.Grow;
@@ -70,7 +70,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Initial_Correcty()
+        public void GetClass_Initial_Correctly()
         {
             // Arrange
             this.underTest = Resizability.Initial;
@@ -90,7 +90,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_NoGrow_Correcty()
+        public void GetClass_NoGrow_Correctly()
         {
             // Arrange
             this.underTest = Resizability.NoGrow;
@@ -110,7 +110,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_NoShrink_Correcty()
+        public void GetClass_NoShrink_Correctly()
         {
             // Arrange
             this.underTest = Resizability.NoShrink;
@@ -130,10 +130,10 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnMobile_SetsValue_Correcty()
+        public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnMobile();
+            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanNotGrow().OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -146,11 +146,11 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-grow");
+                .HaveElementAt(0, "flex-resize-nogrow");
         }
 
         [TestMethod]
-        public void OnMobileAndLarger_SetsValue_Correcty()
+        public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnMobileAndLarger();
@@ -178,10 +178,10 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTablet_SetsValue_Correcty()
+        public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnTablet();
+            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanNotShrink().OnTablet();
 
             // Act
             var underTestClass = underTest.Class;
@@ -194,11 +194,11 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(1, "flex-resize-sm-grow");
+                .HaveElementAt(1, "flex-resize-sm-noshrink");
         }
 
         [TestMethod]
-        public void OnTabletAndLarger_SetsValue_Correcty()
+        public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnTabletAndLarger();
@@ -226,7 +226,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTabletAndSmaller_SetsValue_Correcty()
+        public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnTabletAndSmaller();
@@ -254,7 +254,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktop_SetsValue_Correcty()
+        public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnDesktop();
@@ -274,7 +274,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktopAndLarger_SetsValue_Correcty()
+        public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnDesktopAndLarger();
@@ -302,7 +302,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktopAndSmaller_SetsValue_Correcty()
+        public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnDesktopAndSmaller();
@@ -330,10 +330,10 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreen_SetsValue_Correcty()
+        public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnWidescreen();
+            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().IsInitial().OnWidescreen();
 
             // Act
             var underTestClass = underTest.Class;
@@ -346,11 +346,11 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(3, "flex-resize-lg-grow");
+                .HaveElementAt(3, "flex-resize-lg-none");
         }
 
         [TestMethod]
-        public void OnWidescreenAndLarger_SetsValue_Correcty()
+        public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnWidescreenAndLarger();
@@ -378,7 +378,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreenAndSmaller_SetsValue_Correcty()
+        public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnWidescreenAndSmaller();
@@ -406,10 +406,10 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnFullHD_SetsValue_Correcty()
+        public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnFullHD();
+            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().IsAutomatic().OnFullHD();
 
             // Act
             var underTestClass = underTest.Class;
@@ -422,11 +422,11 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(4, "flex-resize-xl-grow");
+                .HaveElementAt(4, "flex-resize-xl-auto");
         }
 
         [TestMethod]
-        public void OnFullHDAndSmaller_SetsValue_Correcty()
+        public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnFullHDAndSmaller();

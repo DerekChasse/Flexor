@@ -30,7 +30,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_Wrap_Correcty()
+        public void GetClass_Wrap_Correctly()
         {
             // Arrange
             this.underTest = Wrap.CanWrap;
@@ -50,7 +50,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_NoWrap_Correcty()
+        public void GetClass_NoWrap_Correctly()
         {
             // Arrange
             this.underTest = Wrap.NoWrap;
@@ -70,7 +70,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_RowReverse_Correcty()
+        public void GetClass_RowReverse_Correctly()
         {
             // Arrange
             this.underTest = Wrap.WrapReverse;
@@ -90,7 +90,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnMobile_SetsValue_Correcty()
+        public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnMobile();
@@ -110,7 +110,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnMobileAndLarger_SetsValue_Correcty()
+        public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnMobileAndLarger();
@@ -138,7 +138,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTablet_SetsValue_Correcty()
+        public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnTablet();
@@ -158,7 +158,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTabletAndLarger_SetsValue_Correcty()
+        public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnTabletAndLarger();
@@ -186,7 +186,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnTabletAndSmaller_SetsValue_Correcty()
+        public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnTabletAndSmaller();
@@ -214,7 +214,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktop_SetsValue_Correcty()
+        public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnDesktop();
@@ -234,7 +234,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktopAndLarger_SetsValue_Correcty()
+        public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnDesktopAndLarger();
@@ -262,7 +262,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnDesktopAndSmaller_SetsValue_Correcty()
+        public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnDesktopAndSmaller();
@@ -290,7 +290,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreen_SetsValue_Correcty()
+        public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnWidescreen();
@@ -310,7 +310,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreenAndLarger_SetsValue_Correcty()
+        public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnWidescreenAndLarger();
@@ -338,7 +338,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnWidescreenAndSmaller_SetsValue_Correcty()
+        public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnWidescreenAndSmaller();
@@ -366,7 +366,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnFullHD_SetsValue_Correcty()
+        public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnFullHD();
@@ -386,7 +386,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void OnFullHDAndSmaller_SetsValue_Correcty()
+        public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
             this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnFullHDAndSmaller();
