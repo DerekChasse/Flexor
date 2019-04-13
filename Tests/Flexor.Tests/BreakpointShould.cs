@@ -10,7 +10,7 @@ namespace Flexor.Tests
     public class BreakpointShould
     {
         [TestMethod]
-        public void Breakpoint_Equals_Return_True()
+        public void Equals_Return_True()
         {
             // Arrange 
             var bp1 = Breakpoint.Desktop;
@@ -24,7 +24,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void Breakpoint_Equals_Return_False()
+        public void Equals_Return_False()
         {
             // Arrange 
             var bp1 = Breakpoint.Desktop;
@@ -38,7 +38,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void Breakpoint_Object_Equals_Return_False()
+        public void Object_Equals_Return_False()
         {
             // Arrange 
             var bp1 = Breakpoint.Desktop;
@@ -52,7 +52,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void Breakpoint_Object_Equals_Return_True()
+        public void Object_Equals_Return_True()
         {
             // Arrange 
             var bp1 = Breakpoint.Desktop;
@@ -66,7 +66,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void Breakpoint_Operator_Equals_Return_True()
+        public void Operator_Equals_Return_True()
         {
             // Arrange 
             var bp1 = Breakpoint.Desktop;
@@ -80,7 +80,7 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void Breakpoint_Operator_NotEquals_Return_True()
+        public void Operator_NotEquals_Return_True()
         {
             // Arrange 
             var bp1 = Breakpoint.Desktop;

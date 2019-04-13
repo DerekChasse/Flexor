@@ -262,7 +262,7 @@ namespace Flexor
                 lineBuilder.Append("}");
             }
 
-            builder.AppendLine(lineBuilder.ToString());
+            builder.Append(lineBuilder.ToString());
 
             return className;
         }
