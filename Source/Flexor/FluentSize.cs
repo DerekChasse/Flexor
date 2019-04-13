@@ -45,8 +45,7 @@ namespace Flexor
     {
         private readonly Dictionary<Breakpoint, Measurement> breakpointDictionary = new Dictionary<Breakpoint, Measurement>();
         private readonly Lazy<string> lazyClass;
-        private readonly Lazy<string> lazyCss;
-        private readonly List<string> generatedCssClasses = new List<string>();
+        private readonly Lazy<IDictionary<string, string>> lazyCss;
 
         private Measurement valueToApply;
 
@@ -56,7 +55,7 @@ namespace Flexor
         public FluentSize()
         {
             this.lazyClass = new Lazy<string>(this.InitLazyClass);
-            this.lazyCss = new Lazy<string>(this.InitLazyCss);
+            this.lazyCss = new Lazy<IDictionary<string, string>>(this.InitLazyCss);
 
             this.breakpointDictionary.Add(Breakpoint.Mobile, default);
             this.breakpointDictionary.Add(Breakpoint.Tablet, default);
@@ -77,7 +76,7 @@ namespace Flexor
         public string Class => this.lazyClass.Value.Trim();
 
         /// <inheritdoc/>
-        public string Css => this.lazyCss.Value;
+        public IDictionary<string, string> Css => this.lazyCss.Value;
 
         /// <inheritdoc/>
         public IFluentSizeWithValueOnBreakpoint IsElement(decimal value)
@@ -219,18 +218,20 @@ namespace Flexor
             }
         }
 
-        private string InitLazyCss()
+        private IDictionary<string, string> InitLazyCss()
         {
-            StringBuilder builder = new StringBuilder();
+            Dictionary<string, string> cssDictionary = new Dictionary<string, string>();
 
             foreach (var kvp in this.breakpointDictionary.Where(pair => pair.Value != null))
             {
+                StringBuilder builder = new StringBuilder();
+
                 string className = this.BuildDynamicCssClass(builder, kvp.Key, kvp.Value);
 
-                this.generatedCssClasses.Add(className);
+                cssDictionary.Add(className, builder.ToString());
             }
 
-            return builder.ToString().Trim();
+            return cssDictionary;
         }
 
         private string InitLazyClass()
@@ -240,7 +241,7 @@ namespace Flexor
                 _ = this.lazyCss.Value;
             }
 
-            return string.Join(" ", this.generatedCssClasses);
+            return string.Join(" ", this.lazyCss.Value.Keys);
         }
 
         private string BuildDynamicCssClass(StringBuilder builder, Breakpoint breakpoint, Measurement sizingUnit)
@@ -252,7 +253,7 @@ namespace Flexor
                 lineBuilder.Append($"@media (min-width: {breakpoint.MinWidth}px) {{");
             }
 
-            string className = Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 12);
+            string className = $"flexor{breakpoint}-{sizingUnit.ToCssSuffix()}";
 
             lineBuilder.Append($".{className} {{-webkit-flex-basis: {sizingUnit}; flex-basis: {sizingUnit};}}");
 
@@ -275,6 +276,11 @@ namespace Flexor
             public override string ToString()
             {
                 return $"{this.Value.ToString()}{this.Unit}";
+            }
+
+            internal string ToCssSuffix()
+            {
+                return $"{this.Value.ToString()}-{this.Unit}".Replace("%", "percent");
             }
         }
     }

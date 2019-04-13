@@ -44,12 +44,17 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
-
-            underTestCss.Split(Environment.NewLine).Should()
-                .HaveCount(5)
+            underTestCss.Should()
+                .NotBeNull()
                 .And
-                .Match(lines => lines.All(line => Regex.Matches(line, "50px;").Count == 2));
+                .HaveCount(5);
+
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            underTestCss.Values.Should()
+                .Match(values => values.All(value => Regex.Matches(value, "50px;").Count == 2));
         }
 
         [TestMethod]
@@ -70,12 +75,17 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
-
-            underTestCss.Split(Environment.NewLine).Should()
-                .HaveCount(5)
+            underTestCss.Should()
+                .NotBeNull()
                 .And
-                .Match(lines => lines.All(line => Regex.Matches(line, "50%;").Count == 2));
+                .HaveCount(5);
+
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            underTestCss.Values.Should()
+                .Match(values => values.All(value => Regex.Matches(value, "50%;").Count == 2));
         }
 
         [TestMethod]
@@ -96,12 +106,17 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
-
-            underTestCss.Split(Environment.NewLine).Should()
-                .HaveCount(5)
+            underTestCss.Should()
+                .NotBeNull()
                 .And
-                .Match(lines => lines.All(line => Regex.Matches(line, "50em;").Count == 2));
+                .HaveCount(5);
+
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            underTestCss.Values.Should()
+                .Match(values => values.All(value => Regex.Matches(value, "50em;").Count == 2));
         }
 
         [TestMethod]
@@ -122,12 +137,17 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
-
-            underTestCss.Split(Environment.NewLine).Should()
-                .HaveCount(5)
+            underTestCss.Should()
+                .NotBeNull()
                 .And
-                .Match(lines => lines.All(line => Regex.Matches(line, "50vh;").Count == 2));
+                .HaveCount(5);
+
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            underTestCss.Values.Should()
+                .Match(values => values.All(value => Regex.Matches(value, "50vh;").Count == 2));
         }
 
         [TestMethod]
@@ -148,12 +168,17 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
-
-            underTestCss.Split(Environment.NewLine).Should()
-                .HaveCount(5)
+            underTestCss.Should()
+                .NotBeNull()
                 .And
-                .Match(lines => lines.All(line => Regex.Matches(line, "50vw;").Count == 2));
+                .HaveCount(5);
+
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            underTestCss.Values.Should()
+                .Match(values => values.All(value => Regex.Matches(value, "50vw;").Count == 2));
         }
 
         [TestMethod]
@@ -174,9 +199,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                .NotBeNull()
+                .And
+                .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
             
             lines.Should().HaveCount(5);
 
@@ -205,9 +237,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                .NotBeNull()
+                .And
+                .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
 
             lines.Should().HaveCount(5);
 
@@ -236,9 +275,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                .NotBeNull()
+                .And
+                .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
 
             lines.Should().HaveCount(5);
 
@@ -267,9 +313,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                 .NotBeNull()
+                 .And
+                 .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
 
             lines.Should().HaveCount(5);
 
@@ -298,9 +351,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                .NotBeNull()
+                .And
+                .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
 
             lines.Should().HaveCount(5);
 
@@ -329,9 +389,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                .NotBeNull()
+                .And
+                .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
 
             lines.Should().HaveCount(5);
 
@@ -360,9 +427,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                .NotBeNull()
+                .And
+                .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
 
             lines.Should().HaveCount(5);
 
@@ -391,9 +465,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                .NotBeNull()
+                .And
+                .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
 
             lines.Should().HaveCount(5);
 
@@ -422,9 +503,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                .NotBeNull()
+                .And
+                .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
 
             lines.Should().HaveCount(5);
 
@@ -453,9 +541,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                .NotBeNull()
+                .And
+                .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
 
             lines.Should().HaveCount(5);
 
@@ -484,9 +579,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                .NotBeNull()
+                .And
+                .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
 
             lines.Should().HaveCount(5);
 
@@ -514,9 +616,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                .NotBeNull()
+                .And
+                .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
 
             lines.Should().HaveCount(5);
 
@@ -547,9 +656,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems();
 
-            underTestCss.Should().NotBeNullOrWhiteSpace();
+            underTestCss.Should()
+                .NotBeNull()
+                .And
+                .HaveCount(5);
 
-            var lines = underTestCss.Split(Environment.NewLine);
+            underTestCss.Keys.Should()
+                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
+
+
+            var lines = underTestCss.Values.ToArray();
 
             lines.Should().HaveCount(5);
 

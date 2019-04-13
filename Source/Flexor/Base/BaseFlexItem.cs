@@ -69,7 +69,10 @@ namespace Flexor.Base
         {
             base.OnParametersSetAsync();
 
-            this.Interop.AddDynamicStyle(this.Size.Css);
+            foreach (var item in this.size.Css)
+            {
+                this.Interop.AddDynamicStyle(item.Key, item.Value);
+            }
 
             return Task.CompletedTask;
         }

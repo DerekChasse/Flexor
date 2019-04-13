@@ -15,8 +15,9 @@ namespace Flexor
         /// <summary>
         /// Adds new CSS classes dynamically to the page.
         /// </summary>
-        /// <param name="rawCSS">The CSS classes to add to the page.</param>
-        Task AddDynamicStyle(string rawCSS);
+        /// <param name="className">The name of the CSS class to add.</param>
+        /// <param name="classCSS">The CSS class to add to the page.</param>
+        Task AddDynamicStyle(string className, string classCSS);
     }
 
     /// <summary>
@@ -36,9 +37,9 @@ namespace Flexor
         }
 
         /// <inheritdoc/>
-        public Task AddDynamicStyle(string rawCSS)
+        public Task AddDynamicStyle(string className, string classCSS)
         {
-            return this.runtime.InvokeAsync<object>("flexor.addDynamicStyle", rawCSS);
+            return this.runtime.InvokeAsync<object>("flexor.addDynamicStyle", className, classCSS);
         }
     }
 }

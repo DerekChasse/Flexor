@@ -2,6 +2,8 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System.Collections.Generic;
+
 namespace Flexor
 {
     /// <summary>
@@ -23,6 +25,6 @@ namespace Flexor
         /// <summary>
         /// Gets the dynamic CSS definition.
         /// </summary>
-        string Css { get; }
+        IDictionary<string, string> Css { get; }
     }
 }
