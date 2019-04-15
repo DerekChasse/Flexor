@@ -194,8 +194,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-row")
-                .And
                 .HaveElementAt(1, "flex-sm-column")
                 .And
                 .HaveElementAt(2, "flex-md-column")
@@ -224,13 +222,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(0, "flex-column")
                 .And
-                .HaveElementAt(1, "flex-sm-column")
-                .And
-                .HaveElementAt(2, "flex-md-row")
-                .And
-                .HaveElementAt(3, "flex-lg-row")
-                .And
-                .HaveElementAt(4, "flex-xl-row");
+                .HaveElementAt(1, "flex-sm-column");
         }
 
         [TestMethod]
@@ -270,10 +262,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-row")
-                .And
-                .HaveElementAt(1, "flex-sm-row")
-                .And
                 .HaveElementAt(2, "flex-md-column")
                 .And
                 .HaveElementAt(3, "flex-lg-column")
@@ -302,11 +290,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-md-column")
-                .And
-                .HaveElementAt(3, "flex-lg-row")
-                .And
-                .HaveElementAt(4, "flex-xl-row");
+                .HaveElementAt(2, "flex-md-column");
         }
 
         [TestMethod]
@@ -346,12 +330,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-row")
-                .And
-                .HaveElementAt(1, "flex-sm-row")
-                .And
-                .HaveElementAt(2, "flex-md-row")
-                .And
                 .HaveElementAt(3, "flex-lg-column")
                 .And
                 .HaveElementAt(4, "flex-xl-column");
@@ -380,9 +358,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-lg-column")
-                .And
-                .HaveElementAt(4, "flex-xl-row");
+                .HaveElementAt(3, "flex-lg-column");
         }
 
         [TestMethod]

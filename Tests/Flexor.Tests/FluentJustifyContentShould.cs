@@ -214,8 +214,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "justify-content-center")
-                .And
                 .HaveElementAt(1, "justify-content-sm-start")
                 .And
                 .HaveElementAt(2, "justify-content-md-start")
@@ -244,13 +242,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(0, "justify-content-start")
                 .And
-                .HaveElementAt(1, "justify-content-sm-start")
-                .And
-                .HaveElementAt(2, "justify-content-md-center")
-                .And
-                .HaveElementAt(3, "justify-content-lg-center")
-                .And
-                .HaveElementAt(4, "justify-content-xl-center");
+                .HaveElementAt(1, "justify-content-sm-start");
         }
 
         [TestMethod]
@@ -290,10 +282,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "justify-content-center")
-                .And
-                .HaveElementAt(1, "justify-content-sm-center")
-                .And
                 .HaveElementAt(2, "justify-content-md-start")
                 .And
                 .HaveElementAt(3, "justify-content-lg-start")
@@ -322,11 +310,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(1, "justify-content-sm-start")
                 .And
-                .HaveElementAt(2, "justify-content-md-start")
-                .And
-                .HaveElementAt(3, "justify-content-lg-center")
-                .And
-                .HaveElementAt(4, "justify-content-xl-center");
+                .HaveElementAt(2, "justify-content-md-start");
         }
 
         [TestMethod]
@@ -366,12 +350,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "justify-content-center")
-                .And
-                .HaveElementAt(1, "justify-content-sm-center")
-                .And
-                .HaveElementAt(2, "justify-content-md-center")
-                .And
                 .HaveElementAt(3, "justify-content-lg-start")
                 .And
                 .HaveElementAt(4, "justify-content-xl-start");
@@ -400,9 +378,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(2, "justify-content-md-start")
                 .And
-                .HaveElementAt(3, "justify-content-lg-start")
-                .And
-                .HaveElementAt(4, "justify-content-xl-center");
+                .HaveElementAt(3, "justify-content-lg-start");
         }
 
         [TestMethod]

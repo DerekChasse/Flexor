@@ -420,8 +420,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "order-4")
-                .And
                 .HaveElementAt(1, "order-sm-7")
                 .And
                 .HaveElementAt(2, "order-md-7")
@@ -450,13 +448,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(0, "order-7")
                 .And
-                .HaveElementAt(1, "order-sm-7")
-                .And
-                .HaveElementAt(2, "order-md-4")
-                .And
-                .HaveElementAt(3, "order-lg-4")
-                .And
-                .HaveElementAt(4, "order-xl-4");
+                .HaveElementAt(1, "order-sm-7");
         }
 
         [TestMethod]
@@ -496,10 +488,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "order-4")
-                .And
-                .HaveElementAt(1, "order-sm-4")
-                .And
                 .HaveElementAt(2, "order-md-7")
                 .And
                 .HaveElementAt(3, "order-lg-7")
@@ -528,11 +516,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(1, "order-sm-7")
                 .And
-                .HaveElementAt(2, "order-md-7")
-                .And
-                .HaveElementAt(3, "order-lg-4")
-                .And
-                .HaveElementAt(4, "order-xl-4");
+                .HaveElementAt(2, "order-md-7");
         }
 
         [TestMethod]
@@ -572,12 +556,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "order-4")
-                .And
-                .HaveElementAt(1, "order-sm-4")
-                .And
-                .HaveElementAt(2, "order-md-4")
-                .And
                 .HaveElementAt(3, "order-lg-7")
                 .And
                 .HaveElementAt(4, "order-xl-7");
@@ -606,9 +584,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(2, "order-md-7")
                 .And
-                .HaveElementAt(3, "order-lg-7")
-                .And
-                .HaveElementAt(4, "order-xl-4");
+                .HaveElementAt(3, "order-lg-7");
         }
 
         [TestMethod]

@@ -174,8 +174,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-nowrap")
-                .And
                 .HaveElementAt(1, "flex-sm-wrap-reverse")
                 .And
                 .HaveElementAt(2, "flex-md-wrap-reverse")
@@ -204,13 +202,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(0, "flex-wrap-reverse")
                 .And
-                .HaveElementAt(1, "flex-sm-wrap-reverse")
-                .And
-                .HaveElementAt(2, "flex-md-nowrap")
-                .And
-                .HaveElementAt(3, "flex-lg-nowrap")
-                .And
-                .HaveElementAt(4, "flex-xl-nowrap");
+                .HaveElementAt(1, "flex-sm-wrap-reverse");
         }
 
         [TestMethod]
@@ -250,10 +242,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-nowrap")
-                .And
-                .HaveElementAt(1, "flex-sm-nowrap")
-                .And
                 .HaveElementAt(2, "flex-md-wrap-reverse")
                 .And
                 .HaveElementAt(3, "flex-lg-wrap-reverse")
@@ -282,11 +270,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(1, "flex-sm-wrap-reverse")
                 .And
-                .HaveElementAt(2, "flex-md-wrap-reverse")
-                .And
-                .HaveElementAt(3, "flex-lg-nowrap")
-                .And
-                .HaveElementAt(4, "flex-xl-nowrap");
+                .HaveElementAt(2, "flex-md-wrap-reverse");
         }
 
         [TestMethod]
@@ -326,12 +310,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-nowrap")
-                .And
-                .HaveElementAt(1, "flex-sm-nowrap")
-                .And
-                .HaveElementAt(2, "flex-md-nowrap")
-                .And
                 .HaveElementAt(3, "flex-lg-wrap-reverse")
                 .And
                 .HaveElementAt(4, "flex-xl-wrap-reverse");
@@ -360,9 +338,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(2, "flex-md-wrap-reverse")
                 .And
-                .HaveElementAt(3, "flex-lg-wrap-reverse")
-                .And
-                .HaveElementAt(4, "flex-xl-nowrap");
+                .HaveElementAt(3, "flex-lg-wrap-reverse";
         }
 
         [TestMethod]

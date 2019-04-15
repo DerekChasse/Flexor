@@ -213,10 +213,6 @@ namespace Flexor.Tests
             lines.Should().HaveCount(5);
 
             lines[0].Should().Match(line => Regex.Matches(line, "75%;").Count == 2);
-            lines[1].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[2].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[3].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[4].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
         }
 
         [TestMethod]
@@ -288,11 +284,7 @@ namespace Flexor.Tests
 
             lines.Should().HaveCount(5);
 
-            lines[0].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
             lines[1].Should().Match(line => Regex.Matches(line, "5em;").Count == 2);
-            lines[2].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[3].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[4].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
         }
 
         [TestMethod]
@@ -326,7 +318,6 @@ namespace Flexor.Tests
 
             lines.Should().HaveCount(5);
 
-            lines[0].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
             lines[1].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
             lines[2].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
             lines[3].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
@@ -366,9 +357,6 @@ namespace Flexor.Tests
 
             lines[0].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
             lines[1].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
-            lines[2].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[3].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[4].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
         }
 
         [TestMethod]
@@ -402,11 +390,7 @@ namespace Flexor.Tests
 
             lines.Should().HaveCount(5);
 
-            lines[0].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[1].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
             lines[2].Should().Match(line => Regex.Matches(line, "75em;").Count == 2);
-            lines[3].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[4].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
         }
 
         [TestMethod]
@@ -440,8 +424,6 @@ namespace Flexor.Tests
 
             lines.Should().HaveCount(5);
 
-            lines[0].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[1].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
             lines[2].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
             lines[3].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
             lines[4].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
@@ -481,8 +463,6 @@ namespace Flexor.Tests
             lines[0].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
             lines[1].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
             lines[2].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
-            lines[3].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[4].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
         }
 
         [TestMethod]
@@ -516,11 +496,7 @@ namespace Flexor.Tests
 
             lines.Should().HaveCount(5);
 
-            lines[0].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[1].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[2].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
             lines[3].Should().Match(line => Regex.Matches(line, "75vh;").Count == 2);
-            lines[4].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
         }
 
         [TestMethod]
@@ -554,9 +530,6 @@ namespace Flexor.Tests
 
             lines.Should().HaveCount(5);
 
-            lines[0].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[1].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[2].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
             lines[3].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
             lines[4].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
         }
@@ -596,7 +569,6 @@ namespace Flexor.Tests
             lines[1].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
             lines[2].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
             lines[3].Should().Match(line => Regex.Matches(line, "75px;").Count == 2);
-            lines[4].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
         }
 
         [TestMethod]
@@ -629,10 +601,6 @@ namespace Flexor.Tests
 
             lines.Should().HaveCount(5);
 
-            lines[0].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[1].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[2].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
-            lines[3].Should().Match(line => Regex.Matches(line, "50px;").Count == 2);
             lines[4].Should().Match(line => Regex.Matches(line, "75vw;").Count == 2);
         }
 

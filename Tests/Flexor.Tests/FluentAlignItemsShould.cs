@@ -334,8 +334,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-stretch")
-                .And
                 .HaveElementAt(1, "align-items-sm-start")
                 .And
                 .HaveElementAt(2, "align-items-md-start")
@@ -364,13 +362,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(0, "align-items-start")
                 .And
-                .HaveElementAt(1, "align-items-sm-start")
-                .And
-                .HaveElementAt(2, "align-items-md-stretch")
-                .And
-                .HaveElementAt(3, "align-items-lg-stretch")
-                .And
-                .HaveElementAt(4, "align-items-xl-stretch");
+                .HaveElementAt(1, "align-items-sm-start");
         }
 
         [TestMethod]
@@ -410,10 +402,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-stretch")
-                .And
-                .HaveElementAt(1, "align-items-sm-stretch")
-                .And
                 .HaveElementAt(2, "align-items-md-start")
                 .And
                 .HaveElementAt(3, "align-items-lg-start")
@@ -442,11 +430,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(1, "align-items-sm-start")
                 .And
-                .HaveElementAt(2, "align-items-md-start")
-                .And
-                .HaveElementAt(3, "align-items-lg-stretch")
-                .And
-                .HaveElementAt(4, "align-items-xl-stretch");
+                .HaveElementAt(2, "align-items-md-start");
         }
 
         [TestMethod]
@@ -486,12 +470,6 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-stretch")
-                .And
-                .HaveElementAt(1, "align-items-sm-stretch")
-                .And
-                .HaveElementAt(2, "align-items-md-stretch")
-                .And
                 .HaveElementAt(3, "align-items-lg-start")
                 .And
                 .HaveElementAt(4, "align-items-xl-start");
@@ -520,9 +498,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(2, "align-items-md-start")
                 .And
-                .HaveElementAt(3, "align-items-lg-start")
-                .And
-                .HaveElementAt(4, "align-items-xl-stretch");
+                .HaveElementAt(3, "align-items-lg-start");
         }
 
         [TestMethod]
