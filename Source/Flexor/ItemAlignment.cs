@@ -45,6 +45,6 @@ namespace Flexor
         /// </summary>
         /// <param name="value">The default item alignment.</param>
         /// <returns>The item alignment configuration.</returns>
-        public static IFluentAlignItemsWithValueOnBreakpoint Is(ItemAlignmentOption value) => new FluentAlignItems(value);
+        public static IFluentAlignItemsWithValueOnBreakpoint Is(ItemAlignmentOption value) => new FluentAlignItems().Is(value);
     }
 }

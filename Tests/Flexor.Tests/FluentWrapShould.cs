@@ -93,7 +93,7 @@ namespace Flexor.Tests
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnMobile();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -113,7 +113,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnMobileAndLarger();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnMobileAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -141,7 +141,7 @@ namespace Flexor.Tests
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnTablet();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnTablet();
 
             // Act
             var underTestClass = underTest.Class;
@@ -161,7 +161,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnTabletAndLarger();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnTabletAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -187,7 +187,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnTabletAndSmaller();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnTabletAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -209,7 +209,7 @@ namespace Flexor.Tests
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnDesktop();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnDesktop();
 
             // Act
             var underTestClass = underTest.Class;
@@ -229,7 +229,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnDesktopAndLarger();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnDesktopAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -253,7 +253,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnDesktopAndSmaller();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnDesktopAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -277,7 +277,7 @@ namespace Flexor.Tests
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnWidescreen();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnWidescreen();
 
             // Act
             var underTestClass = underTest.Class;
@@ -297,7 +297,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnWidescreenAndLarger();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnWidescreenAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -319,7 +319,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnWidescreenAndSmaller();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnWidescreenAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -345,7 +345,7 @@ namespace Flexor.Tests
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnFullHD();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnFullHD();
 
             // Act
             var underTestClass = underTest.Class;
@@ -365,7 +365,326 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.NoWrap).OnMobileAndLarger().Is(WrapOption.WrapReverse).OnFullHDAndSmaller();
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnFullHDAndSmaller();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-wrap-reverse")
+                .And
+                .HaveElementAt(1, "flex-sm-wrap-reverse")
+                .And
+                .HaveElementAt(2, "flex-md-wrap-reverse")
+                .And
+                .HaveElementAt(3, "flex-lg-wrap-reverse")
+                .And
+                .HaveElementAt(4, "flex-xl-wrap-reverse");
+        }
+
+
+        [TestMethod]
+        public void OnMobile_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(1, "flex-sm-nowrap")
+                .And
+                .HaveElementAt(2, "flex-md-nowrap")
+                .And
+                .HaveElementAt(3, "flex-lg-nowrap")
+                .And
+                .HaveElementAt(4, "flex-xl-nowrap");
+        }
+
+        [TestMethod]
+        public void OnMobileAndLarger_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnMobileAndLarger();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-wrap-reverse")
+                .And
+                .HaveElementAt(1, "flex-sm-wrap-reverse")
+                .And
+                .HaveElementAt(2, "flex-md-wrap-reverse")
+                .And
+                .HaveElementAt(3, "flex-lg-wrap-reverse")
+                .And
+                .HaveElementAt(4, "flex-xl-wrap-reverse");
+        }
+
+        [TestMethod]
+        public void OnTablet_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnTablet();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-nowrap")
+                .And
+                .HaveElementAt(2, "flex-md-nowrap")
+                .And
+                .HaveElementAt(3, "flex-lg-nowrap")
+                .And
+                .HaveElementAt(4, "flex-xl-nowrap");
+        }
+
+        [TestMethod]
+        public void OnTabletAndLarger_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnTabletAndLarger();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-nowrap");
+        }
+
+        [TestMethod]
+        public void OnTabletAndSmaller_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnTabletAndSmaller();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(2, "flex-md-nowrap")
+                .And
+                .HaveElementAt(3, "flex-lg-nowrap")
+                .And
+                .HaveElementAt(4, "flex-xl-nowrap");
+        }
+
+        [TestMethod]
+        public void OnDesktop_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnDesktop();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-nowrap")
+                .And
+                .HaveElementAt(1, "flex-sm-nowrap")
+                .And
+                .HaveElementAt(3, "flex-lg-nowrap")
+                .And
+                .HaveElementAt(4, "flex-xl-nowrap");
+        }
+
+        [TestMethod]
+        public void OnDesktopAndLarger_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnDesktopAndLarger();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-nowrap")
+                .And
+                .HaveElementAt(1, "flex-sm-nowrap");
+        }
+
+        [TestMethod]
+        public void OnDesktopAndSmaller_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnDesktopAndSmaller();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(3, "flex-lg-nowrap")
+                .And
+                .HaveElementAt(4, "flex-xl-nowrap");
+        }
+
+        [TestMethod]
+        public void OnWidescreen_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnWidescreen();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-nowrap")
+                .And
+                .HaveElementAt(1, "flex-sm-nowrap")
+                .And
+                .HaveElementAt(2, "flex-md-nowrap")
+                .And
+                .HaveElementAt(4, "flex-xl-nowrap");
+        }
+
+        [TestMethod]
+        public void OnWidescreenAndLarger_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnWidescreenAndLarger();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-nowrap")
+                .And
+                .HaveElementAt(1, "flex-sm-nowrap")
+                .And
+                .HaveElementAt(2, "flex-md-nowrap");
+        }
+
+        [TestMethod]
+        public void OnWidescreenAndSmaller_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnWidescreenAndSmaller();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(4, "flex-xl-nowrap");
+        }
+
+        [TestMethod]
+        public void OnFullHD_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnFullHD();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-nowrap")
+                .And
+                .HaveElementAt(1, "flex-sm-nowrap")
+                .And
+                .HaveElementAt(2, "flex-md-nowrap")
+                .And
+                .HaveElementAt(3, "flex-lg-nowrap");
+        }
+
+        [TestMethod]
+        public void OnFullHDAndSmaller_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnFullHDAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;

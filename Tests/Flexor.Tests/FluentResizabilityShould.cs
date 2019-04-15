@@ -133,7 +133,7 @@ namespace Flexor.Tests
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanNotGrow().OnMobile();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -153,7 +153,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnMobileAndLarger();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnMobileAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -166,22 +166,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-grow")
+                .HaveElementAt(0, "flex-resize-nogrow")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-grow")
+                .HaveElementAt(1, "flex-resize-sm-nogrow")
                 .And
-                .HaveElementAt(2, "flex-resize-md-grow")
+                .HaveElementAt(2, "flex-resize-md-nogrow")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-grow")
+                .HaveElementAt(3, "flex-resize-lg-nogrow")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-grow");
+                .HaveElementAt(4, "flex-resize-xl-nogrow");
         }
 
         [TestMethod]
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanNotShrink().OnTablet();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTablet();
 
             // Act
             var underTestClass = underTest.Class;
@@ -194,14 +194,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(1, "flex-resize-sm-noshrink");
+                .HaveElementAt(1, "flex-resize-sm-nogrow");
         }
 
         [TestMethod]
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnTabletAndLarger();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTabletAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -214,20 +214,20 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(1, "flex-resize-sm-grow")
+                .HaveElementAt(1, "flex-resize-sm-nogrow")
                 .And
-                .HaveElementAt(2, "flex-resize-md-grow")
+                .HaveElementAt(2, "flex-resize-md-nogrow")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-grow")
+                .HaveElementAt(3, "flex-resize-lg-nogrow")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-grow");
+                .HaveElementAt(4, "flex-resize-xl-nogrow");
         }
 
         [TestMethod]
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnTabletAndSmaller();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTabletAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -240,16 +240,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-grow")
+                .HaveElementAt(0, "flex-resize-nogrow")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-grow");
+                .HaveElementAt(1, "flex-resize-sm-nogrow");
         }
 
         [TestMethod]
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnDesktop();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktop();
 
             // Act
             var underTestClass = underTest.Class;
@@ -262,14 +262,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(2, "flex-resize-md-grow");
+                .HaveElementAt(2, "flex-resize-md-nogrow");
         }
 
         [TestMethod]
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnDesktopAndLarger();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktopAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -282,18 +282,18 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(2, "flex-resize-md-grow")
+                .HaveElementAt(2, "flex-resize-md-nogrow")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-grow")
+                .HaveElementAt(3, "flex-resize-lg-nogrow")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-grow");
+                .HaveElementAt(4, "flex-resize-xl-nogrow");
         }
 
         [TestMethod]
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnDesktopAndSmaller();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktopAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -306,18 +306,18 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-grow")
+                .HaveElementAt(0, "flex-resize-nogrow")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-grow")
+                .HaveElementAt(1, "flex-resize-sm-nogrow")
                 .And
-                .HaveElementAt(2, "flex-resize-md-grow");
+                .HaveElementAt(2, "flex-resize-md-nogrow");
         }
 
         [TestMethod]
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().IsInitial().OnWidescreen();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreen();
 
             // Act
             var underTestClass = underTest.Class;
@@ -330,14 +330,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(3, "flex-resize-lg-none");
+                .HaveElementAt(3, "flex-resize-lg-nogrow");
         }
 
         [TestMethod]
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnWidescreenAndLarger();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreenAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -350,16 +350,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(3, "flex-resize-lg-grow")
+                .HaveElementAt(3, "flex-resize-lg-nogrow")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-grow");
+                .HaveElementAt(4, "flex-resize-xl-nogrow");
         }
 
         [TestMethod]
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnWidescreenAndSmaller();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreenAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -372,20 +372,20 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-grow")
+                .HaveElementAt(0, "flex-resize-nogrow")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-grow")
+                .HaveElementAt(1, "flex-resize-sm-nogrow")
                 .And
-                .HaveElementAt(2, "flex-resize-md-grow")
+                .HaveElementAt(2, "flex-resize-md-nogrow")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-grow");
+                .HaveElementAt(3, "flex-resize-lg-nogrow");
         }
 
         [TestMethod]
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().IsAutomatic().OnFullHD();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnFullHD();
 
             // Act
             var underTestClass = underTest.Class;
@@ -398,14 +398,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(4, "flex-resize-xl-auto");
+                .HaveElementAt(4, "flex-resize-xl-nogrow");
         }
 
         [TestMethod]
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.Auto).OnMobileAndLarger().CanGrow().OnFullHDAndSmaller();
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnFullHDAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -418,15 +418,382 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-grow")
+                .HaveElementAt(0, "flex-resize-nogrow")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-grow")
+                .HaveElementAt(1, "flex-resize-sm-nogrow")
                 .And
-                .HaveElementAt(2, "flex-resize-md-grow")
+                .HaveElementAt(2, "flex-resize-md-nogrow")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-grow")
+                .HaveElementAt(3, "flex-resize-lg-nogrow")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-grow");
+                .HaveElementAt(4, "flex-resize-xl-nogrow");
         }
+
+
+
+        [TestMethod]
+        public void OnMobile_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-nogrow")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-auto")
+                .And
+                .HaveElementAt(2, "flex-resize-md-auto")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-auto")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-auto");
+        }
+
+        [TestMethod]
+        public void OnMobileAndLarger_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnMobileAndLarger();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-nogrow")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .And
+                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-nogrow");
+        }
+
+        [TestMethod]
+        public void OnTablet_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTablet();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-auto")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .And
+                .HaveElementAt(2, "flex-resize-md-auto")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-auto")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-auto");
+        }
+
+        [TestMethod]
+        public void OnTabletAndLarger_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTabletAndLarger();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-auto")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .And
+                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-nogrow");
+        }
+
+        [TestMethod]
+        public void OnTabletAndSmaller_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTabletAndSmaller();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-nogrow")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .And
+                .HaveElementAt(2, "flex-resize-md-auto")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-auto")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-auto");
+        }
+
+        [TestMethod]
+        public void OnDesktop_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktop();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-auto")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-auto")
+                .And
+                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-auto")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-auto");
+        }
+
+        [TestMethod]
+        public void OnDesktopAndLarger_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktopAndLarger();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-auto")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-auto")
+                .And
+                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-nogrow");
+        }
+
+        [TestMethod]
+        public void OnDesktopAndSmaller_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktopAndSmaller();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-nogrow")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .And
+                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-auto")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-auto");
+        }
+
+        [TestMethod]
+        public void OnWidescreen_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreen();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-auto")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-auto")
+                .And
+                .HaveElementAt(2, "flex-resize-md-auto")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-auto");
+        }
+
+        [TestMethod]
+        public void OnWidescreenAndLarger_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreenAndLarger();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-auto")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-auto")
+                .And
+                .HaveElementAt(2, "flex-resize-md-auto")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-nogrow");
+        }
+
+        [TestMethod]
+        public void OnWidescreenAndSmaller_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreenAndSmaller();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-nogrow")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .And
+                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-auto");
+        }
+
+        [TestMethod]
+        public void OnFullHD_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnFullHD();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-auto")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-auto")
+                .And
+                .HaveElementAt(2, "flex-resize-md-auto")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-auto")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-nogrow");
+        }
+
+        [TestMethod]
+        public void OnFullHDAndSmaller_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnFullHDAndSmaller();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "flex-resize-nogrow")
+                .And
+                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .And
+                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .And
+                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .And
+                .HaveElementAt(4, "flex-resize-xl-nogrow");
+        }
+
     }
 }

@@ -40,11 +40,11 @@ namespace Flexor
         public static IAlignItems Baseline => new FluentAlignItems(ItemAlignmentOption.Baseline);
 
         /// <summary>
-        /// The individual item is rendered by default according to the supplied item alignment.
+        /// The individual item will be rendered and configured with the supplied item alignment.
         /// Rendering is configurable based on CSS media query breakpoints.
         /// </summary>
         /// <param name="value">The default item alignment.</param>
         /// <returns>The item alignment configuration.</returns>
-        public static IFluentAlignItemsWithValueOnBreakpoint Is(ItemAlignmentOption value) => new FluentAlignItems(value);
+        public static IFluentAlignItemsWithValueOnBreakpoint Is(ItemAlignmentOption value) => new FluentAlignItems().Is(value);
     }
 }

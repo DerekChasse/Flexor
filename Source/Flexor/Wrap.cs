@@ -30,6 +30,6 @@ namespace Flexor
         /// </summary>
         /// <param name="value">The order of the item.</param>
         /// <returns>The order configuration.</returns>
-        public static IFluentWrapWithValueOnBreakpoint Is(WrapOption value) => new FluentWrap(value);
+        public static IFluentWrapWithValueOnBreakpoint Is(WrapOption value) => new FluentWrap().Is(value);
     }
 }

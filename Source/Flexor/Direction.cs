@@ -34,11 +34,11 @@ namespace Flexor
         public static IDirection ColumnReverse => new FluentFlexDirection(DirectionOption.ColumnReverse);
 
         /// <summary>
-        /// Flex items are rendered by default according to the supplied direction.
+        /// Flex items will be rendered and configured with the supplied direction.
         /// Rendering is configurable based on CSS media query breakpoints.
         /// </summary>
         /// <param name="direction">The default direction.</param>
         /// <returns>The flex direction configuration.</returns>
-        public static IFluentFlexDirectionWithValueOnBreakpoint Is(DirectionOption direction) => new FluentFlexDirection(direction);
+        public static IFluentFlexDirectionWithValueOnBreakpoint Is(DirectionOption direction) => new FluentFlexDirection().Is(direction);
     }
 }

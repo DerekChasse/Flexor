@@ -16,6 +16,8 @@ namespace Flexor
     {
         ////TODO: Add Fill
 
+        IFluentResizabilityWithValueOnBreakpoint Is(ResizabilityOption value);
+
         IFluentResizabilityWithValueOnBreakpoint IsAutomatic();
 
         IFluentResizabilityWithValueOnBreakpoint IsInitial();
@@ -69,35 +71,37 @@ namespace Flexor
         /// <inheritdoc/>
         public IFluentResizabilityWithValueOnBreakpoint CanGrow()
         {
-            this.valueToApply = ResizabilityOption.Grow;
-            return this;
+            return this.Is(ResizabilityOption.Grow);
         }
 
         /// <inheritdoc/>
         public IFluentResizabilityWithValueOnBreakpoint CanNotGrow()
         {
-            this.valueToApply = ResizabilityOption.NoGrow;
-            return this;
+            return this.Is(ResizabilityOption.NoGrow);
         }
 
         /// <inheritdoc/>
         public IFluentResizabilityWithValueOnBreakpoint CanNotShrink()
         {
-            this.valueToApply = ResizabilityOption.NoShrink;
-            return this;
+            return this.Is(ResizabilityOption.NoShrink);
         }
 
         /// <inheritdoc/>
         public IFluentResizabilityWithValueOnBreakpoint IsAutomatic()
         {
-            this.valueToApply = ResizabilityOption.Auto;
-            return this;
+            return this.Is(ResizabilityOption.Auto);
         }
 
         /// <inheritdoc/>
         public IFluentResizabilityWithValueOnBreakpoint IsInitial()
         {
-            this.valueToApply = ResizabilityOption.None;
+            return this.Is(ResizabilityOption.None);
+        }
+
+        /// <inheritdoc/>
+        public IFluentResizabilityWithValueOnBreakpoint Is(ResizabilityOption value)
+        {
+            this.valueToApply = value;
             return this;
         }
 

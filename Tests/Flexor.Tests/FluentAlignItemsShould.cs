@@ -253,7 +253,7 @@ namespace Flexor.Tests
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnMobile();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -273,7 +273,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnMobileAndLarger();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnMobileAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -301,7 +301,7 @@ namespace Flexor.Tests
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnTablet();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnTablet();
 
             // Act
             var underTestClass = underTest.Class;
@@ -321,7 +321,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnTabletAndLarger();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnTabletAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -347,7 +347,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnTabletAndSmaller();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnTabletAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -369,7 +369,7 @@ namespace Flexor.Tests
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnDesktop();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnDesktop();
 
             // Act
             var underTestClass = underTest.Class;
@@ -389,7 +389,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnDesktopAndLarger();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnDesktopAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -413,7 +413,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnDesktopAndSmaller();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnDesktopAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -437,7 +437,7 @@ namespace Flexor.Tests
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnWidescreen();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnWidescreen();
 
             // Act
             var underTestClass = underTest.Class;
@@ -457,7 +457,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnWidescreenAndLarger();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnWidescreenAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -479,7 +479,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnWidescreenAndSmaller();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnWidescreenAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -505,7 +505,7 @@ namespace Flexor.Tests
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnFullHD();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnFullHD();
 
             // Act
             var underTestClass = underTest.Class;
@@ -525,7 +525,371 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Stretch).OnMobileAndLarger().Is(ItemAlignmentOption.Start).OnFullHDAndSmaller();
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnFullHDAndSmaller();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "align-items-start")
+                .And
+                .HaveElementAt(1, "align-items-sm-start")
+                .And
+                .HaveElementAt(2, "align-items-md-start")
+                .And
+                .HaveElementAt(3, "align-items-lg-start")
+                .And
+                .HaveElementAt(4, "align-items-xl-start");
+        }
+
+        [TestMethod]
+        public void OnMobile_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnMobile();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "align-items-start")
+                .And
+                .HaveElementAt(1, "align-items-sm-stretch")
+                .And
+                .HaveElementAt(2, "align-items-md-stretch")
+                .And
+                .HaveElementAt(3, "align-items-lg-stretch")
+                .And
+                .HaveElementAt(4, "align-items-xl-stretch");
+        }
+
+        [TestMethod]
+        public void OnMobileAndLarger_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnMobileAndLarger();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "align-items-start")
+                .And
+                .HaveElementAt(1, "align-items-sm-start")
+                .And
+                .HaveElementAt(2, "align-items-md-start")
+                .And
+                .HaveElementAt(3, "align-items-lg-start")
+                .And
+                .HaveElementAt(4, "align-items-xl-start");
+        }
+
+        [TestMethod]
+        public void OnTablet_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnTablet();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "align-items-stretch")
+                .And
+                .HaveElementAt(1, "align-items-sm-start")
+                .And
+                .HaveElementAt(2, "align-items-md-stretch")
+                .And
+                .HaveElementAt(3, "align-items-lg-stretch")
+                .And
+                .HaveElementAt(4, "align-items-xl-stretch");
+        }
+
+        [TestMethod]
+        public void OnTabletAndLarger_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnTabletAndLarger();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "align-items-stretch")
+                .And
+                .HaveElementAt(1, "align-items-sm-start")
+                .And
+                .HaveElementAt(2, "align-items-md-start")
+                .And
+                .HaveElementAt(3, "align-items-lg-start")
+                .And
+                .HaveElementAt(4, "align-items-xl-start");
+        }
+
+        [TestMethod]
+        public void OnTabletAndSmaller_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnTabletAndSmaller();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .HaveElementAt(0, "align-items-start")
+                .And
+                .HaveElementAt(1, "align-items-sm-start")
+                .And
+                .HaveElementAt(2, "align-items-md-stretch")
+                .And
+                .HaveElementAt(3, "align-items-lg-stretch")
+                .And
+                .HaveElementAt(4, "align-items-xl-stretch");
+        }
+
+        [TestMethod]
+        public void OnDesktop_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnDesktop();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+               .HaveCount(5)
+               .And
+               .OnlyHaveUniqueItems()
+               .And
+               .HaveElementAt(0, "align-items-stretch")
+               .And
+               .HaveElementAt(1, "align-items-sm-stretch")
+               .And
+               .HaveElementAt(2, "align-items-md-start")
+               .And
+               .HaveElementAt(3, "align-items-lg-stretch")
+               .And
+               .HaveElementAt(4, "align-items-xl-stretch");
+        }
+
+        [TestMethod]
+        public void OnDesktopAndLarger_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnDesktopAndLarger();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+               .HaveCount(5)
+               .And
+               .OnlyHaveUniqueItems()
+               .And
+               .HaveElementAt(0, "align-items-stretch")
+               .And
+               .HaveElementAt(1, "align-items-sm-stretch")
+               .And
+               .HaveElementAt(2, "align-items-md-start")
+               .And
+               .HaveElementAt(3, "align-items-lg-start")
+               .And
+               .HaveElementAt(4, "align-items-xl-start");
+        }
+
+        [TestMethod]
+        public void OnDesktopAndSmaller_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnDesktopAndSmaller();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+              .HaveCount(5)
+              .And
+              .OnlyHaveUniqueItems()
+              .And
+              .HaveElementAt(0, "align-items-start")
+              .And
+              .HaveElementAt(1, "align-items-sm-start")
+              .And
+              .HaveElementAt(2, "align-items-md-start")
+              .And
+              .HaveElementAt(3, "align-items-lg-stretch")
+              .And
+              .HaveElementAt(4, "align-items-xl-stretch");
+        }
+
+        [TestMethod]
+        public void OnWidescreen_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnWidescreen();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+              .HaveCount(5)
+              .And
+              .OnlyHaveUniqueItems()
+              .And
+              .HaveElementAt(0, "align-items-stretch")
+              .And
+              .HaveElementAt(1, "align-items-sm-stretch")
+              .And
+              .HaveElementAt(2, "align-items-md-stretch")
+              .And
+              .HaveElementAt(3, "align-items-lg-start")
+              .And
+              .HaveElementAt(4, "align-items-xl-stretch");
+        }
+
+        [TestMethod]
+        public void OnWidescreenAndLarger_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnWidescreenAndLarger();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+              .HaveCount(5)
+              .And
+              .OnlyHaveUniqueItems()
+              .And
+              .HaveElementAt(0, "align-items-stretch")
+              .And
+              .HaveElementAt(1, "align-items-sm-stretch")
+              .And
+              .HaveElementAt(2, "align-items-md-stretch")
+              .And
+              .HaveElementAt(3, "align-items-lg-start")
+              .And
+              .HaveElementAt(4, "align-items-xl-start");
+        }
+
+        [TestMethod]
+        public void OnWidescreenAndSmaller_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnWidescreenAndSmaller();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+              .HaveCount(5)
+              .And
+              .OnlyHaveUniqueItems()
+              .And
+              .HaveElementAt(0, "align-items-start")
+              .And
+              .HaveElementAt(1, "align-items-sm-start")
+              .And
+              .HaveElementAt(2, "align-items-md-start")
+              .And
+              .HaveElementAt(3, "align-items-lg-start")
+              .And
+              .HaveElementAt(4, "align-items-xl-stretch");
+        }
+
+        [TestMethod]
+        public void OnFullHD_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnFullHD();
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+              .HaveCount(5)
+              .And
+              .OnlyHaveUniqueItems()
+              .And
+              .HaveElementAt(0, "align-items-stretch")
+              .And
+              .HaveElementAt(1, "align-items-sm-stretch")
+              .And
+              .HaveElementAt(2, "align-items-md-stretch")
+              .And
+              .HaveElementAt(3, "align-items-lg-stretch")
+              .And
+              .HaveElementAt(4, "align-items-xl-start");
+        }
+
+        [TestMethod]
+        public void OnFullHDAndSmaller_LeavesDefault_Correctly()
+        {
+            // Arrange
+            this.underTest = ItemAlignment.Is(ItemAlignmentOption.Start).OnFullHDAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;

@@ -39,7 +39,7 @@ namespace Flexor.Tests
         public void GetClass_0_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is0;
+            this.underTest = Order.Is0ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -59,7 +59,7 @@ namespace Flexor.Tests
         public void GetClass_1_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is1;
+            this.underTest = Order.Is1ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -79,7 +79,7 @@ namespace Flexor.Tests
         public void GetClass_2_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is2;
+            this.underTest = Order.Is2ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -99,7 +99,7 @@ namespace Flexor.Tests
         public void GetClass_3_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is3;
+            this.underTest = Order.Is3ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -119,7 +119,7 @@ namespace Flexor.Tests
         public void GetClass_4_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4;
+            this.underTest = Order.Is4ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -139,7 +139,7 @@ namespace Flexor.Tests
         public void GetClass_5_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is5;
+            this.underTest = Order.Is5ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -159,7 +159,7 @@ namespace Flexor.Tests
         public void GetClass_6_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is6;
+            this.underTest = Order.Is6ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -179,7 +179,7 @@ namespace Flexor.Tests
         public void GetClass_7_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7;
+            this.underTest = Order.Is7ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -199,7 +199,7 @@ namespace Flexor.Tests
         public void GetClass_8_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is8;
+            this.underTest = Order.Is8ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -219,7 +219,7 @@ namespace Flexor.Tests
         public void GetClass_9_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is9;
+            this.underTest = Order.Is9ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -239,7 +239,7 @@ namespace Flexor.Tests
         public void GetClass_10_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is10;
+            this.underTest = Order.Is10ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -259,7 +259,7 @@ namespace Flexor.Tests
         public void GetClass_11_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is11;
+            this.underTest = Order.Is11ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -279,7 +279,7 @@ namespace Flexor.Tests
         public void GetClass_12_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is12;
+            this.underTest = Order.Is12ByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -299,7 +299,7 @@ namespace Flexor.Tests
         public void GetClass_First_Correctly()
         {
             // Arrange
-            this.underTest = Order.IsFirst;
+            this.underTest = Order.IsFirstByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -319,7 +319,7 @@ namespace Flexor.Tests
         public void GetClass_Last_Correctly()
         {
             // Arrange
-            this.underTest = Order.IsLast;
+            this.underTest = Order.IsLastByDefault;
 
             // Act
             var underTestClass = underTest.Class;
@@ -339,7 +339,7 @@ namespace Flexor.Tests
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnMobile();
+            this.underTest = Order.Is7.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -348,7 +348,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
+                .HaveCount(1)
                 .And
                 .OnlyHaveUniqueItems()
                 .And
@@ -359,7 +359,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnMobileAndLarger();
+            this.underTest = Order.Is7.OnMobileAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -387,7 +387,7 @@ namespace Flexor.Tests
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnTablet();
+            this.underTest = Order.Is7.OnTablet();
 
             // Act
             var underTestClass = underTest.Class;
@@ -396,18 +396,18 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
+                .HaveCount(1)
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(1, "order-sm-7");
+                .HaveElementAt(0, "order-sm-7");
         }
 
         [TestMethod]
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnTabletAndLarger();
+            this.underTest = Order.Is7.OnTabletAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -416,24 +416,24 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
+                .HaveCount(4)
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(1, "order-sm-7")
+                .HaveElementAt(0, "order-sm-7")
                 .And
-                .HaveElementAt(2, "order-md-7")
+                .HaveElementAt(1, "order-md-7")
                 .And
-                .HaveElementAt(3, "order-lg-7")
+                .HaveElementAt(2, "order-lg-7")
                 .And
-                .HaveElementAt(4, "order-xl-7");
+                .HaveElementAt(3, "order-xl-7");
         }
 
         [TestMethod]
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnTabletAndSmaller();
+            this.underTest = Order.Is7.OnTabletAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -442,7 +442,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
+                .HaveCount(2)
                 .And
                 .OnlyHaveUniqueItems()
                 .And
@@ -455,7 +455,7 @@ namespace Flexor.Tests
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnDesktop();
+            this.underTest = Order.Is7.OnDesktop();
 
             // Act
             var underTestClass = underTest.Class;
@@ -464,18 +464,18 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
+                .HaveCount(1)
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(2, "order-md-7");
+                .HaveElementAt(0, "order-md-7");
         }
 
         [TestMethod]
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnDesktopAndLarger();
+            this.underTest = Order.Is7.OnDesktopAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -484,22 +484,22 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
+                .HaveCount(3)
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(2, "order-md-7")
+                .HaveElementAt(0, "order-md-7")
                 .And
-                .HaveElementAt(3, "order-lg-7")
+                .HaveElementAt(1, "order-lg-7")
                 .And
-                .HaveElementAt(4, "order-xl-7");
+                .HaveElementAt(2, "order-xl-7");
         }
 
         [TestMethod]
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnDesktopAndSmaller();
+            this.underTest = Order.Is7.OnDesktopAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -508,7 +508,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
+                .HaveCount(3)
                 .And
                 .OnlyHaveUniqueItems()
                 .And
@@ -523,7 +523,7 @@ namespace Flexor.Tests
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnWidescreen();
+            this.underTest = Order.Is7.OnWidescreen();
 
             // Act
             var underTestClass = underTest.Class;
@@ -532,18 +532,18 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
+                .HaveCount(1)
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(3, "order-lg-7");
+                .HaveElementAt(0, "order-lg-7");
         }
 
         [TestMethod]
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnWidescreenAndLarger();
+            this.underTest = Order.Is7.OnWidescreenAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -552,20 +552,20 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
+                .HaveCount(2)
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(3, "order-lg-7")
+                .HaveElementAt(0, "order-lg-7")
                 .And
-                .HaveElementAt(4, "order-xl-7");
+                .HaveElementAt(1, "order-xl-7");
         }
 
         [TestMethod]
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnWidescreenAndSmaller();
+            this.underTest = Order.Is7.OnWidescreenAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -574,7 +574,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
+                .HaveCount(4)
                 .And
                 .OnlyHaveUniqueItems()
                 .And
@@ -591,7 +591,7 @@ namespace Flexor.Tests
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnFullHD();
+            this.underTest = Order.Is7.OnFullHD();
 
             // Act
             var underTestClass = underTest.Class;
@@ -600,18 +600,18 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
+                .HaveCount(1)
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(4, "order-xl-7");
+                .HaveElementAt(0, "order-xl-7");
         }
 
         [TestMethod]
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnFullHDAndSmaller();
+            this.underTest = Order.Is7.OnFullHDAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -640,7 +640,7 @@ namespace Flexor.Tests
         public void Is0_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is0.OnMobile();
+            this.underTest = Order.Is0.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -649,9 +649,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-0");
         }
@@ -660,7 +658,7 @@ namespace Flexor.Tests
         public void Is1_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is1.OnMobile();
+            this.underTest = Order.Is1.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -669,9 +667,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-1");
         }
@@ -680,7 +676,7 @@ namespace Flexor.Tests
         public void Is2_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is2.OnMobile();
+            this.underTest = Order.Is2.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -689,9 +685,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-2");
         }
@@ -700,7 +694,7 @@ namespace Flexor.Tests
         public void Is3_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is3.OnMobile();
+            this.underTest = Order.Is3.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -709,9 +703,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-3");
         }
@@ -720,7 +712,7 @@ namespace Flexor.Tests
         public void Is4_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is4.OnMobile();
+            this.underTest = Order.Is4.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -729,9 +721,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-4");
         }
@@ -740,7 +730,7 @@ namespace Flexor.Tests
         public void Is5_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is5.OnMobile();
+            this.underTest = Order.Is5.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -749,9 +739,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-5");
         }
@@ -760,7 +748,7 @@ namespace Flexor.Tests
         public void Is6_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is6.OnMobile();
+            this.underTest = Order.Is6.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -769,9 +757,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-6");
         }
@@ -780,7 +766,7 @@ namespace Flexor.Tests
         public void Is7_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is7.OnMobile();
+            this.underTest = Order.Is7.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -789,9 +775,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-7");
         }
@@ -800,7 +784,7 @@ namespace Flexor.Tests
         public void Is8_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is8.OnMobile();
+            this.underTest = Order.Is8.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -809,9 +793,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-8");
         }
@@ -820,7 +802,7 @@ namespace Flexor.Tests
         public void Is9_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is9.OnMobile();
+            this.underTest = Order.Is9.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -829,9 +811,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-9");
         }
@@ -840,7 +820,7 @@ namespace Flexor.Tests
         public void Is10_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is10.OnMobile();
+            this.underTest = Order.Is10.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -849,9 +829,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-10");
         }
@@ -860,7 +838,7 @@ namespace Flexor.Tests
         public void Is11_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is11.OnMobile();
+            this.underTest = Order.Is11.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -869,9 +847,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-11");
         }
@@ -880,7 +856,7 @@ namespace Flexor.Tests
         public void Is12_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().Is12.OnMobile();
+            this.underTest = Order.Is12.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -889,9 +865,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-12");
         }
@@ -900,7 +874,7 @@ namespace Flexor.Tests
         public void IsFirst_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().IsFirst.OnMobile();
+            this.underTest = Order.IsFirst.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -909,9 +883,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-first");
         }
@@ -920,7 +892,7 @@ namespace Flexor.Tests
         public void IsLast_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobileAndLarger().IsLast.OnMobile();
+            this.underTest = Order.IsLast.OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -929,9 +901,7 @@ namespace Flexor.Tests
             underTestClass.Should().NotBeNullOrWhiteSpace();
 
             underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
+                .HaveCount(1)
                 .And
                 .HaveElementAt(0, "order-last");
         }

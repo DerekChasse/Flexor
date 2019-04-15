@@ -40,11 +40,11 @@ namespace Flexor
         public static IResizability Initial => new FluentResizability(ResizabilityOption.None);
 
         /// <summary>
-        /// Flex item is sized by default according to the supplied resizability value.
+        /// Flex item will be rendered and configured with the supplied resizability value.
         /// Rendering is configurable based on CSS media query breakpoints.
         /// </summary>
         /// <param name="value">The default resizability value.</param>
         /// <returns>The resizability configuration.</returns>
-        public static IFluentResizabilityWithValueOnBreakpoint Is(ResizabilityOption value) => new FluentResizability(value);
+        public static IFluentResizabilityWithValueOnBreakpoint Is(ResizabilityOption value) => new FluentResizability().Is(value);
     }
 }
