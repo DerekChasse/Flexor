@@ -338,7 +338,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(2, "flex-md-wrap-reverse")
                 .And
-                .HaveElementAt(3, "flex-lg-wrap-reverse";
+                .HaveElementAt(3, "flex-lg-wrap-reverse");
         }
 
         [TestMethod]
