@@ -27,7 +27,7 @@ namespace Flexor.Tests
         public void GetClass_IsPixels_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixelsByDefault(50);
+            this.underTest = Size.IsPixelsOnAll(50);
 
             // Act
             var underTestClass = underTest.Class;
@@ -58,7 +58,7 @@ namespace Flexor.Tests
         public void GetClass_IsPercent_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPercentByDefault(50);
+            this.underTest = Size.IsPercentOnAll(50);
 
             // Act
             var underTestClass = underTest.Class;
@@ -89,7 +89,7 @@ namespace Flexor.Tests
         public void GetClass_IsElement_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsElementByDefault(50);
+            this.underTest = Size.IsElementOnAll(50);
 
             // Act
             var underTestClass = underTest.Class;
@@ -120,7 +120,7 @@ namespace Flexor.Tests
         public void GetClass_IsViewportHeight_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsViewportHeightByDefault(50);
+            this.underTest = Size.IsViewportHeightOnAll(50);
 
             // Act
             var underTestClass = underTest.Class;
@@ -151,7 +151,7 @@ namespace Flexor.Tests
         public void GetClass_IsViewportWidth_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsViewportWidthByDefault(50);
+            this.underTest = Size.IsViewportWidthOnAll(50);
 
             // Act
             var underTestClass = underTest.Class;

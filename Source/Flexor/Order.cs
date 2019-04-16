@@ -19,91 +19,91 @@ namespace Flexor
         /// Items by default will be index 0 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is0ByDefault => new FluentOrder(0);
+        public static IOrder Is0OnAll => new FluentOrder(0);
 
         /// <summary>
         /// Items by default will be index 1 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is1ByDefault => new FluentOrder(1);
+        public static IOrder Is1OnAll => new FluentOrder(1);
 
         /// <summary>
         /// Items by default will be index 2 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is2ByDefault => new FluentOrder(2);
+        public static IOrder Is2OnAll => new FluentOrder(2);
 
         /// <summary>
         /// Items by default will be index 3 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is3ByDefault => new FluentOrder(3);
+        public static IOrder Is3OnAll => new FluentOrder(3);
 
         /// <summary>
         /// Items by default will be index 4 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is4ByDefault => new FluentOrder(4);
+        public static IOrder Is4OnAll => new FluentOrder(4);
 
         /// <summary>
         /// Items by default will be index 5 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is5ByDefault => new FluentOrder(5);
+        public static IOrder Is5OnAll => new FluentOrder(5);
 
         /// <summary>
         /// Items by default will be index 6 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is6ByDefault => new FluentOrder(6);
+        public static IOrder Is6OnAll => new FluentOrder(6);
 
         /// <summary>
         /// Items by default will be index 7 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is7ByDefault => new FluentOrder(7);
+        public static IOrder Is7OnAll => new FluentOrder(7);
 
         /// <summary>
         /// Items by default will be index 8 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is8ByDefault => new FluentOrder(8);
+        public static IOrder Is8OnAll => new FluentOrder(8);
 
         /// <summary>
         /// Items by default will be index 9 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is9ByDefault => new FluentOrder(9);
+        public static IOrder Is9OnAll => new FluentOrder(9);
 
         /// <summary>
         /// Items by default will be index 10 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is10ByDefault => new FluentOrder(10);
+        public static IOrder Is10OnAll => new FluentOrder(10);
 
         /// <summary>
         /// Items by default will be index 11 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is11ByDefault => new FluentOrder(11);
+        public static IOrder Is11OnAll => new FluentOrder(11);
 
         /// <summary>
         /// Items by default will be index 12 within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder Is12ByDefault => new FluentOrder(12);
+        public static IOrder Is12OnAll => new FluentOrder(12);
 
         /// <summary>
         /// Items by default will be first within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder IsFirstByDefault => new FluentOrder(int.MinValue);
+        public static IOrder IsFirstOnAll => new FluentOrder(int.MinValue);
 
         /// <summary>
         /// Items by default will be last within a flex-container across all CSS media query breakpoints.
         /// </summary>
         /// <returns>The order configuration.</returns>
-        public static IOrder IsLastByDefault => new FluentOrder(int.MaxValue);
+        public static IOrder IsLastOnAll => new FluentOrder(int.MaxValue);
 
         /// <summary>
         /// Items by will be index 0 within a flex-container across specified CSS media query breakpoints.
