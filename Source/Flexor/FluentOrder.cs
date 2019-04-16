@@ -2,23 +2,50 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentOrder
+    public interface IOrder : ICssBacked
     {
     }
 
-    public interface IFluentOrderWithValue : IFluentOrder
+    public interface IFluentOrderWithValue : IOrder
     {
-        IFluentOrderWithValueOnBreakpoint Is(int value);
+        IFluentOrderWithValueOnBreakpoint Is0 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is1 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is2 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is3 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is4 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is5 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is6 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is7 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is8 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is9 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is10 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is11 { get; }
+
+        IFluentOrderWithValueOnBreakpoint Is12 { get; }
+
+        IFluentOrderWithValueOnBreakpoint IsFirst { get; }
+
+        IFluentOrderWithValueOnBreakpoint IsLast { get; }
     }
 
-    public interface IFluentOrderWithValueOnBreakpoint : IFluentReactive<IFluentOrderWithValue>, IFluentOrder
+    public interface IFluentOrderWithValueOnBreakpoint : IFluentReactive<IFluentOrderWithValue>, IOrder
     {
     }
 #pragma warning restore SA1600 // Elements should be documented
@@ -29,7 +56,7 @@ namespace Flexor
     public class FluentOrder : IFluentOrderWithValueOnBreakpoint, IFluentOrderWithValue
     {
         private readonly Dictionary<Breakpoint, int?> breakpointDictionary = new Dictionary<Breakpoint, int?>();
-        private int valueToApply;
+        private int? valueToApply;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentOrder"/> class.
@@ -42,21 +69,65 @@ namespace Flexor
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentOrder"/> class.
         /// </summary>
-        /// <param name="value">The default item order.</param>
-        public FluentOrder(int? value)
+        /// <param name="initialValue">The default item order.</param>
+        public FluentOrder(int? initialValue)
         {
-            foreach (var item in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
-            {
-                this.breakpointDictionary.Add(item, value);
-            }
+            this.valueToApply = initialValue;
+
+            this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Widescreen, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.FullHD, initialValue);
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is(int value)
-        {
-            this.valueToApply = value;
-            return this;
-        }
+        public string Class => this.BuildClass();
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is0 => this.Is(0);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is1 => this.Is(1);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is2 => this.Is(2);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is3 => this.Is(3);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is4 => this.Is(4);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is5 => this.Is(5);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is6 => this.Is(6);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is7 => this.Is(7);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is8 => this.Is(8);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is9 => this.Is(9);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is10 => this.Is(10);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is11 => this.Is(11);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint Is12 => this.Is(12);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint IsFirst => this.Is(int.MinValue);
+
+        /// <inheritdoc/>
+        public IFluentOrderWithValueOnBreakpoint IsLast => this.Is(int.MaxValue);
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnDesktop()
@@ -147,6 +218,38 @@ namespace Flexor
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
+        }
+
+        private IFluentOrderWithValueOnBreakpoint Is(int value)
+        {
+            this.valueToApply = value;
+            return this;
+        }
+
+        private string BuildClass()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            foreach (var kvp in this.breakpointDictionary)
+            {
+                if (kvp.Value.HasValue)
+                {
+                    if (kvp.Value.Value == int.MinValue)
+                    {
+                        builder.Append($"order{kvp.Key}-first ");
+                    }
+                    else if (kvp.Value.Value == int.MaxValue)
+                    {
+                        builder.Append($"order{kvp.Key}-last ");
+                    }
+                    else
+                    {
+                        builder.Append($"order{kvp.Key}-{kvp.Value} ");
+                    }
+                }
+            }
+
+            return builder.ToString().Trim();
         }
 
         private void SetBreakpointValues(int? value, params Breakpoint[] breakpoints)

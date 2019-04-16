@@ -2,23 +2,22 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentAlignItems
+    public interface IAlignItems : ICssBacked
     {
     }
 
-    public interface IFluentAlignItemsWithValue : IFluentAlignItems
+    public interface IFluentAlignItemsWithValue : IAlignItems
     {
         IFluentAlignItemsWithValueOnBreakpoint Is(ItemAlignmentOption value);
     }
 
-    public interface IFluentAlignItemsWithValueOnBreakpoint : IFluentReactive<IFluentAlignItemsWithValue>, IFluentAlignItems
+    public interface IFluentAlignItemsWithValueOnBreakpoint : IFluentReactive<IFluentAlignItemsWithValue>, IAlignItems
     {
     }
 #pragma warning restore SA1600 // Elements should be documented
@@ -45,11 +44,17 @@ namespace Flexor
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
         public FluentAlignItems(ItemAlignmentOption initialValue)
         {
-            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
-            {
-                this.breakpointDictionary.Add(breakpoint, initialValue);
-            }
+            this.valueToApply = initialValue;
+
+            this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Widescreen, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.FullHD, initialValue);
         }
+
+        /// <inheritdoc/>
+        public string Class => this.BuildClass();
 
         /// <inheritdoc/>
         public IFluentAlignItemsWithValueOnBreakpoint Is(ItemAlignmentOption value)
@@ -147,6 +152,18 @@ namespace Flexor
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
+        }
+
+        private string BuildClass()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            foreach (var kvp in this.breakpointDictionary)
+            {
+                builder.Append($"align-items{kvp.Key}{kvp.Value} ");
+            }
+
+            return builder.ToString().Trim();
         }
 
         private void SetBreakpointValues(ItemAlignmentOption value, params Breakpoint[] breakpoints)

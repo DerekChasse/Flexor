@@ -11,10 +11,10 @@ namespace Flexor.Base
     /// </summary>
     public abstract class BaseFlexLayout : BaseFlexComponent
     {
-        private IFluentFlexDirection direction = Flexor.Direction.Row;
-        private IFluentWrap wrap = Flexor.Wrap.NoWrap;
-        private IFluentJustifyContent justifyContent = Flexor.JustifyContent.Start;
-        private IFluentAlignItems itemAlignment = Flexor.ItemAlignment.Stretch;
+        private IDirection direction = Flexor.Direction.Row;
+        private IWrap wrap = Flexor.Wrap.NoWrap;
+        private IJustifyContent justifyContent = Flexor.JustifyContent.Start;
+        private IAlignItems itemAlignment = Flexor.ItemAlignment.Stretch;
 
         /// <summary>
         /// Defines the direction in which items are added to the layout.
@@ -22,7 +22,7 @@ namespace Flexor.Base
         /// Default is 'row'.
         /// </summary>
         [Parameter]
-        protected IFluentFlexDirection Direction
+        protected IDirection Direction
         {
             get => this.direction;
             set
@@ -38,7 +38,7 @@ namespace Flexor.Base
         /// Default is 'false'.
         /// </summary>
         [Parameter]
-        protected IFluentWrap Wrap
+        protected IWrap Wrap
         {
             get => this.wrap;
             set
@@ -54,7 +54,7 @@ namespace Flexor.Base
         /// Default is 'start'.
         /// </summary>
         [Parameter]
-        protected IFluentJustifyContent JustifyContent
+        protected IJustifyContent JustifyContent
         {
             get => this.justifyContent;
             set
@@ -70,7 +70,7 @@ namespace Flexor.Base
         /// Default is 'stretch'.
         /// </summary>
         [Parameter]
-        protected IFluentAlignItems ItemAlignment
+        protected IAlignItems ItemAlignment
         {
             get => this.itemAlignment;
             set

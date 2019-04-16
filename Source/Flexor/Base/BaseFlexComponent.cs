@@ -11,7 +11,7 @@ namespace Flexor.Base
     /// </summary>
     public abstract class BaseFlexComponent : ComponentBase
     {
-        private IFluentVisible visible = Flexor.Visible.Always;
+        private IVisible visible = Flexor.Visible.Always;
 
         /// <summary>
         /// Defines when a flex-item is visible.
@@ -19,7 +19,7 @@ namespace Flexor.Base
         /// Default is 'always'.
         /// </summary>
         [Parameter]
-        protected IFluentVisible Visible
+        protected IVisible Visible
         {
             get => this.visible;
             set
@@ -38,5 +38,11 @@ namespace Flexor.Base
             get;
             set;
         }
+
+        /// <summary>
+        /// Flexor specific javascript interop layer.
+        /// </summary>
+        [Inject]
+        protected IFlexorJSInterop Interop { get; set; }
     }
 }

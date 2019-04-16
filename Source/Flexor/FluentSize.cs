@@ -5,15 +5,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentSize
+    public interface ISize : ICssBacked, IDynamicCssBacked
     {
     }
 
-    public interface IFluentSizeWithValue : IFluentSize
+    public interface IFluentSizeWithValue : ISize
     {
         IFluentSizeWithValueOnBreakpoint IsPixels(int value);
 
@@ -31,7 +32,7 @@ namespace Flexor
         void SetSize(decimal value, SizeUnit unit);
     }
 
-    public interface IFluentSizeWithValueOnBreakpoint : IFluentReactive<IFluentSizeWithValue>, IFluentSize
+    public interface IFluentSizeWithValueOnBreakpoint : IFluentReactive<IFluentSizeWithValue>, ISize
     {
     }
 
@@ -42,18 +43,25 @@ namespace Flexor
     /// </summary>
     public class FluentSize : IFluentSizeWithValue, IFluentSizeWithValueOnBreakpoint, ISizeSetValue
     {
-        private readonly Dictionary<Breakpoint, SizingUnit> breakpointDictionary = new Dictionary<Breakpoint, SizingUnit>();
-        private SizingUnit valueToApply;
+        private readonly Dictionary<Breakpoint, Measurement> breakpointDictionary = new Dictionary<Breakpoint, Measurement>();
+        private readonly Lazy<string> lazyClass;
+        private readonly Lazy<IDictionary<string, string>> lazyCss;
+
+        private Measurement valueToApply;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentSize"/> class.
         /// </summary>
         public FluentSize()
         {
-            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
-            {
-                this.breakpointDictionary.Add(breakpoint, new SizingUnit());
-            }
+            this.lazyClass = new Lazy<string>(this.InitLazyClass);
+            this.lazyCss = new Lazy<IDictionary<string, string>>(this.InitLazyCss);
+
+            this.breakpointDictionary.Add(Breakpoint.Mobile, default);
+            this.breakpointDictionary.Add(Breakpoint.Tablet, default);
+            this.breakpointDictionary.Add(Breakpoint.Desktop, default);
+            this.breakpointDictionary.Add(Breakpoint.Widescreen, default);
+            this.breakpointDictionary.Add(Breakpoint.FullHD, default);
         }
 
         internal FluentSize(decimal value, SizeUnit unit)
@@ -63,6 +71,12 @@ namespace Flexor
 
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
         }
+
+        /// <inheritdoc/>
+        public string Class => this.lazyClass.Value.Trim();
+
+        /// <inheritdoc/>
+        public IDictionary<string, string> Css => this.lazyCss.Value;
 
         /// <inheritdoc/>
         public IFluentSizeWithValueOnBreakpoint IsElement(decimal value)
@@ -193,10 +207,10 @@ namespace Flexor
         /// <inheritdoc/>
         public void SetSize(decimal value, SizeUnit unit)
         {
-            this.valueToApply = new SizingUnit { Value = value, Unit = unit };
+            this.valueToApply = new Measurement { Value = value, Unit = unit };
         }
 
-        private void SetBreakpointValues(SizingUnit value, params Breakpoint[] breakpoints)
+        private void SetBreakpointValues(Measurement value, params Breakpoint[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
             {
@@ -204,11 +218,70 @@ namespace Flexor
             }
         }
 
-        private class SizingUnit
+        private IDictionary<string, string> InitLazyCss()
+        {
+            Dictionary<string, string> cssDictionary = new Dictionary<string, string>();
+
+            foreach (var kvp in this.breakpointDictionary.Where(pair => pair.Value != null))
+            {
+                StringBuilder builder = new StringBuilder();
+
+                string className = this.BuildDynamicCssClass(builder, kvp.Key, kvp.Value);
+
+                cssDictionary.Add(className, builder.ToString());
+            }
+
+            return cssDictionary;
+        }
+
+        private string InitLazyClass()
+        {
+            if (!this.lazyCss.IsValueCreated)
+            {
+                _ = this.lazyCss.Value;
+            }
+
+            return string.Join(" ", this.lazyCss.Value.Keys);
+        }
+
+        private string BuildDynamicCssClass(StringBuilder builder, Breakpoint breakpoint, Measurement sizingUnit)
+        {
+            StringBuilder lineBuilder = new StringBuilder();
+
+            if (breakpoint != Breakpoint.Mobile)
+            {
+                lineBuilder.Append($"@media (min-width: {breakpoint.MinWidth}px) {{");
+            }
+
+            string className = $"flexor{breakpoint}-{sizingUnit.ToCssSuffix()}";
+
+            lineBuilder.Append($".{className} {{-webkit-flex-basis: {sizingUnit}; flex-basis: {sizingUnit};}}");
+
+            if (breakpoint != Breakpoint.Mobile)
+            {
+                lineBuilder.Append("}");
+            }
+
+            builder.Append(lineBuilder.ToString());
+
+            return className;
+        }
+
+        private class Measurement
         {
             public decimal Value { get; set; }
 
             public SizeUnit Unit { get; set; }
+
+            public override string ToString()
+            {
+                return $"{this.Value.ToString()}{this.Unit}";
+            }
+
+            internal string ToCssSuffix()
+            {
+                return $"{this.Value.ToString()}-{this.Unit}".Replace("%", "percent");
+            }
         }
     }
 }

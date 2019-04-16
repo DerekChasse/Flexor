@@ -2,19 +2,22 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentResizability
+    public interface IResizability : ICssBacked
     {
     }
 
-    public interface IFluentResizabilityWithValue : IFluentResizability
+    public interface IFluentResizabilityWithValue : IResizability
     {
+        ////TODO: Add Fill
+
+        IFluentResizabilityWithValueOnBreakpoint Is(ResizabilityOption value);
+
         IFluentResizabilityWithValueOnBreakpoint IsAutomatic();
 
         IFluentResizabilityWithValueOnBreakpoint IsInitial();
@@ -26,7 +29,7 @@ namespace Flexor
         IFluentResizabilityWithValueOnBreakpoint CanNotShrink();
     }
 
-    public interface IFluentResizabilityWithValueOnBreakpoint : IFluentResizability, IFluentReactive<IFluentResizabilityWithValue>
+    public interface IFluentResizabilityWithValueOnBreakpoint : IResizability, IFluentReactive<IFluentResizabilityWithValue>
     {
     }
 #pragma warning restore SA1600 // Elements should be documented
@@ -53,44 +56,52 @@ namespace Flexor
         /// <param name="initialValue">The initial <see cref="ResizabilityOption"/> across all media query breakpoints.</param>
         public FluentResizability(ResizabilityOption initialValue)
         {
-            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
-            {
-                this.breakpointDictionary.Add(breakpoint, initialValue);
-            }
+            this.valueToApply = initialValue;
+
+            this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Widescreen, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.FullHD, initialValue);
         }
+
+        /// <inheritdoc/>
+        public string Class => this.BuildClass();
 
         /// <inheritdoc/>
         public IFluentResizabilityWithValueOnBreakpoint CanGrow()
         {
-            this.valueToApply = ResizabilityOption.Grow;
-            return this;
+            return this.Is(ResizabilityOption.Grow);
         }
 
         /// <inheritdoc/>
         public IFluentResizabilityWithValueOnBreakpoint CanNotGrow()
         {
-            this.valueToApply = ResizabilityOption.NoGrow;
-            return this;
+            return this.Is(ResizabilityOption.NoGrow);
         }
 
         /// <inheritdoc/>
         public IFluentResizabilityWithValueOnBreakpoint CanNotShrink()
         {
-            this.valueToApply = ResizabilityOption.NoShrink;
-            return this;
+            return this.Is(ResizabilityOption.NoShrink);
         }
 
         /// <inheritdoc/>
         public IFluentResizabilityWithValueOnBreakpoint IsAutomatic()
         {
-            this.valueToApply = ResizabilityOption.Auto;
-            return this;
+            return this.Is(ResizabilityOption.Auto);
         }
 
         /// <inheritdoc/>
         public IFluentResizabilityWithValueOnBreakpoint IsInitial()
         {
-            this.valueToApply = ResizabilityOption.None;
+            return this.Is(ResizabilityOption.None);
+        }
+
+        /// <inheritdoc/>
+        public IFluentResizabilityWithValueOnBreakpoint Is(ResizabilityOption value)
+        {
+            this.valueToApply = value;
             return this;
         }
 
@@ -183,6 +194,18 @@ namespace Flexor
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
+        }
+
+        private string BuildClass()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            foreach (var kvp in this.breakpointDictionary)
+            {
+                builder.Append($"flex-resize{kvp.Key}{kvp.Value} ");
+            }
+
+            return builder.ToString().Trim();
         }
 
         private void SetBreakpointValues(ResizabilityOption value, params Breakpoint[] breakpoints)

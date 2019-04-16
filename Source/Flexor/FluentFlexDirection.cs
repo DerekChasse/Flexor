@@ -2,23 +2,22 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IFluentFlexDirection
+    public interface IDirection : ICssBacked
     {
     }
 
-    public interface IFluentFlexDirectionWithValue : IFluentFlexDirection
+    public interface IFluentFlexDirectionWithValue : IDirection
     {
         IFluentFlexDirectionWithValueOnBreakpoint Is(DirectionOption direction);
     }
 
-    public interface IFluentFlexDirectionWithValueOnBreakpoint : IFluentReactive<IFluentFlexDirectionWithValue>, IFluentFlexDirection
+    public interface IFluentFlexDirectionWithValueOnBreakpoint : IFluentReactive<IFluentFlexDirectionWithValue>, IDirection
     {
     }
 #pragma warning restore SA1600 // Elements should be documented
@@ -45,11 +44,17 @@ namespace Flexor
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
         public FluentFlexDirection(DirectionOption initialValue)
         {
-            foreach (var breakpoint in Enum.GetValues(typeof(Breakpoint)).Cast<Breakpoint>())
-            {
-                this.breakpointDictionary.Add(breakpoint, initialValue);
-            }
+            this.valueToApply = initialValue;
+
+            this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.Widescreen, initialValue);
+            this.breakpointDictionary.Add(Breakpoint.FullHD, initialValue);
         }
+
+        /// <inheritdoc/>
+        public string Class => this.BuildClass();
 
         /// <inheritdoc/>
         public IFluentFlexDirectionWithValueOnBreakpoint Is(DirectionOption direction)
@@ -155,6 +160,18 @@ namespace Flexor
             {
                 this.breakpointDictionary[breakpoint] = value;
             }
+        }
+
+        private string BuildClass()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            foreach (var kvp in this.breakpointDictionary)
+            {
+                builder.Append($"flex{kvp.Key}{kvp.Value} ");
+            }
+
+            return builder.ToString().Trim();
         }
     }
 }

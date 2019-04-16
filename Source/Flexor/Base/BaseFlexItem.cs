@@ -2,6 +2,7 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace Flexor.Base
@@ -11,8 +12,9 @@ namespace Flexor.Base
     /// </summary>
     public abstract class BaseFlexItem : BaseFlexComponent
     {
-        private IFluentOrder order = Flexor.Order.Default;
-        private IFluentAlignItems itemAlignment = null;
+        private IOrder order = Flexor.Order.Default;
+        private IAlignItems itemAlignment = Flexor.ItemAlignment.Start;
+        private ISize size = Flexor.Size.Default;
 
         /// <summary>
         /// Defines the order in which items are rendered within the layout.
@@ -20,7 +22,7 @@ namespace Flexor.Base
         /// Default is 'default'.
         /// </summary>
         [Parameter]
-        protected IFluentOrder Order
+        protected IOrder Order
         {
             get => this.order;
             set
@@ -36,7 +38,7 @@ namespace Flexor.Base
         /// Default is 'inherit'.
         /// </summary>
         [Parameter]
-        protected IFluentAlignItems ItemAlignment
+        protected IAlignItems ItemAlignment
         {
             get => this.itemAlignment;
             set
@@ -44,6 +46,35 @@ namespace Flexor.Base
                 this.itemAlignment = value;
                 this.StateHasChanged();
             }
+        }
+
+        /// <summary>
+        /// Defines the size of a flex-item.
+        ///
+        /// Default is 'unspecified'.
+        /// </summary>
+        [Parameter]
+        protected ISize Size
+        {
+            get => this.size;
+            set
+            {
+                this.size = value;
+                this.StateHasChanged();
+            }
+        }
+
+        /// <inheritdoc/>
+        protected override Task OnParametersSetAsync()
+        {
+            base.OnParametersSetAsync();
+
+            foreach (var item in this.size.Css)
+            {
+                this.Interop.AddDynamicStyle(item.Key, item.Value);
+            }
+
+            return Task.CompletedTask;
         }
     }
 }
