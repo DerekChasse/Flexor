@@ -4,6 +4,7 @@
 
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace Flexor.Base
 {
@@ -75,6 +76,32 @@ namespace Flexor.Base
             }
 
             return Task.CompletedTask;
+        }
+
+        /// <inheritdoc/>
+        protected override void BuildRenderTree(RenderTreeBuilder builder)
+        {
+            int seq = 0;
+
+            builder.OpenElement(seq, "div");
+            builder.AddAttribute(++seq, "class", this.GetItemClassDefinition());
+
+            if (this.ChildContent != null)
+            {
+                builder.AddContent(++seq, this.ChildContent);
+                this.ChildContent = null;
+            }
+
+            builder.CloseElement();
+        }
+
+        private string GetItemClassDefinition()
+        {
+            return string.Join(
+                " ",
+                this.ItemAlignment.Class,
+                this.Visible.Class,
+                this.Size.Class);
         }
     }
 }

@@ -3,6 +3,7 @@
 // </copyright>
 
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace Flexor.Base
 {
@@ -78,6 +79,34 @@ namespace Flexor.Base
                 this.itemAlignment = value;
                 this.StateHasChanged();
             }
+        }
+
+        /// <inheritdoc/>
+        protected override void BuildRenderTree(RenderTreeBuilder builder)
+        {
+            int seq = 0;
+
+            builder.OpenElement(seq, "div");
+            builder.AddAttribute(++seq, "class", this.GetLayoutClassDefinition());
+
+            if (this.ChildContent != null)
+            {
+                builder.AddContent(++seq, this.ChildContent);
+                this.ChildContent = null;
+            }
+
+            builder.CloseElement();
+        }
+
+        private string GetLayoutClassDefinition()
+        {
+            return string.Join(
+                " ",
+                this.Direction.Class,
+                this.ItemAlignment.Class,
+                this.JustifyContent.Class,
+                this.Visible.Class,
+                this.Wrap.Class);
         }
     }
 }

@@ -1,0 +1,106 @@
+﻿@page "/item-alignment"
+
+
+<div class="shadow-lg border border-dark row mb-4">
+    <div class="col-12" style="height: 300px">
+
+        <FlexLayout ref="previewLayout" Direction=@this.Direction>
+
+
+            <FlexItem>
+                <div class="card" style="min-height:75px; min-width:50px">
+
+                </div>
+            </FlexItem>
+
+            <FlexItem>
+                <div class="card" style="min-height:75px; min-width:50px">
+
+                </div>
+            </FlexItem>
+
+            <FlexItem>
+                <div class="card" style="min-height:75px; min-width:50px">
+
+                </div>
+            </FlexItem>
+
+            <FlexItem>
+                <div class="card" style="min-height:75px; min-width:50px">
+
+                </div>
+            </FlexItem>
+
+
+
+        </FlexLayout>
+
+    </div>
+
+</div>
+
+<div class="shadow-lg border border-dark row">
+    <div class="col-8 offset-2" style="height: 300px">
+        <FlexLayout ref="configLayout" Direction="Flexor.Direction.Row">
+
+            <FlexItem Size="Size.IsPercentOnAll(33)">
+                <FlexLayout Direction="Flexor.Direction.Column">
+
+                    <FlexItem>
+                        <strong>@this.DirectionOptionString</strong>
+                    </FlexItem>
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateDirection(DirectionOption.Row, "Row"))>Row</button>
+                    </FlexItem>
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateDirection(DirectionOption.Column, "Column"))>Column</button>
+                    </FlexItem>
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateDirection(DirectionOption.RowReverse, "RowReverse"))>RowReverse</button>
+                    </FlexItem>
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateDirection(DirectionOption.ColumnReverse, "ColumnReverse"))>ColumnReverse</button>
+                    </FlexItem>
+
+
+                </FlexLayout>
+
+
+            </FlexItem>
+            <FlexItem Size="Size.IsPercentOnAll(34)">
+
+            </FlexItem>
+            <FlexItem Size="Size.IsPercentOnAll(33)">
+
+            </FlexItem>
+        </FlexLayout>
+    </div>
+</div>
+
+
+
+
+
+
+@functions {
+
+    private FlexLayout previewLayout;
+    private FlexLayout configLayout;
+
+    private string DirectionOptionString { get; set; } = "Row";
+
+    private IDirection Direction { get; set; } = Flexor.Direction.Row;
+
+    private void UpdateDirection(DirectionOption option, string optionString)
+    {
+        Console.WriteLine($"Changing direction original {this.Direction} - {this.DirectionOptionString}");
+
+        this.Direction = Flexor.Direction.Is(option).OnMobileAndLarger();
+        this.DirectionOptionString = optionString;
+
+        Console.WriteLine($"Direction changed now {this.Direction} - {this.DirectionOptionString}");
+
+
+    }
+
+}

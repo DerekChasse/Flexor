@@ -1,10 +1,22 @@
 ﻿@page "/"
 
     <FlexLayout Direction="Direction.Is(DirectionOption.Column).OnTabletAndSmaller()">
-        
-        <FlexItem Size="Size.IsPercentOnAll(50)" Order="Order.Is0.OnDesktop()" ></FlexItem>
 
-        <FlexItem Size="Size.IsPixelsOnAll(50)" Visible="Visible.Only.OnDesktopAndLarger()"></FlexItem>
+        <FlexItem Size="Size.IsPixelsOnAll(50)">
+           1
+        </FlexItem>
+
+        <FlexItem Size="Size.IsPixelsOnAll(50)" Visible="Visible.Only.OnDesktop()">
+            2
+        </FlexItem>
+
+        <FlexItem Size="Size.IsPixelsOnAll(50)" Visible="Visible.Always">
+            3
+        </FlexItem>
+
+        <FlexItem Size="Size.IsPixelsOnAll(50)" Visible="Visible.Only.OnTabletAndSmaller()">
+            4
+        </FlexItem>
 
     </FlexLayout>
 

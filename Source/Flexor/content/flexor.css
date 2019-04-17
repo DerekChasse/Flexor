@@ -1,19 +1,27 @@
 ﻿.flex-row {
+    display: -ms-flexbox !important;
+    display: flex !important;
     -ms-flex-direction: row !important;
     flex-direction: row !important;
 }
 
 .flex-column {
+    display: -ms-flexbox !important;
+    display: flex !important;
     -ms-flex-direction: column !important;
     flex-direction: column !important;
 }
 
 .flex-row-reverse {
+    display: -ms-flexbox !important;
+    display: flex !important;
     -ms-flex-direction: row-reverse !important;
     flex-direction: row-reverse !important;
 }
 
 .flex-column-reverse {
+    display: -ms-flexbox !important;
+    display: flex !important;
     -ms-flex-direction: column-reverse !important;
     flex-direction: column-reverse !important;
 }
