@@ -103,5 +103,23 @@ namespace Flexor.Base
                 this.Visible.Class,
                 this.Size.Class);
         }
+
+        protected override void OnAfterRender()
+        {
+
+            base.OnAfterRender();
+
+            // Blazor
+            //  - Add div with ID
+            // Javascript
+            //  - Get div with the id.
+            //  - Add css to the child
+            //    + function myFunction() {
+            //          var element = document.getElementById("myList").firstElementChild;
+            //          element.classList.add("mystyle");
+            //      }
+            //  - Replace div with div's child.
+            //    + https://jsbin.com/natedapexa/edit?html,css,js,output
+        }
     }
 }
