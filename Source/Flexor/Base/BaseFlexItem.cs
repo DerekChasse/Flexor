@@ -2,6 +2,7 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.RenderTree;
@@ -16,6 +17,8 @@ namespace Flexor.Base
         private IOrder order = Flexor.Order.Default;
         private IAlignItems itemAlignment = Flexor.ItemAlignment.Start;
         private ISize size = Flexor.Size.Default;
+
+        private string divId;
 
         /// <summary>
         /// Defines the order in which items are rendered within the layout.
@@ -81,14 +84,14 @@ namespace Flexor.Base
         /// <inheritdoc/>
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            int seq = 0;
+            builder.OpenElement(0, "div");
+            this.divId = Guid.NewGuid().ToString();
 
-            builder.OpenElement(seq, "div");
-            builder.AddAttribute(++seq, "class", this.GetItemClassDefinition());
+            builder.AddAttribute(1, "id", this.divId);
 
             if (this.ChildContent != null)
             {
-                builder.AddContent(++seq, this.ChildContent);
+                builder.AddContent(2, this.ChildContent);
                 this.ChildContent = null;
             }
 
@@ -104,6 +107,7 @@ namespace Flexor.Base
                 this.Size.Class);
         }
 
+        /// <inheritdoc/>
         protected override void OnAfterRender()
         {
 
