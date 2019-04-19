@@ -98,6 +98,13 @@ namespace Flexor.Base
             builder.CloseElement();
         }
 
+        /// <inheritdoc/>
+        protected override void OnAfterRender()
+        {
+            this.Interop.DecorateChild(this.divId, this.GetItemClassDefinition());
+            this.Interop.UnwrapDiv(this.divId);
+        }
+
         private string GetItemClassDefinition()
         {
             return string.Join(
@@ -105,25 +112,6 @@ namespace Flexor.Base
                 this.ItemAlignment.Class,
                 this.Visible.Class,
                 this.Size.Class);
-        }
-
-        /// <inheritdoc/>
-        protected override void OnAfterRender()
-        {
-
-            base.OnAfterRender();
-
-            // Blazor
-            //  - Add div with ID
-            // Javascript
-            //  - Get div with the id.
-            //  - Add css to the child
-            //    + function myFunction() {
-            //          var element = document.getElementById("myList").firstElementChild;
-            //          element.classList.add("mystyle");
-            //      }
-            //  - Replace div with div's child.
-            //    + https://jsbin.com/natedapexa/edit?html,css,js,output
         }
     }
 }

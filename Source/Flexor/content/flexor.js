@@ -26,7 +26,7 @@ window.flexor = {
 
         var child = divElement.firstElementChild;
 
-        var classes = classesString.split(' ');
+        var classes = classesString.trim().split(' ');
 
         child.classList.add(...classes);
     },
@@ -38,8 +38,8 @@ window.flexor = {
         // place childNodes in document fragment
         var documentFragment = document.createDocumentFragment();
 
-        while (wrapper.firstChild) {
-            var child = wrapper.removeChild(divElement.firstChild);
+        while (divElement.firstChild) {
+            var child = divElement.removeChild(divElement.firstChild);
 
             documentFragment.appendChild(child);
         }

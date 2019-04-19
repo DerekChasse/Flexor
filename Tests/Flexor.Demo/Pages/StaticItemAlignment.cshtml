@@ -4,29 +4,29 @@
 <div class="shadow-lg border border-dark row mb-4">
     <div class="col-12" style="height: 300px">
 
-        <FlexLayout ref="previewLayout" Direction=@this.Direction>
+        <FlexLayout ref="previewLayout" Direction=@this.Direction JustifyContent="JustifyContent.SpaceAround">
 
 
-            <FlexItem>
-                <div class="card" style="min-height:75px; min-width:50px">
-
-                </div>
-            </FlexItem>
-
-            <FlexItem>
-                <div class="card" style="min-height:75px; min-width:50px">
+            <FlexItem ItemAlignment="ItemAlignment.Center">
+                <div class="card" style="min-height:75px; min-width:50px; background-color: lightcoral">
 
                 </div>
             </FlexItem>
 
             <FlexItem>
-                <div class="card" style="min-height:75px; min-width:50px">
+                <div class="card" style="min-height:75px; min-width:50px ; background-color: darkorange">
+
+                </div>
+            </FlexItem>
+
+            <FlexItem ItemAlignment="SelfAlignment.Is(ItemAlignmentOption.Center).OnDesktopAndLarger()">
+                <div class="card" style="min-height:75px; min-width:50px ; background-color: cornflowerblue">
 
                 </div>
             </FlexItem>
 
             <FlexItem>
-                <div class="card" style="min-height:75px; min-width:50px">
+                <div class="card" style="min-height:75px; min-width:50px ; background-color: darkslategrey">
 
                 </div>
             </FlexItem>
