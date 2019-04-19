@@ -1,0 +1,26 @@
+﻿
+<div class="shadow-sm"  style="min-height: @minHeight; min-width:50px; background-color: @colorHex">
+    
+
+</div>
+
+@functions {
+
+    private Random random = new Random();
+
+    private string colorHex;
+    private string minHeight;
+
+    protected override void OnInit()
+    {
+        base.OnInit();
+
+        var color = System.Drawing.Color.FromArgb(this.random.Next(0, 256), this.random.Next(0, 256), this.random.Next(0, 256));
+
+        this.colorHex = string.Format("#{0:X2}{1:X2}{2:X2}",color.R, color.G, color.B);
+
+        this.minHeight = (this.random.Next(10, 25) * 5).ToString() + "px";
+    }
+
+
+}

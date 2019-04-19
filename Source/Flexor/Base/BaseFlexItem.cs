@@ -87,7 +87,7 @@ namespace Flexor.Base
             builder.OpenElement(0, "div");
             this.divId = Guid.NewGuid().ToString();
 
-            builder.AddAttribute(1, "id", this.divId);
+            builder.AddAttribute(1, "class", this.GetItemClassDefinition());
 
             if (this.ChildContent != null)
             {
@@ -101,8 +101,8 @@ namespace Flexor.Base
         /// <inheritdoc/>
         protected override void OnAfterRender()
         {
-            this.Interop.DecorateChild(this.divId, this.GetItemClassDefinition());
-            this.Interop.UnwrapDiv(this.divId);
+            ////this.Interop.DecorateChild(this.divId, this.GetItemClassDefinition());
+            ////this.Interop.UnwrapDiv(this.divId);
         }
 
         private string GetItemClassDefinition()
