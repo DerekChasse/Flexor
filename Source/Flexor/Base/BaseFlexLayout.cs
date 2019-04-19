@@ -84,14 +84,14 @@ namespace Flexor.Base
         /// <inheritdoc/>
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            int seq = 0;
+            builder.OpenElement(0, "div");
+            builder.AddAttribute(1, "class", this.GetLayoutClassDefinition());
 
-            builder.OpenElement(seq, "div");
-            builder.AddAttribute(++seq, "class", this.GetLayoutClassDefinition());
+            builder.AddAttribute(2, "style", "height: 100%; width: 100%;");
 
             if (this.ChildContent != null)
             {
-                builder.AddContent(++seq, this.ChildContent);
+                builder.AddContent(3, this.ChildContent);
                 this.ChildContent = null;
             }
 
