@@ -4,17 +4,17 @@
 <div class="shadow-lg border border-dark row mb-4">
     <div class="col-12" style="height: 300px">
 
-        <FlexLayout ref="previewLayout" Direction=@this.Direction ItemAlignment="ItemAlignment.Center" JustifyContent="JustifyContent.SpaceAround">
+        <FlexLayout ref="previewLayout" Direction=@this.Direction ItemAlignment="AlignItems.Center" JustifyContent="JustifyContent.SpaceAround">
             
-            <FlexItem ItemAlignment="ItemAlignment.Center">
+            <FlexItem>
                 <ColoredBox></ColoredBox>
             </FlexItem>
 
-            <FlexItem ItemAlignment="SelfAlignment.Is(ItemAlignmentOption.Stretch).OnDesktopAndLarger()">
+            <FlexItem AlignSelf="AlignSelf.Is(SelfAlignmentOption.Stretch).OnDesktopAndLarger()">
                 <ColoredBox></ColoredBox>
             </FlexItem>
 
-            <FlexItem ItemAlignment="SelfAlignment.Is(ItemAlignmentOption.Center).OnDesktopAndLarger()">
+            <FlexItem AlignSelf="AlignSelf.Is(SelfAlignmentOption.Center).OnDesktopAndLarger()">
                 <ColoredBox></ColoredBox>
             </FlexItem>
 

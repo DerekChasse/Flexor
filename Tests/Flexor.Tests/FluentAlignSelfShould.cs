@@ -1,19 +1,22 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Flexor.Tests
 {
     [TestClass]
-    public class FluentAlignItemsShould
+    public class FluentAlignSelfShould
     {
-        private IAlignItems underTest;
+        private IAlignSelf underTest;
 
         [TestMethod]
-        public void Constructor_Default_Stretch()
+        public void GetClass_AlignSelf_Auto_Correctly()
         {
             // Arrange
-            this.underTest = new FluentAlignItems();
+            this.underTest = AlignSelf.Auto;
 
             // Act
             var underTestClass = underTest.Class;
@@ -26,14 +29,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("align-items") && v.EndsWith("-stretch")));
+                .Match(x => x.All(v => v.StartsWith("align-self") && v.EndsWith("-auto")));
         }
 
         [TestMethod]
-        public void GetClass_ItemAlignment_Baseline_Correctly()
+        public void GetClass_AlignSelf_Baseline_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Baseline;
+            this.underTest = AlignSelf.Baseline;
 
             // Act
             var underTestClass = underTest.Class;
@@ -46,14 +49,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("align-items") && v.EndsWith("-baseline")));
+                .Match(x => x.All(v => v.StartsWith("align-self") && v.EndsWith("-baseline")));
         }
 
         [TestMethod]
-        public void GetClass_ItemAlignment_Center_Correctly()
+        public void GetClass_AlignSelf_Center_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Center;
+            this.underTest = AlignSelf.Center;
 
             // Act
             var underTestClass = underTest.Class;
@@ -66,14 +69,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("align-items") && v.EndsWith("-center")));
+                .Match(x => x.All(v => v.StartsWith("align-self") && v.EndsWith("-center")));
         }
 
         [TestMethod]
-        public void GetClass_ItemAlignment_End_Correctly()
+        public void GetClass_AlignSelf_End_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.End;
+            this.underTest = AlignSelf.End;
 
             // Act
             var underTestClass = underTest.Class;
@@ -86,14 +89,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("align-items") && v.EndsWith("-end")));
+                .Match(x => x.All(v => v.StartsWith("align-self") && v.EndsWith("-end")));
         }
 
         [TestMethod]
-        public void GetClass_ItemAlignment_Start_Correctly()
+        public void GetClass_AlignSelf_Start_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Start;
+            this.underTest = AlignSelf.Start;
 
             // Act
             var underTestClass = underTest.Class;
@@ -106,14 +109,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("align-items") && v.EndsWith("-start")));
+                .Match(x => x.All(v => v.StartsWith("align-self") && v.EndsWith("-start")));
         }
 
         [TestMethod]
-        public void GetClass_ItemAlignment_Stretch_Correctly()
+        public void GetClass_AlignSelf_Stretch_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Stretch;
+            this.underTest = AlignSelf.Stretch;
 
             // Act
             var underTestClass = underTest.Class;
@@ -126,14 +129,37 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("align-items") && v.EndsWith("-stretch")));
+                .Match(x => x.All(v => v.StartsWith("align-self") && v.EndsWith("-stretch")));
         }
+
+        [TestMethod]
+        public void GetClass_AlignSelf_Is_Stretch_Correctly()
+        {
+            // Arrange
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Stretch);
+
+            // Act
+            var underTestClass = underTest.Class;
+
+            // Assert
+            underTestClass.Should().NotBeNullOrWhiteSpace();
+
+            underTestClass.Split(' ').Should()
+                .HaveCount(5)
+                .And
+                .OnlyHaveUniqueItems()
+                .And
+                .Match(x => x.All(v => v.StartsWith("align-self") && v.EndsWith("-stretch")));
+        }
+
+
+
 
         [TestMethod]
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnMobile();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -146,14 +172,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-start");
+                .HaveElementAt(0, "align-self-start");
         }
 
         [TestMethod]
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnMobileAndLarger();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnMobileAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -166,22 +192,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-start")
+                .HaveElementAt(0, "align-self-start")
                 .And
-                .HaveElementAt(1, "align-items-sm-start")
+                .HaveElementAt(1, "align-self-sm-start")
                 .And
-                .HaveElementAt(2, "align-items-md-start")
+                .HaveElementAt(2, "align-self-md-start")
                 .And
-                .HaveElementAt(3, "align-items-lg-start")
+                .HaveElementAt(3, "align-self-lg-start")
                 .And
-                .HaveElementAt(4, "align-items-xl-start");
+                .HaveElementAt(4, "align-self-xl-start");
         }
 
         [TestMethod]
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnTablet();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnTablet();
 
             // Act
             var underTestClass = underTest.Class;
@@ -194,14 +220,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(1, "align-items-sm-start");
+                .HaveElementAt(1, "align-self-sm-start");
         }
 
         [TestMethod]
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnTabletAndLarger();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnTabletAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -214,20 +240,20 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(1, "align-items-sm-start")
+                .HaveElementAt(1, "align-self-sm-start")
                 .And
-                .HaveElementAt(2, "align-items-md-start")
+                .HaveElementAt(2, "align-self-md-start")
                 .And
-                .HaveElementAt(3, "align-items-lg-start")
+                .HaveElementAt(3, "align-self-lg-start")
                 .And
-                .HaveElementAt(4, "align-items-xl-start");
+                .HaveElementAt(4, "align-self-xl-start");
         }
 
         [TestMethod]
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnTabletAndSmaller();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnTabletAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -240,16 +266,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-start")
+                .HaveElementAt(0, "align-self-start")
                 .And
-                .HaveElementAt(1, "align-items-sm-start");
+                .HaveElementAt(1, "align-self-sm-start");
         }
 
         [TestMethod]
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnDesktop();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnDesktop();
 
             // Act
             var underTestClass = underTest.Class;
@@ -262,14 +288,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(2, "align-items-md-start");
+                .HaveElementAt(2, "align-self-md-start");
         }
 
         [TestMethod]
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnDesktopAndLarger();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnDesktopAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -282,18 +308,18 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(2, "align-items-md-start")
+                .HaveElementAt(2, "align-self-md-start")
                 .And
-                .HaveElementAt(3, "align-items-lg-start")
+                .HaveElementAt(3, "align-self-lg-start")
                 .And
-                .HaveElementAt(4, "align-items-xl-start");
+                .HaveElementAt(4, "align-self-xl-start");
         }
 
         [TestMethod]
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnDesktopAndSmaller();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnDesktopAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -306,18 +332,18 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-start")
+                .HaveElementAt(0, "align-self-start")
                 .And
-                .HaveElementAt(1, "align-items-sm-start")
+                .HaveElementAt(1, "align-self-sm-start")
                 .And
-                .HaveElementAt(2, "align-items-md-start");
+                .HaveElementAt(2, "align-self-md-start");
         }
 
         [TestMethod]
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnWidescreen();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnWidescreen();
 
             // Act
             var underTestClass = underTest.Class;
@@ -330,14 +356,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(3, "align-items-lg-start");
+                .HaveElementAt(3, "align-self-lg-start");
         }
 
         [TestMethod]
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnWidescreenAndLarger();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnWidescreenAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -350,16 +376,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(3, "align-items-lg-start")
+                .HaveElementAt(3, "align-self-lg-start")
                 .And
-                .HaveElementAt(4, "align-items-xl-start");
+                .HaveElementAt(4, "align-self-xl-start");
         }
 
         [TestMethod]
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnWidescreenAndSmaller();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnWidescreenAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -372,20 +398,20 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-start")
+                .HaveElementAt(0, "align-self-start")
                 .And
-                .HaveElementAt(1, "align-items-sm-start")
+                .HaveElementAt(1, "align-self-sm-start")
                 .And
-                .HaveElementAt(2, "align-items-md-start")
+                .HaveElementAt(2, "align-self-md-start")
                 .And
-                .HaveElementAt(3, "align-items-lg-start");
+                .HaveElementAt(3, "align-self-lg-start");
         }
 
         [TestMethod]
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnFullHD();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnFullHD();
 
             // Act
             var underTestClass = underTest.Class;
@@ -398,14 +424,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(4, "align-items-xl-start");
+                .HaveElementAt(4, "align-self-xl-start");
         }
 
         [TestMethod]
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnFullHDAndSmaller();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnFullHDAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -418,22 +444,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-start")
+                .HaveElementAt(0, "align-self-start")
                 .And
-                .HaveElementAt(1, "align-items-sm-start")
+                .HaveElementAt(1, "align-self-sm-start")
                 .And
-                .HaveElementAt(2, "align-items-md-start")
+                .HaveElementAt(2, "align-self-md-start")
                 .And
-                .HaveElementAt(3, "align-items-lg-start")
+                .HaveElementAt(3, "align-self-lg-start")
                 .And
-                .HaveElementAt(4, "align-items-xl-start");
+                .HaveElementAt(4, "align-self-xl-start");
         }
 
         [TestMethod]
         public void OnMobile_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnMobile();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnMobile();
 
             // Act
             var underTestClass = underTest.Class;
@@ -446,22 +472,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-start")
+                .HaveElementAt(0, "align-self-start")
                 .And
-                .HaveElementAt(1, "align-items-sm-stretch")
+                .HaveElementAt(1, "align-self-sm-stretch")
                 .And
-                .HaveElementAt(2, "align-items-md-stretch")
+                .HaveElementAt(2, "align-self-md-stretch")
                 .And
-                .HaveElementAt(3, "align-items-lg-stretch")
+                .HaveElementAt(3, "align-self-lg-stretch")
                 .And
-                .HaveElementAt(4, "align-items-xl-stretch");
+                .HaveElementAt(4, "align-self-xl-stretch");
         }
 
         [TestMethod]
         public void OnMobileAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnMobileAndLarger();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnMobileAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -474,22 +500,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-start")
+                .HaveElementAt(0, "align-self-start")
                 .And
-                .HaveElementAt(1, "align-items-sm-start")
+                .HaveElementAt(1, "align-self-sm-start")
                 .And
-                .HaveElementAt(2, "align-items-md-start")
+                .HaveElementAt(2, "align-self-md-start")
                 .And
-                .HaveElementAt(3, "align-items-lg-start")
+                .HaveElementAt(3, "align-self-lg-start")
                 .And
-                .HaveElementAt(4, "align-items-xl-start");
+                .HaveElementAt(4, "align-self-xl-start");
         }
 
         [TestMethod]
         public void OnTablet_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnTablet();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnTablet();
 
             // Act
             var underTestClass = underTest.Class;
@@ -502,22 +528,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-stretch")
+                .HaveElementAt(0, "align-self-stretch")
                 .And
-                .HaveElementAt(1, "align-items-sm-start")
+                .HaveElementAt(1, "align-self-sm-start")
                 .And
-                .HaveElementAt(2, "align-items-md-stretch")
+                .HaveElementAt(2, "align-self-md-stretch")
                 .And
-                .HaveElementAt(3, "align-items-lg-stretch")
+                .HaveElementAt(3, "align-self-lg-stretch")
                 .And
-                .HaveElementAt(4, "align-items-xl-stretch");
+                .HaveElementAt(4, "align-self-xl-stretch");
         }
 
         [TestMethod]
         public void OnTabletAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnTabletAndLarger();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnTabletAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -530,22 +556,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-stretch")
+                .HaveElementAt(0, "align-self-stretch")
                 .And
-                .HaveElementAt(1, "align-items-sm-start")
+                .HaveElementAt(1, "align-self-sm-start")
                 .And
-                .HaveElementAt(2, "align-items-md-start")
+                .HaveElementAt(2, "align-self-md-start")
                 .And
-                .HaveElementAt(3, "align-items-lg-start")
+                .HaveElementAt(3, "align-self-lg-start")
                 .And
-                .HaveElementAt(4, "align-items-xl-start");
+                .HaveElementAt(4, "align-self-xl-start");
         }
 
         [TestMethod]
         public void OnTabletAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnTabletAndSmaller();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnTabletAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -558,22 +584,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-start")
+                .HaveElementAt(0, "align-self-start")
                 .And
-                .HaveElementAt(1, "align-items-sm-start")
+                .HaveElementAt(1, "align-self-sm-start")
                 .And
-                .HaveElementAt(2, "align-items-md-stretch")
+                .HaveElementAt(2, "align-self-md-stretch")
                 .And
-                .HaveElementAt(3, "align-items-lg-stretch")
+                .HaveElementAt(3, "align-self-lg-stretch")
                 .And
-                .HaveElementAt(4, "align-items-xl-stretch");
+                .HaveElementAt(4, "align-self-xl-stretch");
         }
 
         [TestMethod]
         public void OnDesktop_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnDesktop();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnDesktop();
 
             // Act
             var underTestClass = underTest.Class;
@@ -586,22 +612,22 @@ namespace Flexor.Tests
                .And
                .OnlyHaveUniqueItems()
                .And
-               .HaveElementAt(0, "align-items-stretch")
+               .HaveElementAt(0, "align-self-stretch")
                .And
-               .HaveElementAt(1, "align-items-sm-stretch")
+               .HaveElementAt(1, "align-self-sm-stretch")
                .And
-               .HaveElementAt(2, "align-items-md-start")
+               .HaveElementAt(2, "align-self-md-start")
                .And
-               .HaveElementAt(3, "align-items-lg-stretch")
+               .HaveElementAt(3, "align-self-lg-stretch")
                .And
-               .HaveElementAt(4, "align-items-xl-stretch");
+               .HaveElementAt(4, "align-self-xl-stretch");
         }
 
         [TestMethod]
         public void OnDesktopAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnDesktopAndLarger();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnDesktopAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -614,22 +640,22 @@ namespace Flexor.Tests
                .And
                .OnlyHaveUniqueItems()
                .And
-               .HaveElementAt(0, "align-items-stretch")
+               .HaveElementAt(0, "align-self-stretch")
                .And
-               .HaveElementAt(1, "align-items-sm-stretch")
+               .HaveElementAt(1, "align-self-sm-stretch")
                .And
-               .HaveElementAt(2, "align-items-md-start")
+               .HaveElementAt(2, "align-self-md-start")
                .And
-               .HaveElementAt(3, "align-items-lg-start")
+               .HaveElementAt(3, "align-self-lg-start")
                .And
-               .HaveElementAt(4, "align-items-xl-start");
+               .HaveElementAt(4, "align-self-xl-start");
         }
 
         [TestMethod]
         public void OnDesktopAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnDesktopAndSmaller();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnDesktopAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -642,22 +668,22 @@ namespace Flexor.Tests
               .And
               .OnlyHaveUniqueItems()
               .And
-              .HaveElementAt(0, "align-items-start")
+              .HaveElementAt(0, "align-self-start")
               .And
-              .HaveElementAt(1, "align-items-sm-start")
+              .HaveElementAt(1, "align-self-sm-start")
               .And
-              .HaveElementAt(2, "align-items-md-start")
+              .HaveElementAt(2, "align-self-md-start")
               .And
-              .HaveElementAt(3, "align-items-lg-stretch")
+              .HaveElementAt(3, "align-self-lg-stretch")
               .And
-              .HaveElementAt(4, "align-items-xl-stretch");
+              .HaveElementAt(4, "align-self-xl-stretch");
         }
 
         [TestMethod]
         public void OnWidescreen_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnWidescreen();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnWidescreen();
 
             // Act
             var underTestClass = underTest.Class;
@@ -670,22 +696,22 @@ namespace Flexor.Tests
               .And
               .OnlyHaveUniqueItems()
               .And
-              .HaveElementAt(0, "align-items-stretch")
+              .HaveElementAt(0, "align-self-stretch")
               .And
-              .HaveElementAt(1, "align-items-sm-stretch")
+              .HaveElementAt(1, "align-self-sm-stretch")
               .And
-              .HaveElementAt(2, "align-items-md-stretch")
+              .HaveElementAt(2, "align-self-md-stretch")
               .And
-              .HaveElementAt(3, "align-items-lg-start")
+              .HaveElementAt(3, "align-self-lg-start")
               .And
-              .HaveElementAt(4, "align-items-xl-stretch");
+              .HaveElementAt(4, "align-self-xl-stretch");
         }
 
         [TestMethod]
         public void OnWidescreenAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnWidescreenAndLarger();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnWidescreenAndLarger();
 
             // Act
             var underTestClass = underTest.Class;
@@ -698,22 +724,22 @@ namespace Flexor.Tests
               .And
               .OnlyHaveUniqueItems()
               .And
-              .HaveElementAt(0, "align-items-stretch")
+              .HaveElementAt(0, "align-self-stretch")
               .And
-              .HaveElementAt(1, "align-items-sm-stretch")
+              .HaveElementAt(1, "align-self-sm-stretch")
               .And
-              .HaveElementAt(2, "align-items-md-stretch")
+              .HaveElementAt(2, "align-self-md-stretch")
               .And
-              .HaveElementAt(3, "align-items-lg-start")
+              .HaveElementAt(3, "align-self-lg-start")
               .And
-              .HaveElementAt(4, "align-items-xl-start");
+              .HaveElementAt(4, "align-self-xl-start");
         }
 
         [TestMethod]
         public void OnWidescreenAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnWidescreenAndSmaller();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnWidescreenAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -726,22 +752,22 @@ namespace Flexor.Tests
               .And
               .OnlyHaveUniqueItems()
               .And
-              .HaveElementAt(0, "align-items-start")
+              .HaveElementAt(0, "align-self-start")
               .And
-              .HaveElementAt(1, "align-items-sm-start")
+              .HaveElementAt(1, "align-self-sm-start")
               .And
-              .HaveElementAt(2, "align-items-md-start")
+              .HaveElementAt(2, "align-self-md-start")
               .And
-              .HaveElementAt(3, "align-items-lg-start")
+              .HaveElementAt(3, "align-self-lg-start")
               .And
-              .HaveElementAt(4, "align-items-xl-stretch");
+              .HaveElementAt(4, "align-self-xl-stretch");
         }
 
         [TestMethod]
         public void OnFullHD_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnFullHD();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnFullHD();
 
             // Act
             var underTestClass = underTest.Class;
@@ -754,22 +780,22 @@ namespace Flexor.Tests
               .And
               .OnlyHaveUniqueItems()
               .And
-              .HaveElementAt(0, "align-items-stretch")
+              .HaveElementAt(0, "align-self-stretch")
               .And
-              .HaveElementAt(1, "align-items-sm-stretch")
+              .HaveElementAt(1, "align-self-sm-stretch")
               .And
-              .HaveElementAt(2, "align-items-md-stretch")
+              .HaveElementAt(2, "align-self-md-stretch")
               .And
-              .HaveElementAt(3, "align-items-lg-stretch")
+              .HaveElementAt(3, "align-self-lg-stretch")
               .And
-              .HaveElementAt(4, "align-items-xl-start");
+              .HaveElementAt(4, "align-self-xl-start");
         }
 
         [TestMethod]
         public void OnFullHDAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(ItemAlignmentOption.Start).OnFullHDAndSmaller();
+            this.underTest = AlignSelf.Is(SelfAlignmentOption.Start).OnFullHDAndSmaller();
 
             // Act
             var underTestClass = underTest.Class;
@@ -782,15 +808,17 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "align-items-start")
+                .HaveElementAt(0, "align-self-start")
                 .And
-                .HaveElementAt(1, "align-items-sm-start")
+                .HaveElementAt(1, "align-self-sm-start")
                 .And
-                .HaveElementAt(2, "align-items-md-start")
+                .HaveElementAt(2, "align-self-md-start")
                 .And
-                .HaveElementAt(3, "align-items-lg-start")
+                .HaveElementAt(3, "align-self-lg-start")
                 .And
-                .HaveElementAt(4, "align-items-xl-start");
+                .HaveElementAt(4, "align-self-xl-start");
         }
+
+
     }
 }

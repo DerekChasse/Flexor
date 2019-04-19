@@ -15,7 +15,7 @@ namespace Flexor.Base
         private IDirection direction = Flexor.Direction.Row;
         private IWrap wrap = Flexor.Wrap.NoWrap;
         private IJustifyContent justifyContent = Flexor.JustifyContent.Start;
-        private IAlignItems itemAlignment = Flexor.ItemAlignment.Stretch;
+        private IAlignItems itemAlignment = Flexor.AlignItems.Stretch;
 
         /// <summary>
         /// Defines the direction in which items are added to the layout.

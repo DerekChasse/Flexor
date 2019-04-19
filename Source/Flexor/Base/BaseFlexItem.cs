@@ -15,7 +15,7 @@ namespace Flexor.Base
     public abstract class BaseFlexItem : BaseFlexComponent
     {
         private IOrder order = Flexor.Order.Default;
-        private IAlignItems itemAlignment = Flexor.ItemAlignment.Start;
+        private IAlignSelf selfAlignment = Flexor.AlignSelf.Auto;
         private ISize size = Flexor.Size.Default;
 
         private string divId;
@@ -39,15 +39,15 @@ namespace Flexor.Base
         /// <summary>
         /// Defines the alignment of an individual item across the layout's cross axis.
         ///
-        /// Default is 'inherit'.
+        /// Default is 'auto'.
         /// </summary>
         [Parameter]
-        protected IAlignItems ItemAlignment
+        protected IAlignSelf AlignSelf
         {
-            get => this.itemAlignment;
+            get => this.selfAlignment;
             set
             {
-                this.itemAlignment = value;
+                this.selfAlignment = value;
                 this.StateHasChanged();
             }
         }
@@ -109,7 +109,7 @@ namespace Flexor.Base
         {
             return string.Join(
                 " ",
-                this.ItemAlignment.Class,
+                this.AlignSelf.Class,
                 this.Visible.Class,
                 this.Size.Class);
         }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿// <copyright file="FluentAlignSelf.cs" company="Derek Chasse">
+// Copyright (c) Derek Chasse. All rights reserved.
+// </copyright>
+
 using System.Collections.Generic;
 using System.Text;
 
