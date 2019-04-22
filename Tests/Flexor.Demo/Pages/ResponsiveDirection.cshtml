@@ -1,6 +1,27 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@layout ResponsiveLayout
+
+@page "/responsive-direction"
+
+<div class="row">
+    <div class="col-12" style="min-height: 250px;">
+        <FlexLayout Direction=@this.direction>
+            <FlexItem Fill="true">
+                <ColoredBox>I'm above on mobile, and to the left on larger devices.</ColoredBox>
+            </FlexItem>
+            <FlexItem Fill="true">
+                <ColoredBox>I'm below on mobile, and to the right on larger devices.</ColoredBox>
+            </FlexItem>
+        </FlexLayout>
+    </div>
+</div>
 
 @functions {
+    private IDirection direction;
+
+    protected override void OnInit()
+    {
+        base.OnInit();
+
+        this.direction = Direction.Is(DirectionOption.Column).OnTabletAndSmaller();
+    }
 }

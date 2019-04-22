@@ -17,6 +17,9 @@ namespace Flexor.Base
         private IOrder order = Flexor.Order.Default;
         private IAlignSelf selfAlignment = Flexor.AlignSelf.Auto;
         private ISize size = Flexor.Size.Default;
+        private IResizability resizability = Flexor.Resizability.Auto;
+
+        private bool fill = false;
 
         private string divId;
 
@@ -77,6 +80,44 @@ namespace Flexor.Base
             }
         }
 
+        /// <summary>
+        /// Defines the resizability of a flex-item.
+        ///
+        /// Default is 'auto'.
+        /// </summary>
+        [Parameter]
+        protected IResizability Resizability
+        {
+            get => this.resizability;
+            set
+            {
+                if (!this.resizability.Equals(value))
+                {
+                    this.resizability = value;
+                    this.StateHasChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// The specific flex-item should expand to fill all available space.
+        ///
+        /// Default is 'false'.
+        /// </summary>
+        [Parameter]
+        protected bool Fill
+        {
+            get => this.fill;
+            set
+            {
+                if (!this.fill.Equals(value))
+                {
+                    this.fill = value;
+                    this.StateHasChanged();
+                }
+            }
+        }
+
         /// <inheritdoc/>
         protected override Task OnParametersSetAsync()
         {
@@ -98,11 +139,12 @@ namespace Flexor.Base
             builder.OpenElement(0, "div");
             this.divId = Guid.NewGuid().ToString();
 
-            builder.AddAttribute(1, "class", this.GetItemClassDefinition());
+            //builder.AddAttribute(1, "id", this.divId);
+            builder.AddAttribute(2, "class", this.GetItemClassDefinition());
 
             if (this.ChildContent != null)
             {
-                builder.AddContent(2, this.ChildContent);
+                builder.AddContent(3, this.ChildContent);
                 this.ChildContent = null;
             }
 
@@ -122,6 +164,7 @@ namespace Flexor.Base
                 " ",
                 this.AlignSelf.Class,
                 this.Visible.Class,
+                //this.Resizability.Class,
                 this.Size.Class);
         }
     }
