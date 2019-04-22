@@ -2,13 +2,14 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IAlignItems : ICssBacked
+    public interface IAlignItems : ICssBacked, IEquatable<IAlignItems>
     {
     }
 
@@ -55,6 +56,12 @@ namespace Flexor
 
         /// <inheritdoc/>
         public string Class => this.BuildClass();
+
+        /// <inheritdoc/>
+        public bool Equals(IAlignItems other)
+        {
+            return string.Equals(this.Class, other.Class);
+        }
 
         /// <inheritdoc/>
         public IFluentAlignItemsWithValueOnBreakpoint Is(ItemAlignmentOption value)

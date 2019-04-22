@@ -10,7 +10,7 @@ using System.Text;
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface ISize : ICssBacked, IDynamicCssBacked
+    public interface ISize : ICssBacked, IDynamicCssBacked, IEquatable<ISize>
     {
     }
 
@@ -208,6 +208,12 @@ namespace Flexor
         public void SetSize(decimal value, SizeUnit unit)
         {
             this.valueToApply = new Measurement { Value = value, Unit = unit };
+        }
+
+        /// <inheritdoc/>
+        public bool Equals(ISize other)
+        {
+            return string.Equals(this.Class, other.Class);
         }
 
         private void SetBreakpointValues(Measurement value, params Breakpoint[] breakpoints)

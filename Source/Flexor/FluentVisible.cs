@@ -2,13 +2,14 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IVisible : ICssBacked
+    public interface IVisible : ICssBacked, IEquatable<IVisible>
     {
     }
 
@@ -154,6 +155,12 @@ namespace Flexor
         {
             this.SetBreakpointValues(true, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
+        }
+
+        /// <inheritdoc/>
+        public bool Equals(IVisible other)
+        {
+            return string.Equals(this.Class, other.Class);
         }
 
         private string BuildClass()

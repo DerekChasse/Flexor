@@ -28,8 +28,11 @@ namespace Flexor.Base
             get => this.direction;
             set
             {
-                this.direction = value;
-                this.StateHasChanged();
+                if (!this.direction.Equals(value))
+                {
+                    this.direction = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
@@ -44,8 +47,11 @@ namespace Flexor.Base
             get => this.wrap;
             set
             {
-                this.wrap = value;
-                this.StateHasChanged();
+                if (!this.wrap.Equals(value))
+                {
+                    this.wrap = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
@@ -60,8 +66,11 @@ namespace Flexor.Base
             get => this.justifyContent;
             set
             {
-                this.justifyContent = value;
-                this.StateHasChanged();
+                if (!this.justifyContent.Equals(value))
+                {
+                    this.justifyContent = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
@@ -76,14 +85,19 @@ namespace Flexor.Base
             get => this.itemAlignment;
             set
             {
-                this.itemAlignment = value;
-                this.StateHasChanged();
+                if (!this.itemAlignment.Equals(value))
+                {
+                    this.itemAlignment = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
         /// <inheritdoc/>
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
+            base.BuildRenderTree(builder);
+
             builder.OpenElement(0, "div");
             builder.AddAttribute(1, "class", this.GetLayoutClassDefinition());
 

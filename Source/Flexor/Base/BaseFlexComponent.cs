@@ -27,8 +27,11 @@ namespace Flexor.Base
             get => this.visible;
             set
             {
-                this.visible = value;
-                this.StateHasChanged();
+                if (!this.visible.Equals(value))
+                {
+                    this.visible = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
@@ -41,6 +44,12 @@ namespace Flexor.Base
             get;
             set;
         }
+
+        /// <summary>
+        /// The parent component if any.
+        /// </summary>
+        [CascadingParameter]
+        protected BaseFlexComponent Parent { get; set; }
 
         /// <summary>
         /// Flexor specific javascript interop layer.

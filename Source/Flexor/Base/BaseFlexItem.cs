@@ -31,8 +31,11 @@ namespace Flexor.Base
             get => this.order;
             set
             {
-                this.order = value;
-                this.StateHasChanged();
+                if (!this.order.Equals(value))
+                {
+                    this.order = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
@@ -47,8 +50,11 @@ namespace Flexor.Base
             get => this.selfAlignment;
             set
             {
-                this.selfAlignment = value;
-                this.StateHasChanged();
+                if (!this.selfAlignment.Equals(value))
+                {
+                    this.selfAlignment = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
@@ -63,8 +69,11 @@ namespace Flexor.Base
             get => this.size;
             set
             {
-                this.size = value;
-                this.StateHasChanged();
+                if (!this.size.Equals(value))
+                {
+                    this.size = value;
+                    this.StateHasChanged();
+                }
             }
         }
 

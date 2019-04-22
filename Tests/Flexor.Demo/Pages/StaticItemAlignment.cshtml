@@ -1,28 +1,25 @@
 ﻿@page "/item-alignment"
 
-
 <div class="shadow-lg border border-dark row mb-4">
-    <div class="col-12" style="height: 300px">
+    <div class="col-12 m-0 p-0" style="height: 300px">
 
-        <FlexLayout ref="previewLayout" Direction=@this.Direction ItemAlignment="AlignItems.Center" JustifyContent="JustifyContent.SpaceAround">
-            
-            <FlexItem>
-                <ColoredBox></ColoredBox>
-            </FlexItem>
-
-            <FlexItem AlignSelf="AlignSelf.Is(SelfAlignmentOption.Stretch).OnDesktopAndLarger()">
-                <ColoredBox></ColoredBox>
-            </FlexItem>
-
-            <FlexItem AlignSelf="AlignSelf.Is(SelfAlignmentOption.Center).OnDesktopAndLarger()">
-                <ColoredBox></ColoredBox>
-            </FlexItem>
-
-            <FlexItem >
-                <ColoredBox></ColoredBox>
-            </FlexItem>
-
-
+        <FlexLayout ref="previewLayout" Direction=@this.Direction ItemAlignment="@this.AlignItems" JustifyContent="@this.JustifyContent">
+            @*<FlexItem>
+            <ColoredBox></ColoredBox>
+        </FlexItem>
+        <FlexItem>
+            <ColoredBox></ColoredBox>
+        </FlexItem>
+        <FlexItem>
+            <ColoredBox></ColoredBox>
+        </FlexItem>
+        <FlexItem>
+            <ColoredBox></ColoredBox>
+        </FlexItem>*@
+            <ColoredBox></ColoredBox>
+            <ColoredBox></ColoredBox>
+            <ColoredBox></ColoredBox>
+            <ColoredBox></ColoredBox>
 
         </FlexLayout>
 
@@ -32,14 +29,18 @@
 
 <div class="shadow-lg border border-dark row">
     <div class="col-8 offset-2" style="height: 300px">
-        <FlexLayout ref="configLayout" Direction="Flexor.Direction.Row">
 
+        @*<button onclick=@(() => this.UpdateDirection(DirectionOption.Row, "Row"))>Row</button>
+
+            <button onclick=@(() => this.UpdateDirection(DirectionOption.Column, "Column"))>Column</button>
+
+            <button onclick=@(() => this.UpdateDirection(DirectionOption.RowReverse, "RowReverse"))>RowReverse</button>
+
+            <button onclick=@(() => this.UpdateDirection(DirectionOption.ColumnReverse, "ColumnReverse"))>ColumnReverse</button>*@
+
+        <FlexLayout Direction="Flexor.Direction.Row">
             <FlexItem Size="Size.IsPercentOnAll(33)">
                 <FlexLayout Direction="Flexor.Direction.Column">
-
-                    <FlexItem>
-                        <strong>@this.DirectionOptionString</strong>
-                    </FlexItem>
                     <FlexItem>
                         <button onclick=@(() => this.UpdateDirection(DirectionOption.Row, "Row"))>Row</button>
                     </FlexItem>
@@ -52,19 +53,48 @@
                     <FlexItem>
                         <button onclick=@(() => this.UpdateDirection(DirectionOption.ColumnReverse, "ColumnReverse"))>ColumnReverse</button>
                     </FlexItem>
-
-
                 </FlexLayout>
-
-
             </FlexItem>
             <FlexItem Size="Size.IsPercentOnAll(34)">
-
+                <FlexLayout Direction="Flexor.Direction.Column">
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateJustifyContent(JustificationOption.Center, "Center"))>Center</button>
+                    </FlexItem>
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateJustifyContent(JustificationOption.End, "End"))>End</button>
+                    </FlexItem>
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateJustifyContent(JustificationOption.SpaceAround, "SpaceAround"))>Space Around</button>
+                    </FlexItem>
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateJustifyContent(JustificationOption.SpaceBetween, "SpaceBetween"))>Space Between</button>
+                    </FlexItem>
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateJustifyContent(JustificationOption.Start, "Start"))>Start</button>
+                    </FlexItem>
+                </FlexLayout>
             </FlexItem>
             <FlexItem Size="Size.IsPercentOnAll(33)">
-
+                <FlexLayout Direction="Flexor.Direction.Column">
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Baseline, "Baseline"))>Baseline</button>
+                    </FlexItem>
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Center, "Center"))>Center</button>
+                    </FlexItem>
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.End, "End"))>End</button>
+                    </FlexItem>
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Start, "Start"))>Start</button>
+                    </FlexItem>
+                    <FlexItem>
+                        <button onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Stretch, "Stretch"))>Stretch</button>
+                    </FlexItem>
+                </FlexLayout>
             </FlexItem>
         </FlexLayout>
+
     </div>
 </div>
 
@@ -76,22 +106,30 @@
 @functions {
 
     private FlexLayout previewLayout;
-    private FlexLayout configLayout;
 
     private string DirectionOptionString { get; set; } = "Row";
+    private string JustifyContentString { get; set; } = "SpaceAround";
+    private string AlignItemsString { get; set; } = "Center";
 
     private IDirection Direction { get; set; } = Flexor.Direction.Row;
+    private IJustifyContent JustifyContent { get; set; } = Flexor.JustifyContent.SpaceAround;
+    private IAlignItems AlignItems { get; set; } = Flexor.AlignItems.Center;
 
     private void UpdateDirection(DirectionOption option, string optionString)
     {
-        Console.WriteLine($"Changing direction original {this.Direction} - {this.DirectionOptionString}");
-
         this.Direction = Flexor.Direction.Is(option).OnMobileAndLarger();
         this.DirectionOptionString = optionString;
-
-        Console.WriteLine($"Direction changed now {this.Direction} - {this.DirectionOptionString}");
-
-
     }
 
+    private void UpdateJustifyContent(JustificationOption option, string optionString)
+    {
+        this.JustifyContent = Flexor.JustifyContent.Is(option).OnMobileAndLarger();
+        this.JustifyContentString = optionString;
+    }
+
+    private void UpdateAlignItems(ItemAlignmentOption option, string optionString)
+    {
+        this.AlignItems = Flexor.AlignItems.Is(option).OnMobileAndLarger();
+        this.AlignItemsString = optionString;
+    }
 }

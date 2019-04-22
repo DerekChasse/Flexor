@@ -2,13 +2,14 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IOrder : ICssBacked
+    public interface IOrder : ICssBacked, IEquatable<IOrder>
     {
     }
 
@@ -218,6 +219,12 @@ namespace Flexor
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
+        }
+
+        /// <inheritdoc/>
+        public bool Equals(IOrder other)
+        {
+            return string.Equals(this.Class, other.Class);
         }
 
         private IFluentOrderWithValueOnBreakpoint Is(int value)
