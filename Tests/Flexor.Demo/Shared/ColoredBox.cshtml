@@ -1,7 +1,6 @@
 ﻿
-<div class="shadow-sm"  style="min-height: @minHeight; min-width:50px; background-color: @colorHex">
-    
-
+<div class="shadow-sm rounded d-flex justify-content-center align-items-center"  style="min-height: @minHeight; min-width: @minWidth; background-color: @colorHex;">
+    @ChildContent
 </div>
 
 @functions {
@@ -10,6 +9,14 @@
 
     private string colorHex;
     private string minHeight;
+    private string minWidth;
+
+    [Parameter]
+    protected RenderFragment ChildContent
+    {
+        get;
+        set;
+    }
 
     protected override void OnInit()
     {
@@ -19,7 +26,8 @@
 
         this.colorHex = string.Format("#{0:X2}{1:X2}{2:X2}",color.R, color.G, color.B);
 
-        this.minHeight = (this.random.Next(10, 25) * 5).ToString() + "px";
+        this.minHeight = (this.random.Next(8, 15) * 5).ToString() + "px";
+        this.minWidth = (this.random.Next(8, 15) * 5).ToString() + "px";
     }
 
 

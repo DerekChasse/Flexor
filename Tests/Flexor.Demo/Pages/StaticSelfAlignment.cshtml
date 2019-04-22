@@ -1,0 +1,51 @@
+﻿
+@page "/static-self-alignment"
+
+@layout StaticLayout
+
+<div class="shadow-lg border border-dark row mb-4">
+
+    <div class="col-12 m-0 p-0 border-bottom">
+        <p class="mt-3 text-center">Item #2 is <strong>@this.AlignSelfString</strong>.</p>
+    </div>
+
+    <div class="col-12 m-0 p-0" style="min-height: 400px">
+        <FlexLayout Direction="@Direction.Row" ItemAlignment="@AlignItems.Center" JustifyContent="@JustifyContent.SpaceAround">
+            <ColoredBox>1</ColoredBox>
+            <FlexItem AlignSelf="@this.AlignSelf">
+                <ColoredBox>2</ColoredBox>
+            </FlexItem>
+            <ColoredBox>3</ColoredBox>
+            <ColoredBox>4</ColoredBox>
+            <ColoredBox>5</ColoredBox>
+        </FlexLayout>
+    </div>
+</div>
+
+
+<div class="shadow-lg border border-dark row">
+    <div class="col-12 flex-column align-items-center">
+        <div class="btn-group mt-3 mb-3 p-0" role="group">
+            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.Auto, "aligned automatically"))>Auto</button>
+            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.Baseline, "baseline aligned"))>Baseline</button>
+            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.Center, "centered"))>Center</button>
+            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.End, "end aligned"))>End</button>
+            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.Start, "start aligned"))>Start</button>
+            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.Stretch, "stretched"))>Stretch</button>
+        </div>
+    </div>
+</div>
+
+@functions {
+
+    IAlignSelf AlignSelf { get; set; } = Flexor.AlignSelf.Start;
+    string AlignSelfString { get; set; } = "start aligned";
+
+    void UpdateAlignSelf(SelfAlignmentOption option, string optionString)
+    {
+        this.AlignSelf = Flexor.AlignSelf.Is(option).OnMobileAndLarger(); ;
+        this.AlignSelfString = optionString;
+    }
+
+
+}

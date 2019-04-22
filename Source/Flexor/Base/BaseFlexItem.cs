@@ -93,6 +93,8 @@ namespace Flexor.Base
         /// <inheritdoc/>
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
+            base.BuildRenderTree(builder);
+
             builder.OpenElement(0, "div");
             this.divId = Guid.NewGuid().ToString();
 

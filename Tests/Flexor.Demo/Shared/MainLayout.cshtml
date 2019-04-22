@@ -1,14 +1,16 @@
 @inherits LayoutComponentBase
 
-<div class="sidebar">
-    <NavMenu />
-</div>
-
-<div class="main">
-    <div class="top-row px-4">
+<div class="flex-column justify-content-start align-items-stretch">
+    
+    <div class="text-center" style="font-size: 5em">
+        Flexor
     </div>
 
-    <div class="content px-4">
+    <TopNavBar></TopNavBar>
+
+    <div class="flex-fill m-3">
         @Body
+
     </div>
+
 </div>
