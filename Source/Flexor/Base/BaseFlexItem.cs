@@ -139,7 +139,8 @@ namespace Flexor.Base
             builder.OpenElement(0, "div");
             this.divId = Guid.NewGuid().ToString();
 
-            //builder.AddAttribute(1, "id", this.divId);
+            // TODO - Is this and the subsequent JavaScript necessary?
+            builder.AddAttribute(1, "id", this.divId);
             builder.AddAttribute(2, "class", this.GetItemClassDefinition());
 
             if (this.ChildContent != null)
@@ -154,7 +155,7 @@ namespace Flexor.Base
         /// <inheritdoc/>
         protected override void OnAfterRender()
         {
-            ////this.Interop.DecorateChild(this.divId, this.GetItemClassDefinition());
+            this.Interop.DecorateChild(this.divId, this.GetItemClassDefinition());
             ////this.Interop.UnwrapDiv(this.divId);
         }
 
@@ -164,7 +165,8 @@ namespace Flexor.Base
                 " ",
                 this.AlignSelf.Class,
                 this.Visible.Class,
-                //this.Resizability.Class,
+                ////this.Resizability.Class,
+                this.Fill ? "flex-fill" : string.Empty,
                 this.Size.Class);
         }
     }

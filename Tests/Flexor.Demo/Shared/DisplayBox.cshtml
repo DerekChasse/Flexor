@@ -1,0 +1,44 @@
+﻿<div class="shadow-lg border border-dark row mb-4">
+    @if(this.ShowHeader){
+
+    <div class="col-12 m-0 p-0 border-bottom">
+        <p class="mt-3 text-center">@this.HeaderMessage</p>
+    </div>
+    }
+
+    <div class="col-12 m-0 p-0" style="min-height: @this.ContentMinHeight.ToString()px">
+        @ChildContent
+    </div>
+</div>
+
+@functions {
+
+    [Parameter]
+    protected RenderFragment ChildContent
+    {
+        get;
+        set;
+    }
+
+    [Parameter]
+    protected int ContentMinHeight
+    {
+        get;
+        set;
+    }
+
+    [Parameter]
+    protected MarkupString HeaderMessage
+    {
+        get;
+        set;
+    }
+
+    [Parameter]
+    protected bool ShowHeader
+    {
+        get;
+        set;
+    }
+   
+}

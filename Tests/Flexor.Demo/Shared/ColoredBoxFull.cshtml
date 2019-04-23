@@ -1,0 +1,34 @@
+﻿
+<div class="shadow-sm rounded d-flex justify-content-center align-items-center flex-fill" style="min-height: @minHeight; min-width: @minWidth; background-color: @colorHex;">
+    @ChildContent
+</div>
+
+@functions {
+
+    private Random random = new Random();
+
+    private string colorHex;
+    private string minHeight;
+    private string minWidth;
+
+    [Parameter]
+    protected RenderFragment ChildContent
+    {
+        get;
+        set;
+    }
+
+    protected override void OnInit()
+    {
+        base.OnInit();
+
+        var color = System.Drawing.Color.FromArgb(this.random.Next(0, 256), this.random.Next(0, 256), this.random.Next(0, 256));
+
+        this.colorHex = string.Format("#{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B);
+
+        this.minHeight = (this.random.Next(8, 15) * 5).ToString() + "px";
+        this.minWidth = (this.random.Next(8, 15) * 5).ToString() + "px";
+    }
+
+
+}
