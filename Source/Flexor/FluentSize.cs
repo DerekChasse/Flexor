@@ -261,7 +261,14 @@ namespace Flexor
 
             string className = $"flexor{breakpoint}-{sizingUnit.ToCssSuffix()}";
 
-            lineBuilder.Append($".{className} {{-webkit-flex-basis: {sizingUnit}; flex-basis: {sizingUnit};}}");
+            if (breakpoint == Breakpoint.Mobile)
+            {
+                lineBuilder.Append($".{className} {{-webkit-flex-basis: {sizingUnit}; flex-basis: {sizingUnit};}}");
+            }
+            else
+            {
+                lineBuilder.Append($".{className} {{-webkit-flex-basis: {sizingUnit} !important; flex-basis: {sizingUnit} !important;}}");
+            }
 
             if (breakpoint != Breakpoint.Mobile)
             {

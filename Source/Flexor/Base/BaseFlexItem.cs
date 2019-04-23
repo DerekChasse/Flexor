@@ -165,6 +165,7 @@ namespace Flexor.Base
                 " ",
                 this.AlignSelf.Class,
                 this.Visible.Class,
+                this.Order.Class,
                 ////this.Resizability.Class,
                 this.Fill ? "flex-fill" : string.Empty,
                 this.Size.Class);

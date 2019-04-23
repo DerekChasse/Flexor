@@ -2,7 +2,7 @@
 
 @page "/static-wrap"
 
-<DisplayBox ShowHeader="true" HeaderMessage=@this.headerMessage ContentMinHeight="400">
+<DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
     <FlexLayout Wrap="Wrap.CanWrap">
         <FlexItem Size="Size.IsPercentOnAll(30)">
             <ColoredBoxFull>30</ColoredBoxFull>
@@ -34,4 +34,6 @@
 @functions {
 
     MarkupString headerMessage = new MarkupString("Using <strong>Wrap</strong> to wrap positioned items within a layout container.");
+
+
 }

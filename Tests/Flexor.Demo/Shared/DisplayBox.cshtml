@@ -1,44 +1,36 @@
 ﻿<div class="shadow-lg border border-dark row mb-4">
-    @if(this.ShowHeader){
+    @if (this.HeaderMessage.HasValue)
+    {
 
-    <div class="col-12 m-0 p-0 border-bottom">
-        <p class="mt-3 text-center">@this.HeaderMessage</p>
-    </div>
+        <div class="col-12 m-0 p-0 border-bottom">
+            <p class="mt-3 text-center">@this.HeaderMessage.Value</p>
+        </div>
     }
 
     <div class="col-12 m-0 p-0" style="min-height: @this.ContentMinHeight.ToString()px">
         @ChildContent
     </div>
+
+    @if (this.FooterMessage.HasValue)
+    {
+
+        <div class="col-12 m-0 p-0 border-top">
+            <p class="mt-3 text-center">@this.FooterMessage.Value</p>
+        </div>
+    }
 </div>
 
 @functions {
 
     [Parameter]
-    protected RenderFragment ChildContent
-    {
-        get;
-        set;
-    }
+    protected RenderFragment ChildContent { get; set; }
 
     [Parameter]
-    protected int ContentMinHeight
-    {
-        get;
-        set;
-    }
+    protected int ContentMinHeight { get; set; } = 400;
 
     [Parameter]
-    protected MarkupString HeaderMessage
-    {
-        get;
-        set;
-    }
+    protected MarkupString? HeaderMessage { get; set; } = null;
 
     [Parameter]
-    protected bool ShowHeader
-    {
-        get;
-        set;
-    }
-   
+    protected MarkupString? FooterMessage { get; set; } = null;
 }

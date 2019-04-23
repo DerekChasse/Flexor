@@ -2,26 +2,17 @@
 
 @page "/responsive-direction"
 
-<div class="row">
-    <div class="col-12" style="min-height: 250px;">
-        <FlexLayout Direction=@this.direction>
-            <FlexItem Size="Size.IsPercentOnAll(50)">
-                <ColoredBoxFull>I'm above on mobile, and to the left on larger devices.</ColoredBoxFull>
-            </FlexItem>
-            <FlexItem Size="Size.IsPercentOnAll(50)">
-                <ColoredBoxFull>I'm below on mobile, and to the right on larger devices.</ColoredBoxFull>
-            </FlexItem>
-        </FlexLayout>
-    </div>
-</div>
+<DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
+    <FlexLayout Direction=@Direction.Is(DirectionOption.Column).OnMobile()>
+        <FlexItem Size="Size.IsPercentOnAll(50)">
+            <ColoredBoxFull>I'm above on mobile, and to the left on larger devices.</ColoredBoxFull>
+        </FlexItem>
+        <FlexItem Size="Size.IsPercentOnAll(50)">
+            <ColoredBoxFull>I'm below on mobile, and to the right on larger devices.</ColoredBoxFull>
+        </FlexItem>
+    </FlexLayout>
+</DisplayBox>
 
 @functions {
-    private IDirection direction;
-
-    protected override void OnInit()
-    {
-        base.OnInit();
-
-        this.direction = Direction.Is(DirectionOption.Column).OnTabletAndSmaller();
-    }
+    MarkupString headerMessage = new MarkupString("Items with responsive <strong>Direction</strong> configurations. ");
 }

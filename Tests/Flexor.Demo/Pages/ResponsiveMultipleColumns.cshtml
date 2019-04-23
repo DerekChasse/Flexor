@@ -1,0 +1,31 @@
+﻿@layout ResponsiveLayout
+
+@page "/responsive-multiple-columns"
+
+<DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
+    <FlexLayout>
+        <FlexItem Size="Size.IsPercentOnAll(25)" Visible="Visible.Only.OnMobile().And.OnDesktopAndLarger()">
+            <FlexLayout Direction="Direction.Is(DirectionOption.Column).OnTabletAndSmaller()">
+                <FlexItem Size="Size.IsPercentOnAll(50)">
+                    <ColoredBoxFull>1</ColoredBoxFull>
+                </FlexItem>
+                <FlexItem Size="Size.IsPercentOnAll(50)">
+                    <ColoredBoxFull>2</ColoredBoxFull>
+                </FlexItem>
+
+            </FlexLayout>
+        </FlexItem>
+        <FlexLayout Direction="Direction.Column">
+            <FlexItem Size="Size.IsPercentOnAll(50)">
+                <ColoredBoxFull>3</ColoredBoxFull>
+            </FlexItem>
+            <FlexItem Size="Size.IsPercentOnAll(50)">
+                <ColoredBoxFull>4</ColoredBoxFull>
+            </FlexItem>
+        </FlexLayout>
+    </FlexLayout>
+</DisplayBox>
+
+@functions {
+    MarkupString headerMessage = new MarkupString("Nested columns with responsive configurations.");
+}

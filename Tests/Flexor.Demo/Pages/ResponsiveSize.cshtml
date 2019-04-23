@@ -1,0 +1,18 @@
+﻿@layout ResponsiveLayout
+
+@page "/responsive-size"
+
+<DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
+    <FlexLayout>
+        <FlexItem Size="Size.IsPercent(33).OnMobile().IsPercent(67).OnTabletAndLarger()">
+            <ColoredBoxFull>I'm 33% on mobile,and 66% on tablets and larger devices.</ColoredBoxFull>
+        </FlexItem>
+        <FlexItem Size="Size.IsPercent(67).OnMobile().IsPercent(33).OnTabletAndLarger()">
+            <ColoredBoxFull>I'm 67% on mobile,and 33% on tablets and larger devices.</ColoredBoxFull>
+        </FlexItem>
+    </FlexLayout>
+</DisplayBox>
+
+@functions {
+    MarkupString headerMessage = new MarkupString("Items with responsive <strong>Size</strong> configurations. ");
+}
