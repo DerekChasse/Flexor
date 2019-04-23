@@ -41,10 +41,6 @@
     flex-wrap: wrap-reverse !important;
 }
 
-.flex-fill {
-    -ms-flex: 1 1 auto !important;
-    flex: 1 1 auto !important;
-}
 
 .flex-show {
     display: inherit;
@@ -62,6 +58,11 @@
 .flex-resize-initial {
     -ms-flex: 0 1 auto !important;
     flex: 0 1 auto !important;
+}
+
+.flex-resize-fill {
+    -ms-flex: 1 1 auto !important;
+    flex: 1 1 auto !important;
 }
 
 .flex-resize-auto {
@@ -316,6 +317,10 @@
     .flex-resize-sm-initial {
         -ms-flex: 0 1 auto !important;
         flex: 0 1 auto !important;
+    }
+    .flex-resize-sm-fill {
+        -ms-flex: 1 1 auto !important;
+        flex: 1 1 auto !important;
     }
 
     .flex-resize-sm-auto {
@@ -573,6 +578,11 @@
         flex: 0 1 auto !important;
     }
 
+    .flex-resize-md-fill {
+        -ms-flex: 1 1 auto !important;
+        flex: 1 1 auto !important;
+    }
+
     .flex-resize-md-auto {
         -ms-flex: 1 1 100% !important;
         flex: 1 1 100% !important;
@@ -828,6 +838,11 @@
         flex: 0 1 auto !important;
     }
 
+    .flex-resize-lg-fill {
+        -ms-flex: 1 1 auto !important;
+        flex: 1 1 auto !important;
+    }
+
     .flex-resize-lg-auto {
         -ms-flex: 1 1 100% !important;
         flex: 1 1 100% !important;
@@ -1081,6 +1096,11 @@
     .flex-resize-xl-initial {
         -ms-flex: 0 1 auto !important;
         flex: 0 1 auto !important;
+    }
+
+    .flex-resize-xl-fill {
+        -ms-flex: 1 1 auto !important;
+        flex: 1 1 auto !important;
     }
 
     .flex-resize-xl-auto {

@@ -26,7 +26,7 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("flex-resize") && v.EndsWith("-auto")));
+                .Match(x => x.All(v => v.StartsWith("flex-resize") && v.EndsWith("-none")));
         }
 
         [TestMethod]
@@ -86,7 +86,7 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("flex-resize") && v.EndsWith("-none")));
+                .Match(x => x.All(v => v.StartsWith("flex-resize") && v.EndsWith("-initial")));
         }
 
         [TestMethod]
@@ -450,13 +450,13 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(0, "flex-resize-nogrow")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-auto")
+                .HaveElementAt(1, "flex-resize-sm-none")
                 .And
-                .HaveElementAt(2, "flex-resize-md-auto")
+                .HaveElementAt(2, "flex-resize-md-none")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-auto")
+                .HaveElementAt(3, "flex-resize-lg-none")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-auto");
+                .HaveElementAt(4, "flex-resize-xl-none");
         }
 
         [TestMethod]
@@ -504,15 +504,15 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-auto")
+                .HaveElementAt(0, "flex-resize-none")
                 .And
                 .HaveElementAt(1, "flex-resize-sm-nogrow")
                 .And
-                .HaveElementAt(2, "flex-resize-md-auto")
+                .HaveElementAt(2, "flex-resize-md-none")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-auto")
+                .HaveElementAt(3, "flex-resize-lg-none")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-auto");
+                .HaveElementAt(4, "flex-resize-xl-none");
         }
 
         [TestMethod]
@@ -532,7 +532,7 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-auto")
+                .HaveElementAt(0, "flex-resize-none")
                 .And
                 .HaveElementAt(1, "flex-resize-sm-nogrow")
                 .And
@@ -564,11 +564,11 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(1, "flex-resize-sm-nogrow")
                 .And
-                .HaveElementAt(2, "flex-resize-md-auto")
+                .HaveElementAt(2, "flex-resize-md-none")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-auto")
+                .HaveElementAt(3, "flex-resize-lg-none")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-auto");
+                .HaveElementAt(4, "flex-resize-xl-none");
         }
 
         [TestMethod]
@@ -588,15 +588,15 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-auto")
+                .HaveElementAt(0, "flex-resize-none")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-auto")
+                .HaveElementAt(1, "flex-resize-sm-none")
                 .And
                 .HaveElementAt(2, "flex-resize-md-nogrow")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-auto")
+                .HaveElementAt(3, "flex-resize-lg-none")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-auto");
+                .HaveElementAt(4, "flex-resize-xl-none");
         }
 
         [TestMethod]
@@ -616,9 +616,9 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-auto")
+                .HaveElementAt(0, "flex-resize-none")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-auto")
+                .HaveElementAt(1, "flex-resize-sm-none")
                 .And
                 .HaveElementAt(2, "flex-resize-md-nogrow")
                 .And
@@ -650,9 +650,9 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(2, "flex-resize-md-nogrow")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-auto")
+                .HaveElementAt(3, "flex-resize-lg-none")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-auto");
+                .HaveElementAt(4, "flex-resize-xl-none");
         }
 
         [TestMethod]
@@ -672,15 +672,15 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-auto")
+                .HaveElementAt(0, "flex-resize-none")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-auto")
+                .HaveElementAt(1, "flex-resize-sm-none")
                 .And
-                .HaveElementAt(2, "flex-resize-md-auto")
+                .HaveElementAt(2, "flex-resize-md-none")
                 .And
                 .HaveElementAt(3, "flex-resize-lg-nogrow")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-auto");
+                .HaveElementAt(4, "flex-resize-xl-none");
         }
 
         [TestMethod]
@@ -700,11 +700,11 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-auto")
+                .HaveElementAt(0, "flex-resize-none")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-auto")
+                .HaveElementAt(1, "flex-resize-sm-none")
                 .And
-                .HaveElementAt(2, "flex-resize-md-auto")
+                .HaveElementAt(2, "flex-resize-md-none")
                 .And
                 .HaveElementAt(3, "flex-resize-lg-nogrow")
                 .And
@@ -736,7 +736,7 @@ namespace Flexor.Tests
                 .And
                 .HaveElementAt(3, "flex-resize-lg-nogrow")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-auto");
+                .HaveElementAt(4, "flex-resize-xl-none");
         }
 
         [TestMethod]
@@ -756,13 +756,13 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-auto")
+                .HaveElementAt(0, "flex-resize-none")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-auto")
+                .HaveElementAt(1, "flex-resize-sm-none")
                 .And
-                .HaveElementAt(2, "flex-resize-md-auto")
+                .HaveElementAt(2, "flex-resize-md-none")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-auto")
+                .HaveElementAt(3, "flex-resize-lg-none")
                 .And
                 .HaveElementAt(4, "flex-resize-xl-nogrow");
         }

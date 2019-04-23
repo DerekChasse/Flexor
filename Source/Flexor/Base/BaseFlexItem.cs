@@ -19,8 +19,6 @@ namespace Flexor.Base
         private ISize size = Flexor.Size.Default;
         private IResizability resizability = Flexor.Resizability.Auto;
 
-        private bool fill = false;
-
         private string divId;
 
         /// <summary>
@@ -99,25 +97,6 @@ namespace Flexor.Base
             }
         }
 
-        /// <summary>
-        /// The specific flex-item should expand to fill all available space.
-        ///
-        /// Default is 'false'.
-        /// </summary>
-        [Parameter]
-        protected bool Fill
-        {
-            get => this.fill;
-            set
-            {
-                if (!this.fill.Equals(value))
-                {
-                    this.fill = value;
-                    this.StateHasChanged();
-                }
-            }
-        }
-
         /// <inheritdoc/>
         protected override Task OnParametersSetAsync()
         {
@@ -137,7 +116,7 @@ namespace Flexor.Base
             base.BuildRenderTree(builder);
 
             builder.OpenElement(0, "div");
-            this.divId = Guid.NewGuid().ToString();
+            this.divId = Guid.NewGuid().ToString().Substring(0, 8);
 
             // TODO - Is this and the subsequent JavaScript necessary?
             builder.AddAttribute(1, "id", this.divId);
@@ -166,8 +145,7 @@ namespace Flexor.Base
                 this.AlignSelf.Class,
                 this.Visible.Class,
                 this.Order.Class,
-                ////this.Resizability.Class,
-                this.Fill ? "flex-fill" : string.Empty,
+                this.Resizability.Class,
                 this.Size.Class);
         }
     }

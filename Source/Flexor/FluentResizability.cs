@@ -15,11 +15,13 @@ namespace Flexor
 
     public interface IFluentResizabilityWithValue : IResizability
     {
-        ////TODO: Add Fill
-
         IFluentResizabilityWithValueOnBreakpoint Is(ResizabilityOption value);
 
         IFluentResizabilityWithValueOnBreakpoint IsAutomatic();
+
+        IFluentResizabilityWithValueOnBreakpoint IsNone();
+
+        IFluentResizabilityWithValueOnBreakpoint IsFill();
 
         IFluentResizabilityWithValueOnBreakpoint IsInitial();
 
@@ -47,7 +49,7 @@ namespace Flexor
         /// Initializes a new instance of the <see cref="FluentResizability"/> class.
         /// </summary>
         public FluentResizability()
-            : this(ResizabilityOption.Auto)
+            : this(ResizabilityOption.None)
         {
         }
 
@@ -91,6 +93,18 @@ namespace Flexor
         public IFluentResizabilityWithValueOnBreakpoint IsAutomatic()
         {
             return this.Is(ResizabilityOption.Auto);
+        }
+
+        /// <inheritdoc/>
+        public IFluentResizabilityWithValueOnBreakpoint IsNone()
+        {
+            return this.Is(ResizabilityOption.None);
+        }
+
+        /// <inheritdoc/>
+        public IFluentResizabilityWithValueOnBreakpoint IsFill()
+        {
+            return this.Is(ResizabilityOption.Fill);
         }
 
         /// <inheritdoc/>

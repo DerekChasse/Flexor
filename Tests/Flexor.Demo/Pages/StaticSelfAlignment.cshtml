@@ -3,27 +3,20 @@
 
 @layout StaticLayout
 
-<div class="shadow-lg border border-dark row mb-4">
-
-    <div class="col-12 m-0 p-0 border-bottom">
-        <p class="mt-3 text-center">Item #2 is <strong>@this.AlignSelfString</strong>.</p>
-    </div>
-
-    <div class="col-12 m-0 p-0" style="min-height: 400px">
-        <FlexLayout Direction="@Direction.Row" ItemAlignment="@AlignItems.Center" JustifyContent="@JustifyContent.SpaceAround">
-            <ColoredBox>1</ColoredBox>
-            <FlexItem AlignSelf="@this.AlignSelf">
-                <ColoredBox>2</ColoredBox>
-            </FlexItem>
-            <ColoredBox>3</ColoredBox>
-            <ColoredBox>4</ColoredBox>
-            <ColoredBox>5</ColoredBox>
-        </FlexLayout>
-    </div>
-</div>
+<DisplayBox HeaderMessage=@this.GetHeaderMessage ContentMinHeight="400">
+    <FlexLayout Direction="@Direction.Row" ItemAlignment="@AlignItems.Center" JustifyContent="@JustifyContent.SpaceAround">
+        <ColoredBox>1</ColoredBox>
+        <FlexItem AlignSelf="@this.AlignSelf" Resizability="Resizability.Initial">
+            <ColoredBox>2</ColoredBox>
+        </FlexItem>
+        <ColoredBox>3</ColoredBox>
+        <ColoredBox>4</ColoredBox>
+        <ColoredBox>5</ColoredBox>
+    </FlexLayout>
+</DisplayBox>
 
 
-<div class="shadow-lg border border-dark row">
+<DisplayBox ContentMinHeight="200">
     <div class="col-12 flex-column align-items-center">
         <div class="btn-group mt-3 mb-3 p-0" role="group">
             <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.Auto, "aligned automatically"))>Auto</button>
@@ -34,12 +27,14 @@
             <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.Stretch, "stretched"))>Stretch</button>
         </div>
     </div>
-</div>
+</DisplayBox>
 
 @functions {
 
     IAlignSelf AlignSelf { get; set; } = Flexor.AlignSelf.Start;
     string AlignSelfString { get; set; } = "start aligned";
+
+    private MarkupString GetHeaderMessage => new MarkupString($"Item #2 is <strong>{this.AlignSelfString}</strong>.");
 
     void UpdateAlignSelf(SelfAlignmentOption option, string optionString)
     {

@@ -2,18 +2,18 @@
 
 @page "/static-fill"
 
-    <DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
-        <FlexLayout>
-            <FlexItem Size="Size.IsPercentOnAll(30)">
-                <ColoredBoxFull>30%</ColoredBoxFull>
-            </FlexItem>
-        
-            <FlexItem Fill="true">
-                <ColoredBoxFull>Fill</ColoredBoxFull>
-            </FlexItem>
-        </FlexLayout>
+<DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
+    <FlexLayout>
+        <FlexItem Size="Size.IsPercentOnAll(30)">
+            <ColoredBoxFull>30%</ColoredBoxFull>
+        </FlexItem>
 
-    </DisplayBox>
+        <FlexItem Resizability="Resizability.Fill">
+            <ColoredBoxFull>Fill</ColoredBoxFull>
+        </FlexItem>
+    </FlexLayout>
+
+</DisplayBox>
 
 @functions {
 

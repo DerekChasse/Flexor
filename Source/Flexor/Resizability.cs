@@ -37,7 +37,19 @@ namespace Flexor
         /// Flex item is not allowed to grow or shrink and will retain its initial size.
         /// Item resizing ability is applied consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IResizability Initial => new FluentResizability(ResizabilityOption.None);
+        public static IResizability Initial => new FluentResizability(ResizabilityOption.Initial);
+
+        /// <summary>
+        /// Flex item will not resize.
+        /// Item resizing ability is applied consistently across all CSS media query breakpoints.
+        /// </summary>
+        public static IResizability None => new FluentResizability(ResizabilityOption.None);
+
+        /// <summary>
+        /// Flex item will fill all available vertical and horizontal space within its container.
+        /// Item resizing ability is applied consistently across all CSS media query breakpoints.
+        /// </summary>
+        public static IResizability Fill => new FluentResizability(ResizabilityOption.Fill);
 
         /// <summary>
         /// Flex item will be rendered and configured with the supplied resizability value.

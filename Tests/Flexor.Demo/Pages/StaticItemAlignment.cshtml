@@ -3,71 +3,62 @@
 @page "/"
 @page "/static-item-alignment"
 
-<div class="shadow-lg border border-dark row mb-4">
-    <div class="col-12 m-0 p-0 border-bottom">
-        <p class="mt-3 text-center">Items are rendered in a <strong>@DirectionOptionString</strong>. Along the primary access items are <strong>@JustifyContentString</strong>, and along the perpendicular access are <strong>@this.AlignItemsString</strong>.</p>
-    </div>
+<DisplayBox HeaderMessage=@this.GetHeaderMessage ContentMinHeight="400">
+    <FlexLayout Direction="@this.Direction" ItemAlignment="@this.AlignItems" JustifyContent="@this.JustifyContent">
+        <ColoredBox>1</ColoredBox>
+        <ColoredBox>2</ColoredBox>
+        <ColoredBox>3</ColoredBox>
+        <ColoredBox>4</ColoredBox>
+    </FlexLayout>
+</DisplayBox>
 
-    <div class="col-12 m-0 p-0" style="min-height: 400px">
-        <FlexLayout Direction="@this.Direction" ItemAlignment="@this.AlignItems" JustifyContent="@this.JustifyContent">
-            <ColoredBox>1</ColoredBox>
-            <ColoredBox>2</ColoredBox>
-            <ColoredBox>3</ColoredBox>
-            <ColoredBox>4</ColoredBox>
-        </FlexLayout>
-    </div>
-</div>
-
-<div class="shadow-lg border border-dark row">
-    <div class="col-12 mt-3 mb-3 p-0" style="min-height: 200px">
-        <FlexLayout Direction="Flexor.Direction.Row">
-            <FlexItem Size="Size.IsPercentOnAll(33)">
-                <FlexLayout Direction="Flexor.Direction.Column" ItemAlignment="Flexor.AlignItems.Center">
-                    <div>
-                        <strong>Layout Direction</strong>
-                    </div>
-                    <div class="btn-group-vertical">
-                        <button class="btn btn-outline-primary" onclick=@(() => this.UpdateDirection(DirectionOption.Row, "Row"))>Row</button>
-                        <button class="btn btn-outline-primary" onclick=@(() => this.UpdateDirection(DirectionOption.Column, "Column"))>Column</button>
-                        <button class="btn btn-outline-primary" onclick=@(() => this.UpdateDirection(DirectionOption.RowReverse, "Row (Reverse)"))>Row (Reverse)</button>
-                        <button class="btn btn-outline-primary" onclick=@(() => this.UpdateDirection(DirectionOption.ColumnReverse, "Column (Reverse)"))>Column (Reverse)</button>
-                    </div>
-                </FlexLayout>
-            </FlexItem>
-            <FlexItem Size="Size.IsPercentOnAll(34)">
-                <FlexLayout Direction="Flexor.Direction.Column" ItemAlignment="Flexor.AlignItems.Center">
-                    <div>
-                        <strong>Alignment in Layout Direction</strong>
-                    </div>
-                    <div class="btn-group-vertical">
-                        <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.Center, "Centered"))>Center</button>
-                        <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.End, "End Aligned"))>End</button>
-                        <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.SpaceAround, "Spaced Around"))>Space Around</button>
-                        <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.SpaceBetween, "Spaced Between"))>Space Between</button>
-                        <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.Start, "Start Aligned"))>Start</button>
-                    </div>
-                </FlexLayout>
-            </FlexItem>
-            <FlexItem Size="Size.IsPercentOnAll(33)">
-                <FlexLayout Direction="Flexor.Direction.Column" ItemAlignment="Flexor.AlignItems.Center">
-                    <div>
-                        <strong>Alignment in Perpendicular Direction</strong>
-                    </div>
-                    <div class="btn-group-vertical">
-                        <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Baseline, "Baseline Aligned"))>Baseline</button>
-                        <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Center, "Centered"))>Center</button>
-                        <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.End, "End Aligned"))>End</button>
-                        <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Start, "Start Aligned"))>Start</button>
-                        <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Stretch, "Stretched"))>Stretch</button>
-                    </div>
-                </FlexLayout>
-            </FlexItem>
-        </FlexLayout>
-    </div>
-</div>
+<DisplayBox ContentMinHeight="200">
+    <FlexLayout Direction="Flexor.Direction.Row">
+        <FlexItem Size="Size.IsPercentOnAll(33)">
+            <FlexLayout Direction="Flexor.Direction.Column" ItemAlignment="Flexor.AlignItems.Center">
+                <div>
+                    <strong>Layout Direction</strong>
+                </div>
+                <div class="btn-group-vertical">
+                    <button class="btn btn-outline-primary" onclick=@(() => this.UpdateDirection(DirectionOption.Row, "Row"))>Row</button>
+                    <button class="btn btn-outline-primary" onclick=@(() => this.UpdateDirection(DirectionOption.Column, "Column"))>Column</button>
+                    <button class="btn btn-outline-primary" onclick=@(() => this.UpdateDirection(DirectionOption.RowReverse, "Row (Reverse)"))>Row (Reverse)</button>
+                    <button class="btn btn-outline-primary" onclick=@(() => this.UpdateDirection(DirectionOption.ColumnReverse, "Column (Reverse)"))>Column (Reverse)</button>
+                </div>
+            </FlexLayout>
+        </FlexItem>
+        <FlexItem Size="Size.IsPercentOnAll(34)">
+            <FlexLayout Direction="Flexor.Direction.Column" ItemAlignment="Flexor.AlignItems.Center">
+                <div>
+                    <strong>Alignment in Layout Direction</strong>
+                </div>
+                <div class="btn-group-vertical">
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.Center, "Centered"))>Center</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.End, "End Aligned"))>End</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.SpaceAround, "Spaced Around"))>Space Around</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.SpaceBetween, "Spaced Between"))>Space Between</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.Start, "Start Aligned"))>Start</button>
+                </div>
+            </FlexLayout>
+        </FlexItem>
+        <FlexItem Size="Size.IsPercentOnAll(33)">
+            <FlexLayout Direction="Flexor.Direction.Column" ItemAlignment="Flexor.AlignItems.Center">
+                <div>
+                    <strong>Alignment in Perpendicular Direction</strong>
+                </div>
+                <div class="btn-group-vertical">
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Baseline, "Baseline Aligned"))>Baseline</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Center, "Centered"))>Center</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.End, "End Aligned"))>End</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Start, "Start Aligned"))>Start</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Stretch, "Stretched"))>Stretch</button>
+                </div>
+            </FlexLayout>
+        </FlexItem>
+    </FlexLayout>
+</DisplayBox>
 
 @functions {
-
     private string DirectionOptionString { get; set; } = "Row";
     private string JustifyContentString { get; set; } = "Spaced Around";
     private string AlignItemsString { get; set; } = "Centered";
@@ -75,6 +66,8 @@
     private IDirection Direction { get; set; } = Flexor.Direction.Row;
     private IJustifyContent JustifyContent { get; set; } = Flexor.JustifyContent.SpaceAround;
     private IAlignItems AlignItems { get; set; } = Flexor.AlignItems.Center;
+
+    private MarkupString GetHeaderMessage => new MarkupString($"Items are rendered in a <strong>{DirectionOptionString}</strong>. Along the primary axis items are <strong>{JustifyContentString}</strong>, and along the perpendicular axis are <strong>{AlignItemsString}</strong>.");
 
     private void UpdateDirection(DirectionOption option, string optionString)
     {

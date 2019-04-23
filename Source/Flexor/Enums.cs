@@ -279,9 +279,19 @@ namespace Flexor
         public static ResizabilityOption Auto => new ResizabilityOption("-auto");
 
         /// <summary>
+        /// Item will not grow past it's initial size..
+        /// </summary>
+        public static ResizabilityOption Initial => new ResizabilityOption("-initial");
+
+        /// <summary>
         /// Item will not resize.
         /// </summary>
         public static ResizabilityOption None => new ResizabilityOption("-none");
+
+        /// <summary>
+        /// Item will fill all available horizontal and vertical space within the container.
+        /// </summary>
+        public static ResizabilityOption Fill => new ResizabilityOption("-fill");
 
         /// <summary>
         /// Item is allowed to grow to fill remaining space.

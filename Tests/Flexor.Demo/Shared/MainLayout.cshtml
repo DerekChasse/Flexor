@@ -1,16 +1,25 @@
 @inherits LayoutComponentBase
 
-<div class="flex-column justify-content-start align-items-stretch">
-    
-    <div class="text-center" style="font-size: 5em">
-        Flexor
+    <div class="flex-column justify-content-start align-items-stretch">
+
+        <div class="row">
+            <div class="col-12 text-center" style="font-size: 5em">
+                Flexor
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center" >
+                By <strong> <a href="https://github.com/DerekChasse" target="_blank" class="">Derek Chasse</a></strong>
+            </div>
+        </div>
+        >
+
+        <TopNavBar></TopNavBar>
+
+        <div class="flex-fill m-3">
+            @Body
+
+        </div>
+
     </div>
-
-    <TopNavBar></TopNavBar>
-
-    <div class="flex-fill m-3">
-        @Body
-
-    </div>
-
-</div>
