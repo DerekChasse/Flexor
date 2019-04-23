@@ -17,7 +17,7 @@ namespace Flexor.Base
         private IOrder order = Flexor.Order.Default;
         private IAlignSelf selfAlignment = Flexor.AlignSelf.Auto;
         private ISize size = Flexor.Size.Default;
-        private IResizability resizability = Flexor.Resizability.Auto;
+        private IResizability resizability = Flexor.Resizability.None;
 
         private string divId;
 
