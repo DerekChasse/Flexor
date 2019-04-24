@@ -19,8 +19,6 @@ namespace Flexor.Base
         private ISize size = Flexor.Size.Default;
         private IResizability resizability = Flexor.Resizability.None;
 
-        private string divId;
-
         /// <summary>
         /// Defines the order in which items are rendered within the layout.
         ///
@@ -116,26 +114,15 @@ namespace Flexor.Base
             base.BuildRenderTree(builder);
 
             builder.OpenElement(0, "div");
-            this.divId = Guid.NewGuid().ToString().Substring(0, 8);
-
-            // TODO - Is this and the subsequent JavaScript necessary?
-            builder.AddAttribute(1, "id", this.divId);
-            builder.AddAttribute(2, "class", this.GetItemClassDefinition());
+            builder.AddAttribute(1, "class", this.GetItemClassDefinition());
 
             if (this.ChildContent != null)
             {
-                builder.AddContent(3, this.ChildContent);
+                builder.AddContent(2, this.ChildContent);
                 this.ChildContent = null;
             }
 
             builder.CloseElement();
-        }
-
-        /// <inheritdoc/>
-        protected override void OnAfterRender()
-        {
-            this.Interop.DecorateChild(this.divId, this.GetItemClassDefinition());
-            ////this.Interop.UnwrapDiv(this.divId);
         }
 
         private string GetItemClassDefinition()

@@ -19,32 +19,5 @@ window.flexor = {
         if (!styleElement.innerHTML.includes(className)) {
             styleElement.innerHTML += " " + classCSS;
         }
-    },
-       
-    decorateChild: (divId, classesString) => {
-        var divElement = document.getElementById(divId);
-
-        var child = divElement.firstElementChild;
-
-        var classes = classesString.trim().split(' ');
-
-        child.classList.add(...classes);
-    },
-
-    unwrapDiv: (divId) => {
-
-        var divElement = document.getElementById(divId);
-
-        // place childNodes in document fragment
-        var documentFragment = document.createDocumentFragment();
-
-        while (divElement.firstChild) {
-            var child = divElement.removeChild(divElement.firstChild);
-
-            documentFragment.appendChild(child);
-        }
-
-        // replace wrapper with document fragment
-        divElement.parentNode.replaceChild(documentFragment, divElement);
     }
 };
