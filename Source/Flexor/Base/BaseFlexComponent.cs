@@ -2,6 +2,9 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace Flexor.Base
@@ -12,6 +15,7 @@ namespace Flexor.Base
     public abstract class BaseFlexComponent : ComponentBase
     {
         private IVisible visible = Flexor.Visible.Always;
+        private string cssClass = string.Empty;
 
         /// <summary>
         /// Defines when a flex-item is visible.
@@ -24,8 +28,28 @@ namespace Flexor.Base
             get => this.visible;
             set
             {
-                this.visible = value;
-                this.StateHasChanged();
+                if (!this.visible.Equals(value))
+                {
+                    this.visible = value;
+                    this.StateHasChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Custom CSS class to apply to the component.
+        /// </summary>
+        [Parameter]
+        protected string Class
+        {
+            get => this.cssClass;
+            set
+            {
+                if (!this.cssClass.Equals(value))
+                {
+                    this.cssClass = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
@@ -38,6 +62,12 @@ namespace Flexor.Base
             get;
             set;
         }
+
+        /// <summary>
+        /// The parent component if any.
+        /// </summary>
+        [CascadingParameter]
+        protected BaseFlexComponent Parent { get; set; }
 
         /// <summary>
         /// Flexor specific javascript interop layer.

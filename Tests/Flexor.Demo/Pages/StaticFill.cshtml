@@ -1,0 +1,21 @@
+﻿@layout StaticLayout
+
+@page "/static-fill"
+
+<DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
+    <FlexLayout Class="boxes colored">
+        <FlexItem Size="Size.IsPercentOnAll(30)">
+            30%
+        </FlexItem>
+
+        <FlexItem Resizability="Resizability.Fill">
+            Fill
+        </FlexItem>
+    </FlexLayout>
+
+</DisplayBox>
+
+@functions {
+
+    MarkupString headerMessage = new MarkupString("Using <strong>Fill</strong> to occupy remaining width and height of the parent container.");
+}

@@ -2,13 +2,14 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IDirection : ICssBacked
+    public interface IDirection : ICssBacked, IEquatable<IDirection>
     {
     }
 
@@ -152,6 +153,12 @@ namespace Flexor
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
+        }
+
+        /// <inheritdoc/>
+        public bool Equals(IDirection other)
+        {
+            return string.Equals(this.Class, other.Class);
         }
 
         private void SetBreakpointValues(DirectionOption value, params Breakpoint[] breakpoints)

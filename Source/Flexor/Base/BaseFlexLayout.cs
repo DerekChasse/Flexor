@@ -3,6 +3,7 @@
 // </copyright>
 
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace Flexor.Base
 {
@@ -14,7 +15,7 @@ namespace Flexor.Base
         private IDirection direction = Flexor.Direction.Row;
         private IWrap wrap = Flexor.Wrap.NoWrap;
         private IJustifyContent justifyContent = Flexor.JustifyContent.Start;
-        private IAlignItems itemAlignment = Flexor.ItemAlignment.Stretch;
+        private IAlignItems itemAlignment = Flexor.AlignItems.Stretch;
 
         /// <summary>
         /// Defines the direction in which items are added to the layout.
@@ -27,8 +28,11 @@ namespace Flexor.Base
             get => this.direction;
             set
             {
-                this.direction = value;
-                this.StateHasChanged();
+                if (!this.direction.Equals(value))
+                {
+                    this.direction = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
@@ -43,8 +47,11 @@ namespace Flexor.Base
             get => this.wrap;
             set
             {
-                this.wrap = value;
-                this.StateHasChanged();
+                if (!this.wrap.Equals(value))
+                {
+                    this.wrap = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
@@ -59,8 +66,11 @@ namespace Flexor.Base
             get => this.justifyContent;
             set
             {
-                this.justifyContent = value;
-                this.StateHasChanged();
+                if (!this.justifyContent.Equals(value))
+                {
+                    this.justifyContent = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
@@ -75,9 +85,43 @@ namespace Flexor.Base
             get => this.itemAlignment;
             set
             {
-                this.itemAlignment = value;
-                this.StateHasChanged();
+                if (!this.itemAlignment.Equals(value))
+                {
+                    this.itemAlignment = value;
+                    this.StateHasChanged();
+                }
             }
+        }
+
+        /// <inheritdoc/>
+        protected override void BuildRenderTree(RenderTreeBuilder builder)
+        {
+            base.BuildRenderTree(builder);
+
+            builder.OpenElement(0, "div");
+            builder.AddAttribute(1, "class", this.GetLayoutClassDefinition());
+
+            builder.AddAttribute(2, "style", "height: 100%; width: 100%;");
+
+            if (this.ChildContent != null)
+            {
+                builder.AddContent(3, this.ChildContent);
+                this.ChildContent = null;
+            }
+
+            builder.CloseElement();
+        }
+
+        private string GetLayoutClassDefinition()
+        {
+            return string.Join(
+                " ",
+                this.Direction.Class,
+                this.ItemAlignment.Class,
+                this.JustifyContent.Class,
+                this.Visible.Class,
+                this.Wrap.Class,
+                this.Class);
         }
     }
 }

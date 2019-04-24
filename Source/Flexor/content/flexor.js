@@ -4,9 +4,6 @@
 
 window.flexor = {
 
-    /**
-     * Adds new CSS classes dynamically to the page.
-     */
     addDynamicStyle: (className, classCSS) => {
 
         var styleElement = document.getElementById("flexor_dynamic_css");
@@ -22,6 +19,5 @@ window.flexor = {
         if (!styleElement.innerHTML.includes(className)) {
             styleElement.innerHTML += " " + classCSS;
         }
-
     }
 };

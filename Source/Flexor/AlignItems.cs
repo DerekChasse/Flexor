@@ -1,4 +1,4 @@
-﻿// <copyright file="ItemAlignment.cs" company="Derek Chasse">
+﻿// <copyright file="AlignItems.cs" company="Derek Chasse">
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
@@ -7,7 +7,7 @@ namespace Flexor
     /// <summary>
     /// Defines how flex-items are laid out along the flex-container's cross axis.
     /// </summary>
-    public static class ItemAlignment
+    public static class AlignItems
     {
         /// <summary>
         /// Items are aligned along the start of the flex-container's cross axis.

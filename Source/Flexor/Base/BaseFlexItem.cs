@@ -2,8 +2,10 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace Flexor.Base
 {
@@ -13,8 +15,9 @@ namespace Flexor.Base
     public abstract class BaseFlexItem : BaseFlexComponent
     {
         private IOrder order = Flexor.Order.Default;
-        private IAlignItems itemAlignment = Flexor.ItemAlignment.Start;
+        private IAlignSelf selfAlignment = Flexor.AlignSelf.Auto;
         private ISize size = Flexor.Size.Default;
+        private IResizability resizability = Flexor.Resizability.None;
 
         /// <summary>
         /// Defines the order in which items are rendered within the layout.
@@ -27,24 +30,30 @@ namespace Flexor.Base
             get => this.order;
             set
             {
-                this.order = value;
-                this.StateHasChanged();
+                if (!this.order.Equals(value))
+                {
+                    this.order = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
         /// <summary>
         /// Defines the alignment of an individual item across the layout's cross axis.
         ///
-        /// Default is 'inherit'.
+        /// Default is 'auto'.
         /// </summary>
         [Parameter]
-        protected IAlignItems ItemAlignment
+        protected IAlignSelf AlignSelf
         {
-            get => this.itemAlignment;
+            get => this.selfAlignment;
             set
             {
-                this.itemAlignment = value;
-                this.StateHasChanged();
+                if (!this.selfAlignment.Equals(value))
+                {
+                    this.selfAlignment = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
@@ -59,8 +68,30 @@ namespace Flexor.Base
             get => this.size;
             set
             {
-                this.size = value;
-                this.StateHasChanged();
+                if (!this.size.Equals(value))
+                {
+                    this.size = value;
+                    this.StateHasChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Defines the resizability of a flex-item.
+        ///
+        /// Default is 'auto'.
+        /// </summary>
+        [Parameter]
+        protected IResizability Resizability
+        {
+            get => this.resizability;
+            set
+            {
+                if (!this.resizability.Equals(value))
+                {
+                    this.resizability = value;
+                    this.StateHasChanged();
+                }
             }
         }
 
@@ -75,6 +106,35 @@ namespace Flexor.Base
             }
 
             return Task.CompletedTask;
+        }
+
+        /// <inheritdoc/>
+        protected override void BuildRenderTree(RenderTreeBuilder builder)
+        {
+            base.BuildRenderTree(builder);
+
+            builder.OpenElement(0, "div");
+            builder.AddAttribute(1, "class", this.GetItemClassDefinition());
+
+            if (this.ChildContent != null)
+            {
+                builder.AddContent(2, this.ChildContent);
+                this.ChildContent = null;
+            }
+
+            builder.CloseElement();
+        }
+
+        private string GetItemClassDefinition()
+        {
+            return string.Join(
+                " ",
+                this.AlignSelf.Class,
+                this.Visible.Class,
+                this.Order.Class,
+                this.Resizability.Class,
+                this.Size.Class,
+                this.Class);
         }
     }
 }

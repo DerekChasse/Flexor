@@ -135,6 +135,56 @@ namespace Flexor
     }
 
     /// <summary>
+    /// Enumeration of ways an individual item can be rendered within a layout.
+    /// This impacts the item along the layout's cross axis.
+    /// </summary>
+    public class SelfAlignmentOption
+    {
+        private readonly string value;
+
+        private SelfAlignmentOption(string value)
+        {
+            this.value = value;
+        }
+
+        /// <summary>
+        /// Inherit's the parent's item alignment definition.
+        /// </summary>
+        public static SelfAlignmentOption Auto => new SelfAlignmentOption("-auto");
+
+        /// <summary>
+        /// Placed along the start of the cross axis.
+        /// </summary>
+        public static SelfAlignmentOption Start => new SelfAlignmentOption("-start");
+
+        /// <summary>
+        /// Centered along the primary axis.
+        /// </summary>
+        public static SelfAlignmentOption Center => new SelfAlignmentOption("-center");
+
+        /// <summary>
+        /// Placed along the end of the cross axis.
+        /// </summary>
+        public static SelfAlignmentOption End => new SelfAlignmentOption("-end");
+
+        /// <summary>
+        /// Stretch to fill the layout.
+        /// </summary>
+        public static SelfAlignmentOption Stretch => new SelfAlignmentOption("-stretch");
+
+        /// <summary>
+        /// Items are aligned such that their baselines align.
+        /// </summary>
+        public static SelfAlignmentOption Baseline => new SelfAlignmentOption("-baseline");
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return this.value;
+        }
+    }
+
+    /// <summary>
     /// Enumeration of CSS media query breakpoints.
     /// </summary>
     public class Breakpoint
@@ -229,9 +279,19 @@ namespace Flexor
         public static ResizabilityOption Auto => new ResizabilityOption("-auto");
 
         /// <summary>
+        /// Item will not grow past it's initial size..
+        /// </summary>
+        public static ResizabilityOption Initial => new ResizabilityOption("-initial");
+
+        /// <summary>
         /// Item will not resize.
         /// </summary>
         public static ResizabilityOption None => new ResizabilityOption("-none");
+
+        /// <summary>
+        /// Item will fill all available horizontal and vertical space within the container.
+        /// </summary>
+        public static ResizabilityOption Fill => new ResizabilityOption("-fill");
 
         /// <summary>
         /// Item is allowed to grow to fill remaining space.

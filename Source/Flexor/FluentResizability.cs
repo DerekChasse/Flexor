@@ -2,23 +2,26 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IResizability : ICssBacked
+    public interface IResizability : ICssBacked, IEquatable<IResizability>
     {
     }
 
     public interface IFluentResizabilityWithValue : IResizability
     {
-        ////TODO: Add Fill
-
         IFluentResizabilityWithValueOnBreakpoint Is(ResizabilityOption value);
 
         IFluentResizabilityWithValueOnBreakpoint IsAutomatic();
+
+        IFluentResizabilityWithValueOnBreakpoint IsNone();
+
+        IFluentResizabilityWithValueOnBreakpoint IsFill();
 
         IFluentResizabilityWithValueOnBreakpoint IsInitial();
 
@@ -46,7 +49,7 @@ namespace Flexor
         /// Initializes a new instance of the <see cref="FluentResizability"/> class.
         /// </summary>
         public FluentResizability()
-            : this(ResizabilityOption.Auto)
+            : this(ResizabilityOption.None)
         {
         }
 
@@ -90,6 +93,18 @@ namespace Flexor
         public IFluentResizabilityWithValueOnBreakpoint IsAutomatic()
         {
             return this.Is(ResizabilityOption.Auto);
+        }
+
+        /// <inheritdoc/>
+        public IFluentResizabilityWithValueOnBreakpoint IsNone()
+        {
+            return this.Is(ResizabilityOption.None);
+        }
+
+        /// <inheritdoc/>
+        public IFluentResizabilityWithValueOnBreakpoint IsFill()
+        {
+            return this.Is(ResizabilityOption.Fill);
         }
 
         /// <inheritdoc/>
@@ -194,6 +209,12 @@ namespace Flexor
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
+        }
+
+        /// <inheritdoc/>
+        public bool Equals(IResizability other)
+        {
+            return string.Equals(this.Class, other.Class);
         }
 
         private string BuildClass()

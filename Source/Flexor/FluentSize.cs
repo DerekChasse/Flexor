@@ -10,7 +10,7 @@ using System.Text;
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface ISize : ICssBacked, IDynamicCssBacked
+    public interface ISize : ICssBacked, IDynamicCssBacked, IEquatable<ISize>
     {
     }
 
@@ -210,6 +210,12 @@ namespace Flexor
             this.valueToApply = new Measurement { Value = value, Unit = unit };
         }
 
+        /// <inheritdoc/>
+        public bool Equals(ISize other)
+        {
+            return string.Equals(this.Class, other.Class);
+        }
+
         private void SetBreakpointValues(Measurement value, params Breakpoint[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
@@ -255,7 +261,14 @@ namespace Flexor
 
             string className = $"flexor{breakpoint}-{sizingUnit.ToCssSuffix()}";
 
-            lineBuilder.Append($".{className} {{-webkit-flex-basis: {sizingUnit}; flex-basis: {sizingUnit};}}");
+            if (breakpoint == Breakpoint.Mobile)
+            {
+                lineBuilder.Append($".{className} {{-webkit-flex-basis: {sizingUnit}; flex-basis: {sizingUnit};}}");
+            }
+            else
+            {
+                lineBuilder.Append($".{className} {{-webkit-flex-basis: {sizingUnit} !important; flex-basis: {sizingUnit} !important;}}");
+            }
 
             if (breakpoint != Breakpoint.Mobile)
             {

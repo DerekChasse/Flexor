@@ -1,4 +1,4 @@
-﻿// <copyright file="FluentJustifyContent.cs" company="Derek Chasse">
+﻿// <copyright file="FluentAlignSelf.cs" company="Derek Chasse">
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
@@ -9,41 +9,41 @@ using System.Text;
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IJustifyContent : ICssBacked, IEquatable<IJustifyContent>
+    public interface IAlignSelf : ICssBacked, IEquatable<IAlignSelf>
     {
     }
 
-    public interface IFluentJustifyContentWithValue : IJustifyContent
+    public interface IFluentAlignSelfWithValue : IAlignSelf
     {
-        IFluentJustifyContentWithValueOnBreakpoint Is(JustificationOption value);
+        IFluentAlignSelfWithValueOnBreakpoint Is(SelfAlignmentOption value);
     }
 
-    public interface IFluentJustifyContentWithValueOnBreakpoint : IJustifyContent, IFluentReactive<IFluentJustifyContentWithValue>
+    public interface IFluentAlignSelfWithValueOnBreakpoint : IFluentReactive<IFluentAlignSelfWithValue>, IAlignSelf
     {
     }
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define item justification across a flex-container's main axis.
+    /// Define how an individual item is aligned along a flex-container's cross axis.
     /// </summary>
-    public class FluentJustifyContent : IFluentJustifyContentWithValueOnBreakpoint, IFluentJustifyContentWithValue
+    public class FluentAlignSelf : IFluentAlignSelfWithValueOnBreakpoint, IFluentAlignSelfWithValue
     {
-        private readonly Dictionary<Breakpoint, JustificationOption> breakpointDictionary = new Dictionary<Breakpoint, JustificationOption>();
-        private JustificationOption valueToApply;
+        private readonly Dictionary<Breakpoint, SelfAlignmentOption> breakpointDictionary = new Dictionary<Breakpoint, SelfAlignmentOption>();
+        private SelfAlignmentOption valueToApply;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FluentJustifyContent"/> class.
+        /// Initializes a new instance of the <see cref="FluentAlignSelf"/> class.
         /// </summary>
-        public FluentJustifyContent()
-            : this(JustificationOption.Start)
+        public FluentAlignSelf()
+            : this(SelfAlignmentOption.Stretch)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FluentJustifyContent"/> class.
+        /// Initializes a new instance of the <see cref="FluentAlignSelf"/> class.
         /// </summary>
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
-        public FluentJustifyContent(JustificationOption initialValue)
+        public FluentAlignSelf(SelfAlignmentOption initialValue)
         {
             this.valueToApply = initialValue;
 
@@ -58,115 +58,107 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValueOnBreakpoint Is(JustificationOption value)
+        public bool Equals(IAlignSelf other)
+        {
+            return string.Equals(this.Class, other.Class);
+        }
+
+        /// <inheritdoc/>
+        public IFluentAlignSelfWithValueOnBreakpoint Is(SelfAlignmentOption value)
         {
             this.valueToApply = value;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnDesktop()
+        public IFluentAlignSelfWithValue OnDesktop()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnDesktopAndLarger()
+        public IFluentAlignSelfWithValue OnDesktopAndLarger()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnDesktopAndSmaller()
+        public IFluentAlignSelfWithValue OnDesktopAndSmaller()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnFullHD()
+        public IFluentAlignSelfWithValue OnFullHD()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnFullHDAndSmaller()
+        public IFluentAlignSelfWithValue OnFullHDAndSmaller()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnMobile()
+        public IFluentAlignSelfWithValue OnMobile()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnMobileAndLarger()
+        public IFluentAlignSelfWithValue OnMobileAndLarger()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnTablet()
+        public IFluentAlignSelfWithValue OnTablet()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnTabletAndLarger()
+        public IFluentAlignSelfWithValue OnTabletAndLarger()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnTabletAndSmaller()
+        public IFluentAlignSelfWithValue OnTabletAndSmaller()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnWidescreen()
+        public IFluentAlignSelfWithValue OnWidescreen()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Widescreen);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnWidescreenAndLarger()
+        public IFluentAlignSelfWithValue OnWidescreenAndLarger()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnWidescreenAndSmaller()
+        public IFluentAlignSelfWithValue OnWidescreenAndSmaller()
         {
             this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
-        }
-
-        /// <inheritdoc/>
-        public bool Equals(IJustifyContent other)
-        {
-            return string.Equals(this.Class, other.Class);
-        }
-
-        private void SetBreakpointValues(JustificationOption value, params Breakpoint[] breakpoints)
-        {
-            foreach (var breakpoint in breakpoints)
-            {
-                this.breakpointDictionary[breakpoint] = value;
-            }
         }
 
         private string BuildClass()
@@ -175,10 +167,18 @@ namespace Flexor
 
             foreach (var kvp in this.breakpointDictionary)
             {
-                builder.Append($"justify-content{kvp.Key}{kvp.Value} ");
+                builder.Append($"align-self{kvp.Key}{kvp.Value} ");
             }
 
             return builder.ToString().Trim();
+        }
+
+        private void SetBreakpointValues(SelfAlignmentOption value, params Breakpoint[] breakpoints)
+        {
+            foreach (var breakpoint in breakpoints)
+            {
+                this.breakpointDictionary[breakpoint] = value;
+            }
         }
     }
 }

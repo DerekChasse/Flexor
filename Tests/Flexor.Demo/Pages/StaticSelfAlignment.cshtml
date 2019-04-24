@@ -1,0 +1,46 @@
+﻿
+@page "/static-self-alignment"
+
+@layout StaticLayout
+
+<DisplayBox HeaderMessage=@this.GetHeaderMessage ContentMinHeight="400">
+    <FlexLayout Direction="@Direction.Row" ItemAlignment="@AlignItems.Center" JustifyContent="@JustifyContent.SpaceAround" Class="boxes colored">
+        <div>Box #1</div>
+        <FlexItem AlignSelf="@this.AlignSelf">
+            Box #2
+        </FlexItem>
+        <div>Box #3</div>
+        <div>Box #4</div>
+        <div>Box #5</div>
+    </FlexLayout>
+</DisplayBox>
+
+
+<DisplayBox ContentMinHeight="200">
+    <div class="col-12 flex-column align-items-center">
+        <div class="btn-group mt-3 mb-3 p-0" role="group">
+            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.Auto, "aligned automatically"))>Auto</button>
+            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.Baseline, "baseline aligned"))>Baseline</button>
+            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.Center, "centered"))>Center</button>
+            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.End, "end aligned"))>End</button>
+            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.Start, "start aligned"))>Start</button>
+            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(SelfAlignmentOption.Stretch, "stretched"))>Stretch</button>
+        </div>
+    </div>
+</DisplayBox>
+
+@functions {
+
+    IAlignSelf AlignSelf { get; set; } = Flexor.AlignSelf.Start;
+    string AlignSelfString { get; set; } = "start aligned";
+
+    private MarkupString GetHeaderMessage => new MarkupString($"Item #2 is <strong>{this.AlignSelfString}</strong>.");
+
+    void UpdateAlignSelf(SelfAlignmentOption option, string optionString)
+    {
+        this.AlignSelf = Flexor.AlignSelf.Is(option).OnMobileAndLarger(); ;
+        this.AlignSelfString = optionString;
+    }
+
+
+}
