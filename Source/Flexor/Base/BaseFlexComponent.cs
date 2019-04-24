@@ -15,6 +15,7 @@ namespace Flexor.Base
     public abstract class BaseFlexComponent : ComponentBase
     {
         private IVisible visible = Flexor.Visible.Always;
+        private string cssClass = string.Empty;
 
         /// <summary>
         /// Defines when a flex-item is visible.
@@ -30,6 +31,23 @@ namespace Flexor.Base
                 if (!this.visible.Equals(value))
                 {
                     this.visible = value;
+                    this.StateHasChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Custom CSS class to apply to the component.
+        /// </summary>
+        [Parameter]
+        protected string Class
+        {
+            get => this.cssClass;
+            set
+            {
+                if (!this.cssClass.Equals(value))
+                {
+                    this.cssClass = value;
                     this.StateHasChanged();
                 }
             }

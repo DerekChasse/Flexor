@@ -146,7 +146,8 @@ namespace Flexor.Base
                 this.Visible.Class,
                 this.Order.Class,
                 this.Resizability.Class,
-                this.Size.Class);
+                this.Size.Class,
+                this.Class);
         }
     }
 }

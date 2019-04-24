@@ -4,11 +4,12 @@
 @page "/static-item-alignment"
 
 <DisplayBox HeaderMessage=@this.GetHeaderMessage ContentMinHeight="400">
-    <FlexLayout Direction="@this.Direction" ItemAlignment="@this.AlignItems" JustifyContent="@this.JustifyContent">
-        <ColoredBox>1</ColoredBox>
-        <ColoredBox>2</ColoredBox>
-        <ColoredBox>3</ColoredBox>
-        <ColoredBox>4</ColoredBox>
+    <FlexLayout Direction="@this.Direction" ItemAlignment="@this.AlignItems" JustifyContent="@this.JustifyContent" Class="boxes colored">
+        <div>Box #1</div>
+        <div>Box #2</div>
+        <div>Box #3</div>
+        <div>Box #4</div>            
+        <div>Box #5</div>
     </FlexLayout>
 </DisplayBox>
 

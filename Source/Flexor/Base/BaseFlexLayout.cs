@@ -120,7 +120,8 @@ namespace Flexor.Base
                 this.ItemAlignment.Class,
                 this.JustifyContent.Class,
                 this.Visible.Class,
-                this.Wrap.Class);
+                this.Wrap.Class,
+                this.Class);
         }
     }
 }

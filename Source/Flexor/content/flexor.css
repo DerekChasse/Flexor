@@ -66,8 +66,8 @@
 }
 
 .flex-resize-auto {
-    -ms-flex: 1 1 100% !important;
-    flex: 1 1 100% !important;
+    -ms-flex: 1 1 auto !important;
+    flex: 1 1 auto !important;
 }
 
 .flex-resize-none {
@@ -324,8 +324,8 @@
     }
 
     .flex-resize-sm-auto {
-        -ms-flex: 1 1 100% !important;
-        flex: 1 1 100% !important;
+        -ms-flex: 1 1 auto !important;
+        flex: 1 1 auto !important;
     }
 
     .flex-resize-sm-none {
@@ -584,8 +584,8 @@
     }
 
     .flex-resize-md-auto {
-        -ms-flex: 1 1 100% !important;
-        flex: 1 1 100% !important;
+        -ms-flex: 1 1 auto !important;
+        flex: 1 1 auto !important;
     }
 
     .flex-resize-md-none {
@@ -844,8 +844,8 @@
     }
 
     .flex-resize-lg-auto {
-        -ms-flex: 1 1 100% !important;
-        flex: 1 1 100% !important;
+        -ms-flex: 1 1 auto !important;
+        flex: 1 1 auto !important;
     }
 
     .flex-resize-lg-none {
@@ -1104,8 +1104,8 @@
     }
 
     .flex-resize-xl-auto {
-        -ms-flex: 1 1 100% !important;
-        flex: 1 1 100% !important;
+        -ms-flex: 1 1 auto !important;
+        flex: 1 1 auto !important;
     }
 
     .flex-resize-xl-none {

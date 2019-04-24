@@ -3,26 +3,28 @@
 @page "/responsive-multiple-columns"
 
 <DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
-    <FlexLayout>
+    <FlexLayout Class="boxes flex-fill">
         <FlexItem Size="Size.IsPercentOnAll(25)" Visible="Visible.Only.OnMobile().And.OnDesktopAndLarger()">
             <FlexLayout Direction="Direction.Is(DirectionOption.Column).OnTabletAndSmaller()">
-                <FlexItem Size="Size.IsPercentOnAll(50)">
-                    <ColoredBoxFull>1</ColoredBoxFull>
+                <FlexItem Size="Size.IsPercentOnAll(50)" Class="one">
+                    1
                 </FlexItem>
-                <FlexItem Size="Size.IsPercentOnAll(50)">
-                    <ColoredBoxFull>2</ColoredBoxFull>
+                <FlexItem Size="Size.IsPercentOnAll(50)" Class="two">
+                    2
                 </FlexItem>
 
             </FlexLayout>
         </FlexItem>
-        <FlexLayout Direction="Direction.Column">
-            <FlexItem Size="Size.IsPercentOnAll(50)">
-                <ColoredBoxFull>3</ColoredBoxFull>
-            </FlexItem>
-            <FlexItem Size="Size.IsPercentOnAll(50)">
-                <ColoredBoxFull>4</ColoredBoxFull>
-            </FlexItem>
-        </FlexLayout>
+        <FlexItem Resizability="Resizability.Fill" >
+            <FlexLayout Direction="Direction.Column">
+                <FlexItem Size="Size.IsPercentOnAll(50)" Class="three">
+                    3
+                </FlexItem>
+                <FlexItem Size="Size.IsPercentOnAll(50)" Class="four">
+                    4
+                </FlexItem>
+            </FlexLayout>
+        </FlexItem>
     </FlexLayout>
 </DisplayBox>
 

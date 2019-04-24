@@ -4,14 +4,14 @@
 @layout StaticLayout
 
 <DisplayBox HeaderMessage=@this.GetHeaderMessage ContentMinHeight="400">
-    <FlexLayout Direction="@Direction.Row" ItemAlignment="@AlignItems.Center" JustifyContent="@JustifyContent.SpaceAround">
-        <ColoredBox>1</ColoredBox>
+    <FlexLayout Direction="@Direction.Row" ItemAlignment="@AlignItems.Center" JustifyContent="@JustifyContent.SpaceAround" Class="boxes colored">
+        <div>Box #1</div>
         <FlexItem AlignSelf="@this.AlignSelf">
-            <ColoredBox>2</ColoredBox>
+            Box #2
         </FlexItem>
-        <ColoredBox>3</ColoredBox>
-        <ColoredBox>4</ColoredBox>
-        <ColoredBox>5</ColoredBox>
+        <div>Box #3</div>
+        <div>Box #4</div>
+        <div>Box #5</div>
     </FlexLayout>
 </DisplayBox>
 

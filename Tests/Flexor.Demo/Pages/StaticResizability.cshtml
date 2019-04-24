@@ -1,0 +1,40 @@
+﻿@layout StaticLayout
+
+@page "/static-resizability"
+
+<DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
+    <FlexLayout Wrap="Wrap.CanWrap" Class="boxes colored">
+        <FlexItem Resizability="Resizability.None">
+            This box will not resize.
+        </FlexItem>
+        <FlexItem Resizability="Resizability.Fill">
+            This box will fill.
+        </FlexItem>
+        <FlexItem Resizability="Resizability.NoGrow">
+            This box will not grow.
+        </FlexItem>
+        <FlexItem Resizability="Resizability.Grow">
+            This box will grow .
+        </FlexItem>
+        <FlexItem Resizability="Resizability.Initial">
+            This box will keep it's initial size.
+        </FlexItem>
+        <FlexItem Resizability="Resizability.Auto">
+            This box will resize automatically.
+        </FlexItem>
+        <FlexItem Resizability="Resizability.NoShrink">
+            This box will not shrink.
+        </FlexItem>
+        <FlexItem Resizability="Resizability.Fill" Class="bg-white">
+            
+        </FlexItem>
+    </FlexLayout>
+
+</DisplayBox>
+
+@functions {
+
+    MarkupString headerMessage = new MarkupString("Using <strong>Wrap</strong> to wrap positioned items within a layout container.");
+
+
+}
