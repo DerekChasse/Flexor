@@ -47,11 +47,11 @@ namespace Flexor
     /// Enumeration of ways items can be rendered across a flex-line.
     /// This impacts items along the flex-line's primary axis.
     /// </summary>
-    public class JustificationOption
+    public class JustifyContentOption
     {
         private readonly string value;
 
-        private JustificationOption(string value)
+        private JustifyContentOption(string value)
         {
             this.value = value;
         }
@@ -59,28 +59,28 @@ namespace Flexor
         /// <summary>
         /// Items are packed along start of the flex-line's primary axis.
         /// </summary>
-        public static JustificationOption Start => new JustificationOption("-start");
+        public static JustifyContentOption Start => new JustifyContentOption("-start");
 
         /// <summary>
         /// Items are centered around the flex-line's center-line.
         /// </summary>
-        public static JustificationOption Center => new JustificationOption("-center");
+        public static JustifyContentOption Center => new JustifyContentOption("-center");
 
         /// <summary>
         /// Items are packed along the end of the flex-line's primary axis.
         /// </summary>
-        public static JustificationOption End => new JustificationOption("-end");
+        public static JustifyContentOption End => new JustifyContentOption("-end");
 
         /// <summary>
         /// All items are spaced equally apart.
         /// </summary>
-        public static JustificationOption SpaceAround => new JustificationOption("-around");
+        public static JustifyContentOption SpaceAround => new JustifyContentOption("-around");
 
         /// <summary>
         /// Items are spaced evenly with first and last items in contact
         /// with the start and end of the flex-line.
         /// </summary>
-        public static JustificationOption SpaceBetween => new JustificationOption("-between");
+        public static JustifyContentOption SpaceBetween => new JustifyContentOption("-between");
 
         /// <inheritdoc/>
         public override string ToString()

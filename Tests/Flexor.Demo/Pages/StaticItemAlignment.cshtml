@@ -34,11 +34,11 @@
                     <strong>Alignment in Layout Direction</strong>
                 </div>
                 <div class="btn-group-vertical">
-                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.Center, "Centered"))>Center</button>
-                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.End, "End Aligned"))>End</button>
-                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.SpaceAround, "Spaced Around"))>Space Around</button>
-                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.SpaceBetween, "Spaced Between"))>Space Between</button>
-                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustificationOption.Start, "Start Aligned"))>Start</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustifyContentOption.Center, "Centered"))>Center</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustifyContentOption.End, "End Aligned"))>End</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustifyContentOption.SpaceAround, "Spaced Around"))>Space Around</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustifyContentOption.SpaceBetween, "Spaced Between"))>Space Between</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateJustifyContent(JustifyContentOption.Start, "Start Aligned"))>Start</button>
                 </div>
             </FlexLine>
         </FlexItem>
@@ -76,7 +76,7 @@
         this.DirectionOptionString = optionString;
     }
 
-    private void UpdateJustifyContent(JustificationOption option, string optionString)
+    private void UpdateJustifyContent(JustifyContentOption option, string optionString)
     {
         this.JustifyContent = Flexor.JustifyContent.Is(option).OnMobileAndLarger();
         this.JustifyContentString = optionString;
