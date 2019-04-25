@@ -3,7 +3,7 @@
 @page "/responsive-direction"
 
 <DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
-    <FlexLine Direction=@Direction.Is(DirectionOption.Column).OnMobile() Class="boxes colored">
+    <FlexLine Direction=@Direction.Is(DirectionOption.Column).OnMobile() Class="boxes colored h-100 w-100">
         <FlexItem Resizability="Resizability.Fill">
             I'm above on mobile, and to the left on larger devices.
         </FlexItem>

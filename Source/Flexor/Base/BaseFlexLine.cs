@@ -101,7 +101,10 @@ namespace Flexor.Base
             builder.OpenElement(0, "div");
             builder.AddAttribute(1, "class", this.GetClassDefinition());
 
-            builder.AddAttribute(2, "style", "height: 100%; width: 100%;");
+            if (!string.IsNullOrWhiteSpace(this.Style))
+            {
+                builder.AddAttribute(2, "style", this.Style);
+            }
 
             if (this.ChildContent != null)
             {

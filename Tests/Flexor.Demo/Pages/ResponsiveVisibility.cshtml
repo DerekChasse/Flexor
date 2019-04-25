@@ -3,7 +3,7 @@
 @page "/responsive-visibility"
 
 <DisplayBox HeaderMessage=@this.headerMessage>
-    <FlexLine Class="colored">
+    <FlexLine Class="colored h-100 w-100">
         <FlexItem Visible="Visible.Only.OnTabletAndLarger()" Size="Size.IsPercentOnAll(20)" Class="align-items-center justify-content-center">
             Tablets and larger
         </FlexItem>
@@ -28,7 +28,7 @@
 </DisplayBox>
 
 <DisplayBox ContentMinHeight="80">
-    <FlexLine Direction="Direction.Column" JustifyContent="JustifyContent.Center" ItemAlignment="AlignItems.Center">
+    <FlexLine Direction="Direction.Column" JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" bind="@ConditionMet" id="conditionCheck" />
             <label class="form-check-label" for="conditionCheck">

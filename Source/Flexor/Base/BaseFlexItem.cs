@@ -116,9 +116,14 @@ namespace Flexor.Base
             builder.OpenElement(0, "div");
             builder.AddAttribute(1, "class", this.GetItemClassDefinition());
 
+            if (!string.IsNullOrWhiteSpace(this.Style))
+            {
+                builder.AddAttribute(2, "style", this.Style);
+            }
+
             if (this.ChildContent != null)
             {
-                builder.AddContent(2, this.ChildContent);
+                builder.AddContent(3, this.ChildContent);
                 this.ChildContent = null;
             }
 
