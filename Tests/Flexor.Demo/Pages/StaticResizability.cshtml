@@ -3,7 +3,7 @@
 @page "/static-resizability"
 
 <DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
-    <FlexLayout Wrap="Wrap.CanWrap" Class="boxes colored">
+    <FlexLine Wrap="Wrap.CanWrap" Class="boxes colored">
         <FlexItem Resizability="Resizability.None">
             This box will not resize.
         </FlexItem>
@@ -28,7 +28,7 @@
         <FlexItem Resizability="Resizability.Fill" Class="bg-white">
             
         </FlexItem>
-    </FlexLayout>
+    </FlexLine>
 
 </DisplayBox>
 

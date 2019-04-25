@@ -24,7 +24,7 @@ namespace Flexor
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define item justification across a flex-container's main axis.
+    /// Define item justification across a flex-line's main axis.
     /// </summary>
     public class FluentJustifyContent : IFluentJustifyContentWithValueOnBreakpoint, IFluentJustifyContentWithValue
     {

@@ -5,7 +5,7 @@
 namespace Flexor
 {
     /// <summary>
-    /// Define the ability of a flex-container to wrap.
+    /// Define the ability of a flex-line to wrap.
     /// </summary>
     public static class Wrap
     {
@@ -26,7 +26,7 @@ namespace Flexor
         public static IWrap WrapReverse => new FluentWrap(WrapOption.WrapReverse);
 
         /// <summary>
-        /// The default order configuration of an item within a flex-container across all CSS media query breakpoints.
+        /// The default order configuration of an item within a flex-line across all CSS media query breakpoints.
         /// </summary>
         /// <param name="value">The order of the item.</param>
         /// <returns>The order configuration.</returns>

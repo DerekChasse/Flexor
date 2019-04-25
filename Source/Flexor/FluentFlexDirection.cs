@@ -24,7 +24,7 @@ namespace Flexor
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define the direction items are added to a flex-container.
+    /// Define the direction items are added to a flex-line.
     /// </summary>
     public class FluentFlexDirection : IFluentFlexDirectionWithValue, IFluentFlexDirectionWithValueOnBreakpoint
     {

@@ -52,7 +52,7 @@ namespace Flexor
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define the order in which an item is displayed in a flex-container.
+    /// Define the order in which an item is displayed in a flex-line.
     /// </summary>
     public class FluentOrder : IFluentOrderWithValueOnBreakpoint, IFluentOrderWithValue
     {

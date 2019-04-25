@@ -38,7 +38,7 @@ namespace Flexor
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define the ability to resize an item is displayed in a flex-container.
+    /// Define the ability to resize an item is displayed in a flex-line.
     /// </summary>
     public class FluentResizability : IFluentResizabilityWithValueOnBreakpoint, IFluentResizabilityWithValue
     {

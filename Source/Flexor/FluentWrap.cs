@@ -24,7 +24,7 @@ namespace Flexor
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define the ability of a flex-container to wrap.
+    /// Define the ability of a flex-line to wrap.
     /// </summary>
     public class FluentWrap : IFluentWrapWithValue, IFluentWrapWithValueOnBreakpoint
     {

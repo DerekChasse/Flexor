@@ -1,4 +1,4 @@
-﻿// <copyright file="BaseFlexLayout.cs" company="Derek Chasse">
+﻿// <copyright file="BaseFlexLine.cs" company="Derek Chasse">
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Components.RenderTree;
 namespace Flexor.Base
 {
     /// <summary>
-    /// Base class for all Flexor flex-layouts.
+    /// Base class for all flex-lines.
     /// </summary>
-    public abstract class BaseFlexLayout : BaseFlexComponent
+    public abstract class BaseFlexLine : BaseFlexComponent
     {
         private IDirection direction = Flexor.Direction.Row;
         private IWrap wrap = Flexor.Wrap.NoWrap;
@@ -18,7 +18,7 @@ namespace Flexor.Base
         private IAlignItems itemAlignment = Flexor.AlignItems.Stretch;
 
         /// <summary>
-        /// Defines the direction in which items are added to the layout.
+        /// Defines the direction in which items are added to the flex-line.
         ///
         /// Default is 'row'.
         /// </summary>
@@ -37,7 +37,7 @@ namespace Flexor.Base
         }
 
         /// <summary>
-        /// Items within the flex-layout will wrap on to multiple lines if necessary.
+        /// Items within the flex-line will wrap on to multiple lines if necessary.
         ///
         /// Default is 'false'.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Flexor.Base
         }
 
         /// <summary>
-        /// Defines the alignment of items across the layout's main axis.
+        /// Defines the alignment of items across the flex-line's main axis.
         ///
         /// Default is 'start'.
         /// </summary>
@@ -75,7 +75,7 @@ namespace Flexor.Base
         }
 
         /// <summary>
-        /// Defines the alignment of items across the layout's cross axis.
+        /// Defines the alignment of items across the flex-line's cross axis.
         ///
         /// Default is 'stretch'.
         /// </summary>
@@ -99,7 +99,7 @@ namespace Flexor.Base
             base.BuildRenderTree(builder);
 
             builder.OpenElement(0, "div");
-            builder.AddAttribute(1, "class", this.GetLayoutClassDefinition());
+            builder.AddAttribute(1, "class", this.GetClassDefinition());
 
             builder.AddAttribute(2, "style", "height: 100%; width: 100%;");
 
@@ -112,7 +112,7 @@ namespace Flexor.Base
             builder.CloseElement();
         }
 
-        private string GetLayoutClassDefinition()
+        private string GetClassDefinition()
         {
             return string.Join(
                 " ",

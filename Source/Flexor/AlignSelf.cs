@@ -5,36 +5,36 @@
 namespace Flexor
 {
     /// <summary>
-    /// Defines how an individual flex-item is laid out along the flex-container's cross axis.
+    /// Defines how an individual flex-item is laid out along the flex-line's cross axis.
     /// </summary>
     public static class AlignSelf
     {
         /// <summary>
-        /// The individual item inherits the container's item alignment value.
+        /// The individual flex-item inherits the flex-line's item alignment value.
         /// The individual item is rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
         public static IAlignSelf Auto => new FluentAlignSelf(SelfAlignmentOption.Auto);
 
         /// <summary>
-        /// The individual item is aligned along the start of the flex-container's cross axis.
+        /// The individual item is aligned along the start of the flex-line's cross axis.
         /// The individual item is rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
         public static IAlignSelf Start => new FluentAlignSelf(SelfAlignmentOption.Start);
 
         /// <summary>
-        /// The individual item is aligned along the center of the flex-container's cross axis.
+        /// The individual item is aligned along the center of the flex-line's cross axis.
         /// The individual item is rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
         public static IAlignSelf Center => new FluentAlignSelf(SelfAlignmentOption.Center);
 
         /// <summary>
-        /// The individual item is aligned along the end of the flex-container's cross axis.
+        /// The individual item is aligned along the end of the flex-line's cross axis.
         /// The individual item is rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
         public static IAlignSelf End => new FluentAlignSelf(SelfAlignmentOption.End);
 
         /// <summary>
-        /// The individual item is stretched along the entirety of the flex-container's cross axis.
+        /// The individual item is stretched along the entirety of the flex-line's cross axis.
         /// The individual item is rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
         public static IAlignSelf Stretch => new FluentAlignSelf(SelfAlignmentOption.Stretch);

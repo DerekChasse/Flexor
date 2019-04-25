@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Components.RenderTree;
 namespace Flexor.Base
 {
     /// <summary>
-    /// Base class for an item to be rendered in a FlexLayout.
+    /// Base class for an item to be rendered in a flex-line.
     /// </summary>
     public abstract class BaseFlexItem : BaseFlexComponent
     {
@@ -20,7 +20,7 @@ namespace Flexor.Base
         private IResizability resizability = Flexor.Resizability.None;
 
         /// <summary>
-        /// Defines the order in which items are rendered within the layout.
+        /// Defines the order in which items are rendered within the flex-line.
         ///
         /// Default is 'default'.
         /// </summary>
@@ -39,7 +39,7 @@ namespace Flexor.Base
         }
 
         /// <summary>
-        /// Defines the alignment of an individual item across the layout's cross axis.
+        /// Defines the alignment of an individual item across the flex-line's cross axis.
         ///
         /// Default is 'auto'.
         /// </summary>

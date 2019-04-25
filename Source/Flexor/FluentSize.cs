@@ -39,7 +39,7 @@ namespace Flexor
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define the size of an item displayed in a flex-container.
+    /// Define the size of an item displayed in a flex-line.
     /// </summary>
     public class FluentSize : IFluentSizeWithValue, IFluentSizeWithValueOnBreakpoint, ISizeSetValue
     {

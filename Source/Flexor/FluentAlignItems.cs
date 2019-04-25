@@ -24,7 +24,7 @@ namespace Flexor
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define how items are aligned along a flex-container's cross axis.
+    /// Define how items are aligned along a flex-line's cross axis.
     /// </summary>
     public class FluentAlignItems : IFluentAlignItemsWithValueOnBreakpoint, IFluentAlignItemsWithValue
     {

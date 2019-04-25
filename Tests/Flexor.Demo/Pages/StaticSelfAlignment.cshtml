@@ -4,7 +4,7 @@
 @layout StaticLayout
 
 <DisplayBox HeaderMessage=@this.GetHeaderMessage ContentMinHeight="400">
-    <FlexLayout Direction="@Direction.Row" ItemAlignment="@AlignItems.Center" JustifyContent="@JustifyContent.SpaceAround" Class="boxes colored">
+    <FlexLine Direction="@Direction.Row" ItemAlignment="@AlignItems.Center" JustifyContent="@JustifyContent.SpaceAround" Class="boxes colored">
         <div>Box #1</div>
         <FlexItem AlignSelf="@this.AlignSelf">
             Box #2
@@ -12,7 +12,7 @@
         <div>Box #3</div>
         <div>Box #4</div>
         <div>Box #5</div>
-    </FlexLayout>
+    </FlexLine>
 </DisplayBox>
 
 
