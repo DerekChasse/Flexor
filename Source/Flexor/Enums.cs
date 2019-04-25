@@ -138,11 +138,11 @@ namespace Flexor
     /// Enumeration of ways an individual item can be rendered within a flex-line.
     /// This impacts the item along the flex-line's cross axis.
     /// </summary>
-    public class SelfAlignmentOption
+    public class AlignSelfOption
     {
         private readonly string value;
 
-        private SelfAlignmentOption(string value)
+        private AlignSelfOption(string value)
         {
             this.value = value;
         }
@@ -150,32 +150,32 @@ namespace Flexor
         /// <summary>
         /// Inherit's the parent flex-line's item alignment definition.
         /// </summary>
-        public static SelfAlignmentOption Auto => new SelfAlignmentOption("-auto");
+        public static AlignSelfOption Auto => new AlignSelfOption("-auto");
 
         /// <summary>
         /// Flex-item is placed on the start of the flex-line's cross axis.
         /// </summary>
-        public static SelfAlignmentOption Start => new SelfAlignmentOption("-start");
+        public static AlignSelfOption Start => new AlignSelfOption("-start");
 
         /// <summary>
         /// Flex-item is placed on the center of the flex-line's cross axis.
         /// </summary>
-        public static SelfAlignmentOption Center => new SelfAlignmentOption("-center");
+        public static AlignSelfOption Center => new AlignSelfOption("-center");
 
         /// <summary>
         /// Flex-item is placed on the end of the flex-line's cross axis.
         /// </summary>
-        public static SelfAlignmentOption End => new SelfAlignmentOption("-end");
+        public static AlignSelfOption End => new AlignSelfOption("-end");
 
         /// <summary>
         /// Flex-item is stretched across the flex-line's cross axis.
         /// </summary>
-        public static SelfAlignmentOption Stretch => new SelfAlignmentOption("-stretch");
+        public static AlignSelfOption Stretch => new AlignSelfOption("-stretch");
 
         /// <summary>
         /// Flex-item is baseline aligned along the flex-line's cross axis.
         /// </summary>
-        public static SelfAlignmentOption Baseline => new SelfAlignmentOption("-baseline");
+        public static AlignSelfOption Baseline => new AlignSelfOption("-baseline");
 
         /// <inheritdoc/>
         public override string ToString()

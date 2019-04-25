@@ -15,7 +15,7 @@ namespace Flexor.Base
     public abstract class BaseFlexItem : BaseFlexComponent
     {
         private IOrder order = Flexor.Order.Default;
-        private IAlignSelf selfAlignment = Flexor.AlignSelf.Auto;
+        private IAlignSelf alignSelf = Flexor.AlignSelf.Auto;
         private ISize size = Flexor.Size.Default;
         private IResizability resizability = Flexor.Resizability.None;
 
@@ -46,12 +46,12 @@ namespace Flexor.Base
         [Parameter]
         protected IAlignSelf AlignSelf
         {
-            get => this.selfAlignment;
+            get => this.alignSelf;
             set
             {
-                if (!this.selfAlignment.Equals(value))
+                if (!this.alignSelf.Equals(value))
                 {
-                    this.selfAlignment = value;
+                    this.alignSelf = value;
                     this.StateHasChanged();
                 }
             }
