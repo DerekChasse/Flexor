@@ -10,6 +10,12 @@ namespace Flexor
     public static class Resizability
     {
         /// <summary>
+        /// Flex-item resizability is unset.
+        /// Item resizing ability is applied consistently across all CSS media query breakpoints.
+        /// </summary>
+        public static IResizability Default => new FluentResizability(ResizabilityOption.Default);
+
+        /// <summary>
         /// Flex-item is allowed to grow as there is space available.
         /// Item resizing ability is applied consistently across all CSS media query breakpoints.
         /// </summary>

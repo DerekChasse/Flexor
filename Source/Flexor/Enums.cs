@@ -276,6 +276,11 @@ namespace Flexor
         /// <summary>
         /// Item will be sized automatically.
         /// </summary>
+        public static ResizabilityOption Default => new ResizabilityOption("-unset");
+
+        /// <summary>
+        /// Item will be sized automatically.
+        /// </summary>
         public static ResizabilityOption Auto => new ResizabilityOption("-auto");
 
         /// <summary>

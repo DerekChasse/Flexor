@@ -49,7 +49,7 @@ namespace Flexor
         /// Initializes a new instance of the <see cref="FluentResizability"/> class.
         /// </summary>
         public FluentResizability()
-            : this(ResizabilityOption.None)
+            : this(ResizabilityOption.Default)
         {
         }
 
