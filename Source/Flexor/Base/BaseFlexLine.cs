@@ -15,7 +15,7 @@ namespace Flexor.Base
         private IDirection direction = Flexor.Direction.Row;
         private IWrap wrap = Flexor.Wrap.NoWrap;
         private IJustifyContent justifyContent = Flexor.JustifyContent.Start;
-        private IAlignItems itemAlignment = Flexor.AlignItems.Stretch;
+        private IAlignItems alignItems = Flexor.AlignItems.Stretch;
 
         /// <summary>
         /// Defines the direction in which items are added to the flex-line.
@@ -80,14 +80,14 @@ namespace Flexor.Base
         /// Default is 'stretch'.
         /// </summary>
         [Parameter]
-        protected IAlignItems ItemAlignment
+        protected IAlignItems AlignItems
         {
-            get => this.itemAlignment;
+            get => this.alignItems;
             set
             {
-                if (!this.itemAlignment.Equals(value))
+                if (!this.alignItems.Equals(value))
                 {
-                    this.itemAlignment = value;
+                    this.alignItems = value;
                     this.StateHasChanged();
                 }
             }
@@ -117,7 +117,7 @@ namespace Flexor.Base
             return string.Join(
                 " ",
                 this.Direction.Class,
-                this.ItemAlignment.Class,
+                this.AlignItems.Class,
                 this.JustifyContent.Class,
                 this.Visible.Class,
                 this.Wrap.Class,

@@ -93,11 +93,11 @@ namespace Flexor
     /// Enumeration of ways items can be rendered within a flex-line.
     /// This impacts items along the flex-line's cross axis.
     /// </summary>
-    public class ItemAlignmentOption
+    public class AlignItemsOption
     {
         private readonly string value;
 
-        private ItemAlignmentOption(string value)
+        private AlignItemsOption(string value)
         {
             this.value = value;
         }
@@ -105,27 +105,27 @@ namespace Flexor
         /// <summary>
         /// Flex-items are placed along the start of the flex-line's cross axis.
         /// </summary>
-        public static ItemAlignmentOption Start => new ItemAlignmentOption("-start");
+        public static AlignItemsOption Start => new AlignItemsOption("-start");
 
         /// <summary>
         /// Flex-items are placed along the center of the flex-line's cross axis.
         /// </summary>
-        public static ItemAlignmentOption Center => new ItemAlignmentOption("-center");
+        public static AlignItemsOption Center => new AlignItemsOption("-center");
 
         /// <summary>
         /// Flex-items are placed along the end of the flex-line's cross axis.
         /// </summary>
-        public static ItemAlignmentOption End => new ItemAlignmentOption("-end");
+        public static AlignItemsOption End => new AlignItemsOption("-end");
 
         /// <summary>
         /// Flex-items are stretched along the flex-line's cross axis.
         /// </summary>
-        public static ItemAlignmentOption Stretch => new ItemAlignmentOption("-stretch");
+        public static AlignItemsOption Stretch => new AlignItemsOption("-stretch");
 
         /// <summary>
         /// Flex-items are baseline aligned along the flex-line's cross axis.
         /// </summary>
-        public static ItemAlignmentOption Baseline => new ItemAlignmentOption("-baseline");
+        public static AlignItemsOption Baseline => new AlignItemsOption("-baseline");
 
         /// <inheritdoc/>
         public override string ToString()

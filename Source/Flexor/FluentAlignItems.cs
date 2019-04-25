@@ -15,7 +15,7 @@ namespace Flexor
 
     public interface IFluentAlignItemsWithValue : IAlignItems
     {
-        IFluentAlignItemsWithValueOnBreakpoint Is(ItemAlignmentOption value);
+        IFluentAlignItemsWithValueOnBreakpoint Is(AlignItemsOption value);
     }
 
     public interface IFluentAlignItemsWithValueOnBreakpoint : IFluentReactive<IFluentAlignItemsWithValue>, IAlignItems
@@ -28,14 +28,14 @@ namespace Flexor
     /// </summary>
     public class FluentAlignItems : IFluentAlignItemsWithValueOnBreakpoint, IFluentAlignItemsWithValue
     {
-        private readonly Dictionary<Breakpoint, ItemAlignmentOption> breakpointDictionary = new Dictionary<Breakpoint, ItemAlignmentOption>();
-        private ItemAlignmentOption valueToApply;
+        private readonly Dictionary<Breakpoint, AlignItemsOption> breakpointDictionary = new Dictionary<Breakpoint, AlignItemsOption>();
+        private AlignItemsOption valueToApply;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentAlignItems"/> class.
         /// </summary>
         public FluentAlignItems()
-            : this(ItemAlignmentOption.Stretch)
+            : this(AlignItemsOption.Stretch)
         {
         }
 
@@ -43,7 +43,7 @@ namespace Flexor
         /// Initializes a new instance of the <see cref="FluentAlignItems"/> class.
         /// </summary>
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
-        public FluentAlignItems(ItemAlignmentOption initialValue)
+        public FluentAlignItems(AlignItemsOption initialValue)
         {
             this.valueToApply = initialValue;
 
@@ -64,7 +64,7 @@ namespace Flexor
         }
 
         /// <inheritdoc/>
-        public IFluentAlignItemsWithValueOnBreakpoint Is(ItemAlignmentOption value)
+        public IFluentAlignItemsWithValueOnBreakpoint Is(AlignItemsOption value)
         {
             this.valueToApply = value;
             return this;
@@ -173,7 +173,7 @@ namespace Flexor
             return builder.ToString().Trim();
         }
 
-        private void SetBreakpointValues(ItemAlignmentOption value, params Breakpoint[] breakpoints)
+        private void SetBreakpointValues(AlignItemsOption value, params Breakpoint[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
             {

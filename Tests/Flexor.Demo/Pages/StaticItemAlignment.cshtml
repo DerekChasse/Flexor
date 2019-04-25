@@ -48,11 +48,11 @@
                     <strong>Alignment in Perpendicular Direction</strong>
                 </div>
                 <div class="btn-group-vertical">
-                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Baseline, "Baseline Aligned"))>Baseline</button>
-                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Center, "Centered"))>Center</button>
-                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.End, "End Aligned"))>End</button>
-                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Start, "Start Aligned"))>Start</button>
-                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(ItemAlignmentOption.Stretch, "Stretched"))>Stretch</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(AlignItemsOption.Baseline, "Baseline Aligned"))>Baseline</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(AlignItemsOption.Center, "Centered"))>Center</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(AlignItemsOption.End, "End Aligned"))>End</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(AlignItemsOption.Start, "Start Aligned"))>Start</button>
+                    <button class="btn btn- btn-outline-primary" onclick=@(() => this.UpdateAlignItems(AlignItemsOption.Stretch, "Stretched"))>Stretch</button>
                 </div>
             </FlexLine>
         </FlexItem>
@@ -82,7 +82,7 @@
         this.JustifyContentString = optionString;
     }
 
-    private void UpdateAlignItems(ItemAlignmentOption option, string optionString)
+    private void UpdateAlignItems(AlignItemsOption option, string optionString)
     {
         this.AlignItems = Flexor.AlignItems.Is(option).OnMobileAndLarger();
         this.AlignItemsString = optionString;
