@@ -5,7 +5,7 @@
 namespace Flexor
 {
     /// <summary>
-    /// Enumeration of ways items can be rendered within a layout.
+    /// Enumeration of ways items can be rendered in a flex-line.
     /// </summary>
     public class DirectionOption
     {
@@ -17,22 +17,22 @@ namespace Flexor
         }
 
         /// <summary>
-        /// Items within a layout are rendered horizontally.
+        /// Items within a flex-line are rendered horizontally.
         /// </summary>
         public static DirectionOption Row => new DirectionOption("-row");
 
         /// <summary>
-        /// Items within a layout are rendered vertically.
+        /// Items within a flex-line are rendered vertically.
         /// </summary>
         public static DirectionOption Column => new DirectionOption("-column");
 
         /// <summary>
-        /// Items within a layout are rendered horizontally in reverse order.
+        /// Items within a flex-line are rendered horizontally in reverse order.
         /// </summary>
         public static DirectionOption RowReverse => new DirectionOption("-row-reverse");
 
         /// <summary>
-        /// Items within a layout are rendered vertically in reverse order.
+        /// Items within a flex-line are rendered vertically in reverse order.
         /// </summary>
         public static DirectionOption ColumnReverse => new DirectionOption("-column-reverse");
 
@@ -44,43 +44,43 @@ namespace Flexor
     }
 
     /// <summary>
-    /// Enumeration of ways items can be rendered across a layout.
-    /// This impacts items along the layout's primary axis.
+    /// Enumeration of ways items can be rendered across a flex-line.
+    /// This impacts items along the flex-line's primary axis.
     /// </summary>
-    public class JustificationOption
+    public class JustifyContentOption
     {
         private readonly string value;
 
-        private JustificationOption(string value)
+        private JustifyContentOption(string value)
         {
             this.value = value;
         }
 
         /// <summary>
-        /// Items are packed along start of the layout's primary axis.
+        /// Items are packed along start of the flex-line's primary axis.
         /// </summary>
-        public static JustificationOption Start => new JustificationOption("-start");
+        public static JustifyContentOption Start => new JustifyContentOption("-start");
 
         /// <summary>
-        /// Items are centered around the layout's center-line.
+        /// Items are centered around the flex-line's center-line.
         /// </summary>
-        public static JustificationOption Center => new JustificationOption("-center");
+        public static JustifyContentOption Center => new JustifyContentOption("-center");
 
         /// <summary>
-        /// Items are packed along the end of the layout's primary axis.
+        /// Items are packed along the end of the flex-line's primary axis.
         /// </summary>
-        public static JustificationOption End => new JustificationOption("-end");
+        public static JustifyContentOption End => new JustifyContentOption("-end");
 
         /// <summary>
         /// All items are spaced equally apart.
         /// </summary>
-        public static JustificationOption SpaceAround => new JustificationOption("-around");
+        public static JustifyContentOption SpaceAround => new JustifyContentOption("-around");
 
         /// <summary>
         /// Items are spaced evenly with first and last items in contact
-        /// with the start and end of a layout.
+        /// with the start and end of the flex-line.
         /// </summary>
-        public static JustificationOption SpaceBetween => new JustificationOption("-between");
+        public static JustifyContentOption SpaceBetween => new JustifyContentOption("-between");
 
         /// <inheritdoc/>
         public override string ToString()
@@ -90,42 +90,42 @@ namespace Flexor
     }
 
     /// <summary>
-    /// Enumeration of ways items can be rendered within a layout.
-    /// This impacts items along the layout's cross axis.
+    /// Enumeration of ways items can be rendered within a flex-line.
+    /// This impacts items along the flex-line's cross axis.
     /// </summary>
-    public class ItemAlignmentOption
+    public class AlignItemsOption
     {
         private readonly string value;
 
-        private ItemAlignmentOption(string value)
+        private AlignItemsOption(string value)
         {
             this.value = value;
         }
 
         /// <summary>
-        /// Placed along the start of the cross axis.
+        /// Flex-items are placed along the start of the flex-line's cross axis.
         /// </summary>
-        public static ItemAlignmentOption Start => new ItemAlignmentOption("-start");
+        public static AlignItemsOption Start => new AlignItemsOption("-start");
 
         /// <summary>
-        /// Centered along the primary axis.
+        /// Flex-items are placed along the center of the flex-line's cross axis.
         /// </summary>
-        public static ItemAlignmentOption Center => new ItemAlignmentOption("-center");
+        public static AlignItemsOption Center => new AlignItemsOption("-center");
 
         /// <summary>
-        /// Placed along the end of the cross axis.
+        /// Flex-items are placed along the end of the flex-line's cross axis.
         /// </summary>
-        public static ItemAlignmentOption End => new ItemAlignmentOption("-end");
+        public static AlignItemsOption End => new AlignItemsOption("-end");
 
         /// <summary>
-        /// Stretch to fill the layout.
+        /// Flex-items are stretched along the flex-line's cross axis.
         /// </summary>
-        public static ItemAlignmentOption Stretch => new ItemAlignmentOption("-stretch");
+        public static AlignItemsOption Stretch => new AlignItemsOption("-stretch");
 
         /// <summary>
-        /// Items are aligned such that their baselines align.
+        /// Flex-items are baseline aligned along the flex-line's cross axis.
         /// </summary>
-        public static ItemAlignmentOption Baseline => new ItemAlignmentOption("-baseline");
+        public static AlignItemsOption Baseline => new AlignItemsOption("-baseline");
 
         /// <inheritdoc/>
         public override string ToString()
@@ -135,47 +135,47 @@ namespace Flexor
     }
 
     /// <summary>
-    /// Enumeration of ways an individual item can be rendered within a layout.
-    /// This impacts the item along the layout's cross axis.
+    /// Enumeration of ways an individual item can be rendered within a flex-line.
+    /// This impacts the item along the flex-line's cross axis.
     /// </summary>
-    public class SelfAlignmentOption
+    public class AlignSelfOption
     {
         private readonly string value;
 
-        private SelfAlignmentOption(string value)
+        private AlignSelfOption(string value)
         {
             this.value = value;
         }
 
         /// <summary>
-        /// Inherit's the parent's item alignment definition.
+        /// Inherit's the parent flex-line's item alignment definition.
         /// </summary>
-        public static SelfAlignmentOption Auto => new SelfAlignmentOption("-auto");
+        public static AlignSelfOption Auto => new AlignSelfOption("-auto");
 
         /// <summary>
-        /// Placed along the start of the cross axis.
+        /// Flex-item is placed on the start of the flex-line's cross axis.
         /// </summary>
-        public static SelfAlignmentOption Start => new SelfAlignmentOption("-start");
+        public static AlignSelfOption Start => new AlignSelfOption("-start");
 
         /// <summary>
-        /// Centered along the primary axis.
+        /// Flex-item is placed on the center of the flex-line's cross axis.
         /// </summary>
-        public static SelfAlignmentOption Center => new SelfAlignmentOption("-center");
+        public static AlignSelfOption Center => new AlignSelfOption("-center");
 
         /// <summary>
-        /// Placed along the end of the cross axis.
+        /// Flex-item is placed on the end of the flex-line's cross axis.
         /// </summary>
-        public static SelfAlignmentOption End => new SelfAlignmentOption("-end");
+        public static AlignSelfOption End => new AlignSelfOption("-end");
 
         /// <summary>
-        /// Stretch to fill the layout.
+        /// Flex-item is stretched across the flex-line's cross axis.
         /// </summary>
-        public static SelfAlignmentOption Stretch => new SelfAlignmentOption("-stretch");
+        public static AlignSelfOption Stretch => new AlignSelfOption("-stretch");
 
         /// <summary>
-        /// Items are aligned such that their baselines align.
+        /// Flex-item is baseline aligned along the flex-line's cross axis.
         /// </summary>
-        public static SelfAlignmentOption Baseline => new SelfAlignmentOption("-baseline");
+        public static AlignSelfOption Baseline => new AlignSelfOption("-baseline");
 
         /// <inheritdoc/>
         public override string ToString()
@@ -262,7 +262,7 @@ namespace Flexor
     }
 
     /// <summary>
-    /// Enumeration of ways items are allowed to resize within a flex-container.
+    /// Enumeration of ways items are allowed to resize within a flex-line.
     /// </summary>
     public class ResizabilityOption
     {
@@ -272,6 +272,11 @@ namespace Flexor
         {
             this.value = value;
         }
+
+        /// <summary>
+        /// Item will be sized automatically.
+        /// </summary>
+        public static ResizabilityOption Default => new ResizabilityOption("-unset");
 
         /// <summary>
         /// Item will be sized automatically.
@@ -289,7 +294,7 @@ namespace Flexor
         public static ResizabilityOption None => new ResizabilityOption("-none");
 
         /// <summary>
-        /// Item will fill all available horizontal and vertical space within the container.
+        /// Item will fill all available horizontal and vertical space within the flex-line.
         /// </summary>
         public static ResizabilityOption Fill => new ResizabilityOption("-fill");
 
@@ -316,7 +321,7 @@ namespace Flexor
     }
 
     /// <summary>
-    /// Enumeration of possibilities which layouts may wrap.
+    /// Enumeration of possibilities which flex-lines may wrap.
     /// </summary>
     public class WrapOption
     {
@@ -368,7 +373,7 @@ namespace Flexor
         public static SizeUnit Pixels => new SizeUnit("px");
 
         /// <summary>
-        /// Size is a percentage of the flex-container's main-axis.
+        /// Size is a percentage of the flex-line's main-axis.
         /// </summary>
         public static SizeUnit Percent => new SizeUnit("%");
 

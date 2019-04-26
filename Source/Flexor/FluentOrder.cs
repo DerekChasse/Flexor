@@ -48,11 +48,16 @@ namespace Flexor
 
     public interface IFluentOrderWithValueOnBreakpoint : IFluentReactive<IFluentOrderWithValue>, IOrder
     {
+        /// <summary>
+        /// Configuration value will be applied to all media query breakpoints.
+        /// </summary>
+        /// <returns>The configuration object.</returns>
+        IOrder OnAll();
     }
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define the order in which an item is displayed in a flex-container.
+    /// Define the order in which an item is displayed in a flex-line.
     /// </summary>
     public class FluentOrder : IFluentOrderWithValueOnBreakpoint, IFluentOrderWithValue
     {
@@ -129,6 +134,13 @@ namespace Flexor
 
         /// <inheritdoc/>
         public IFluentOrderWithValueOnBreakpoint IsLast => this.Is(int.MaxValue);
+
+        /// <inheritdoc/>
+        public IOrder OnAll()
+        {
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            return this;
+        }
 
         /// <inheritdoc/>
         public IFluentOrderWithValue OnDesktop()

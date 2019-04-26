@@ -34,11 +34,16 @@ namespace Flexor
 
     public interface IFluentResizabilityWithValueOnBreakpoint : IResizability, IFluentReactive<IFluentResizabilityWithValue>
     {
+        /// <summary>
+        /// Configuration value will be applied to all media query breakpoints.
+        /// </summary>
+        /// <returns>The configuration object.</returns>
+        IResizability OnAll();
     }
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define the ability to resize an item is displayed in a flex-container.
+    /// Define the ability to resize an item is displayed in a flex-line.
     /// </summary>
     public class FluentResizability : IFluentResizabilityWithValueOnBreakpoint, IFluentResizabilityWithValue
     {
@@ -49,7 +54,7 @@ namespace Flexor
         /// Initializes a new instance of the <see cref="FluentResizability"/> class.
         /// </summary>
         public FluentResizability()
-            : this(ResizabilityOption.None)
+            : this(ResizabilityOption.Default)
         {
         }
 
@@ -117,6 +122,13 @@ namespace Flexor
         public IFluentResizabilityWithValueOnBreakpoint Is(ResizabilityOption value)
         {
             this.valueToApply = value;
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IResizability OnAll()
+        {
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 

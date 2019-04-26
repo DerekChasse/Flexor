@@ -3,15 +3,15 @@
 @page "/static-fill"
 
 <DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
-    <FlexLayout Class="boxes colored">
-        <FlexItem Size="Size.IsPercentOnAll(30)">
+    <FlexLine Class="boxes colored h-100 w-100">
+        <FlexItem Size="Size.IsPercent(30).OnAll()">
             30%
         </FlexItem>
 
         <FlexItem Resizability="Resizability.Fill">
             Fill
         </FlexItem>
-    </FlexLayout>
+    </FlexLine>
 
 </DisplayBox>
 

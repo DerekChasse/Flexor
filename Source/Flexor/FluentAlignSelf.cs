@@ -15,27 +15,32 @@ namespace Flexor
 
     public interface IFluentAlignSelfWithValue : IAlignSelf
     {
-        IFluentAlignSelfWithValueOnBreakpoint Is(SelfAlignmentOption value);
+        IFluentAlignSelfWithValueOnBreakpoint Is(AlignSelfOption value);
     }
 
     public interface IFluentAlignSelfWithValueOnBreakpoint : IFluentReactive<IFluentAlignSelfWithValue>, IAlignSelf
     {
+        /// <summary>
+        /// Configuration value will be applied to all media query breakpoints.
+        /// </summary>
+        /// <returns>The configuration object.</returns>
+        IAlignSelf OnAll();
     }
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define how an individual item is aligned along a flex-container's cross axis.
+    /// Define how an individual item is aligned along a flex-line's cross axis.
     /// </summary>
     public class FluentAlignSelf : IFluentAlignSelfWithValueOnBreakpoint, IFluentAlignSelfWithValue
     {
-        private readonly Dictionary<Breakpoint, SelfAlignmentOption> breakpointDictionary = new Dictionary<Breakpoint, SelfAlignmentOption>();
-        private SelfAlignmentOption valueToApply;
+        private readonly Dictionary<Breakpoint, AlignSelfOption> breakpointDictionary = new Dictionary<Breakpoint, AlignSelfOption>();
+        private AlignSelfOption valueToApply;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentAlignSelf"/> class.
         /// </summary>
         public FluentAlignSelf()
-            : this(SelfAlignmentOption.Stretch)
+            : this(AlignSelfOption.Stretch)
         {
         }
 
@@ -43,7 +48,7 @@ namespace Flexor
         /// Initializes a new instance of the <see cref="FluentAlignSelf"/> class.
         /// </summary>
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
-        public FluentAlignSelf(SelfAlignmentOption initialValue)
+        public FluentAlignSelf(AlignSelfOption initialValue)
         {
             this.valueToApply = initialValue;
 
@@ -64,9 +69,16 @@ namespace Flexor
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValueOnBreakpoint Is(SelfAlignmentOption value)
+        public IFluentAlignSelfWithValueOnBreakpoint Is(AlignSelfOption value)
         {
             this.valueToApply = value;
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IAlignSelf OnAll()
+        {
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
@@ -173,7 +185,7 @@ namespace Flexor
             return builder.ToString().Trim();
         }
 
-        private void SetBreakpointValues(SelfAlignmentOption value, params Breakpoint[] breakpoints)
+        private void SetBreakpointValues(AlignSelfOption value, params Breakpoint[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
             {

@@ -3,24 +3,24 @@
 @page "/responsive-order"
 
 <DisplayBox HeaderMessage=@this.headerMessage>
-    <FlexLayout Class="boxes colored">
-        <FlexItem Resizability="Resizability.Fill" Order="Order.IsFirstOnAll" Size="Size.IsPercentOnAll(25)">
+    <FlexLine Class="boxes colored h-100 w-100">
+        <FlexItem Resizability="Resizability.Fill" Order="Order.IsFirst.OnAll()" Size="Size.IsPercent(25).OnAll()">
             Box #1
         </FlexItem>
 
-        <FlexItem Resizability="Resizability.Fill" Order="Order.Is1.OnDesktopAndSmaller().Is3.OnWidescreenAndLarger()" Size="Size.IsPercentOnAll(25)">
+        <FlexItem Resizability="Resizability.Fill" Order="Order.Is1.OnDesktopAndSmaller().Is3.OnWidescreenAndLarger()" Size="Size.IsPercent(25).OnAll()">
             Box #2
         </FlexItem>
 
-        <FlexItem Resizability="Resizability.Fill" Order="Order.Is2OnAll" Size="Size.IsPercentOnAll(25)">
+        <FlexItem Resizability="Resizability.Fill" Order="Order.Is2.OnAll()" Size="Size.IsPercent(25).OnAll()">
             Box #3
         </FlexItem>
 
-        <FlexItem Resizability="Resizability.Fill" Order="Order.Is3.OnDesktopAndSmaller().Is1.OnWidescreenAndLarger()" Size="Size.IsPercentOnAll(25)">
+        <FlexItem Resizability="Resizability.Fill" Order="Order.Is3.OnDesktopAndSmaller().Is1.OnWidescreenAndLarger()" Size="Size.IsPercent(25).OnAll()">
             Box #4
         </FlexItem>
 
-    </FlexLayout>
+    </FlexLine>
 </DisplayBox>
 
 @functions {

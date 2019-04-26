@@ -5,28 +5,28 @@
 namespace Flexor
 {
     /// <summary>
-    /// Define the ability of a flex-container to wrap.
+    /// Define the ability of a flex-line to wrap.
     /// </summary>
     public static class Wrap
     {
         /// <summary>
         /// Items remain on a single line and will overflow.
         /// </summary>
-        public static IWrap NoWrap => new FluentWrap(WrapOption.NoWrap);
+        public static IWrap NoWrap => new FluentWrap().Is(WrapOption.NoWrap).OnAll();
 
         /// <summary>
         /// Items will be distributed across multiple lines if necessary.
         /// </summary>
-        public static IWrap CanWrap => new FluentWrap(WrapOption.Wrap);
+        public static IWrap CanWrap => new FluentWrap().Is(WrapOption.Wrap).OnAll();
 
         /// <summary>
         /// Items will be distributed across multiple lines if necessary.
         /// Additional lines will appear before the previous ones.
         /// </summary>
-        public static IWrap WrapReverse => new FluentWrap(WrapOption.WrapReverse);
+        public static IWrap WrapReverse => new FluentWrap().Is(WrapOption.WrapReverse).OnAll();
 
         /// <summary>
-        /// The default order configuration of an item within a flex-container across all CSS media query breakpoints.
+        /// The default order configuration of an item within a flex-line across all CSS media query breakpoints.
         /// </summary>
         /// <param name="value">The order of the item.</param>
         /// <returns>The order configuration.</returns>

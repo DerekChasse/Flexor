@@ -10,17 +10,17 @@ using Microsoft.AspNetCore.Components.RenderTree;
 namespace Flexor.Base
 {
     /// <summary>
-    /// Base class for an item to be rendered in a FlexLayout.
+    /// Base class for an item to be rendered in a flex-line.
     /// </summary>
     public abstract class BaseFlexItem : BaseFlexComponent
     {
         private IOrder order = Flexor.Order.Default;
-        private IAlignSelf selfAlignment = Flexor.AlignSelf.Auto;
+        private IAlignSelf alignSelf = Flexor.AlignSelf.Auto;
         private ISize size = Flexor.Size.Default;
-        private IResizability resizability = Flexor.Resizability.None;
+        private IResizability resizability = Flexor.Resizability.Default;
 
         /// <summary>
-        /// Defines the order in which items are rendered within the layout.
+        /// Defines the order in which items are rendered within the flex-line.
         ///
         /// Default is 'default'.
         /// </summary>
@@ -39,19 +39,19 @@ namespace Flexor.Base
         }
 
         /// <summary>
-        /// Defines the alignment of an individual item across the layout's cross axis.
+        /// Defines the alignment of an individual item across the flex-line's cross axis.
         ///
         /// Default is 'auto'.
         /// </summary>
         [Parameter]
         protected IAlignSelf AlignSelf
         {
-            get => this.selfAlignment;
+            get => this.alignSelf;
             set
             {
-                if (!this.selfAlignment.Equals(value))
+                if (!this.alignSelf.Equals(value))
                 {
-                    this.selfAlignment = value;
+                    this.alignSelf = value;
                     this.StateHasChanged();
                 }
             }
@@ -116,9 +116,14 @@ namespace Flexor.Base
             builder.OpenElement(0, "div");
             builder.AddAttribute(1, "class", this.GetItemClassDefinition());
 
+            if (!string.IsNullOrWhiteSpace(this.Style))
+            {
+                builder.AddAttribute(2, "style", this.Style);
+            }
+
             if (this.ChildContent != null)
             {
-                builder.AddContent(2, this.ChildContent);
+                builder.AddContent(3, this.ChildContent);
                 this.ChildContent = null;
             }
 

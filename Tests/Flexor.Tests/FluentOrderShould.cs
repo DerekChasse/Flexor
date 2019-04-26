@@ -39,7 +39,7 @@ namespace Flexor.Tests
         public void GetClass_0_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is0OnAll;
+            this.underTest = Order.Is0.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -59,7 +59,7 @@ namespace Flexor.Tests
         public void GetClass_1_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is1OnAll;
+            this.underTest = Order.Is1.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -79,7 +79,7 @@ namespace Flexor.Tests
         public void GetClass_2_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is2OnAll;
+            this.underTest = Order.Is2.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -99,7 +99,7 @@ namespace Flexor.Tests
         public void GetClass_3_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is3OnAll;
+            this.underTest = Order.Is3.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -119,7 +119,7 @@ namespace Flexor.Tests
         public void GetClass_4_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4OnAll;
+            this.underTest = Order.Is4.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -139,7 +139,7 @@ namespace Flexor.Tests
         public void GetClass_5_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is5OnAll;
+            this.underTest = Order.Is5.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -159,7 +159,7 @@ namespace Flexor.Tests
         public void GetClass_6_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is6OnAll;
+            this.underTest = Order.Is6.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -179,7 +179,7 @@ namespace Flexor.Tests
         public void GetClass_7_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7OnAll;
+            this.underTest = Order.Is7.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -199,7 +199,7 @@ namespace Flexor.Tests
         public void GetClass_8_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is8OnAll;
+            this.underTest = Order.Is8.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -219,7 +219,7 @@ namespace Flexor.Tests
         public void GetClass_9_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is9OnAll;
+            this.underTest = Order.Is9.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -239,7 +239,7 @@ namespace Flexor.Tests
         public void GetClass_10_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is10OnAll;
+            this.underTest = Order.Is10.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -259,7 +259,7 @@ namespace Flexor.Tests
         public void GetClass_11_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is11OnAll;
+            this.underTest = Order.Is11.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -279,7 +279,7 @@ namespace Flexor.Tests
         public void GetClass_12_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is12OnAll;
+            this.underTest = Order.Is12.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -299,7 +299,7 @@ namespace Flexor.Tests
         public void GetClass_First_Correctly()
         {
             // Arrange
-            this.underTest = Order.IsFirstOnAll;
+            this.underTest = Order.IsFirst.OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -319,7 +319,7 @@ namespace Flexor.Tests
         public void GetClass_Last_Correctly()
         {
             // Arrange
-            this.underTest = Order.IsLastOnAll;
+            this.underTest = Order.IsLast.OnAll();
 
             // Act
             var underTestClass = underTest.Class;

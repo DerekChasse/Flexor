@@ -15,27 +15,32 @@ namespace Flexor
 
     public interface IFluentJustifyContentWithValue : IJustifyContent
     {
-        IFluentJustifyContentWithValueOnBreakpoint Is(JustificationOption value);
+        IFluentJustifyContentWithValueOnBreakpoint Is(JustifyContentOption value);
     }
 
     public interface IFluentJustifyContentWithValueOnBreakpoint : IJustifyContent, IFluentReactive<IFluentJustifyContentWithValue>
     {
+        /// <summary>
+        /// Configuration value will be applied to all media query breakpoints.
+        /// </summary>
+        /// <returns>The configuration object.</returns>
+        IJustifyContent OnAll();
     }
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define item justification across a flex-container's main axis.
+    /// Define item justification across a flex-line's main axis.
     /// </summary>
     public class FluentJustifyContent : IFluentJustifyContentWithValueOnBreakpoint, IFluentJustifyContentWithValue
     {
-        private readonly Dictionary<Breakpoint, JustificationOption> breakpointDictionary = new Dictionary<Breakpoint, JustificationOption>();
-        private JustificationOption valueToApply;
+        private readonly Dictionary<Breakpoint, JustifyContentOption> breakpointDictionary = new Dictionary<Breakpoint, JustifyContentOption>();
+        private JustifyContentOption valueToApply;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentJustifyContent"/> class.
         /// </summary>
         public FluentJustifyContent()
-            : this(JustificationOption.Start)
+            : this(JustifyContentOption.Start)
         {
         }
 
@@ -43,7 +48,7 @@ namespace Flexor
         /// Initializes a new instance of the <see cref="FluentJustifyContent"/> class.
         /// </summary>
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
-        public FluentJustifyContent(JustificationOption initialValue)
+        public FluentJustifyContent(JustifyContentOption initialValue)
         {
             this.valueToApply = initialValue;
 
@@ -58,9 +63,16 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValueOnBreakpoint Is(JustificationOption value)
+        public IFluentJustifyContentWithValueOnBreakpoint Is(JustifyContentOption value)
         {
             this.valueToApply = value;
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IJustifyContent OnAll()
+        {
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
@@ -161,7 +173,7 @@ namespace Flexor
             return string.Equals(this.Class, other.Class);
         }
 
-        private void SetBreakpointValues(JustificationOption value, params Breakpoint[] breakpoints)
+        private void SetBreakpointValues(JustifyContentOption value, params Breakpoint[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
             {

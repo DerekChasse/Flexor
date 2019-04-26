@@ -3,29 +3,29 @@
 @page "/responsive-multiple-columns"
 
 <DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
-    <FlexLayout Class="boxes flex-fill">
-        <FlexItem Size="Size.IsPercentOnAll(25)" Visible="Visible.Only.OnMobile().And.OnDesktopAndLarger()">
-            <FlexLayout Direction="Direction.Is(DirectionOption.Column).OnTabletAndSmaller()">
-                <FlexItem Size="Size.IsPercentOnAll(50)" Class="one">
+    <FlexLine Class="boxes h-100 w-100">
+        <FlexItem Size="Size.IsPercent(25).OnAll()" Visible="Visible.Only.OnMobile().And.OnDesktopAndLarger()">
+            <FlexLine Direction="Direction.Is(DirectionOption.Column).OnTabletAndSmaller()" Class="h-100 w-100">
+                <FlexItem Size="Size.IsPercent(50).OnAll()" Class="one">
                     1
                 </FlexItem>
-                <FlexItem Size="Size.IsPercentOnAll(50)" Class="two">
+                <FlexItem Size="Size.IsPercent(50).OnAll()" Class="two">
                     2
                 </FlexItem>
 
-            </FlexLayout>
+            </FlexLine>
         </FlexItem>
         <FlexItem Resizability="Resizability.Fill" >
-            <FlexLayout Direction="Direction.Column">
-                <FlexItem Size="Size.IsPercentOnAll(50)" Class="three">
+            <FlexLine Direction="Direction.Column" Class="h-100 w-100">
+                <FlexItem Size="Size.IsPercent(50).OnAll()" Class="three">
                     3
                 </FlexItem>
-                <FlexItem Size="Size.IsPercentOnAll(50)" Class="four">
+                <FlexItem Size="Size.IsPercent(50).OnAll()" Class="four">
                     4
                 </FlexItem>
-            </FlexLayout>
+            </FlexLine>
         </FlexItem>
-    </FlexLayout>
+    </FlexLine>
 </DisplayBox>
 
 @functions {

@@ -3,14 +3,14 @@
 @page "/responsive-size"
 
 <DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
-    <FlexLayout Class="boxes colored">
+    <FlexLine Class="boxes colored h-100 w-100">
         <FlexItem Size="Size.IsPercent(33).OnMobile().IsPercent(67).OnTabletAndLarger()">
             I'm 33% on mobile,and 66% on tablets and larger devices.
         </FlexItem>
         <FlexItem Size="Size.IsPercent(67).OnMobile().IsPercent(33).OnTabletAndLarger()">
             I'm 67% on mobile,and 33% on tablets and larger devices.
         </FlexItem>
-    </FlexLayout>
+    </FlexLine>
 </DisplayBox>
 
 @functions {
