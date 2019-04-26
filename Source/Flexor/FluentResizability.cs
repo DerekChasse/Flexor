@@ -13,42 +13,17 @@ namespace Flexor
     {
     }
 
-    public interface IFluentResizabilityWithValue : IResizability
+    public interface IFluentResizability : IFluentReactive<IFluentResizability, ResizabilityOption>, IResizability
     {
-        IFluentResizabilityWithValueOnBreakpoint Is(ResizabilityOption value);
-
-        IFluentResizabilityWithValueOnBreakpoint IsAutomatic();
-
-        IFluentResizabilityWithValueOnBreakpoint IsNone();
-
-        IFluentResizabilityWithValueOnBreakpoint IsFill();
-
-        IFluentResizabilityWithValueOnBreakpoint IsInitial();
-
-        IFluentResizabilityWithValueOnBreakpoint CanGrow();
-
-        IFluentResizabilityWithValueOnBreakpoint CanNotGrow();
-
-        IFluentResizabilityWithValueOnBreakpoint CanNotShrink();
-    }
-
-    public interface IFluentResizabilityWithValueOnBreakpoint : IResizability, IFluentReactive<IFluentResizabilityWithValue>
-    {
-        /// <summary>
-        /// Configuration value will be applied to all media query breakpoints.
-        /// </summary>
-        /// <returns>The configuration object.</returns>
-        IResizability OnAll();
     }
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
     /// Define the ability to resize an item is displayed in a flex-line.
     /// </summary>
-    public class FluentResizability : IFluentResizabilityWithValueOnBreakpoint, IFluentResizabilityWithValue
+    public class FluentResizability : IFluentResizability
     {
         private readonly Dictionary<Breakpoint, ResizabilityOption> breakpointDictionary = new Dictionary<Breakpoint, ResizabilityOption>();
-        private ResizabilityOption valueToApply;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentResizability"/> class.
@@ -64,8 +39,6 @@ namespace Flexor
         /// <param name="initialValue">The initial <see cref="ResizabilityOption"/> across all media query breakpoints.</param>
         public FluentResizability(ResizabilityOption initialValue)
         {
-            this.valueToApply = initialValue;
-
             this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
@@ -77,149 +50,93 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public IFluentResizabilityWithValueOnBreakpoint CanGrow()
+        public IFluentResizability OnDesktop(ResizabilityOption option)
         {
-            return this.Is(ResizabilityOption.Grow);
-        }
-
-        /// <inheritdoc/>
-        public IFluentResizabilityWithValueOnBreakpoint CanNotGrow()
-        {
-            return this.Is(ResizabilityOption.NoGrow);
-        }
-
-        /// <inheritdoc/>
-        public IFluentResizabilityWithValueOnBreakpoint CanNotShrink()
-        {
-            return this.Is(ResizabilityOption.NoShrink);
-        }
-
-        /// <inheritdoc/>
-        public IFluentResizabilityWithValueOnBreakpoint IsAutomatic()
-        {
-            return this.Is(ResizabilityOption.Auto);
-        }
-
-        /// <inheritdoc/>
-        public IFluentResizabilityWithValueOnBreakpoint IsNone()
-        {
-            return this.Is(ResizabilityOption.None);
-        }
-
-        /// <inheritdoc/>
-        public IFluentResizabilityWithValueOnBreakpoint IsFill()
-        {
-            return this.Is(ResizabilityOption.Fill);
-        }
-
-        /// <inheritdoc/>
-        public IFluentResizabilityWithValueOnBreakpoint IsInitial()
-        {
-            return this.Is(ResizabilityOption.None);
-        }
-
-        /// <inheritdoc/>
-        public IFluentResizabilityWithValueOnBreakpoint Is(ResizabilityOption value)
-        {
-            this.valueToApply = value;
+            this.SetBreakpointValues(option, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IResizability OnAll()
+        public IFluentResizability OnDesktopAndLarger(ResizabilityOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnDesktop()
+        public IFluentResizability OnDesktopAndSmaller(ResizabilityOption option)
         {
-            this.breakpointDictionary[Breakpoint.Desktop] = this.valueToApply;
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnDesktopAndLarger()
+        public IFluentResizability OnFullHD(ResizabilityOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.breakpointDictionary[Breakpoint.FullHD] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnDesktopAndSmaller()
+        public IFluentResizability OnFullHDAndSmaller(ResizabilityOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnFullHD()
+        public IFluentResizability OnMobile(ResizabilityOption option)
         {
-            this.breakpointDictionary[Breakpoint.FullHD] = this.valueToApply;
+            this.breakpointDictionary[Breakpoint.Mobile] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnFullHDAndSmaller()
+        public IFluentResizability OnMobileAndLarger(ResizabilityOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnMobile()
+        public IFluentResizability OnTablet(ResizabilityOption option)
         {
-            this.breakpointDictionary[Breakpoint.Mobile] = this.valueToApply;
+            this.breakpointDictionary[Breakpoint.Tablet] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnMobileAndLarger()
+        public IFluentResizability OnTabletAndLarger(ResizabilityOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnTablet()
+        public IFluentResizability OnTabletAndSmaller(ResizabilityOption option)
         {
-            this.breakpointDictionary[Breakpoint.Tablet] = this.valueToApply;
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnTabletAndLarger()
+        public IFluentResizability OnWidescreen(ResizabilityOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.breakpointDictionary[Breakpoint.Widescreen] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnTabletAndSmaller()
+        public IFluentResizability OnWidescreenAndLarger(ResizabilityOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet);
+            this.SetBreakpointValues(option, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnWidescreen()
+        public IFluentResizability OnWidescreenAndSmaller(ResizabilityOption option)
         {
-            this.breakpointDictionary[Breakpoint.Widescreen] = this.valueToApply;
-            return this;
-        }
-
-        /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnWidescreenAndLarger()
-        {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Widescreen, Breakpoint.FullHD);
-            return this;
-        }
-
-        /// <inheritdoc/>
-        public IFluentResizabilityWithValue OnWidescreenAndSmaller()
-        {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
         }
 

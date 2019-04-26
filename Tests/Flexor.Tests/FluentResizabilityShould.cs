@@ -133,7 +133,7 @@ namespace Flexor.Tests
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnMobile();
+            this.underTest = Resizability.Is.OnMobile(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -153,7 +153,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnMobileAndLarger();
+            this.underTest = Resizability.Is.OnMobileAndLarger(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -181,7 +181,7 @@ namespace Flexor.Tests
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTablet();
+            this.underTest = Resizability.Is.OnTablet(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -201,7 +201,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTabletAndLarger();
+            this.underTest = Resizability.Is.OnTabletAndLarger(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -227,7 +227,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTabletAndSmaller();
+            this.underTest = Resizability.Is.OnTabletAndSmaller(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -249,7 +249,7 @@ namespace Flexor.Tests
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktop();
+            this.underTest = Resizability.Is.OnDesktop(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -269,7 +269,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktopAndLarger();
+            this.underTest = Resizability.Is.OnDesktopAndLarger(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -293,7 +293,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktopAndSmaller();
+            this.underTest = Resizability.Is.OnDesktopAndSmaller(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -317,7 +317,7 @@ namespace Flexor.Tests
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreen();
+            this.underTest = Resizability.Is.OnWidescreen(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -337,7 +337,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreenAndLarger();
+            this.underTest = Resizability.Is.OnWidescreenAndLarger(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -359,7 +359,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreenAndSmaller();
+            this.underTest = Resizability.Is.OnWidescreenAndSmaller(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -385,7 +385,7 @@ namespace Flexor.Tests
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnFullHD();
+            this.underTest = Resizability.Is.OnFullHD(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -405,7 +405,7 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnFullHDAndSmaller();
+            this.underTest = Resizability.Is.OnFullHDAndSmaller(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -435,7 +435,7 @@ namespace Flexor.Tests
         public void OnMobile_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnMobile();
+            this.underTest = Resizability.Is.OnMobile(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -463,7 +463,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnMobileAndLarger();
+            this.underTest = Resizability.Is.OnMobileAndLarger(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -491,7 +491,7 @@ namespace Flexor.Tests
         public void OnTablet_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTablet();
+            this.underTest = Resizability.Is.OnTablet(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -519,7 +519,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTabletAndLarger();
+            this.underTest = Resizability.Is.OnTabletAndLarger(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -547,7 +547,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTabletAndSmaller();
+            this.underTest = Resizability.Is.OnTabletAndSmaller(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -575,7 +575,7 @@ namespace Flexor.Tests
         public void OnDesktop_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktop();
+            this.underTest = Resizability.Is.OnDesktop(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -603,7 +603,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktopAndLarger();
+            this.underTest = Resizability.Is.OnDesktopAndLarger(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -631,7 +631,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktopAndSmaller();
+            this.underTest = Resizability.Is.OnDesktopAndSmaller(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -659,7 +659,7 @@ namespace Flexor.Tests
         public void OnWidescreen_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreen();
+            this.underTest = Resizability.Is.OnWidescreen(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -687,7 +687,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreenAndLarger();
+            this.underTest = Resizability.Is.OnWidescreenAndLarger(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -715,7 +715,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreenAndSmaller();
+            this.underTest = Resizability.Is.OnWidescreenAndSmaller(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -743,7 +743,7 @@ namespace Flexor.Tests
         public void OnFullHD_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnFullHD();
+            this.underTest = Resizability.Is.OnFullHD(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
@@ -771,7 +771,7 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnFullHDAndSmaller();
+            this.underTest = Resizability.Is.OnFullHDAndSmaller(ResizabilityOption.NoGrow);
 
             // Act
             var underTestClass = underTest.Class;
