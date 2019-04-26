@@ -13,38 +13,37 @@ namespace Flexor
         /// Items are aligned along the start of the flex-line's cross axis.
         /// Items are rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IAlignItems Start => new FluentAlignItems().Is(AlignItemsOption.Start).OnAll();
+        public static IFluentAlignItems Start => new FluentAlignItems(AlignItemsOption.Start);
 
         /// <summary>
         /// Items are aligned along the center of the flex-line's cross axis.
         /// Items are rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IAlignItems Center => new FluentAlignItems().Is(AlignItemsOption.Center).OnAll();
+        public static IFluentAlignItems Center => new FluentAlignItems(AlignItemsOption.Center);
 
         /// <summary>
         /// Items are aligned along the end of the flex-line's cross axis.
         /// Items are rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IAlignItems End => new FluentAlignItems().Is(AlignItemsOption.End).OnAll();
+        public static IFluentAlignItems End => new FluentAlignItems(AlignItemsOption.End);
 
         /// <summary>
         /// Items are stretched along the entirety of the flex-line's cross axis.
         /// Items are rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IAlignItems Stretch => new FluentAlignItems().Is(AlignItemsOption.Stretch).OnAll();
+        public static IFluentAlignItems Stretch => new FluentAlignItems(AlignItemsOption.Stretch);
 
         /// <summary>
         /// Items are aligned as their baseline is aligned.
         /// Items are rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IAlignItems Baseline => new FluentAlignItems().Is(AlignItemsOption.Baseline).OnAll();
+        public static IFluentAlignItems Baseline => new FluentAlignItems(AlignItemsOption.Baseline);
 
         /// <summary>
-        /// Flex-items are rendered by default according to the supplied item alignment.
+        /// Flex-items are rendered using default item alignments.
         /// Rendering is configurable based on CSS media query breakpoints.
         /// </summary>
-        /// <param name="value">The default item alignment.</param>
         /// <returns>The item alignment configuration.</returns>
-        public static IFluentAlignItemsWithValueOnBreakpoint Is(AlignItemsOption value) => new FluentAlignItems().Is(value);
+        public static IFluentAlignItems Is => new FluentAlignItems();
     }
 }

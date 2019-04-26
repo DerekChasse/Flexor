@@ -84,7 +84,7 @@
 
     private void UpdateAlignItems(AlignItemsOption option, string optionString)
     {
-        this.AlignItems = Flexor.AlignItems.Is(option).OnMobileAndLarger();
+        this.AlignItems = Flexor.AlignItems.Is.OnMobileAndLarger(option);
         this.AlignItemsString = optionString;
     }
 }
