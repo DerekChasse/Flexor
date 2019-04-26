@@ -12,24 +12,23 @@ namespace Flexor
         /// <summary>
         /// Items remain on a single line and will overflow.
         /// </summary>
-        public static IWrap NoWrap => new FluentWrap().Is(WrapOption.NoWrap).OnAll();
+        public static IWrap NoWrap => new FluentWrap(WrapOption.NoWrap);
 
         /// <summary>
         /// Items will be distributed across multiple lines if necessary.
         /// </summary>
-        public static IWrap CanWrap => new FluentWrap().Is(WrapOption.Wrap).OnAll();
+        public static IWrap CanWrap => new FluentWrap(WrapOption.Wrap);
 
         /// <summary>
         /// Items will be distributed across multiple lines if necessary.
         /// Additional lines will appear before the previous ones.
         /// </summary>
-        public static IWrap WrapReverse => new FluentWrap().Is(WrapOption.WrapReverse).OnAll();
+        public static IWrap WrapReverse => new FluentWrap(WrapOption.WrapReverse);
 
         /// <summary>
         /// The default order configuration of an item within a flex-line across all CSS media query breakpoints.
         /// </summary>
-        /// <param name="value">The order of the item.</param>
         /// <returns>The order configuration.</returns>
-        public static IFluentWrapWithValueOnBreakpoint Is(WrapOption value) => new FluentWrap().Is(value);
+        public static IFluentWrap Is => new FluentWrap();
     }
 }

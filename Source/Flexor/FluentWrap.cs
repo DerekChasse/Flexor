@@ -13,28 +13,17 @@ namespace Flexor
     {
     }
 
-    public interface IFluentWrapWithValue : IWrap
+    public interface IFluentWrap : IFluentReactive<IFluentWrap, WrapOption>,  IWrap
     {
-        IFluentWrapWithValueOnBreakpoint Is(WrapOption direction);
-    }
-
-    public interface IFluentWrapWithValueOnBreakpoint : IFluentReactive<IFluentWrapWithValue>, IWrap
-    {
-        /// <summary>
-        /// Configuration value will be applied to all media query breakpoints.
-        /// </summary>
-        /// <returns>The configuration object.</returns>
-        IWrap OnAll();
     }
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
     /// Define the ability of a flex-line to wrap.
     /// </summary>
-    public class FluentWrap : IFluentWrapWithValue, IFluentWrapWithValueOnBreakpoint
+    public class FluentWrap : IFluentWrap
     {
         private readonly Dictionary<Breakpoint, WrapOption> breakpointDictionary = new Dictionary<Breakpoint, WrapOption>();
-        private WrapOption valueToApply;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentWrap"/> class.
@@ -50,8 +39,6 @@ namespace Flexor
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
         public FluentWrap(WrapOption initialValue)
         {
-            this.valueToApply = initialValue;
-
             this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
@@ -63,107 +50,93 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public IFluentWrapWithValueOnBreakpoint Is(WrapOption direction)
+        public IFluentWrap OnDesktop(WrapOption option)
         {
-            this.valueToApply = direction;
+            this.breakpointDictionary[Breakpoint.Desktop] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IWrap OnAll()
+        public IFluentWrap OnDesktopAndLarger(WrapOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentWrapWithValue OnDesktop()
+        public IFluentWrap OnDesktopAndSmaller(WrapOption option)
         {
-            this.breakpointDictionary[Breakpoint.Desktop] = this.valueToApply;
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentWrapWithValue OnDesktopAndLarger()
+        public IFluentWrap OnFullHD(WrapOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.breakpointDictionary[Breakpoint.FullHD] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentWrapWithValue OnDesktopAndSmaller()
+        public IFluentWrap OnFullHDAndSmaller(WrapOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentWrapWithValue OnFullHD()
+        public IFluentWrap OnMobile(WrapOption option)
         {
-            this.breakpointDictionary[Breakpoint.FullHD] = this.valueToApply;
+            this.breakpointDictionary[Breakpoint.Mobile] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentWrapWithValue OnFullHDAndSmaller()
+        public IFluentWrap OnMobileAndLarger(WrapOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentWrapWithValue OnMobile()
+        public IFluentWrap OnTablet(WrapOption option)
         {
-            this.breakpointDictionary[Breakpoint.Mobile] = this.valueToApply;
+            this.breakpointDictionary[Breakpoint.Tablet] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentWrapWithValue OnMobileAndLarger()
+        public IFluentWrap OnTabletAndLarger(WrapOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentWrapWithValue OnTablet()
+        public IFluentWrap OnTabletAndSmaller(WrapOption option)
         {
-            this.breakpointDictionary[Breakpoint.Tablet] = this.valueToApply;
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentWrapWithValue OnTabletAndLarger()
+        public IFluentWrap OnWidescreen(WrapOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.breakpointDictionary[Breakpoint.Widescreen] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentWrapWithValue OnTabletAndSmaller()
+        public IFluentWrap OnWidescreenAndLarger(WrapOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet);
+            this.SetBreakpointValues(option, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentWrapWithValue OnWidescreen()
+        public IFluentWrap OnWidescreenAndSmaller(WrapOption option)
         {
-            this.breakpointDictionary[Breakpoint.Widescreen] = this.valueToApply;
-            return this;
-        }
-
-        /// <inheritdoc/>
-        public IFluentWrapWithValue OnWidescreenAndLarger()
-        {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Widescreen, Breakpoint.FullHD);
-            return this;
-        }
-
-        /// <inheritdoc/>
-        public IFluentWrapWithValue OnWidescreenAndSmaller()
-        {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
         }
 

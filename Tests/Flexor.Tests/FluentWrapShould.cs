@@ -93,7 +93,7 @@ namespace Flexor.Tests
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnMobile();
+            this.underTest = Wrap.Is.OnMobile(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -113,7 +113,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnMobileAndLarger();
+            this.underTest = Wrap.Is.OnMobileAndLarger(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -141,7 +141,7 @@ namespace Flexor.Tests
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnTablet();
+            this.underTest = Wrap.Is.OnTablet(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -161,7 +161,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnTabletAndLarger();
+            this.underTest = Wrap.Is.OnTabletAndLarger(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -187,7 +187,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnTabletAndSmaller();
+            this.underTest = Wrap.Is.OnTabletAndSmaller(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -209,7 +209,7 @@ namespace Flexor.Tests
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnDesktop();
+            this.underTest = Wrap.Is.OnDesktop(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -229,7 +229,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnDesktopAndLarger();
+            this.underTest = Wrap.Is.OnDesktopAndLarger(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -253,7 +253,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnDesktopAndSmaller();
+            this.underTest = Wrap.Is.OnDesktopAndSmaller(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -277,7 +277,7 @@ namespace Flexor.Tests
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnWidescreen();
+            this.underTest = Wrap.Is.OnWidescreen(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -297,7 +297,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnWidescreenAndLarger();
+            this.underTest = Wrap.Is.OnWidescreenAndLarger(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -319,7 +319,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnWidescreenAndSmaller();
+            this.underTest = Wrap.Is.OnWidescreenAndSmaller(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -345,7 +345,7 @@ namespace Flexor.Tests
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnFullHD();
+            this.underTest = Wrap.Is.OnFullHD(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -365,7 +365,7 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnFullHDAndSmaller();
+            this.underTest = Wrap.Is.OnFullHDAndSmaller(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -394,7 +394,7 @@ namespace Flexor.Tests
         public void OnMobile_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnMobile();
+            this.underTest = Wrap.Is.OnMobile(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -420,7 +420,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnMobileAndLarger();
+            this.underTest = Wrap.Is.OnMobileAndLarger(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -448,7 +448,7 @@ namespace Flexor.Tests
         public void OnTablet_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnTablet();
+            this.underTest = Wrap.Is.OnTablet(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -474,7 +474,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnTabletAndLarger();
+            this.underTest = Wrap.Is.OnTabletAndLarger(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -494,7 +494,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnTabletAndSmaller();
+            this.underTest = Wrap.Is.OnTabletAndSmaller(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -518,7 +518,7 @@ namespace Flexor.Tests
         public void OnDesktop_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnDesktop();
+            this.underTest = Wrap.Is.OnDesktop(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -544,7 +544,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnDesktopAndLarger();
+            this.underTest = Wrap.Is.OnDesktopAndLarger(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -566,7 +566,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnDesktopAndSmaller();
+            this.underTest = Wrap.Is.OnDesktopAndSmaller(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -588,7 +588,7 @@ namespace Flexor.Tests
         public void OnWidescreen_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnWidescreen();
+            this.underTest = Wrap.Is.OnWidescreen(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -614,7 +614,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnWidescreenAndLarger();
+            this.underTest = Wrap.Is.OnWidescreenAndLarger(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -638,7 +638,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnWidescreenAndSmaller();
+            this.underTest = Wrap.Is.OnWidescreenAndSmaller(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -658,7 +658,7 @@ namespace Flexor.Tests
         public void OnFullHD_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnFullHD();
+            this.underTest = Wrap.Is.OnFullHD(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
@@ -684,7 +684,7 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Wrap.Is(WrapOption.WrapReverse).OnFullHDAndSmaller();
+            this.underTest = Wrap.Is.OnFullHDAndSmaller(WrapOption.WrapReverse);
 
             // Act
             var underTestClass = underTest.Class;
