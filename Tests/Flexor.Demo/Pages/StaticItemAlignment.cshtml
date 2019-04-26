@@ -72,7 +72,7 @@
 
     private void UpdateDirection(DirectionOption option, string optionString)
     {
-        this.Direction = Flexor.Direction.Is(option).OnMobileAndLarger();
+        this.Direction = Flexor.Direction.Is.OnMobileAndLarger(option);
         this.DirectionOptionString = optionString;
     }
 

@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Flexor.Tests
 {
     [TestClass]
-    public class FluentFlexDirectionShould
+    public class FluentDirectionShould
     {
         private IDirection underTest;
 
@@ -13,7 +13,7 @@ namespace Flexor.Tests
         public void Constructor_Default_Row()
         {
             // Arrange
-            this.underTest = new FluentFlexDirection();
+            this.underTest = new FluentDirection();
 
             // Act
             var underTestClass = underTest.Class;
@@ -113,7 +113,7 @@ namespace Flexor.Tests
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnMobile();
+            this.underTest = Direction.Is.OnMobile(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -133,7 +133,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnMobileAndLarger();
+            this.underTest = Direction.Is.OnMobileAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -161,7 +161,7 @@ namespace Flexor.Tests
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnTablet();
+            this.underTest = Direction.Is.OnTablet(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -181,7 +181,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnTabletAndLarger();
+            this.underTest = Direction.Is.OnTabletAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -207,7 +207,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnTabletAndSmaller();
+            this.underTest = Direction.Is.OnTabletAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -229,7 +229,7 @@ namespace Flexor.Tests
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnDesktop();
+            this.underTest = Direction.Is.OnDesktop(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -249,7 +249,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnDesktopAndLarger();
+            this.underTest = Direction.Is.OnDesktopAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -273,7 +273,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnDesktopAndSmaller();
+            this.underTest = Direction.Is.OnDesktopAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -297,7 +297,7 @@ namespace Flexor.Tests
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnWidescreen();
+            this.underTest = Direction.Is.OnWidescreen(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -317,7 +317,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnWidescreenAndLarger();
+            this.underTest = Direction.Is.OnWidescreenAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -339,7 +339,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnWidescreenAndSmaller();
+            this.underTest = Direction.Is.OnWidescreenAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -365,7 +365,7 @@ namespace Flexor.Tests
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnFullHD();
+            this.underTest = Direction.Is.OnFullHD(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -385,7 +385,7 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnFullHDAndSmaller();
+            this.underTest = Direction.Is.OnFullHDAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -415,7 +415,7 @@ namespace Flexor.Tests
         public void OnMobile_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnMobile();
+            this.underTest = Direction.Is.OnMobile(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -443,7 +443,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnMobileAndLarger();
+            this.underTest = Direction.Is.OnMobileAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -471,7 +471,7 @@ namespace Flexor.Tests
         public void OnTablet_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnTablet();
+            this.underTest = Direction.Is.OnTablet(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -499,7 +499,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnTabletAndLarger();
+            this.underTest = Direction.Is.OnTabletAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -527,7 +527,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnTabletAndSmaller();
+            this.underTest = Direction.Is.OnTabletAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -555,7 +555,7 @@ namespace Flexor.Tests
         public void OnDesktop_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnDesktop();
+            this.underTest = Direction.Is.OnDesktop(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -583,7 +583,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnDesktopAndLarger();
+            this.underTest = Direction.Is.OnDesktopAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -611,7 +611,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnDesktopAndSmaller();
+            this.underTest = Direction.Is.OnDesktopAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -639,7 +639,7 @@ namespace Flexor.Tests
         public void OnWidescreen_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnWidescreen();
+            this.underTest = Direction.Is.OnWidescreen(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -667,7 +667,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnWidescreenAndLarger();
+            this.underTest = Direction.Is.OnWidescreenAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -695,7 +695,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnWidescreenAndSmaller();
+            this.underTest = Direction.Is.OnWidescreenAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -723,7 +723,7 @@ namespace Flexor.Tests
         public void OnFullHD_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnFullHD();
+            this.underTest = Direction.Is.OnFullHD(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -743,7 +743,7 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Direction.Is(DirectionOption.Column).OnFullHDAndSmaller();
+            this.underTest = Direction.Is.OnFullHDAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
