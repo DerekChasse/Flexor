@@ -24,7 +24,6 @@ namespace Flexor
     public class FluentAlignItems : IFluentAlignItems
     {
         private readonly Dictionary<Breakpoint, AlignItemsOption> breakpointDictionary = new Dictionary<Breakpoint, AlignItemsOption>();
-        private AlignItemsOption valueToApply;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentAlignItems"/> class.
