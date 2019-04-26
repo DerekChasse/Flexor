@@ -27,7 +27,7 @@ namespace Flexor.Tests
         public void GetClass_IsPixels_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(50).OnMobileAndLarger();
+            this.underTest = Size.Is.OnMobileAndLarger("50px");
 
             // Act
             var underTestClass = underTest.Class;
