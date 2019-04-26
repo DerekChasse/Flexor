@@ -20,6 +20,11 @@ namespace Flexor
 
     public interface IFluentAlignSelfWithValueOnBreakpoint : IFluentReactive<IFluentAlignSelfWithValue>, IAlignSelf
     {
+        /// <summary>
+        /// Configuration value will be applied to all media query breakpoints.
+        /// </summary>
+        /// <returns>The configuration object.</returns>
+        IAlignSelf OnAll();
     }
 #pragma warning restore SA1600 // Elements should be documented
 
@@ -67,6 +72,13 @@ namespace Flexor
         public IFluentAlignSelfWithValueOnBreakpoint Is(AlignSelfOption value)
         {
             this.valueToApply = value;
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IAlignSelf OnAll()
+        {
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 

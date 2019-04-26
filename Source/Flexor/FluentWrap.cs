@@ -20,6 +20,11 @@ namespace Flexor
 
     public interface IFluentWrapWithValueOnBreakpoint : IFluentReactive<IFluentWrapWithValue>, IWrap
     {
+        /// <summary>
+        /// Configuration value will be applied to all media query breakpoints.
+        /// </summary>
+        /// <returns>The configuration object.</returns>
+        IWrap OnAll();
     }
 #pragma warning restore SA1600 // Elements should be documented
 
@@ -61,6 +66,13 @@ namespace Flexor
         public IFluentWrapWithValueOnBreakpoint Is(WrapOption direction)
         {
             this.valueToApply = direction;
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IWrap OnAll()
+        {
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 

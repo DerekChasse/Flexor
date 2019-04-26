@@ -34,6 +34,11 @@ namespace Flexor
 
     public interface IFluentSizeWithValueOnBreakpoint : IFluentReactive<IFluentSizeWithValue>, ISize
     {
+        /// <summary>
+        /// Configuration value will be applied to all media query breakpoints.
+        /// </summary>
+        /// <returns>The configuration object.</returns>
+        ISize OnAll();
     }
 
 #pragma warning restore SA1600 // Elements should be documented
@@ -110,6 +115,13 @@ namespace Flexor
         public IFluentSizeWithValueOnBreakpoint IsViewportWidth(int value)
         {
             this.SetSize(value, SizeUnit.ViewportWidth);
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public ISize OnAll()
+        {
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 

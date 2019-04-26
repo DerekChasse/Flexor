@@ -17,46 +17,6 @@ namespace Flexor
 
         /// <summary>
         /// The flex-item's size is defined in pixels.
-        /// The supplied value will be applied across all media query breakpoints.
-        /// </summary>
-        /// <param name="value">The flex-item's size defined in pixels.</param>
-        /// <returns>The size configuration.</returns>
-        public static ISize IsPixelsOnAll(int value) => new FluentSize(value, SizeUnit.Pixels);
-
-        /// <summary>
-        /// The flex-item's size is defined as a percentage of the parent flex-line.
-        /// The supplied value will be applied across all media query breakpoints.
-        /// </summary>
-        /// <param name="value">The flex-item's size defined as a percentage.</param>
-        /// <returns>The size configuration.</returns>
-        public static ISize IsPercentOnAll(int value) => new FluentSize(value, SizeUnit.Percent);
-
-        /// <summary>
-        /// The flex-item's size is defined in CSS 'em' format.
-        /// The supplied value will be applied across all media query breakpoints.
-        /// </summary>
-        /// <param name="value">The flex-item's size defined in 'em' units.</param>
-        /// <returns>The size configuration.</returns>
-        public static ISize IsElementOnAll(decimal value) => new FluentSize(value, SizeUnit.Element);
-
-        /// <summary>
-        /// The flex-item's size is defined as a proportion of the viewport width 'vw'.
-        /// The supplied value will be applied across all media query breakpoints.
-        /// </summary>
-        /// <param name="value">The flex-item's size defined as a proportion of the viewport width.</param>
-        /// <returns>The size configuration.</returns>
-        public static ISize IsViewportWidthOnAll(int value) => new FluentSize(value, SizeUnit.ViewportWidth);
-
-        /// <summary>
-        /// The flex-item's size is defined as a proportion of the viewport height 'vh'.
-        /// The supplied value will be applied across all media query breakpoints.
-        /// </summary>
-        /// <param name="value">The flex-item's size defined as a proportion of the viewport height.</param>
-        /// <returns>The size configuration.</returns>
-        public static ISize IsViewportHeightOnAll(int value) => new FluentSize(value, SizeUnit.ViewportHeight);
-
-        /// <summary>
-        /// The flex-item's size is defined in pixels.
         /// </summary>
         /// <param name="value">The flex-item's size defined in pixels.</param>
         /// <returns>The size configuration.</returns>

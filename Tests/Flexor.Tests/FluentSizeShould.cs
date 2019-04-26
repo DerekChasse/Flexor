@@ -55,10 +55,10 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_IsPixelsOnAll_Correctly()
+        public void GetClass_IsPixels_OnAll_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixelsOnAll(50);
+            this.underTest = Size.IsPixels(50).OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -117,10 +117,10 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_IsPercentOnAll_Correctly()
+        public void GetClass_IsPercent_OnAll_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPercentOnAll(50);
+            this.underTest = Size.IsPercent(50).OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -179,10 +179,10 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_IsElementOnAll_Correctly()
+        public void GetClass_IsElement_OnAll_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsElementOnAll(50);
+            this.underTest = Size.IsElement(50).OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -240,10 +240,10 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_IsViewportHeightOnAll_Correctly()
+        public void GetClass_IsViewportHeight_OnAll_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsViewportHeightOnAll(50);
+            this.underTest = Size.IsViewportHeight(50).OnAll();
 
             // Act
             var underTestClass = underTest.Class;
@@ -302,10 +302,10 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_IsViewportWidthOnAll_Correctly()
+        public void GetClass_IsViewportWidth_OnAll_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsViewportWidthOnAll(50);
+            this.underTest = Size.IsViewportWidth(50).OnAll();
 
             // Act
             var underTestClass = underTest.Class;

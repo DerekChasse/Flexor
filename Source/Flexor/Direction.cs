@@ -13,25 +13,25 @@ namespace Flexor
         /// Flex-items are rendered horizontally in the order they are defined within a flex-line.
         /// Items are rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IDirection Row => new FluentFlexDirection(DirectionOption.Row);
+        public static IDirection Row => new FluentFlexDirection().Is(DirectionOption.Row).OnAll();
 
         /// <summary>
         /// Flex-items are rendered vertically in the order they are defined within a flex-line.
         /// Items are rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IDirection Column => new FluentFlexDirection(DirectionOption.Column);
+        public static IDirection Column => new FluentFlexDirection().Is(DirectionOption.Column).OnAll();
 
         /// <summary>
         /// Flex-items are rendered horizontally in the reverse order they are defined within a flex-line.
         /// Items are rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IDirection RowReverse => new FluentFlexDirection(DirectionOption.RowReverse);
+        public static IDirection RowReverse => new FluentFlexDirection().Is(DirectionOption.RowReverse).OnAll();
 
         /// <summary>
         /// Flex-items are rendered vertically in the reverse order they are defined within a flex-line.
         /// Items are rendered this way consistently across all CSS media query breakpoints.
         /// </summary>
-        public static IDirection ColumnReverse => new FluentFlexDirection(DirectionOption.ColumnReverse);
+        public static IDirection ColumnReverse => new FluentFlexDirection().Is(DirectionOption.ColumnReverse).OnAll();
 
         /// <summary>
         /// Flex-items will be rendered and configured with the supplied direction.

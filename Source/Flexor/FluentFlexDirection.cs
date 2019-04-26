@@ -20,6 +20,11 @@ namespace Flexor
 
     public interface IFluentFlexDirectionWithValueOnBreakpoint : IFluentReactive<IFluentFlexDirectionWithValue>, IDirection
     {
+        /// <summary>
+        /// Configuration value will be applied to all media query breakpoints.
+        /// </summary>
+        /// <returns>The configuration object.</returns>
+        IDirection OnAll();
     }
 #pragma warning restore SA1600 // Elements should be documented
 
@@ -61,6 +66,13 @@ namespace Flexor
         public IFluentFlexDirectionWithValueOnBreakpoint Is(DirectionOption direction)
         {
             this.valueToApply = direction;
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IDirection OnAll()
+        {
+            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 

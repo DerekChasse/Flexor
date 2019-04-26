@@ -4,12 +4,12 @@
 
 <DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
     <FlexLine Class="boxes h-100 w-100">
-        <FlexItem Size="Size.IsPercentOnAll(25)" Visible="Visible.Only.OnMobile().And.OnDesktopAndLarger()">
+        <FlexItem Size="Size.IsPercent(25).OnAll()" Visible="Visible.Only.OnMobile().And.OnDesktopAndLarger()">
             <FlexLine Direction="Direction.Is(DirectionOption.Column).OnTabletAndSmaller()" Class="h-100 w-100">
-                <FlexItem Size="Size.IsPercentOnAll(50)" Class="one">
+                <FlexItem Size="Size.IsPercent(50).OnAll()" Class="one">
                     1
                 </FlexItem>
-                <FlexItem Size="Size.IsPercentOnAll(50)" Class="two">
+                <FlexItem Size="Size.IsPercent(50).OnAll()" Class="two">
                     2
                 </FlexItem>
 
@@ -17,10 +17,10 @@
         </FlexItem>
         <FlexItem Resizability="Resizability.Fill" >
             <FlexLine Direction="Direction.Column" Class="h-100 w-100">
-                <FlexItem Size="Size.IsPercentOnAll(50)" Class="three">
+                <FlexItem Size="Size.IsPercent(50).OnAll()" Class="three">
                     3
                 </FlexItem>
-                <FlexItem Size="Size.IsPercentOnAll(50)" Class="four">
+                <FlexItem Size="Size.IsPercent(50).OnAll()" Class="four">
                     4
                 </FlexItem>
             </FlexLine>
