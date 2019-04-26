@@ -13,28 +13,17 @@ namespace Flexor
     {
     }
 
-    public interface IFluentJustifyContentWithValue : IJustifyContent
+    public interface IFluentJustifyContent : IFluentReactive<IFluentJustifyContent, JustifyContentOption>, IJustifyContent
     {
-        IFluentJustifyContentWithValueOnBreakpoint Is(JustifyContentOption value);
-    }
-
-    public interface IFluentJustifyContentWithValueOnBreakpoint : IJustifyContent, IFluentReactive<IFluentJustifyContentWithValue>
-    {
-        /// <summary>
-        /// Configuration value will be applied to all media query breakpoints.
-        /// </summary>
-        /// <returns>The configuration object.</returns>
-        IJustifyContent OnAll();
     }
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
     /// Define item justification across a flex-line's main axis.
     /// </summary>
-    public class FluentJustifyContent : IFluentJustifyContentWithValueOnBreakpoint, IFluentJustifyContentWithValue
+    public class FluentJustifyContent : IFluentJustifyContent
     {
         private readonly Dictionary<Breakpoint, JustifyContentOption> breakpointDictionary = new Dictionary<Breakpoint, JustifyContentOption>();
-        private JustifyContentOption valueToApply;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentJustifyContent"/> class.
@@ -50,8 +39,6 @@ namespace Flexor
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
         public FluentJustifyContent(JustifyContentOption initialValue)
         {
-            this.valueToApply = initialValue;
-
             this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
@@ -63,107 +50,93 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValueOnBreakpoint Is(JustifyContentOption value)
+        public IFluentJustifyContent OnDesktop(JustifyContentOption option)
         {
-            this.valueToApply = value;
+            this.SetBreakpointValues(option, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IJustifyContent OnAll()
+        public IFluentJustifyContent OnDesktopAndLarger(JustifyContentOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnDesktop()
+        public IFluentJustifyContent OnDesktopAndSmaller(JustifyContentOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Desktop);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnDesktopAndLarger()
+        public IFluentJustifyContent OnFullHD(JustifyContentOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnDesktopAndSmaller()
+        public IFluentJustifyContent OnFullHDAndSmaller(JustifyContentOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnFullHD()
+        public IFluentJustifyContent OnMobile(JustifyContentOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Mobile);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnFullHDAndSmaller()
+        public IFluentJustifyContent OnMobileAndLarger(JustifyContentOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnMobile()
+        public IFluentJustifyContent OnTablet(JustifyContentOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile);
+            this.SetBreakpointValues(option, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnMobileAndLarger()
+        public IFluentJustifyContent OnTabletAndLarger(JustifyContentOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnTablet()
+        public IFluentJustifyContent OnTabletAndSmaller(JustifyContentOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Tablet);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnTabletAndLarger()
+        public IFluentJustifyContent OnWidescreen(JustifyContentOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Widescreen);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnTabletAndSmaller()
+        public IFluentJustifyContent OnWidescreenAndLarger(JustifyContentOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet);
+            this.SetBreakpointValues(option, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnWidescreen()
+        public IFluentJustifyContent OnWidescreenAndSmaller(JustifyContentOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Widescreen);
-            return this;
-        }
-
-        /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnWidescreenAndLarger()
-        {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Widescreen, Breakpoint.FullHD);
-            return this;
-        }
-
-        /// <inheritdoc/>
-        public IFluentJustifyContentWithValue OnWidescreenAndSmaller()
-        {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
         }
 

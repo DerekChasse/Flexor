@@ -78,7 +78,7 @@
 
     private void UpdateJustifyContent(JustifyContentOption option, string optionString)
     {
-        this.JustifyContent = Flexor.JustifyContent.Is(option).OnMobileAndLarger();
+        this.JustifyContent = Flexor.JustifyContent.Is.OnMobileAndLarger(option);
         this.JustifyContentString = optionString;
     }
 
