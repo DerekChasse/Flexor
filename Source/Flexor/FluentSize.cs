@@ -16,7 +16,6 @@ namespace Flexor
 
     public interface IFluentSize : ISize, IFluentReactive<IFluentSize, string>
     {
-        
     }
 
 #pragma warning restore SA1600 // Elements should be documented
@@ -233,9 +232,52 @@ namespace Flexor
 
             public static bool TryParse(string value, out Measurement measurement)
             {
-                // TODO Implement
-                measurement = new Measurement();
-                return true;
+                SizeUnit unit = SizeUnit.Pixels;
+                string trimmedValue = value;
+
+                if (value.EndsWith("px"))
+                {
+                    unit = SizeUnit.Pixels;
+                    trimmedValue = value.Replace("px", string.Empty);
+                }
+                else if (value.EndsWith("%"))
+                {
+                    unit = SizeUnit.Percent;
+                    trimmedValue = value.Replace("%", string.Empty);
+                }
+                else if (value.EndsWith("em"))
+                {
+                    unit = SizeUnit.Element;
+                    trimmedValue = value.Replace("em", string.Empty);
+                }
+                else if (value.EndsWith("vh"))
+                {
+                    unit = SizeUnit.ViewportHeight;
+                    trimmedValue = value.Replace("vh", string.Empty);
+                }
+                else if (value.EndsWith("vw"))
+                {
+                    unit = SizeUnit.ViewportWidth;
+                    trimmedValue = value.Replace("vw", string.Empty);
+                }
+                else if (char.IsDigit(value.Last()))
+                {
+                    unit = SizeUnit.Percent;
+                }
+
+                if (decimal.TryParse(trimmedValue, out decimal parsedValue))
+                {
+                    measurement = new Measurement
+                    {
+                        Unit = unit,
+                        Value = parsedValue,
+                    };
+
+                    return true;
+                }
+
+                measurement = null;
+                return false;
             }
 
             public override string ToString()

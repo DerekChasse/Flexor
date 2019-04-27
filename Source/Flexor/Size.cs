@@ -10,6 +10,18 @@ namespace Flexor
     public static class Size
     {
         /// <summary>
+        /// The flex-item's size is unspecified.
+        /// </summary>
+        /// <returns>The size configuration.</returns>
+        public static IFluentSize Default => new FluentSize();
+
+        /// <summary>
+        /// The flex-item's size is unspecified.
+        /// </summary>
+        /// <returns>The size configuration.</returns>
+        public static IFluentSize Is => new FluentSize();
+
+        /// <summary>
         /// The flex-item's size is defined in pixels.
         /// </summary>
         /// <param name="value">The flex-item's size defined in pixels.</param>
@@ -43,11 +55,5 @@ namespace Flexor
         /// <param name="value">The flex-item's size defined as a proportion of the viewport height.</param>
         /// <returns>The size configuration.</returns>
         public static ISize IsViewportHeight(int value) => new FluentSize($"{value}vh");
-
-        /// <summary>
-        /// The flex-item's size is unspecified.
-        /// </summary>
-        /// <returns>The size configuration.</returns>
-        public static IFluentSize Is => new FluentSize();
     }
 }

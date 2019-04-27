@@ -55,72 +55,10 @@ namespace Flexor.Tests
         }
 
         [TestMethod]
-        public void GetClass_IsPixels_OnAll_Correctly()
-        {
-            // Arrange
-            this.underTest = Size.IsPixels(50).OnAll();
-
-            // Act
-            var underTestClass = underTest.Class;
-            var underTestCss = underTest.Css;
-
-            // Assert
-            underTestClass.Should().NotBeNullOrWhiteSpace();
-
-            underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems();
-
-            underTestCss.Should()
-                .NotBeNull()
-                .And
-                .HaveCount(5);
-
-            underTestCss.Keys.Should()
-                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
-
-
-            underTestCss.Values.Should()
-                .Match(values => values.All(value => Regex.Matches(value, "50px").Count == 2));
-        }
-
-        [TestMethod]
         public void GetClass_IsPercent_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPercent(50).OnMobileAndLarger();
-
-            // Act
-            var underTestClass = underTest.Class;
-            var underTestCss = underTest.Css;
-
-            // Assert
-            underTestClass.Should().NotBeNullOrWhiteSpace();
-
-            underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems();
-
-            underTestCss.Should()
-                .NotBeNull()
-                .And
-                .HaveCount(5);
-
-            underTestCss.Keys.Should()
-                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
-
-
-            underTestCss.Values.Should()
-                .Match(values => values.All(value => Regex.Matches(value, "50%").Count == 2));
-        }
-
-        [TestMethod]
-        public void GetClass_IsPercent_OnAll_Correctly()
-        {
-            // Arrange
-            this.underTest = Size.IsPercent(50).OnAll();
+            this.underTest = Size.IsPercent(50);
 
             // Act
             var underTestClass = underTest.Class;
@@ -151,7 +89,7 @@ namespace Flexor.Tests
         public void GetClass_IsElement_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsElement(50).OnMobileAndLarger();
+            this.underTest = Size.IsElement(50);
 
             // Act
             var underTestClass = underTest.Class;
@@ -173,36 +111,6 @@ namespace Flexor.Tests
             underTestCss.Keys.Should()
                 .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
 
-
-            underTestCss.Values.Should()
-                .Match(values => values.All(value => Regex.Matches(value, "50em").Count == 2));
-        }
-
-        [TestMethod]
-        public void GetClass_IsElement_OnAll_Correctly()
-        {
-            // Arrange
-            this.underTest = Size.IsElement(50).OnAll();
-
-            // Act
-            var underTestClass = underTest.Class;
-            var underTestCss = underTest.Css;
-
-            // Assert
-            underTestClass.Should().NotBeNullOrWhiteSpace();
-
-            underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems();
-
-            underTestCss.Should()
-                .NotBeNull()
-                .And
-                .HaveCount(5);
-
-            underTestCss.Keys.Should()
-                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
 
             underTestCss.Values.Should()
                 .Match(values => values.All(value => Regex.Matches(value, "50em").Count == 2));
@@ -212,38 +120,7 @@ namespace Flexor.Tests
         public void GetClass_IsViewportHeight_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsViewportHeight(50).OnMobileAndLarger();
-
-            // Act
-            var underTestClass = underTest.Class;
-            var underTestCss = underTest.Css;
-
-            // Assert
-            underTestClass.Should().NotBeNullOrWhiteSpace();
-
-            underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems();
-
-            underTestCss.Should()
-                .NotBeNull()
-                .And
-                .HaveCount(5);
-
-            underTestCss.Keys.Should()
-                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
-
-
-            underTestCss.Values.Should()
-                .Match(values => values.All(value => Regex.Matches(value, "50vh").Count == 2));
-        }
-
-        [TestMethod]
-        public void GetClass_IsViewportHeight_OnAll_Correctly()
-        {
-            // Arrange
-            this.underTest = Size.IsViewportHeight(50).OnAll();
+            this.underTest = Size.IsViewportHeight(50);
 
             // Act
             var underTestClass = underTest.Class;
@@ -274,38 +151,7 @@ namespace Flexor.Tests
         public void GetClass_IsViewportWidth_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsViewportWidth(50).OnMobileAndLarger();
-
-            // Act
-            var underTestClass = underTest.Class;
-            var underTestCss = underTest.Css;
-
-            // Assert
-            underTestClass.Should().NotBeNullOrWhiteSpace();
-
-            underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems();
-
-            underTestCss.Should()
-                .NotBeNull()
-                .And
-                .HaveCount(5);
-
-            underTestCss.Keys.Should()
-                .Match(keys => keys.All(key => !string.IsNullOrWhiteSpace(key)));
-
-
-            underTestCss.Values.Should()
-                .Match(values => values.All(value => Regex.Matches(value, "50vw").Count == 2));
-        }
-
-        [TestMethod]
-        public void GetClass_IsViewportWidth_OnAll_Correctly()
-        {
-            // Arrange
-            this.underTest = Size.IsViewportWidth(50).OnAll();
+            this.underTest = Size.IsViewportWidth(50);
 
             // Act
             var underTestClass = underTest.Class;
@@ -336,7 +182,7 @@ namespace Flexor.Tests
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnMobile();
+            this.underTest = Size.Is.OnMobile("75px");
 
             // Act
             var underTestClass = underTest.Class;
@@ -370,7 +216,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnMobileAndLarger();
+            this.underTest = Size.Is.OnMobileAndLarger("75px");
 
             // Act
             var underTestClass = underTest.Class;
@@ -408,7 +254,7 @@ namespace Flexor.Tests
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnTablet();
+            this.underTest = Size.Is.OnTablet("75px");
 
             // Act
             var underTestClass = underTest.Class;
@@ -442,7 +288,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnTabletAndLarger();
+            this.underTest = Size.Is.OnTabletAndLarger("75px");
 
             // Act
             var underTestClass = underTest.Class;
@@ -479,7 +325,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnTabletAndSmaller();
+            this.underTest = Size.Is.OnTabletAndSmaller("75px");
 
             // Act
             var underTestClass = underTest.Class;
@@ -514,7 +360,7 @@ namespace Flexor.Tests
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnDesktop();
+            this.underTest = Size.Is.OnDesktop("75px");
 
             // Act
             var underTestClass = underTest.Class;
@@ -548,7 +394,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnDesktopAndLarger();
+            this.underTest = Size.Is.OnDesktopAndLarger("75px");
 
             // Act
             var underTestClass = underTest.Class;
@@ -584,7 +430,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnDesktopAndSmaller();
+            this.underTest = Size.Is.OnDesktopAndSmaller("75px");
 
             // Act
             var underTestClass = underTest.Class;
@@ -620,7 +466,7 @@ namespace Flexor.Tests
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnWidescreen();
+            this.underTest = Size.Is.OnWidescreen("75px");
 
             // Act
             var underTestClass = underTest.Class;
@@ -654,7 +500,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnWidescreenAndLarger();
+            this.underTest = Size.Is.OnWidescreenAndLarger("75px");
 
             // Act
             var underTestClass = underTest.Class;
@@ -689,7 +535,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnWidescreenAndSmaller();
+            this.underTest = Size.Is.OnWidescreenAndSmaller("75px");
 
             // Act
             var underTestClass = underTest.Class;
@@ -726,7 +572,7 @@ namespace Flexor.Tests
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnFullHD();
+            this.underTest = Size.Is.OnFullHD("75px");
 
             // Act
             var underTestClass = underTest.Class;
@@ -755,13 +601,11 @@ namespace Flexor.Tests
             lines[0].Should().Match(line => Regex.Matches(line, "75px").Count == 2);
         }
 
-        
-
         [TestMethod]
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Size.IsPixels(75).OnFullHDAndSmaller();
+            this.underTest = Size.Is.OnFullHDAndSmaller("75px");
 
             // Act
             var underTestClass = underTest.Class;
