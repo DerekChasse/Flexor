@@ -13,56 +13,17 @@ namespace Flexor
     {
     }
 
-    public interface IFluentOrderWithValue : IOrder
+    public interface IFluentOrder : IFluentReactive<IFluentOrder, OrderOption>, IOrder
     {
-        IFluentOrderWithValueOnBreakpoint Is0 { get; }
-
-        IFluentOrderWithValueOnBreakpoint Is1 { get; }
-
-        IFluentOrderWithValueOnBreakpoint Is2 { get; }
-
-        IFluentOrderWithValueOnBreakpoint Is3 { get; }
-
-        IFluentOrderWithValueOnBreakpoint Is4 { get; }
-
-        IFluentOrderWithValueOnBreakpoint Is5 { get; }
-
-        IFluentOrderWithValueOnBreakpoint Is6 { get; }
-
-        IFluentOrderWithValueOnBreakpoint Is7 { get; }
-
-        IFluentOrderWithValueOnBreakpoint Is8 { get; }
-
-        IFluentOrderWithValueOnBreakpoint Is9 { get; }
-
-        IFluentOrderWithValueOnBreakpoint Is10 { get; }
-
-        IFluentOrderWithValueOnBreakpoint Is11 { get; }
-
-        IFluentOrderWithValueOnBreakpoint Is12 { get; }
-
-        IFluentOrderWithValueOnBreakpoint IsFirst { get; }
-
-        IFluentOrderWithValueOnBreakpoint IsLast { get; }
-    }
-
-    public interface IFluentOrderWithValueOnBreakpoint : IFluentReactive<IFluentOrderWithValue>, IOrder
-    {
-        /// <summary>
-        /// Configuration value will be applied to all media query breakpoints.
-        /// </summary>
-        /// <returns>The configuration object.</returns>
-        IOrder OnAll();
     }
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
     /// Define the order in which an item is displayed in a flex-line.
     /// </summary>
-    public class FluentOrder : IFluentOrderWithValueOnBreakpoint, IFluentOrderWithValue
+    public class FluentOrder : IFluentOrder
     {
-        private readonly Dictionary<Breakpoint, int?> breakpointDictionary = new Dictionary<Breakpoint, int?>();
-        private int? valueToApply;
+        private readonly Dictionary<Breakpoint, OrderOption> breakpointDictionary = new Dictionary<Breakpoint, OrderOption>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentOrder"/> class.
@@ -76,10 +37,8 @@ namespace Flexor
         /// Initializes a new instance of the <see cref="FluentOrder"/> class.
         /// </summary>
         /// <param name="initialValue">The default item order.</param>
-        public FluentOrder(int? initialValue)
+        public FluentOrder(OrderOption initialValue)
         {
-            this.valueToApply = initialValue;
-
             this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
@@ -91,145 +50,93 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is0 => this.Is(0);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is1 => this.Is(1);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is2 => this.Is(2);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is3 => this.Is(3);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is4 => this.Is(4);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is5 => this.Is(5);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is6 => this.Is(6);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is7 => this.Is(7);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is8 => this.Is(8);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is9 => this.Is(9);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is10 => this.Is(10);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is11 => this.Is(11);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint Is12 => this.Is(12);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint IsFirst => this.Is(int.MinValue);
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValueOnBreakpoint IsLast => this.Is(int.MaxValue);
-
-        /// <inheritdoc/>
-        public IOrder OnAll()
+        public IFluentOrder OnDesktop(OrderOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.breakpointDictionary[Breakpoint.Desktop] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValue OnDesktop()
+        public IFluentOrder OnDesktopAndLarger(OrderOption option)
         {
-            this.breakpointDictionary[Breakpoint.Desktop] = this.valueToApply;
+            this.SetBreakpointValues(option, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValue OnDesktopAndLarger()
+        public IFluentOrder OnDesktopAndSmaller(OrderOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValue OnDesktopAndSmaller()
+        public IFluentOrder OnFullHD(OrderOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
+            this.breakpointDictionary[Breakpoint.FullHD] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValue OnFullHD()
+        public IFluentOrder OnFullHDAndSmaller(OrderOption option)
         {
-            this.breakpointDictionary[Breakpoint.FullHD] = this.valueToApply;
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValue OnFullHDAndSmaller()
+        public IFluentOrder OnMobile(OrderOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.breakpointDictionary[Breakpoint.Mobile] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValue OnMobile()
+        public IFluentOrder OnMobileAndLarger(OrderOption option)
         {
-            this.breakpointDictionary[Breakpoint.Mobile] = this.valueToApply;
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValue OnMobileAndLarger()
+        public IFluentOrder OnTablet(OrderOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.breakpointDictionary[Breakpoint.Tablet] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValue OnTablet()
+        public IFluentOrder OnTabletAndLarger(OrderOption option)
         {
-            this.breakpointDictionary[Breakpoint.Tablet] = this.valueToApply;
+            this.SetBreakpointValues(option, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValue OnTabletAndLarger()
+        public IFluentOrder OnTabletAndSmaller(OrderOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValue OnTabletAndSmaller()
+        public IFluentOrder OnWidescreen(OrderOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet);
+            this.breakpointDictionary[Breakpoint.Widescreen] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValue OnWidescreen()
+        public IFluentOrder OnWidescreenAndLarger(OrderOption option)
         {
-            this.breakpointDictionary[Breakpoint.Widescreen] = this.valueToApply;
+            this.SetBreakpointValues(option, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrderWithValue OnWidescreenAndLarger()
+        public IFluentOrder OnWidescreenAndSmaller(OrderOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Widescreen, Breakpoint.FullHD);
-            return this;
-        }
-
-        /// <inheritdoc/>
-        public IFluentOrderWithValue OnWidescreenAndSmaller()
-        {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
         }
 
@@ -239,39 +146,22 @@ namespace Flexor
             return string.Equals(this.Class, other.Class);
         }
 
-        private IFluentOrderWithValueOnBreakpoint Is(int value)
-        {
-            this.valueToApply = value;
-            return this;
-        }
-
         private string BuildClass()
         {
             StringBuilder builder = new StringBuilder();
 
             foreach (var kvp in this.breakpointDictionary)
             {
-                if (kvp.Value.HasValue)
+                if (kvp.Value != null)
                 {
-                    if (kvp.Value.Value == int.MinValue)
-                    {
-                        builder.Append($"order{kvp.Key}-first ");
-                    }
-                    else if (kvp.Value.Value == int.MaxValue)
-                    {
-                        builder.Append($"order{kvp.Key}-last ");
-                    }
-                    else
-                    {
-                        builder.Append($"order{kvp.Key}-{kvp.Value} ");
-                    }
+                    builder.Append($"order{kvp.Key}-{kvp.Value} ");
                 }
             }
 
             return builder.ToString().Trim();
         }
 
-        private void SetBreakpointValues(int? value, params Breakpoint[] breakpoints)
+        private void SetBreakpointValues(OrderOption value, params Breakpoint[] breakpoints)
         {
             foreach (var breakpoint in breakpoints)
             {

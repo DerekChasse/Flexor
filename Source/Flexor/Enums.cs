@@ -2,6 +2,8 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
+
 namespace Flexor
 {
     /// <summary>
@@ -312,6 +314,46 @@ namespace Flexor
         /// Item is not allowed to shrink.
         /// </summary>
         public static ResizabilityOption NoShrink => new ResizabilityOption("-noshrink");
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return this.value;
+        }
+    }
+
+    /// <summary>
+    ///  Enumeration of supported order of items within a flex-line.
+    /// </summary>
+    public class OrderOption
+    {
+        private readonly string value;
+
+        private OrderOption(string value)
+        {
+            this.value = value;
+        }
+
+        /// <summary>
+        /// Item will always be rendered first on a flex-line.
+        /// </summary>
+        public static OrderOption First => new OrderOption("first");
+
+        /// <summary>
+        /// Item will always be rendered last on a flex-line.
+        /// </summary>
+        public static OrderOption Last => new OrderOption("last");
+
+        public static implicit operator OrderOption(int value)
+        {
+            if (value < 0 || value > 12)
+            {
+                Console.WriteLine($"Order {value} is outside the acceptable range of 0-12.");
+                return null;
+            }
+
+            return new OrderOption(value.ToString());
+        }
 
         /// <inheritdoc/>
         public override string ToString()
