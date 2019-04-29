@@ -164,27 +164,58 @@ namespace Flexor
         /// <summary>
         /// Flex-items are placed along the start of the flex-line's cross axis.
         /// </summary>
-        public static AlignItemsOption Start => new AlignItemsOption("-start");
+        public static AlignItemsOption Start => new AlignItemsOption("start");
 
         /// <summary>
         /// Flex-items are placed along the center of the flex-line's cross axis.
         /// </summary>
-        public static AlignItemsOption Center => new AlignItemsOption("-center");
+        public static AlignItemsOption Center => new AlignItemsOption("center");
 
         /// <summary>
         /// Flex-items are placed along the end of the flex-line's cross axis.
         /// </summary>
-        public static AlignItemsOption End => new AlignItemsOption("-end");
+        public static AlignItemsOption End => new AlignItemsOption("end");
 
         /// <summary>
         /// Flex-items are stretched along the flex-line's cross axis.
         /// </summary>
-        public static AlignItemsOption Stretch => new AlignItemsOption("-stretch");
+        public static AlignItemsOption Stretch => new AlignItemsOption("stretch");
 
         /// <summary>
         /// Flex-items are baseline aligned along the flex-line's cross axis.
         /// </summary>
-        public static AlignItemsOption Baseline => new AlignItemsOption("-baseline");
+        public static AlignItemsOption Baseline => new AlignItemsOption("baseline");
+
+        public static implicit operator AlignItemsOption(string value)
+        {
+            if (value.Equals(Start.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Start;
+            }
+
+            if (value.Equals(Center.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Center;
+            }
+
+            if (value.Equals(End.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return End;
+            }
+
+            if (value.Equals(Stretch.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Stretch;
+            }
+
+            if (value.Equals(Baseline.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Baseline;
+            }
+
+            Console.WriteLine($"{value} is not a supported content justification.");
+            return null;
+        }
 
         /// <inheritdoc/>
         public override string ToString()
