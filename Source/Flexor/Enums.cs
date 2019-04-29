@@ -87,28 +87,59 @@ namespace Flexor
         /// <summary>
         /// Items are packed along start of the flex-line's primary axis.
         /// </summary>
-        public static JustifyContentOption Start => new JustifyContentOption("-start");
+        public static JustifyContentOption Start => new JustifyContentOption("start");
 
         /// <summary>
         /// Items are centered around the flex-line's center-line.
         /// </summary>
-        public static JustifyContentOption Center => new JustifyContentOption("-center");
+        public static JustifyContentOption Center => new JustifyContentOption("center");
 
         /// <summary>
         /// Items are packed along the end of the flex-line's primary axis.
         /// </summary>
-        public static JustifyContentOption End => new JustifyContentOption("-end");
+        public static JustifyContentOption End => new JustifyContentOption("end");
 
         /// <summary>
         /// All items are spaced equally apart.
         /// </summary>
-        public static JustifyContentOption SpaceAround => new JustifyContentOption("-around");
+        public static JustifyContentOption SpaceAround => new JustifyContentOption("around");
 
         /// <summary>
         /// Items are spaced evenly with first and last items in contact
         /// with the start and end of the flex-line.
         /// </summary>
-        public static JustifyContentOption SpaceBetween => new JustifyContentOption("-between");
+        public static JustifyContentOption SpaceBetween => new JustifyContentOption("between");
+
+        public static implicit operator JustifyContentOption(string value)
+        {
+            if (value.Equals(Start.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Start;
+            }
+
+            if (value.Equals(Center.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Center;
+            }
+
+            if (value.Equals(End.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return End;
+            }
+
+            if (value.Equals(SpaceAround.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return SpaceAround;
+            }
+
+            if (value.Equals(SpaceBetween.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return SpaceBetween;
+            }
+
+            Console.WriteLine($"{value} is not a supported content justification.");
+            return null;
+        }
 
         /// <inheritdoc/>
         public override string ToString()
