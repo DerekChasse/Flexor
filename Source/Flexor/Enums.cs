@@ -525,6 +525,22 @@ namespace Flexor
             return new OrderOption(value.ToString());
         }
 
+        public static implicit operator OrderOption(string value)
+        {
+            if (value.Equals(First.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return First;
+            }
+
+            if (value.Equals(Last.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Last;
+            }
+
+            Console.WriteLine($"{value} is not a supported order.");
+            return null;
+        }
+
         /// <inheritdoc/>
         public override string ToString()
         {
