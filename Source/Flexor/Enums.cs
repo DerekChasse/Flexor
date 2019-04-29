@@ -21,22 +21,48 @@ namespace Flexor
         /// <summary>
         /// Items within a flex-line are rendered horizontally.
         /// </summary>
-        public static DirectionOption Row => new DirectionOption("-row");
+        public static DirectionOption Row => new DirectionOption("row");
 
         /// <summary>
         /// Items within a flex-line are rendered vertically.
         /// </summary>
-        public static DirectionOption Column => new DirectionOption("-column");
+        public static DirectionOption Column => new DirectionOption("column");
 
         /// <summary>
         /// Items within a flex-line are rendered horizontally in reverse order.
         /// </summary>
-        public static DirectionOption RowReverse => new DirectionOption("-row-reverse");
+        public static DirectionOption RowReverse => new DirectionOption("row-reverse");
 
         /// <summary>
         /// Items within a flex-line are rendered vertically in reverse order.
         /// </summary>
-        public static DirectionOption ColumnReverse => new DirectionOption("-column-reverse");
+        public static DirectionOption ColumnReverse => new DirectionOption("column-reverse");
+
+        public static implicit operator DirectionOption(string value)
+        {
+            if (value.Equals(Row.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Row;
+            }
+
+            if (value.Equals(Column.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Column;
+            }
+
+            if (value.Equals(RowReverse.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return RowReverse;
+            }
+
+            if (value.Equals(ColumnReverse.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return ColumnReverse;
+            }
+
+            Console.WriteLine($"{value} is not a supported direction.");
+            return null;
+        }
 
         /// <inheritdoc/>
         public override string ToString()
