@@ -13,10 +13,10 @@ namespace Flexor
         /// The flex-item's size is unspecified.
         /// </summary>
         /// <returns>The size configuration.</returns>
-        public static IFluentSize Default => new FluentSize();
+        public static ISize Default => new FluentSize();
 
         /// <summary>
-        /// The flex-item's size is unspecified.
+        /// The flex-item's size is initially unspecified but configurable.
         /// </summary>
         /// <returns>The size configuration.</returns>
         public static IFluentSize Is => new FluentSize();

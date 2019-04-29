@@ -42,7 +42,7 @@ namespace Flexor
         public static IJustifyContent SpaceBetween => new FluentJustifyContent(JustifyContentOption.SpaceBetween);
 
         /// <summary>
-        /// Flex-items will be rendered and configured with the supplied justufucation option.
+        /// Flex-items will be rendered and configured with the supplied justification option.
         /// Rendering is configurable based on CSS media query breakpoints.
         /// </summary>
         /// <param name="justification">The default justification value.</param>
