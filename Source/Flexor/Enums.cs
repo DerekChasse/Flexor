@@ -60,7 +60,7 @@ namespace Flexor
                 return ColumnReverse;
             }
 
-            Console.WriteLine($"{value} is not a supported direction.");
+            Console.WriteLine($"{value} is not a supported direction value.");
             return null;
         }
 
@@ -137,7 +137,7 @@ namespace Flexor
                 return SpaceBetween;
             }
 
-            Console.WriteLine($"{value} is not a supported content justification.");
+            Console.WriteLine($"{value} is not a supported content justification value.");
             return null;
         }
 
@@ -213,7 +213,7 @@ namespace Flexor
                 return Baseline;
             }
 
-            Console.WriteLine($"{value} is not a supported item alignment.");
+            Console.WriteLine($"{value} is not a supported item alignment value.");
             return null;
         }
 
@@ -299,7 +299,7 @@ namespace Flexor
                 return Baseline;
             }
 
-            Console.WriteLine($"{value} is not a supported self alignment.");
+            Console.WriteLine($"{value} is not a supported self alignment value.");
             return null;
         }
 
@@ -390,11 +390,11 @@ namespace Flexor
     /// <summary>
     /// Enumeration of ways items are allowed to resize within a flex-line.
     /// </summary>
-    public class ResizabilityOption
+    public class ResizableOption
     {
         private readonly string value;
 
-        private ResizabilityOption(string value)
+        private ResizableOption(string value)
         {
             this.value = value;
         }
@@ -402,44 +402,44 @@ namespace Flexor
         /// <summary>
         /// Item will be sized automatically.
         /// </summary>
-        public static ResizabilityOption Default => new ResizabilityOption("unset");
+        public static ResizableOption Default => new ResizableOption("unset");
 
         /// <summary>
         /// Item will be sized automatically.
         /// </summary>
-        public static ResizabilityOption Auto => new ResizabilityOption("auto");
+        public static ResizableOption Auto => new ResizableOption("auto");
 
         /// <summary>
         /// Item will not grow past it's initial size..
         /// </summary>
-        public static ResizabilityOption Initial => new ResizabilityOption("initial");
+        public static ResizableOption Initial => new ResizableOption("initial");
 
         /// <summary>
         /// Item will not resize.
         /// </summary>
-        public static ResizabilityOption None => new ResizabilityOption("none");
+        public static ResizableOption None => new ResizableOption("none");
 
         /// <summary>
         /// Item will fill all available horizontal and vertical space within the flex-line.
         /// </summary>
-        public static ResizabilityOption Fill => new ResizabilityOption("fill");
+        public static ResizableOption Fill => new ResizableOption("fill");
 
         /// <summary>
         /// Item is allowed to grow to fill remaining space.
         /// </summary>
-        public static ResizabilityOption Grow => new ResizabilityOption("grow");
+        public static ResizableOption Grow => new ResizableOption("grow");
 
         /// <summary>
         /// Item is not allowed to grow.
         /// </summary>
-        public static ResizabilityOption NoGrow => new ResizabilityOption("nogrow");
+        public static ResizableOption NoGrow => new ResizableOption("nogrow");
 
         /// <summary>
         /// Item is not allowed to shrink.
         /// </summary>
-        public static ResizabilityOption NoShrink => new ResizabilityOption("noshrink");
+        public static ResizableOption NoShrink => new ResizableOption("noshrink");
 
-        public static implicit operator ResizabilityOption(string value)
+        public static implicit operator ResizableOption(string value)
         {
             if (value.Equals(Default.value, StringComparison.InvariantCultureIgnoreCase))
             {
@@ -481,7 +481,7 @@ namespace Flexor
                 return NoShrink;
             }
 
-            Console.WriteLine($"{value} is not a supported resizability.");
+            Console.WriteLine($"{value} is not a supported resize value.");
             return null;
         }
 
@@ -537,7 +537,7 @@ namespace Flexor
                 return Last;
             }
 
-            Console.WriteLine($"{value} is not a supported order.");
+            Console.WriteLine($"{value} is not a supported order value.");
             return null;
         }
 
@@ -593,7 +593,7 @@ namespace Flexor
                 return WrapReverse;
             }
 
-            Console.WriteLine($"{value} is not a supported order.");
+            Console.WriteLine($"{value} is not a supported wrap value.");
             return null;
         }
 
