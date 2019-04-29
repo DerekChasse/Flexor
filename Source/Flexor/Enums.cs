@@ -213,7 +213,7 @@ namespace Flexor
                 return Baseline;
             }
 
-            Console.WriteLine($"{value} is not a supported content justification.");
+            Console.WriteLine($"{value} is not a supported item alignment.");
             return null;
         }
 
@@ -240,32 +240,68 @@ namespace Flexor
         /// <summary>
         /// Inherit's the parent flex-line's item alignment definition.
         /// </summary>
-        public static AlignSelfOption Auto => new AlignSelfOption("-auto");
+        public static AlignSelfOption Auto => new AlignSelfOption("auto");
 
         /// <summary>
         /// Flex-item is placed on the start of the flex-line's cross axis.
         /// </summary>
-        public static AlignSelfOption Start => new AlignSelfOption("-start");
+        public static AlignSelfOption Start => new AlignSelfOption("start");
 
         /// <summary>
         /// Flex-item is placed on the center of the flex-line's cross axis.
         /// </summary>
-        public static AlignSelfOption Center => new AlignSelfOption("-center");
+        public static AlignSelfOption Center => new AlignSelfOption("center");
 
         /// <summary>
         /// Flex-item is placed on the end of the flex-line's cross axis.
         /// </summary>
-        public static AlignSelfOption End => new AlignSelfOption("-end");
+        public static AlignSelfOption End => new AlignSelfOption("end");
 
         /// <summary>
         /// Flex-item is stretched across the flex-line's cross axis.
         /// </summary>
-        public static AlignSelfOption Stretch => new AlignSelfOption("-stretch");
+        public static AlignSelfOption Stretch => new AlignSelfOption("stretch");
 
         /// <summary>
         /// Flex-item is baseline aligned along the flex-line's cross axis.
         /// </summary>
-        public static AlignSelfOption Baseline => new AlignSelfOption("-baseline");
+        public static AlignSelfOption Baseline => new AlignSelfOption("baseline");
+
+        public static implicit operator AlignSelfOption(string value)
+        {
+            if (value.Equals(Auto.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Auto;
+            }
+
+            if (value.Equals(Start.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Start;
+            }
+
+            if (value.Equals(Center.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Center;
+            }
+
+            if (value.Equals(End.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return End;
+            }
+
+            if (value.Equals(Stretch.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Stretch;
+            }
+
+            if (value.Equals(Baseline.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Baseline;
+            }
+
+            Console.WriteLine($"{value} is not a supported self alignment.");
+            return null;
+        }
 
         /// <inheritdoc/>
         public override string ToString()
