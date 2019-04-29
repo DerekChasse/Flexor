@@ -563,18 +563,39 @@ namespace Flexor
         /// <summary>
         /// Items remain on a single line and will overflow.
         /// </summary>
-        public static WrapOption NoWrap => new WrapOption("-nowrap");
+        public static WrapOption NoWrap => new WrapOption("nowrap");
 
         /// <summary>
         /// Items will be distributed across multiple lines if necessary.
         /// </summary>
-        public static WrapOption Wrap => new WrapOption("-wrap");
+        public static WrapOption Wrap => new WrapOption("wrap");
 
         /// <summary>
         /// Items will be distributed across multiple lines if necessary.
         /// Additional lines will appear before the previous ones.
         /// </summary>
-        public static WrapOption WrapReverse => new WrapOption("-wrap-reverse");
+        public static WrapOption WrapReverse => new WrapOption("wrap-reverse");
+
+        public static implicit operator WrapOption(string value)
+        {
+            if (value.Equals(NoWrap.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return NoWrap;
+            }
+
+            if (value.Equals(Wrap.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Wrap;
+            }
+
+            if (value.Equals(WrapReverse.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return WrapReverse;
+            }
+
+            Console.WriteLine($"{value} is not a supported order.");
+            return null;
+        }
 
         /// <inheritdoc/>
         public override string ToString()
