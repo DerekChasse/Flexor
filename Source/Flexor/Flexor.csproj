@@ -8,6 +8,16 @@
       https://dotnet.myget.org/F/blazor-dev/api/v3/index.json;
     </RestoreAdditionalProjectSources>
     <LangVersion>7.3</LangVersion>
+    <Authors>Derek Chasse</Authors>
+    <Company />
+    <Description>Highly configurable Blazor flexbox components.</Description>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/DerekChasse/Flexor</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DerekChasse/Flexor</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Blazor Flexbox CSS</PackageTags>
+    <Copyright>2019 Derek Chasse</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -29,6 +39,10 @@
 
   <ItemGroup>
     <AdditionalFiles Include="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
   </ItemGroup>
 
   <ItemGroup>
