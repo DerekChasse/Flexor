@@ -39,7 +39,7 @@ namespace Flexor.Tests
         public void GetClass_0_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is0.OnAll();
+            this.underTest = Order.Is0;
 
             // Act
             var underTestClass = underTest.Class;
@@ -59,7 +59,7 @@ namespace Flexor.Tests
         public void GetClass_1_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is1.OnAll();
+            this.underTest = Order.Is1;
 
             // Act
             var underTestClass = underTest.Class;
@@ -79,7 +79,7 @@ namespace Flexor.Tests
         public void GetClass_2_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is2.OnAll();
+            this.underTest = Order.Is2;
 
             // Act
             var underTestClass = underTest.Class;
@@ -99,7 +99,7 @@ namespace Flexor.Tests
         public void GetClass_3_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is3.OnAll();
+            this.underTest = Order.Is3;
 
             // Act
             var underTestClass = underTest.Class;
@@ -119,7 +119,7 @@ namespace Flexor.Tests
         public void GetClass_4_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnAll();
+            this.underTest = Order.Is4;
 
             // Act
             var underTestClass = underTest.Class;
@@ -139,7 +139,7 @@ namespace Flexor.Tests
         public void GetClass_5_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is5.OnAll();
+            this.underTest = Order.Is5;
 
             // Act
             var underTestClass = underTest.Class;
@@ -159,7 +159,7 @@ namespace Flexor.Tests
         public void GetClass_6_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is6.OnAll();
+            this.underTest = Order.Is6;
 
             // Act
             var underTestClass = underTest.Class;
@@ -179,7 +179,7 @@ namespace Flexor.Tests
         public void GetClass_7_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnAll();
+            this.underTest = Order.Is7;
 
             // Act
             var underTestClass = underTest.Class;
@@ -199,7 +199,7 @@ namespace Flexor.Tests
         public void GetClass_8_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is8.OnAll();
+            this.underTest = Order.Is8;
 
             // Act
             var underTestClass = underTest.Class;
@@ -219,7 +219,7 @@ namespace Flexor.Tests
         public void GetClass_9_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is9.OnAll();
+            this.underTest = Order.Is9;
 
             // Act
             var underTestClass = underTest.Class;
@@ -239,7 +239,7 @@ namespace Flexor.Tests
         public void GetClass_10_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is10.OnAll();
+            this.underTest = Order.Is10;
 
             // Act
             var underTestClass = underTest.Class;
@@ -259,7 +259,7 @@ namespace Flexor.Tests
         public void GetClass_11_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is11.OnAll();
+            this.underTest = Order.Is11;
 
             // Act
             var underTestClass = underTest.Class;
@@ -279,7 +279,7 @@ namespace Flexor.Tests
         public void GetClass_12_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is12.OnAll();
+            this.underTest = Order.Is12;
 
             // Act
             var underTestClass = underTest.Class;
@@ -299,7 +299,7 @@ namespace Flexor.Tests
         public void GetClass_First_Correctly()
         {
             // Arrange
-            this.underTest = Order.IsFirst.OnAll();
+            this.underTest = Order.IsFirst;
 
             // Act
             var underTestClass = underTest.Class;
@@ -319,7 +319,7 @@ namespace Flexor.Tests
         public void GetClass_Last_Correctly()
         {
             // Arrange
-            this.underTest = Order.IsLast.OnAll();
+            this.underTest = Order.IsLast;
 
             // Act
             var underTestClass = underTest.Class;
@@ -339,7 +339,7 @@ namespace Flexor.Tests
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnMobile();
+            this.underTest = Order.Is.OnMobile(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -359,7 +359,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnMobileAndLarger();
+            this.underTest = Order.Is.OnMobileAndLarger(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -387,7 +387,7 @@ namespace Flexor.Tests
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnTablet();
+            this.underTest = Order.Is.OnTablet(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -407,7 +407,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnTabletAndLarger();
+            this.underTest = Order.Is.OnTabletAndLarger(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -433,7 +433,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnTabletAndSmaller();
+            this.underTest = Order.Is.OnTabletAndSmaller(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -455,7 +455,7 @@ namespace Flexor.Tests
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnDesktop();
+            this.underTest = Order.Is.OnDesktop(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -475,7 +475,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnDesktopAndLarger();
+            this.underTest = Order.Is.OnDesktopAndLarger(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -499,7 +499,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnDesktopAndSmaller();
+            this.underTest = Order.Is.OnDesktopAndSmaller(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -523,7 +523,7 @@ namespace Flexor.Tests
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnWidescreen();
+            this.underTest = Order.Is.OnWidescreen(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -543,7 +543,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnWidescreenAndLarger();
+            this.underTest = Order.Is.OnWidescreenAndLarger(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -565,7 +565,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnWidescreenAndSmaller();
+            this.underTest = Order.Is.OnWidescreenAndSmaller(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -591,7 +591,7 @@ namespace Flexor.Tests
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnFullHD();
+            this.underTest = Order.Is.OnFullHD(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -611,7 +611,7 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnFullHDAndSmaller();
+            this.underTest = Order.Is.OnFullHDAndSmaller(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -640,7 +640,7 @@ namespace Flexor.Tests
         public void Is0_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is0.OnMobile();
+            this.underTest = Order.Is.OnMobile(0);
 
             // Act
             var underTestClass = underTest.Class;
@@ -658,7 +658,7 @@ namespace Flexor.Tests
         public void Is1_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is1.OnMobile();
+            this.underTest = Order.Is.OnMobile(1);
 
             // Act
             var underTestClass = underTest.Class;
@@ -676,7 +676,7 @@ namespace Flexor.Tests
         public void Is2_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is2.OnMobile();
+            this.underTest = Order.Is.OnMobile(2);
 
             // Act
             var underTestClass = underTest.Class;
@@ -694,7 +694,7 @@ namespace Flexor.Tests
         public void Is3_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is3.OnMobile();
+            this.underTest = Order.Is.OnMobile(3);
 
             // Act
             var underTestClass = underTest.Class;
@@ -712,7 +712,7 @@ namespace Flexor.Tests
         public void Is4_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is4.OnMobile();
+            this.underTest = Order.Is.OnMobile(4);
 
             // Act
             var underTestClass = underTest.Class;
@@ -730,7 +730,7 @@ namespace Flexor.Tests
         public void Is5_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is5.OnMobile();
+            this.underTest = Order.Is.OnMobile(5);
 
             // Act
             var underTestClass = underTest.Class;
@@ -748,7 +748,7 @@ namespace Flexor.Tests
         public void Is6_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is6.OnMobile();
+            this.underTest = Order.Is.OnMobile(6);
 
             // Act
             var underTestClass = underTest.Class;
@@ -766,7 +766,7 @@ namespace Flexor.Tests
         public void Is7_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is7.OnMobile();
+            this.underTest = Order.Is.OnMobile(7);
 
             // Act
             var underTestClass = underTest.Class;
@@ -784,7 +784,7 @@ namespace Flexor.Tests
         public void Is8_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is8.OnMobile();
+            this.underTest = Order.Is.OnMobile(8);
 
             // Act
             var underTestClass = underTest.Class;
@@ -802,7 +802,7 @@ namespace Flexor.Tests
         public void Is9_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is9.OnMobile();
+            this.underTest = Order.Is.OnMobile(9);
 
             // Act
             var underTestClass = underTest.Class;
@@ -820,7 +820,7 @@ namespace Flexor.Tests
         public void Is10_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is10.OnMobile();
+            this.underTest = Order.Is.OnMobile(10);
 
             // Act
             var underTestClass = underTest.Class;
@@ -838,7 +838,7 @@ namespace Flexor.Tests
         public void Is11_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is11.OnMobile();
+            this.underTest = Order.Is.OnMobile(11);
 
             // Act
             var underTestClass = underTest.Class;
@@ -856,7 +856,7 @@ namespace Flexor.Tests
         public void Is12_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.Is12.OnMobile();
+            this.underTest = Order.Is.OnMobile(12);
 
             // Act
             var underTestClass = underTest.Class;
@@ -874,7 +874,7 @@ namespace Flexor.Tests
         public void IsFirst_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.IsFirst.OnMobile();
+            this.underTest = Order.Is.OnMobile(OrderOption.First);
 
             // Act
             var underTestClass = underTest.Class;
@@ -892,7 +892,7 @@ namespace Flexor.Tests
         public void IsLast_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Order.IsLast.OnMobile();
+            this.underTest = Order.Is.OnMobile(OrderOption.Last);
 
             // Act
             var underTestClass = underTest.Class;

@@ -133,7 +133,7 @@ namespace Flexor.Tests
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnMobile();
+            this.underTest = AlignItems.Is.OnMobile(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -153,7 +153,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnMobileAndLarger();
+            this.underTest = AlignItems.Is.OnMobileAndLarger(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -181,7 +181,7 @@ namespace Flexor.Tests
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnTablet();
+            this.underTest = AlignItems.Is.OnTablet(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -201,7 +201,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnTabletAndLarger();
+            this.underTest = AlignItems.Is.OnTabletAndLarger(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -227,7 +227,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnTabletAndSmaller();
+            this.underTest = AlignItems.Is.OnTabletAndSmaller(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -249,7 +249,7 @@ namespace Flexor.Tests
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnDesktop();
+            this.underTest = AlignItems.Is.OnDesktop(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -269,7 +269,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnDesktopAndLarger();
+            this.underTest = AlignItems.Is.OnDesktopAndLarger(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -293,7 +293,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnDesktopAndSmaller();
+            this.underTest = AlignItems.Is.OnDesktopAndSmaller(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -317,7 +317,7 @@ namespace Flexor.Tests
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnWidescreen();
+            this.underTest = AlignItems.Is.OnWidescreen(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -337,7 +337,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnWidescreenAndLarger();
+            this.underTest = AlignItems.Is.OnWidescreenAndLarger(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -359,7 +359,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnWidescreenAndSmaller();
+            this.underTest = AlignItems.Is.OnWidescreenAndSmaller(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -385,7 +385,7 @@ namespace Flexor.Tests
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnFullHD();
+            this.underTest = AlignItems.Is.OnFullHD(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -405,7 +405,7 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnFullHDAndSmaller();
+            this.underTest = AlignItems.Is.OnFullHDAndSmaller(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -433,7 +433,7 @@ namespace Flexor.Tests
         public void OnMobile_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnMobile();
+            this.underTest = AlignItems.Is.OnMobile(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -461,7 +461,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnMobileAndLarger();
+            this.underTest = AlignItems.Is.OnMobileAndLarger(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -489,7 +489,7 @@ namespace Flexor.Tests
         public void OnTablet_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnTablet();
+            this.underTest = AlignItems.Is.OnTablet(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -517,7 +517,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnTabletAndLarger();
+            this.underTest = AlignItems.Is.OnTabletAndLarger(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -545,7 +545,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnTabletAndSmaller();
+            this.underTest = AlignItems.Is.OnTabletAndSmaller(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -573,7 +573,7 @@ namespace Flexor.Tests
         public void OnDesktop_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnDesktop();
+            this.underTest = AlignItems.Is.OnDesktop(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -601,7 +601,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnDesktopAndLarger();
+            this.underTest = AlignItems.Is.OnDesktopAndLarger(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -629,7 +629,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnDesktopAndSmaller();
+            this.underTest = AlignItems.Is.OnDesktopAndSmaller(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -657,7 +657,7 @@ namespace Flexor.Tests
         public void OnWidescreen_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnWidescreen();
+            this.underTest = AlignItems.Is.OnWidescreen(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -685,7 +685,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnWidescreenAndLarger();
+            this.underTest = AlignItems.Is.OnWidescreenAndLarger(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -713,7 +713,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnWidescreenAndSmaller();
+            this.underTest = AlignItems.Is.OnWidescreenAndSmaller(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -741,7 +741,7 @@ namespace Flexor.Tests
         public void OnFullHD_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnFullHD();
+            this.underTest = AlignItems.Is.OnFullHD(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;
@@ -769,7 +769,7 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = AlignItems.Is(AlignItemsOption.Start).OnFullHDAndSmaller();
+            this.underTest = AlignItems.Is.OnFullHDAndSmaller(AlignItemsOption.Start);
 
             // Act
             var underTestClass = underTest.Class;

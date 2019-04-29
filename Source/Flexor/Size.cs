@@ -16,38 +16,44 @@ namespace Flexor
         public static ISize Default => new FluentSize();
 
         /// <summary>
+        /// The flex-item's size is initially unspecified but configurable.
+        /// </summary>
+        /// <returns>The size configuration.</returns>
+        public static IFluentSize Is => new FluentSize();
+
+        /// <summary>
         /// The flex-item's size is defined in pixels.
         /// </summary>
         /// <param name="value">The flex-item's size defined in pixels.</param>
         /// <returns>The size configuration.</returns>
-        public static IFluentSizeWithValueOnBreakpoint IsPixels(int value) => new FluentSize().IsPixels(value);
+        public static ISize IsPixels(int value) => new FluentSize($"{value}px");
 
         /// <summary>
         /// The flex-item's size is defined as a percentage of the parent flex-line.
         /// </summary>
         /// <param name="value">The flex-item's size defined as a percentage.</param>
         /// <returns>The size configuration.</returns>
-        public static IFluentSizeWithValueOnBreakpoint IsPercent(int value) => new FluentSize().IsPercent(value);
+        public static ISize IsPercent(int value) => new FluentSize($"{value}%");
 
         /// <summary>
         /// The flex-item's size is defined in CSS 'em' format.
         /// </summary>
         /// <param name="value">The flex-item's size defined in 'em' units.</param>
         /// <returns>The size configuration.</returns>
-        public static IFluentSizeWithValueOnBreakpoint IsElement(decimal value) => new FluentSize().IsElement(value);
+        public static ISize IsElement(decimal value) => new FluentSize($"{value}em");
 
         /// <summary>
         /// The flex-item's size is defined as a proportion of the viewport width 'vw'.
         /// </summary>
         /// <param name="value">The flex-item's size defined as a proportion of the viewport width.</param>
         /// <returns>The size configuration.</returns>
-        public static IFluentSizeWithValueOnBreakpoint IsViewportWidth(int value) => new FluentSize().IsViewportWidth(value);
+        public static ISize IsViewportWidth(int value) => new FluentSize($"{value}vw");
 
         /// <summary>
         /// The flex-item's size is defined as a proportion of the viewport height 'vh'.
         /// </summary>
         /// <param name="value">The flex-item's size defined as a proportion of the viewport height.</param>
         /// <returns>The size configuration.</returns>
-        public static IFluentSizeWithValueOnBreakpoint IsViewportHeight(int value) => new FluentSize().IsViewportHeight(value);
+        public static ISize IsViewportHeight(int value) => new FluentSize($"{value}vh");
     }
 }

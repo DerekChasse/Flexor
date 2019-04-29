@@ -1,4 +1,4 @@
-﻿// <copyright file="FluentOrder.cs" company="Derek Chasse">
+﻿// <copyright file="FluentDirection.cs" company="Derek Chasse">
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
@@ -9,35 +9,35 @@ using System.Text;
 namespace Flexor
 {
 #pragma warning disable SA1600 // Elements should be documented
-    public interface IOrder : ICssBacked, IEquatable<IOrder>
+    public interface IDirection : ICssBacked, IEquatable<IDirection>
     {
     }
 
-    public interface IFluentOrder : IFluentReactive<IFluentOrder, OrderOption>, IOrder
+    public interface IFluentDirection : IFluentReactive<IFluentDirection, DirectionOption>, IDirection
     {
     }
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
-    /// Define the order in which an item is displayed in a flex-line.
+    /// Define the direction items are added to a flex-line.
     /// </summary>
-    public class FluentOrder : IFluentOrder
+    public class FluentDirection : IFluentDirection
     {
-        private readonly Dictionary<Breakpoint, OrderOption> breakpointDictionary = new Dictionary<Breakpoint, OrderOption>();
+        private readonly Dictionary<Breakpoint, DirectionOption> breakpointDictionary = new Dictionary<Breakpoint, DirectionOption>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FluentOrder"/> class.
+        /// Initializes a new instance of the <see cref="FluentDirection"/> class.
         /// </summary>
-        public FluentOrder()
-            : this(default)
+        public FluentDirection()
+            : this(DirectionOption.Row)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FluentOrder"/> class.
+        /// Initializes a new instance of the <see cref="FluentDirection"/> class.
         /// </summary>
-        /// <param name="initialValue">The default item order.</param>
-        public FluentOrder(OrderOption initialValue)
+        /// <param name="initialValue">The initial value across all CSS media queries.</param>
+        public FluentDirection(DirectionOption initialValue)
         {
             this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
@@ -50,100 +50,108 @@ namespace Flexor
         public string Class => this.BuildClass();
 
         /// <inheritdoc/>
-        public IFluentOrder OnDesktop(OrderOption option)
+        public IFluentDirection OnDesktop(DirectionOption option)
         {
             this.breakpointDictionary[Breakpoint.Desktop] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrder OnDesktopAndLarger(OrderOption option)
+        public IFluentDirection OnDesktopAndLarger(DirectionOption option)
         {
             this.SetBreakpointValues(option, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrder OnDesktopAndSmaller(OrderOption option)
+        public IFluentDirection OnDesktopAndSmaller(DirectionOption option)
         {
             this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrder OnFullHD(OrderOption option)
+        public IFluentDirection OnFullHD(DirectionOption option)
         {
             this.breakpointDictionary[Breakpoint.FullHD] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrder OnFullHDAndSmaller(OrderOption option)
+        public IFluentDirection OnFullHDAndSmaller(DirectionOption option)
         {
             this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrder OnMobile(OrderOption option)
+        public IFluentDirection OnMobile(DirectionOption option)
         {
             this.breakpointDictionary[Breakpoint.Mobile] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrder OnMobileAndLarger(OrderOption option)
+        public IFluentDirection OnMobileAndLarger(DirectionOption option)
         {
             this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrder OnTablet(OrderOption option)
+        public IFluentDirection OnTablet(DirectionOption option)
         {
             this.breakpointDictionary[Breakpoint.Tablet] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrder OnTabletAndLarger(OrderOption option)
+        public IFluentDirection OnTabletAndLarger(DirectionOption option)
         {
             this.SetBreakpointValues(option, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrder OnTabletAndSmaller(OrderOption option)
+        public IFluentDirection OnTabletAndSmaller(DirectionOption option)
         {
             this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrder OnWidescreen(OrderOption option)
+        public IFluentDirection OnWidescreen(DirectionOption option)
         {
             this.breakpointDictionary[Breakpoint.Widescreen] = option;
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrder OnWidescreenAndLarger(OrderOption option)
+        public IFluentDirection OnWidescreenAndLarger(DirectionOption option)
         {
             this.SetBreakpointValues(option, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentOrder OnWidescreenAndSmaller(OrderOption option)
+        public IFluentDirection OnWidescreenAndSmaller(DirectionOption option)
         {
             this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
         }
 
         /// <inheritdoc/>
-        public bool Equals(IOrder other)
+        public bool Equals(IDirection other)
         {
             return string.Equals(this.Class, other.Class);
+        }
+
+        private void SetBreakpointValues(DirectionOption value, params Breakpoint[] breakpoints)
+        {
+            foreach (var breakpoint in breakpoints)
+            {
+                this.breakpointDictionary[breakpoint] = value;
+            }
         }
 
         private string BuildClass()
@@ -152,21 +160,10 @@ namespace Flexor
 
             foreach (var kvp in this.breakpointDictionary)
             {
-                if (kvp.Value != null)
-                {
-                    builder.Append($"order{kvp.Key}-{kvp.Value} ");
-                }
+                builder.Append($"flex{kvp.Key}-{kvp.Value} ");
             }
 
             return builder.ToString().Trim();
-        }
-
-        private void SetBreakpointValues(OrderOption value, params Breakpoint[] breakpoints)
-        {
-            foreach (var breakpoint in breakpoints)
-            {
-                this.breakpointDictionary[breakpoint] = value;
-            }
         }
     }
 }

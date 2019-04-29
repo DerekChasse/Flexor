@@ -17,7 +17,7 @@ namespace Flexor.Base
         private IOrder order = Flexor.Order.Default;
         private IAlignSelf alignSelf = Flexor.AlignSelf.Auto;
         private ISize size = Flexor.Size.Default;
-        private IResizability resizability = Flexor.Resizability.Default;
+        private IResizable resizable = Flexor.Resizable.Default;
 
         /// <summary>
         /// Defines the order in which items are rendered within the flex-line.
@@ -77,19 +77,19 @@ namespace Flexor.Base
         }
 
         /// <summary>
-        /// Defines the resizability of a flex-item.
+        /// Defines the ability to resize a flex-item.
         ///
         /// Default is 'auto'.
         /// </summary>
         [Parameter]
-        protected IResizability Resizability
+        protected IResizable Resizable
         {
-            get => this.resizability;
+            get => this.resizable;
             set
             {
-                if (!this.resizability.Equals(value))
+                if (!this.resizable.Equals(value))
                 {
-                    this.resizability = value;
+                    this.resizable = value;
                     this.StateHasChanged();
                 }
             }
@@ -137,7 +137,7 @@ namespace Flexor.Base
                 this.AlignSelf.Class,
                 this.Visible.Class,
                 this.Order.Class,
-                this.Resizability.Class,
+                this.Resizable.Class,
                 this.Size.Class,
                 this.Class);
         }

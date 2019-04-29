@@ -1,19 +1,19 @@
-﻿using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Flexor.Tests
 {
     [TestClass]
-    public class FluentResizabilityShould
+    public class FluentDirectionShould
     {
-        private IResizability underTest;
+        private IDirection underTest;
 
         [TestMethod]
-        public void Constructor_Default_Default()
+        public void Constructor_Default_Row()
         {
             // Arrange
-            this.underTest = new FluentResizability();
+            this.underTest = new FluentDirection();
 
             // Act
             var underTestClass = underTest.Class;
@@ -26,14 +26,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("flex-resize") && v.EndsWith("-unset")));
+                .Match(x => x.All(v => v.StartsWith("flex") && v.EndsWith("-row")));
         }
 
         [TestMethod]
-        public void GetClass_Auto_Correctly()
+        public void GetClass_Row_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Auto;
+            this.underTest = Direction.Row;
 
             // Act
             var underTestClass = underTest.Class;
@@ -46,14 +46,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("flex-resize") && v.EndsWith("-auto")));
+                .Match(x => x.All(v => v.StartsWith("flex") && v.EndsWith("-row")));
         }
 
         [TestMethod]
-        public void GetClass_Grow_Correctly()
+        public void GetClass_Column_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Grow;
+            this.underTest = Direction.Column;
 
             // Act
             var underTestClass = underTest.Class;
@@ -66,14 +66,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("flex-resize") && v.EndsWith("-grow")));
+                .Match(x => x.All(v => v.StartsWith("flex") && v.EndsWith("-column")));
         }
 
         [TestMethod]
-        public void GetClass_Initial_Correctly()
+        public void GetClass_RowReverse_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Initial;
+            this.underTest = Direction.RowReverse;
 
             // Act
             var underTestClass = underTest.Class;
@@ -86,14 +86,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("flex-resize") && v.EndsWith("-initial")));
+                .Match(x => x.All(v => v.StartsWith("flex") && v.EndsWith("-row-reverse")));
         }
 
         [TestMethod]
-        public void GetClass_NoGrow_Correctly()
+        public void GetClass_ColumnReverse_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.NoGrow;
+            this.underTest = Direction.ColumnReverse;
 
             // Act
             var underTestClass = underTest.Class;
@@ -106,34 +106,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .Match(x => x.All(v => v.StartsWith("flex-resize") && v.EndsWith("-nogrow")));
-        }
-
-        [TestMethod]
-        public void GetClass_NoShrink_Correctly()
-        {
-            // Arrange
-            this.underTest = Resizability.NoShrink;
-
-            // Act
-            var underTestClass = underTest.Class;
-
-            // Assert
-            underTestClass.Should().NotBeNullOrWhiteSpace();
-
-            underTestClass.Split(' ').Should()
-                .HaveCount(5)
-                .And
-                .OnlyHaveUniqueItems()
-                .And
-                .Match(x => x.All(v => v.StartsWith("flex-resize") && v.EndsWith("-noshrink")));
+                .Match(x => x.All(v => v.StartsWith("flex") && v.EndsWith("-column-reverse")));
         }
 
         [TestMethod]
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnMobile();
+            this.underTest = Direction.Is.OnMobile(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -146,14 +126,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-nogrow");
+                .HaveElementAt(0, "flex-column");
         }
 
         [TestMethod]
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnMobileAndLarger();
+            this.underTest = Direction.Is.OnMobileAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -166,22 +146,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-nogrow")
+                .HaveElementAt(0, "flex-column")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .HaveElementAt(3, "flex-lg-column")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-nogrow");
+                .HaveElementAt(4, "flex-xl-column");
         }
 
         [TestMethod]
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTablet();
+            this.underTest = Direction.Is.OnTablet(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -194,14 +174,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow");
+                .HaveElementAt(1, "flex-sm-column");
         }
 
         [TestMethod]
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTabletAndLarger();
+            this.underTest = Direction.Is.OnTabletAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -214,20 +194,20 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .HaveElementAt(3, "flex-lg-column")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-nogrow");
+                .HaveElementAt(4, "flex-xl-column");
         }
 
         [TestMethod]
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTabletAndSmaller();
+            this.underTest = Direction.Is.OnTabletAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -240,16 +220,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-nogrow")
+                .HaveElementAt(0, "flex-column")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow");
+                .HaveElementAt(1, "flex-sm-column");
         }
 
         [TestMethod]
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktop();
+            this.underTest = Direction.Is.OnDesktop(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -262,14 +242,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow");
+                .HaveElementAt(2, "flex-md-column");
         }
 
         [TestMethod]
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktopAndLarger();
+            this.underTest = Direction.Is.OnDesktopAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -282,18 +262,18 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .HaveElementAt(3, "flex-lg-column")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-nogrow");
+                .HaveElementAt(4, "flex-xl-column");
         }
 
         [TestMethod]
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktopAndSmaller();
+            this.underTest = Direction.Is.OnDesktopAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -306,18 +286,18 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-nogrow")
+                .HaveElementAt(0, "flex-column")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow");
+                .HaveElementAt(2, "flex-md-column");
         }
 
         [TestMethod]
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreen();
+            this.underTest = Direction.Is.OnWidescreen(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -330,14 +310,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow");
+                .HaveElementAt(3, "flex-lg-column");
         }
 
         [TestMethod]
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreenAndLarger();
+            this.underTest = Direction.Is.OnWidescreenAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -350,16 +330,16 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .HaveElementAt(3, "flex-lg-column")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-nogrow");
+                .HaveElementAt(4, "flex-xl-column");
         }
 
         [TestMethod]
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreenAndSmaller();
+            this.underTest = Direction.Is.OnWidescreenAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -372,20 +352,20 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-nogrow")
+                .HaveElementAt(0, "flex-column")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow");
+                .HaveElementAt(3, "flex-lg-column");
         }
 
         [TestMethod]
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnFullHD();
+            this.underTest = Direction.Is.OnFullHD(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -398,14 +378,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(4, "flex-resize-xl-nogrow");
+                .HaveElementAt(4, "flex-xl-column");
         }
 
         [TestMethod]
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnFullHDAndSmaller();
+            this.underTest = Direction.Is.OnFullHDAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -418,15 +398,15 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-nogrow")
+                .HaveElementAt(0, "flex-column")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .HaveElementAt(3, "flex-lg-column")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-nogrow");
+                .HaveElementAt(4, "flex-xl-column");
         }
 
 
@@ -435,7 +415,7 @@ namespace Flexor.Tests
         public void OnMobile_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnMobile();
+            this.underTest = Direction.Is.OnMobile(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -448,22 +428,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-nogrow")
+                .HaveElementAt(0, "flex-column")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-unset")
+                .HaveElementAt(1, "flex-sm-row")
                 .And
-                .HaveElementAt(2, "flex-resize-md-unset")
+                .HaveElementAt(2, "flex-md-row")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-unset")
+                .HaveElementAt(3, "flex-lg-row")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-unset");
+                .HaveElementAt(4, "flex-xl-row");
         }
 
         [TestMethod]
         public void OnMobileAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnMobileAndLarger();
+            this.underTest = Direction.Is.OnMobileAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -476,22 +456,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-nogrow")
+                .HaveElementAt(0, "flex-column")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .HaveElementAt(3, "flex-lg-column")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-nogrow");
+                .HaveElementAt(4, "flex-xl-column");
         }
 
         [TestMethod]
         public void OnTablet_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTablet();
+            this.underTest = Direction.Is.OnTablet(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -504,22 +484,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-unset")
+                .HaveElementAt(0, "flex-row")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-resize-md-unset")
+                .HaveElementAt(2, "flex-md-row")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-unset")
+                .HaveElementAt(3, "flex-lg-row")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-unset");
+                .HaveElementAt(4, "flex-xl-row");
         }
 
         [TestMethod]
         public void OnTabletAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTabletAndLarger();
+            this.underTest = Direction.Is.OnTabletAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -532,22 +512,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-unset")
+                .HaveElementAt(0, "flex-row")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .HaveElementAt(3, "flex-lg-column")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-nogrow");
+                .HaveElementAt(4, "flex-xl-column");
         }
 
         [TestMethod]
         public void OnTabletAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnTabletAndSmaller();
+            this.underTest = Direction.Is.OnTabletAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -560,22 +540,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-nogrow")
+                .HaveElementAt(0, "flex-column")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-resize-md-unset")
+                .HaveElementAt(2, "flex-md-row")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-unset")
+                .HaveElementAt(3, "flex-lg-row")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-unset");
+                .HaveElementAt(4, "flex-xl-row");
         }
 
         [TestMethod]
         public void OnDesktop_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktop();
+            this.underTest = Direction.Is.OnDesktop(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -588,22 +568,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-unset")
+                .HaveElementAt(0, "flex-row")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-unset")
+                .HaveElementAt(1, "flex-sm-row")
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-unset")
+                .HaveElementAt(3, "flex-lg-row")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-unset");
+                .HaveElementAt(4, "flex-xl-row");
         }
 
         [TestMethod]
         public void OnDesktopAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktopAndLarger();
+            this.underTest = Direction.Is.OnDesktopAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -616,22 +596,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-unset")
+                .HaveElementAt(0, "flex-row")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-unset")
+                .HaveElementAt(1, "flex-sm-row")
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .HaveElementAt(3, "flex-lg-column")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-nogrow");
+                .HaveElementAt(4, "flex-xl-column");
         }
 
         [TestMethod]
         public void OnDesktopAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnDesktopAndSmaller();
+            this.underTest = Direction.Is.OnDesktopAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -644,22 +624,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-nogrow")
+                .HaveElementAt(0, "flex-column")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-unset")
+                .HaveElementAt(3, "flex-lg-row")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-unset");
+                .HaveElementAt(4, "flex-xl-row");
         }
 
         [TestMethod]
         public void OnWidescreen_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreen();
+            this.underTest = Direction.Is.OnWidescreen(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -672,22 +652,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-unset")
+                .HaveElementAt(0, "flex-row")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-unset")
+                .HaveElementAt(1, "flex-sm-row")
                 .And
-                .HaveElementAt(2, "flex-resize-md-unset")
+                .HaveElementAt(2, "flex-md-row")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .HaveElementAt(3, "flex-lg-column")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-unset");
+                .HaveElementAt(4, "flex-xl-row");
         }
 
         [TestMethod]
         public void OnWidescreenAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreenAndLarger();
+            this.underTest = Direction.Is.OnWidescreenAndLarger(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -700,22 +680,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-unset")
+                .HaveElementAt(0, "flex-row")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-unset")
+                .HaveElementAt(1, "flex-sm-row")
                 .And
-                .HaveElementAt(2, "flex-resize-md-unset")
+                .HaveElementAt(2, "flex-md-row")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .HaveElementAt(3, "flex-lg-column")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-nogrow");
+                .HaveElementAt(4, "flex-xl-column");
         }
 
         [TestMethod]
         public void OnWidescreenAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnWidescreenAndSmaller();
+            this.underTest = Direction.Is.OnWidescreenAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -728,22 +708,22 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-nogrow")
+                .HaveElementAt(0, "flex-column")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .HaveElementAt(3, "flex-lg-column")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-unset");
+                .HaveElementAt(4, "flex-xl-row");
         }
 
         [TestMethod]
         public void OnFullHD_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnFullHD();
+            this.underTest = Direction.Is.OnFullHD(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -756,22 +736,14 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-unset")
-                .And
-                .HaveElementAt(1, "flex-resize-sm-unset")
-                .And
-                .HaveElementAt(2, "flex-resize-md-unset")
-                .And
-                .HaveElementAt(3, "flex-resize-lg-unset")
-                .And
-                .HaveElementAt(4, "flex-resize-xl-nogrow");
+                .HaveElementAt(4, "flex-xl-column");
         }
 
         [TestMethod]
         public void OnFullHDAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = Resizability.Is(ResizabilityOption.NoGrow).OnFullHDAndSmaller();
+            this.underTest = Direction.Is.OnFullHDAndSmaller(DirectionOption.Column);
 
             // Act
             var underTestClass = underTest.Class;
@@ -784,15 +756,15 @@ namespace Flexor.Tests
                 .And
                 .OnlyHaveUniqueItems()
                 .And
-                .HaveElementAt(0, "flex-resize-nogrow")
+                .HaveElementAt(0, "flex-column")
                 .And
-                .HaveElementAt(1, "flex-resize-sm-nogrow")
+                .HaveElementAt(1, "flex-sm-column")
                 .And
-                .HaveElementAt(2, "flex-resize-md-nogrow")
+                .HaveElementAt(2, "flex-md-column")
                 .And
-                .HaveElementAt(3, "flex-resize-lg-nogrow")
+                .HaveElementAt(3, "flex-lg-column")
                 .And
-                .HaveElementAt(4, "flex-resize-xl-nogrow");
+                .HaveElementAt(4, "flex-xl-column");
         }
 
     }

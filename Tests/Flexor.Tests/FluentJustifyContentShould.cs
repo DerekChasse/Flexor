@@ -133,7 +133,7 @@ namespace Flexor.Tests
         public void OnMobile_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnMobile();
+            this.underTest = JustifyContent.Is.OnMobile(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -153,7 +153,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnMobileAndLarger();
+            this.underTest = JustifyContent.Is.OnMobileAndLarger(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -181,7 +181,7 @@ namespace Flexor.Tests
         public void OnTablet_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnTablet();
+            this.underTest = JustifyContent.Is.OnTablet(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -201,7 +201,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnTabletAndLarger();
+            this.underTest = JustifyContent.Is.OnTabletAndLarger(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -227,7 +227,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnTabletAndSmaller();
+            this.underTest = JustifyContent.Is.OnTabletAndSmaller(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -249,7 +249,7 @@ namespace Flexor.Tests
         public void OnDesktop_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnDesktop();
+            this.underTest = JustifyContent.Is.OnDesktop(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -269,7 +269,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnDesktopAndLarger();
+            this.underTest = JustifyContent.Is.OnDesktopAndLarger(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -293,7 +293,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnDesktopAndSmaller();
+            this.underTest = JustifyContent.Is.OnDesktopAndSmaller(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -317,7 +317,7 @@ namespace Flexor.Tests
         public void OnWidescreen_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnWidescreen();
+            this.underTest = JustifyContent.Is.OnWidescreen(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -337,7 +337,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnWidescreenAndLarger();
+            this.underTest = JustifyContent.Is.OnWidescreenAndLarger(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -359,7 +359,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnWidescreenAndSmaller();
+            this.underTest = JustifyContent.Is.OnWidescreenAndSmaller(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -385,7 +385,7 @@ namespace Flexor.Tests
         public void OnFullHD_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnFullHD();
+            this.underTest = JustifyContent.Is.OnFullHD(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -405,7 +405,7 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_SetsValue_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnFullHDAndSmaller();
+            this.underTest = JustifyContent.Is.OnFullHDAndSmaller(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -437,7 +437,7 @@ namespace Flexor.Tests
         public void OnMobile_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnMobile();
+            this.underTest = JustifyContent.Is.OnMobile(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -465,7 +465,7 @@ namespace Flexor.Tests
         public void OnMobileAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnMobileAndLarger();
+            this.underTest = JustifyContent.Is.OnMobileAndLarger(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -493,7 +493,7 @@ namespace Flexor.Tests
         public void OnTablet_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnTablet();
+            this.underTest = JustifyContent.Is.OnTablet(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -521,7 +521,7 @@ namespace Flexor.Tests
         public void OnTabletAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnTabletAndLarger();
+            this.underTest = JustifyContent.Is.OnTabletAndLarger(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -549,7 +549,7 @@ namespace Flexor.Tests
         public void OnTabletAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnTabletAndSmaller();
+            this.underTest = JustifyContent.Is.OnTabletAndSmaller(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -577,7 +577,7 @@ namespace Flexor.Tests
         public void OnDesktop_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnDesktop();
+            this.underTest = JustifyContent.Is.OnDesktop(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -605,7 +605,7 @@ namespace Flexor.Tests
         public void OnDesktopAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnDesktopAndLarger();
+            this.underTest = JustifyContent.Is.OnDesktopAndLarger(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -633,7 +633,7 @@ namespace Flexor.Tests
         public void OnDesktopAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnDesktopAndSmaller();
+            this.underTest = JustifyContent.Is.OnDesktopAndSmaller(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -661,7 +661,7 @@ namespace Flexor.Tests
         public void OnWidescreen_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnWidescreen();
+            this.underTest = JustifyContent.Is.OnWidescreen(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -689,7 +689,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndLarger_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnWidescreenAndLarger();
+            this.underTest = JustifyContent.Is.OnWidescreenAndLarger(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -717,7 +717,7 @@ namespace Flexor.Tests
         public void OnWidescreenAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnWidescreenAndSmaller();
+            this.underTest = JustifyContent.Is.OnWidescreenAndSmaller(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -745,7 +745,7 @@ namespace Flexor.Tests
         public void OnFullHD_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnFullHD();
+            this.underTest = JustifyContent.Is.OnFullHD(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;
@@ -773,7 +773,7 @@ namespace Flexor.Tests
         public void OnFullHDAndSmaller_LeavesDefault_Correctly()
         {
             // Arrange
-            this.underTest = JustifyContent.Is(JustifyContentOption.Center).OnFullHDAndSmaller();
+            this.underTest = JustifyContent.Is.OnFullHDAndSmaller(JustifyContentOption.Center);
 
             // Act
             var underTestClass = underTest.Class;

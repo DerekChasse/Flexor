@@ -4,23 +4,23 @@
 
 <DisplayBox HeaderMessage=@this.headerMessage>
     <FlexLine Class="colored h-100 w-100">
-        <FlexItem Visible="Visible.Only.OnTabletAndLarger()" Size="Size.IsPercent(20).OnAll()" Class="align-items-center justify-content-center">
+        <FlexItem Visible="Visible.Only.OnTabletAndLarger()" Size="Size.IsPercent(20)" Class="align-items-center justify-content-center">
             Tablets and larger
         </FlexItem>
 
-        <FlexItem Visible="Visible.Only.OnWidescreenAndSmaller()" Size="Size.IsPercent(20).OnAll()" Class="align-items-center justify-content-center">
+        <FlexItem Visible="Visible.Only.OnWidescreenAndSmaller()" Size="Size.IsPercent(20)" Class="align-items-center justify-content-center">
             Widescreen and smaller
         </FlexItem>
 
-        <FlexItem Visible="Visible.Only.OnFullHD()" Size="Size.IsPercent(20).OnAll()" Class="align-items-center justify-content-center">
+        <FlexItem Visible="Visible.Only.OnFullHD()" Size="Size.IsPercent(20)" Class="align-items-center justify-content-center">
             FullHD
         </FlexItem>
 
-        <FlexItem Visible="Visible.When(ConditionMet)" Size="Size.IsPercent(20).OnAll()" Class="align-items-center justify-content-center">
+        <FlexItem Visible="Visible.When(ConditionMet)" Size="Size.IsPercent(20)" Class="align-items-center justify-content-center">
             Conditionally
         </FlexItem>
 
-        <FlexItem Visible="Visible.Always" Resizability="Resizability.Fill" Class="align-items-center justify-content-center">
+        <FlexItem Visible="Visible.Always" Resizable="Resizable.Fill" Class="align-items-center justify-content-center">
             Always
         </FlexItem>
 

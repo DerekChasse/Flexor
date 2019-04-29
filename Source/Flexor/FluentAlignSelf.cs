@@ -13,28 +13,17 @@ namespace Flexor
     {
     }
 
-    public interface IFluentAlignSelfWithValue : IAlignSelf
+    public interface IFluentAlignSelf : IFluentReactive<IFluentAlignSelf, AlignSelfOption>, IAlignSelf
     {
-        IFluentAlignSelfWithValueOnBreakpoint Is(AlignSelfOption value);
-    }
-
-    public interface IFluentAlignSelfWithValueOnBreakpoint : IFluentReactive<IFluentAlignSelfWithValue>, IAlignSelf
-    {
-        /// <summary>
-        /// Configuration value will be applied to all media query breakpoints.
-        /// </summary>
-        /// <returns>The configuration object.</returns>
-        IAlignSelf OnAll();
     }
 #pragma warning restore SA1600 // Elements should be documented
 
     /// <summary>
     /// Define how an individual item is aligned along a flex-line's cross axis.
     /// </summary>
-    public class FluentAlignSelf : IFluentAlignSelfWithValueOnBreakpoint, IFluentAlignSelfWithValue
+    public class FluentAlignSelf : IFluentAlignSelf
     {
         private readonly Dictionary<Breakpoint, AlignSelfOption> breakpointDictionary = new Dictionary<Breakpoint, AlignSelfOption>();
-        private AlignSelfOption valueToApply;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentAlignSelf"/> class.
@@ -50,8 +39,6 @@ namespace Flexor
         /// <param name="initialValue">The initial value across all CSS media queries.</param>
         public FluentAlignSelf(AlignSelfOption initialValue)
         {
-            this.valueToApply = initialValue;
-
             this.breakpointDictionary.Add(Breakpoint.Mobile, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Tablet, initialValue);
             this.breakpointDictionary.Add(Breakpoint.Desktop, initialValue);
@@ -69,107 +56,93 @@ namespace Flexor
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValueOnBreakpoint Is(AlignSelfOption value)
+        public IFluentAlignSelf OnDesktop(AlignSelfOption option)
         {
-            this.valueToApply = value;
+            this.SetBreakpointValues(option, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IAlignSelf OnAll()
+        public IFluentAlignSelf OnDesktopAndLarger(AlignSelfOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnDesktop()
+        public IFluentAlignSelf OnDesktopAndSmaller(AlignSelfOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Desktop);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnDesktopAndLarger()
+        public IFluentAlignSelf OnFullHD(AlignSelfOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnDesktopAndSmaller()
+        public IFluentAlignSelf OnFullHDAndSmaller(AlignSelfOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnFullHD()
+        public IFluentAlignSelf OnMobile(AlignSelfOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Mobile);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnFullHDAndSmaller()
+        public IFluentAlignSelf OnMobileAndLarger(AlignSelfOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnMobile()
+        public IFluentAlignSelf OnTablet(AlignSelfOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile);
+            this.SetBreakpointValues(option, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnMobileAndLarger()
+        public IFluentAlignSelf OnTabletAndLarger(AlignSelfOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnTablet()
+        public IFluentAlignSelf OnTabletAndSmaller(AlignSelfOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Tablet);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnTabletAndLarger()
+        public IFluentAlignSelf OnWidescreen(AlignSelfOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen, Breakpoint.FullHD);
+            this.SetBreakpointValues(option, Breakpoint.Widescreen);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnTabletAndSmaller()
+        public IFluentAlignSelf OnWidescreenAndLarger(AlignSelfOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet);
+            this.SetBreakpointValues(option, Breakpoint.Widescreen, Breakpoint.FullHD);
             return this;
         }
 
         /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnWidescreen()
+        public IFluentAlignSelf OnWidescreenAndSmaller(AlignSelfOption option)
         {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Widescreen);
-            return this;
-        }
-
-        /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnWidescreenAndLarger()
-        {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Widescreen, Breakpoint.FullHD);
-            return this;
-        }
-
-        /// <inheritdoc/>
-        public IFluentAlignSelfWithValue OnWidescreenAndSmaller()
-        {
-            this.SetBreakpointValues(this.valueToApply, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
+            this.SetBreakpointValues(option, Breakpoint.Mobile, Breakpoint.Tablet, Breakpoint.Desktop, Breakpoint.Widescreen);
             return this;
         }
 
@@ -179,7 +152,7 @@ namespace Flexor
 
             foreach (var kvp in this.breakpointDictionary)
             {
-                builder.Append($"align-self{kvp.Key}{kvp.Value} ");
+                builder.Append($"align-self{kvp.Key}-{kvp.Value} ");
             }
 
             return builder.ToString().Trim();

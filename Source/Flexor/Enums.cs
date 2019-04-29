@@ -2,6 +2,8 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
+using System;
+
 namespace Flexor
 {
     /// <summary>
@@ -19,22 +21,48 @@ namespace Flexor
         /// <summary>
         /// Items within a flex-line are rendered horizontally.
         /// </summary>
-        public static DirectionOption Row => new DirectionOption("-row");
+        public static DirectionOption Row => new DirectionOption("row");
 
         /// <summary>
         /// Items within a flex-line are rendered vertically.
         /// </summary>
-        public static DirectionOption Column => new DirectionOption("-column");
+        public static DirectionOption Column => new DirectionOption("column");
 
         /// <summary>
         /// Items within a flex-line are rendered horizontally in reverse order.
         /// </summary>
-        public static DirectionOption RowReverse => new DirectionOption("-row-reverse");
+        public static DirectionOption RowReverse => new DirectionOption("row-reverse");
 
         /// <summary>
         /// Items within a flex-line are rendered vertically in reverse order.
         /// </summary>
-        public static DirectionOption ColumnReverse => new DirectionOption("-column-reverse");
+        public static DirectionOption ColumnReverse => new DirectionOption("column-reverse");
+
+        public static implicit operator DirectionOption(string value)
+        {
+            if (value.Equals(Row.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Row;
+            }
+
+            if (value.Equals(Column.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Column;
+            }
+
+            if (value.Equals(RowReverse.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return RowReverse;
+            }
+
+            if (value.Equals(ColumnReverse.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return ColumnReverse;
+            }
+
+            Console.WriteLine($"{value} is not a supported direction value.");
+            return null;
+        }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -59,28 +87,59 @@ namespace Flexor
         /// <summary>
         /// Items are packed along start of the flex-line's primary axis.
         /// </summary>
-        public static JustifyContentOption Start => new JustifyContentOption("-start");
+        public static JustifyContentOption Start => new JustifyContentOption("start");
 
         /// <summary>
         /// Items are centered around the flex-line's center-line.
         /// </summary>
-        public static JustifyContentOption Center => new JustifyContentOption("-center");
+        public static JustifyContentOption Center => new JustifyContentOption("center");
 
         /// <summary>
         /// Items are packed along the end of the flex-line's primary axis.
         /// </summary>
-        public static JustifyContentOption End => new JustifyContentOption("-end");
+        public static JustifyContentOption End => new JustifyContentOption("end");
 
         /// <summary>
         /// All items are spaced equally apart.
         /// </summary>
-        public static JustifyContentOption SpaceAround => new JustifyContentOption("-around");
+        public static JustifyContentOption SpaceAround => new JustifyContentOption("around");
 
         /// <summary>
         /// Items are spaced evenly with first and last items in contact
         /// with the start and end of the flex-line.
         /// </summary>
-        public static JustifyContentOption SpaceBetween => new JustifyContentOption("-between");
+        public static JustifyContentOption SpaceBetween => new JustifyContentOption("between");
+
+        public static implicit operator JustifyContentOption(string value)
+        {
+            if (value.Equals(Start.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Start;
+            }
+
+            if (value.Equals(Center.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Center;
+            }
+
+            if (value.Equals(End.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return End;
+            }
+
+            if (value.Equals(SpaceAround.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return SpaceAround;
+            }
+
+            if (value.Equals(SpaceBetween.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return SpaceBetween;
+            }
+
+            Console.WriteLine($"{value} is not a supported content justification value.");
+            return null;
+        }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -105,27 +164,58 @@ namespace Flexor
         /// <summary>
         /// Flex-items are placed along the start of the flex-line's cross axis.
         /// </summary>
-        public static AlignItemsOption Start => new AlignItemsOption("-start");
+        public static AlignItemsOption Start => new AlignItemsOption("start");
 
         /// <summary>
         /// Flex-items are placed along the center of the flex-line's cross axis.
         /// </summary>
-        public static AlignItemsOption Center => new AlignItemsOption("-center");
+        public static AlignItemsOption Center => new AlignItemsOption("center");
 
         /// <summary>
         /// Flex-items are placed along the end of the flex-line's cross axis.
         /// </summary>
-        public static AlignItemsOption End => new AlignItemsOption("-end");
+        public static AlignItemsOption End => new AlignItemsOption("end");
 
         /// <summary>
         /// Flex-items are stretched along the flex-line's cross axis.
         /// </summary>
-        public static AlignItemsOption Stretch => new AlignItemsOption("-stretch");
+        public static AlignItemsOption Stretch => new AlignItemsOption("stretch");
 
         /// <summary>
         /// Flex-items are baseline aligned along the flex-line's cross axis.
         /// </summary>
-        public static AlignItemsOption Baseline => new AlignItemsOption("-baseline");
+        public static AlignItemsOption Baseline => new AlignItemsOption("baseline");
+
+        public static implicit operator AlignItemsOption(string value)
+        {
+            if (value.Equals(Start.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Start;
+            }
+
+            if (value.Equals(Center.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Center;
+            }
+
+            if (value.Equals(End.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return End;
+            }
+
+            if (value.Equals(Stretch.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Stretch;
+            }
+
+            if (value.Equals(Baseline.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Baseline;
+            }
+
+            Console.WriteLine($"{value} is not a supported item alignment value.");
+            return null;
+        }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -150,32 +240,68 @@ namespace Flexor
         /// <summary>
         /// Inherit's the parent flex-line's item alignment definition.
         /// </summary>
-        public static AlignSelfOption Auto => new AlignSelfOption("-auto");
+        public static AlignSelfOption Auto => new AlignSelfOption("auto");
 
         /// <summary>
         /// Flex-item is placed on the start of the flex-line's cross axis.
         /// </summary>
-        public static AlignSelfOption Start => new AlignSelfOption("-start");
+        public static AlignSelfOption Start => new AlignSelfOption("start");
 
         /// <summary>
         /// Flex-item is placed on the center of the flex-line's cross axis.
         /// </summary>
-        public static AlignSelfOption Center => new AlignSelfOption("-center");
+        public static AlignSelfOption Center => new AlignSelfOption("center");
 
         /// <summary>
         /// Flex-item is placed on the end of the flex-line's cross axis.
         /// </summary>
-        public static AlignSelfOption End => new AlignSelfOption("-end");
+        public static AlignSelfOption End => new AlignSelfOption("end");
 
         /// <summary>
         /// Flex-item is stretched across the flex-line's cross axis.
         /// </summary>
-        public static AlignSelfOption Stretch => new AlignSelfOption("-stretch");
+        public static AlignSelfOption Stretch => new AlignSelfOption("stretch");
 
         /// <summary>
         /// Flex-item is baseline aligned along the flex-line's cross axis.
         /// </summary>
-        public static AlignSelfOption Baseline => new AlignSelfOption("-baseline");
+        public static AlignSelfOption Baseline => new AlignSelfOption("baseline");
+
+        public static implicit operator AlignSelfOption(string value)
+        {
+            if (value.Equals(Auto.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Auto;
+            }
+
+            if (value.Equals(Start.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Start;
+            }
+
+            if (value.Equals(Center.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Center;
+            }
+
+            if (value.Equals(End.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return End;
+            }
+
+            if (value.Equals(Stretch.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Stretch;
+            }
+
+            if (value.Equals(Baseline.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Baseline;
+            }
+
+            Console.WriteLine($"{value} is not a supported self alignment value.");
+            return null;
+        }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -264,11 +390,11 @@ namespace Flexor
     /// <summary>
     /// Enumeration of ways items are allowed to resize within a flex-line.
     /// </summary>
-    public class ResizabilityOption
+    public class ResizableOption
     {
         private readonly string value;
 
-        private ResizabilityOption(string value)
+        private ResizableOption(string value)
         {
             this.value = value;
         }
@@ -276,42 +402,144 @@ namespace Flexor
         /// <summary>
         /// Item will be sized automatically.
         /// </summary>
-        public static ResizabilityOption Default => new ResizabilityOption("-unset");
+        public static ResizableOption Default => new ResizableOption("unset");
 
         /// <summary>
         /// Item will be sized automatically.
         /// </summary>
-        public static ResizabilityOption Auto => new ResizabilityOption("-auto");
+        public static ResizableOption Auto => new ResizableOption("auto");
 
         /// <summary>
         /// Item will not grow past it's initial size..
         /// </summary>
-        public static ResizabilityOption Initial => new ResizabilityOption("-initial");
+        public static ResizableOption Initial => new ResizableOption("initial");
 
         /// <summary>
         /// Item will not resize.
         /// </summary>
-        public static ResizabilityOption None => new ResizabilityOption("-none");
+        public static ResizableOption None => new ResizableOption("none");
 
         /// <summary>
         /// Item will fill all available horizontal and vertical space within the flex-line.
         /// </summary>
-        public static ResizabilityOption Fill => new ResizabilityOption("-fill");
+        public static ResizableOption Fill => new ResizableOption("fill");
 
         /// <summary>
         /// Item is allowed to grow to fill remaining space.
         /// </summary>
-        public static ResizabilityOption Grow => new ResizabilityOption("-grow");
+        public static ResizableOption Grow => new ResizableOption("grow");
 
         /// <summary>
         /// Item is not allowed to grow.
         /// </summary>
-        public static ResizabilityOption NoGrow => new ResizabilityOption("-nogrow");
+        public static ResizableOption NoGrow => new ResizableOption("nogrow");
 
         /// <summary>
         /// Item is not allowed to shrink.
         /// </summary>
-        public static ResizabilityOption NoShrink => new ResizabilityOption("-noshrink");
+        public static ResizableOption NoShrink => new ResizableOption("noshrink");
+
+        public static implicit operator ResizableOption(string value)
+        {
+            if (value.Equals(Default.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Default;
+            }
+
+            if (value.Equals(Auto.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Auto;
+            }
+
+            if (value.Equals(Initial.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Initial;
+            }
+
+            if (value.Equals(None.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return None;
+            }
+
+            if (value.Equals(Fill.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Fill;
+            }
+
+            if (value.Equals(Grow.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Grow;
+            }
+
+            if (value.Equals(NoGrow.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return NoGrow;
+            }
+
+            if (value.Equals(NoShrink.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return NoShrink;
+            }
+
+            Console.WriteLine($"{value} is not a supported resize value.");
+            return null;
+        }
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return this.value;
+        }
+    }
+
+    /// <summary>
+    ///  Enumeration of supported order of items within a flex-line.
+    /// </summary>
+    public class OrderOption
+    {
+        private readonly string value;
+
+        private OrderOption(string value)
+        {
+            this.value = value;
+        }
+
+        /// <summary>
+        /// Item will always be rendered first on a flex-line.
+        /// </summary>
+        public static OrderOption First => new OrderOption("first");
+
+        /// <summary>
+        /// Item will always be rendered last on a flex-line.
+        /// </summary>
+        public static OrderOption Last => new OrderOption("last");
+
+        public static implicit operator OrderOption(int value)
+        {
+            if (value < 0 || value > 12)
+            {
+                Console.WriteLine($"Order {value} is outside the acceptable range of 0-12.");
+                return null;
+            }
+
+            return new OrderOption(value.ToString());
+        }
+
+        public static implicit operator OrderOption(string value)
+        {
+            if (value.Equals(First.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return First;
+            }
+
+            if (value.Equals(Last.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Last;
+            }
+
+            Console.WriteLine($"{value} is not a supported order value.");
+            return null;
+        }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -335,18 +563,39 @@ namespace Flexor
         /// <summary>
         /// Items remain on a single line and will overflow.
         /// </summary>
-        public static WrapOption NoWrap => new WrapOption("-nowrap");
+        public static WrapOption NoWrap => new WrapOption("nowrap");
 
         /// <summary>
         /// Items will be distributed across multiple lines if necessary.
         /// </summary>
-        public static WrapOption Wrap => new WrapOption("-wrap");
+        public static WrapOption Wrap => new WrapOption("wrap");
 
         /// <summary>
         /// Items will be distributed across multiple lines if necessary.
         /// Additional lines will appear before the previous ones.
         /// </summary>
-        public static WrapOption WrapReverse => new WrapOption("-wrap-reverse");
+        public static WrapOption WrapReverse => new WrapOption("wrap-reverse");
+
+        public static implicit operator WrapOption(string value)
+        {
+            if (value.Equals(NoWrap.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return NoWrap;
+            }
+
+            if (value.Equals(Wrap.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Wrap;
+            }
+
+            if (value.Equals(WrapReverse.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return WrapReverse;
+            }
+
+            Console.WriteLine($"{value} is not a supported wrap value.");
+            return null;
+        }
 
         /// <inheritdoc/>
         public override string ToString()

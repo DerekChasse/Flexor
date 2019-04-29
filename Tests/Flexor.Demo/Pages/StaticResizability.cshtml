@@ -1,31 +1,31 @@
 ﻿@layout StaticLayout
 
-@page "/static-resizability"
+@page "/static-resizable"
 
 <DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
     <FlexLine Wrap="Wrap.CanWrap" Class="boxes colored h-100 w-100">
-        <FlexItem Resizability="Resizability.None">
+        <FlexItem Resizable="Resizable.None">
             This box will not resize.
         </FlexItem>
-        <FlexItem Resizability="Resizability.Fill">
+        <FlexItem Resizable="Resizable.Fill">
             This box will fill.
         </FlexItem>
-        <FlexItem Resizability="Resizability.NoGrow">
+        <FlexItem Resizable="Resizable.NoGrow">
             This box will not grow.
         </FlexItem>
-        <FlexItem Resizability="Resizability.Grow">
+        <FlexItem Resizable="Resizable.Grow">
             This box will grow .
         </FlexItem>
-        <FlexItem Resizability="Resizability.Initial">
+        <FlexItem Resizable="Resizable.Initial">
             This box will keep it's initial size.
         </FlexItem>
-        <FlexItem Resizability="Resizability.Auto">
+        <FlexItem Resizable="Resizable.Auto">
             This box will resize automatically.
         </FlexItem>
-        <FlexItem Resizability="Resizability.NoShrink">
+        <FlexItem Resizable="Resizable.NoShrink">
             This box will not shrink.
         </FlexItem>
-        <FlexItem Resizability="Resizability.Fill" Class="bg-white">
+        <FlexItem Resizable="Resizable.Fill" Class="bg-white">
             
         </FlexItem>
     </FlexLine>

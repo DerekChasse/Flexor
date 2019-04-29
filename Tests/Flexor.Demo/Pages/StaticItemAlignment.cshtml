@@ -15,7 +15,7 @@
 
 <DisplayBox ContentMinHeight="200">
     <FlexLine Direction="Flexor.Direction.Row">
-        <FlexItem Size="Size.IsPercent(33).OnAll()">
+        <FlexItem Size="Size.IsPercent(33)">
             <FlexLine Direction="Flexor.Direction.Column" AlignItems="Flexor.AlignItems.Center">
                 <div>
                     <strong>Layout Direction</strong>
@@ -28,7 +28,7 @@
                 </div>
             </FlexLine>
         </FlexItem>
-        <FlexItem Size="Size.IsPercent(34).OnAll()">
+        <FlexItem Size="Size.IsPercent(34)">
             <FlexLine Direction="Flexor.Direction.Column" AlignItems="Flexor.AlignItems.Center">
                 <div>
                     <strong>Alignment in Layout Direction</strong>
@@ -42,7 +42,7 @@
                 </div>
             </FlexLine>
         </FlexItem>
-        <FlexItem Size="Size.IsPercent(33).OnAll()">
+        <FlexItem Size="Size.IsPercent(33)">
             <FlexLine Direction="Flexor.Direction.Column" AlignItems="Flexor.AlignItems.Center">
                 <div>
                     <strong>Alignment in Perpendicular Direction</strong>
@@ -72,19 +72,19 @@
 
     private void UpdateDirection(DirectionOption option, string optionString)
     {
-        this.Direction = Flexor.Direction.Is(option).OnMobileAndLarger();
+        this.Direction = Flexor.Direction.Is.OnMobileAndLarger(option);
         this.DirectionOptionString = optionString;
     }
 
     private void UpdateJustifyContent(JustifyContentOption option, string optionString)
     {
-        this.JustifyContent = Flexor.JustifyContent.Is(option).OnMobileAndLarger();
+        this.JustifyContent = Flexor.JustifyContent.Is.OnMobileAndLarger(option);
         this.JustifyContentString = optionString;
     }
 
     private void UpdateAlignItems(AlignItemsOption option, string optionString)
     {
-        this.AlignItems = Flexor.AlignItems.Is(option).OnMobileAndLarger();
+        this.AlignItems = Flexor.AlignItems.Is.OnMobileAndLarger(option);
         this.AlignItemsString = optionString;
     }
 }
