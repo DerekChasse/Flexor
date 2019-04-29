@@ -152,7 +152,7 @@ namespace Flexor
 
             foreach (var kvp in this.breakpointDictionary)
             {
-                builder.Append($"flex-resize{kvp.Key}{kvp.Value} ");
+                builder.Append($"flex-resize{kvp.Key}-{kvp.Value} ");
             }
 
             return builder.ToString().Trim();

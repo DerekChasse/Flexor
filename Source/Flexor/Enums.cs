@@ -402,42 +402,88 @@ namespace Flexor
         /// <summary>
         /// Item will be sized automatically.
         /// </summary>
-        public static ResizabilityOption Default => new ResizabilityOption("-unset");
+        public static ResizabilityOption Default => new ResizabilityOption("unset");
 
         /// <summary>
         /// Item will be sized automatically.
         /// </summary>
-        public static ResizabilityOption Auto => new ResizabilityOption("-auto");
+        public static ResizabilityOption Auto => new ResizabilityOption("auto");
 
         /// <summary>
         /// Item will not grow past it's initial size..
         /// </summary>
-        public static ResizabilityOption Initial => new ResizabilityOption("-initial");
+        public static ResizabilityOption Initial => new ResizabilityOption("initial");
 
         /// <summary>
         /// Item will not resize.
         /// </summary>
-        public static ResizabilityOption None => new ResizabilityOption("-none");
+        public static ResizabilityOption None => new ResizabilityOption("none");
 
         /// <summary>
         /// Item will fill all available horizontal and vertical space within the flex-line.
         /// </summary>
-        public static ResizabilityOption Fill => new ResizabilityOption("-fill");
+        public static ResizabilityOption Fill => new ResizabilityOption("fill");
 
         /// <summary>
         /// Item is allowed to grow to fill remaining space.
         /// </summary>
-        public static ResizabilityOption Grow => new ResizabilityOption("-grow");
+        public static ResizabilityOption Grow => new ResizabilityOption("grow");
 
         /// <summary>
         /// Item is not allowed to grow.
         /// </summary>
-        public static ResizabilityOption NoGrow => new ResizabilityOption("-nogrow");
+        public static ResizabilityOption NoGrow => new ResizabilityOption("nogrow");
 
         /// <summary>
         /// Item is not allowed to shrink.
         /// </summary>
-        public static ResizabilityOption NoShrink => new ResizabilityOption("-noshrink");
+        public static ResizabilityOption NoShrink => new ResizabilityOption("noshrink");
+
+        public static implicit operator ResizabilityOption(string value)
+        {
+            if (value.Equals(Default.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Default;
+            }
+
+            if (value.Equals(Auto.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Auto;
+            }
+
+            if (value.Equals(Initial.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Initial;
+            }
+
+            if (value.Equals(None.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return None;
+            }
+
+            if (value.Equals(Fill.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Fill;
+            }
+
+            if (value.Equals(Grow.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return Grow;
+            }
+
+            if (value.Equals(NoGrow.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return NoGrow;
+            }
+
+            if (value.Equals(NoShrink.value, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return NoShrink;
+            }
+
+            Console.WriteLine($"{value} is not a supported resizability.");
+            return null;
+        }
 
         /// <inheritdoc/>
         public override string ToString()
