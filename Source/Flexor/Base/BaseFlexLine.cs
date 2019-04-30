@@ -66,6 +66,7 @@ namespace Flexor.Base
             get => this.justifyContent;
             set
             {
+                System.Console.WriteLine("In Set JustifyContent");
                 if (!this.justifyContent.Equals(value))
                 {
                     this.justifyContent = value;
@@ -85,6 +86,7 @@ namespace Flexor.Base
             get => this.alignItems;
             set
             {
+                System.Console.WriteLine("In Set AlignItems");
                 if (!this.alignItems.Equals(value))
                 {
                     this.alignItems = value;
@@ -96,7 +98,7 @@ namespace Flexor.Base
         /// <inheritdoc/>
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            base.BuildRenderTree(builder);
+            System.Console.WriteLine("In BuildRenderTree");
 
             builder.OpenElement(0, "div");
             builder.AddAttribute(1, "class", this.GetClassDefinition());

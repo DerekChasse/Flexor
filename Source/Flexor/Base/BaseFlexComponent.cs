@@ -2,10 +2,8 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace Flexor.Base
 {
@@ -80,12 +78,6 @@ namespace Flexor.Base
             get;
             set;
         }
-
-        /// <summary>
-        /// The parent component if any.
-        /// </summary>
-        [CascadingParameter]
-        protected BaseFlexComponent Parent { get; set; }
 
         /// <summary>
         /// Flexor specific javascript interop layer.
