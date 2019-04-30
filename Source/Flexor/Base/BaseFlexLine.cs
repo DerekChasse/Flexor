@@ -66,7 +66,6 @@ namespace Flexor.Base
             get => this.justifyContent;
             set
             {
-                System.Console.WriteLine("In Set JustifyContent");
                 if (!this.justifyContent.Equals(value))
                 {
                     this.justifyContent = value;
@@ -74,6 +73,19 @@ namespace Flexor.Base
                 }
             }
         }
+
+        /// <summary>
+        /// Gets the flex-line's computed class.
+        /// </summary>
+        protected string ComputedClass =>
+            string.Join(
+                " ",
+                this.Direction.Class,
+                this.AlignItems.Class,
+                this.JustifyContent.Class,
+                this.Visible.Class,
+                this.Wrap.Class,
+                this.Class);
 
         /// <summary>
         /// Defines the alignment of items across the flex-line's cross axis.
@@ -86,47 +98,12 @@ namespace Flexor.Base
             get => this.alignItems;
             set
             {
-                System.Console.WriteLine("In Set AlignItems");
                 if (!this.alignItems.Equals(value))
                 {
                     this.alignItems = value;
                     this.StateHasChanged();
                 }
             }
-        }
-
-        /// <inheritdoc/>
-        protected override void BuildRenderTree(RenderTreeBuilder builder)
-        {
-            System.Console.WriteLine("In BuildRenderTree");
-
-            builder.OpenElement(0, "div");
-            builder.AddAttribute(1, "class", this.GetClassDefinition());
-
-            if (!string.IsNullOrWhiteSpace(this.Style))
-            {
-                builder.AddAttribute(2, "style", this.Style);
-            }
-
-            if (this.ChildContent != null)
-            {
-                builder.AddContent(3, this.ChildContent);
-                this.ChildContent = null;
-            }
-
-            builder.CloseElement();
-        }
-
-        private string GetClassDefinition()
-        {
-            return string.Join(
-                " ",
-                this.Direction.Class,
-                this.AlignItems.Class,
-                this.JustifyContent.Class,
-                this.Visible.Class,
-                this.Wrap.Class,
-                this.Class);
         }
     }
 }
