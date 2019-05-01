@@ -3,7 +3,6 @@
 // </copyright>
 
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace Flexor.Base
 {
