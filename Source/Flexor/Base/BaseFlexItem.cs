@@ -2,10 +2,8 @@
 // Copyright (c) Derek Chasse. All rights reserved.
 // </copyright>
 
-using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace Flexor.Base
 {
@@ -95,6 +93,19 @@ namespace Flexor.Base
             }
         }
 
+        /// <summary>
+        /// Gets the flex-item's computed class.
+        /// </summary>
+        protected string ComputedClass =>
+            string.Join(
+                " ",
+                this.AlignSelf.Class,
+                this.Visible.Class,
+                this.Order.Class,
+                this.Resizable.Class,
+                this.Size.Class,
+                this.Class);
+
         /// <inheritdoc/>
         protected override Task OnParametersSetAsync()
         {
@@ -106,40 +117,6 @@ namespace Flexor.Base
             }
 
             return Task.CompletedTask;
-        }
-
-        /// <inheritdoc/>
-        protected override void BuildRenderTree(RenderTreeBuilder builder)
-        {
-            base.BuildRenderTree(builder);
-
-            builder.OpenElement(0, "div");
-            builder.AddAttribute(1, "class", this.GetItemClassDefinition());
-
-            if (!string.IsNullOrWhiteSpace(this.Style))
-            {
-                builder.AddAttribute(2, "style", this.Style);
-            }
-
-            if (this.ChildContent != null)
-            {
-                builder.AddContent(3, this.ChildContent);
-                this.ChildContent = null;
-            }
-
-            builder.CloseElement();
-        }
-
-        private string GetItemClassDefinition()
-        {
-            return string.Join(
-                " ",
-                this.AlignSelf.Class,
-                this.Visible.Class,
-                this.Order.Class,
-                this.Resizable.Class,
-                this.Size.Class,
-                this.Class);
         }
     }
 }

@@ -3,7 +3,6 @@
 // </copyright>
 
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.RenderTree;
 
 namespace Flexor.Base
 {
@@ -75,6 +74,19 @@ namespace Flexor.Base
         }
 
         /// <summary>
+        /// Gets the flex-line's computed class.
+        /// </summary>
+        protected string ComputedClass =>
+            string.Join(
+                " ",
+                this.Direction.Class,
+                this.AlignItems.Class,
+                this.JustifyContent.Class,
+                this.Visible.Class,
+                this.Wrap.Class,
+                this.Class);
+
+        /// <summary>
         /// Defines the alignment of items across the flex-line's cross axis.
         ///
         /// Default is 'stretch'.
@@ -91,40 +103,6 @@ namespace Flexor.Base
                     this.StateHasChanged();
                 }
             }
-        }
-
-        /// <inheritdoc/>
-        protected override void BuildRenderTree(RenderTreeBuilder builder)
-        {
-            base.BuildRenderTree(builder);
-
-            builder.OpenElement(0, "div");
-            builder.AddAttribute(1, "class", this.GetClassDefinition());
-
-            if (!string.IsNullOrWhiteSpace(this.Style))
-            {
-                builder.AddAttribute(2, "style", this.Style);
-            }
-
-            if (this.ChildContent != null)
-            {
-                builder.AddContent(3, this.ChildContent);
-                this.ChildContent = null;
-            }
-
-            builder.CloseElement();
-        }
-
-        private string GetClassDefinition()
-        {
-            return string.Join(
-                " ",
-                this.Direction.Class,
-                this.AlignItems.Class,
-                this.JustifyContent.Class,
-                this.Visible.Class,
-                this.Wrap.Class,
-                this.Class);
         }
     }
 }
