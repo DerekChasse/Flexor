@@ -62,7 +62,8 @@
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "default",
+      "template/flexor"
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",
