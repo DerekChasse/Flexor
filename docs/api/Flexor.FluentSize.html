@@ -1,0 +1,923 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class FluentSize
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class FluentSize
+   ">
+    <meta name="generator" content="docfx 2.42.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Flexor.FluentSize">
+  
+  
+  <h1 id="Flexor_FluentSize" data-uid="Flexor.FluentSize" class="text-break">Class FluentSize
+  </h1>
+  <div class="markdown level0 summary"><p>Define the size of an item displayed in a flex-line.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">FluentSize</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></div>
+    <div><a class="xref" href="Flexor.ISize.html">ISize</a></div>
+    <div><a class="xref" href="Flexor.ICssBacked.html">ICssBacked</a></div>
+    <div><a class="xref" href="Flexor.IDynamicCssBacked.html">IDynamicCssBacked</a></div>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Flexor.ISize.html">ISize</a>&gt;</div>
+    <div><a class="xref" href="Flexor.IFluentReactive-2.html">IFluentReactive</a>&lt;<a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a>, <span class="xref">System.String</span>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Flexor.html">Flexor</a></h6>
+  <h6><strong>Assembly</strong>: Flexor.dll</h6>
+  <h5 id="Flexor_FluentSize_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FluentSize : IFluentSize, ISize, ICssBacked, IDynamicCssBacked, IEquatable&lt;ISize&gt;, IFluentReactive&lt;IFluentSize, string&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize__ctor.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L35">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize__ctor_" data-uid="Flexor.FluentSize.#ctor*"></a>
+  <h4 id="Flexor_FluentSize__ctor" data-uid="Flexor.FluentSize.#ctor">FluentSize()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Flexor.FluentSize.html">FluentSize</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FluentSize()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_Class.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.Class%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L54">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_Class_" data-uid="Flexor.FluentSize.Class*"></a>
+  <h4 id="Flexor_FluentSize_Class" data-uid="Flexor.FluentSize.Class">Class</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Class { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_Css.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.Css%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L57">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_Css_" data-uid="Flexor.FluentSize.Css*"></a>
+  <h4 id="Flexor_FluentSize_Css" data-uid="Flexor.FluentSize.Css">Css</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDictionary&lt;string, string&gt; Css { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_Equals_Flexor_ISize_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.Equals(Flexor.ISize)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L151">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_Equals_" data-uid="Flexor.FluentSize.Equals*"></a>
+  <h4 id="Flexor_FluentSize_Equals_Flexor_ISize_" data-uid="Flexor.FluentSize.Equals(Flexor.ISize)">Equals(ISize)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(ISize other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ISize.html">ISize</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnDesktop_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnDesktop(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L60">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnDesktop_" data-uid="Flexor.FluentSize.OnDesktop*"></a>
+  <h4 id="Flexor_FluentSize_OnDesktop_System_String_" data-uid="Flexor.FluentSize.OnDesktop(System.String)">OnDesktop(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnDesktop(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnDesktopAndLarger_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnDesktopAndLarger(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L67">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnDesktopAndLarger_" data-uid="Flexor.FluentSize.OnDesktopAndLarger*"></a>
+  <h4 id="Flexor_FluentSize_OnDesktopAndLarger_System_String_" data-uid="Flexor.FluentSize.OnDesktopAndLarger(System.String)">OnDesktopAndLarger(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnDesktopAndLarger(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnDesktopAndSmaller_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnDesktopAndSmaller(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L74">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnDesktopAndSmaller_" data-uid="Flexor.FluentSize.OnDesktopAndSmaller*"></a>
+  <h4 id="Flexor_FluentSize_OnDesktopAndSmaller_System_String_" data-uid="Flexor.FluentSize.OnDesktopAndSmaller(System.String)">OnDesktopAndSmaller(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnDesktopAndSmaller(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnFullHD_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnFullHD(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L81">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnFullHD_" data-uid="Flexor.FluentSize.OnFullHD*"></a>
+  <h4 id="Flexor_FluentSize_OnFullHD_System_String_" data-uid="Flexor.FluentSize.OnFullHD(System.String)">OnFullHD(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnFullHD(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnFullHDAndSmaller_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnFullHDAndSmaller(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L88">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnFullHDAndSmaller_" data-uid="Flexor.FluentSize.OnFullHDAndSmaller*"></a>
+  <h4 id="Flexor_FluentSize_OnFullHDAndSmaller_System_String_" data-uid="Flexor.FluentSize.OnFullHDAndSmaller(System.String)">OnFullHDAndSmaller(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnFullHDAndSmaller(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnMobile_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnMobile(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L95">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnMobile_" data-uid="Flexor.FluentSize.OnMobile*"></a>
+  <h4 id="Flexor_FluentSize_OnMobile_System_String_" data-uid="Flexor.FluentSize.OnMobile(System.String)">OnMobile(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnMobile(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnMobileAndLarger_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnMobileAndLarger(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L102">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnMobileAndLarger_" data-uid="Flexor.FluentSize.OnMobileAndLarger*"></a>
+  <h4 id="Flexor_FluentSize_OnMobileAndLarger_System_String_" data-uid="Flexor.FluentSize.OnMobileAndLarger(System.String)">OnMobileAndLarger(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnMobileAndLarger(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnTablet_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnTablet(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L109">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnTablet_" data-uid="Flexor.FluentSize.OnTablet*"></a>
+  <h4 id="Flexor_FluentSize_OnTablet_System_String_" data-uid="Flexor.FluentSize.OnTablet(System.String)">OnTablet(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnTablet(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnTabletAndLarger_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnTabletAndLarger(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L116">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnTabletAndLarger_" data-uid="Flexor.FluentSize.OnTabletAndLarger*"></a>
+  <h4 id="Flexor_FluentSize_OnTabletAndLarger_System_String_" data-uid="Flexor.FluentSize.OnTabletAndLarger(System.String)">OnTabletAndLarger(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnTabletAndLarger(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnTabletAndSmaller_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnTabletAndSmaller(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L123">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnTabletAndSmaller_" data-uid="Flexor.FluentSize.OnTabletAndSmaller*"></a>
+  <h4 id="Flexor_FluentSize_OnTabletAndSmaller_System_String_" data-uid="Flexor.FluentSize.OnTabletAndSmaller(System.String)">OnTabletAndSmaller(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnTabletAndSmaller(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnWidescreen_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnWidescreen(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L130">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnWidescreen_" data-uid="Flexor.FluentSize.OnWidescreen*"></a>
+  <h4 id="Flexor_FluentSize_OnWidescreen_System_String_" data-uid="Flexor.FluentSize.OnWidescreen(System.String)">OnWidescreen(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnWidescreen(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnWidescreenAndLarger_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnWidescreenAndLarger(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L137">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnWidescreenAndLarger_" data-uid="Flexor.FluentSize.OnWidescreenAndLarger*"></a>
+  <h4 id="Flexor_FluentSize_OnWidescreenAndLarger_System_String_" data-uid="Flexor.FluentSize.OnWidescreenAndLarger(System.String)">OnWidescreenAndLarger(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnWidescreenAndLarger(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize_OnWidescreenAndSmaller_System_String_.md&amp;value=---%0Auid%3A%20Flexor.FluentSize.OnWidescreenAndSmaller(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L144">View Source</a>
+  </span>
+  <a id="Flexor_FluentSize_OnWidescreenAndSmaller_" data-uid="Flexor.FluentSize.OnWidescreenAndSmaller*"></a>
+  <h4 id="Flexor_FluentSize_OnWidescreenAndSmaller_System_String_" data-uid="Flexor.FluentSize.OnWidescreenAndSmaller(System.String)">OnWidescreenAndSmaller(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentSize OnWidescreenAndSmaller(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Flexor.IFluentSize.html">IFluentSize</a>
+  </div>
+  <div>
+      <a class="xref" href="Flexor.ISize.html">ISize</a>
+  </div>
+  <div>
+      <a class="xref" href="Flexor.ICssBacked.html">ICssBacked</a>
+  </div>
+  <div>
+      <a class="xref" href="Flexor.IDynamicCssBacked.html">IDynamicCssBacked</a>
+  </div>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <a class="xref" href="Flexor.IFluentReactive-2.html">IFluentReactive&lt;TFluent, TProp&gt;</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentSize.md&amp;value=---%0Auid%3A%20Flexor.FluentSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentSize.cs/#L26" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

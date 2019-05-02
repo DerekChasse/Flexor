@@ -1,0 +1,429 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BaseFlexItem
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BaseFlexItem
+   ">
+    <meta name="generator" content="docfx 2.42.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Flexor.Base.BaseFlexItem">
+  
+  
+  <h1 id="Flexor_Base_BaseFlexItem" data-uid="Flexor.Base.BaseFlexItem" class="text-break">Class BaseFlexItem
+  </h1>
+  <div class="markdown level0 summary"><p>Base class for an item to be rendered in a flex-line.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Microsoft.AspNetCore.Components.ComponentBase</span></div>
+    <div class="level2"><a class="xref" href="Flexor.Base.BaseFlexComponent.html">BaseFlexComponent</a></div>
+    <div class="level3"><span class="xref">BaseFlexItem</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">Microsoft.AspNetCore.Components.IComponent</span></div>
+    <div><span class="xref">Microsoft.AspNetCore.Components.IHandleEvent</span></div>
+    <div><span class="xref">Microsoft.AspNetCore.Components.IHandleAfterRender</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Flexor.Base.BaseFlexComponent.html#Flexor_Base_BaseFlexComponent_Visible">BaseFlexComponent.Visible</a>
+    </div>
+    <div>
+      <a class="xref" href="Flexor.Base.BaseFlexComponent.html#Flexor_Base_BaseFlexComponent_Class">BaseFlexComponent.Class</a>
+    </div>
+    <div>
+      <a class="xref" href="Flexor.Base.BaseFlexComponent.html#Flexor_Base_BaseFlexComponent_Style">BaseFlexComponent.Style</a>
+    </div>
+    <div>
+      <a class="xref" href="Flexor.Base.BaseFlexComponent.html#Flexor_Base_BaseFlexComponent_ChildContent">BaseFlexComponent.ChildContent</a>
+    </div>
+    <div>
+      <a class="xref" href="Flexor.Base.BaseFlexComponent.html#Flexor_Base_BaseFlexComponent_Interop">BaseFlexComponent.Interop</a>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.RenderTree.RenderTreeBuilder)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnInit()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnInitAsync()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnParametersSet()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.ShouldRender()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.Invoke(System.Action)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func&lt;System.Threading.Tasks.Task&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.Microsoft.AspNetCore.Components.IComponent.Configure(Microsoft.AspNetCore.Components.RenderHandle)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterCollection)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.Microsoft.AspNetCore.Components.IHandleEvent.HandleEventAsync(Microsoft.AspNetCore.Components.EventCallbackWorkItem, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.Microsoft.AspNetCore.Components.IHandleAfterRender.OnAfterRenderAsync()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Flexor.Base.html">Flexor.Base</a></h6>
+  <h6><strong>Assembly</strong>: Flexor.dll</h6>
+  <h5 id="Flexor_Base_BaseFlexItem_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BaseFlexItem : BaseFlexComponent, IComponent, IHandleEvent, IHandleAfterRender</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_Base_BaseFlexItem_AlignSelf.md&amp;value=---%0Auid%3A%20Flexor.Base.BaseFlexItem.AlignSelf%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/Base/BaseFlexItem.cs/#L44">View Source</a>
+  </span>
+  <a id="Flexor_Base_BaseFlexItem_AlignSelf_" data-uid="Flexor.Base.BaseFlexItem.AlignSelf*"></a>
+  <h4 id="Flexor_Base_BaseFlexItem_AlignSelf" data-uid="Flexor.Base.BaseFlexItem.AlignSelf">AlignSelf</h4>
+  <div class="markdown level1 summary"><p>Defines the alignment of an individual item across the flex-line's cross axis.</p>
+<p>Default is 'auto'.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+protected IAlignSelf AlignSelf { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IAlignSelf.html">IAlignSelf</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_Base_BaseFlexItem_ComputedClass.md&amp;value=---%0Auid%3A%20Flexor.Base.BaseFlexItem.ComputedClass%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/Base/BaseFlexItem.cs/#L99">View Source</a>
+  </span>
+  <a id="Flexor_Base_BaseFlexItem_ComputedClass_" data-uid="Flexor.Base.BaseFlexItem.ComputedClass*"></a>
+  <h4 id="Flexor_Base_BaseFlexItem_ComputedClass" data-uid="Flexor.Base.BaseFlexItem.ComputedClass">ComputedClass</h4>
+  <div class="markdown level1 summary"><p>Gets the flex-item's computed class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string ComputedClass { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_Base_BaseFlexItem_Order.md&amp;value=---%0Auid%3A%20Flexor.Base.BaseFlexItem.Order%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/Base/BaseFlexItem.cs/#L25">View Source</a>
+  </span>
+  <a id="Flexor_Base_BaseFlexItem_Order_" data-uid="Flexor.Base.BaseFlexItem.Order*"></a>
+  <h4 id="Flexor_Base_BaseFlexItem_Order" data-uid="Flexor.Base.BaseFlexItem.Order">Order</h4>
+  <div class="markdown level1 summary"><p>Defines the order in which items are rendered within the flex-line.</p>
+<p>Default is 'default'.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+protected IOrder Order { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IOrder.html">IOrder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_Base_BaseFlexItem_Resizable.md&amp;value=---%0Auid%3A%20Flexor.Base.BaseFlexItem.Resizable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/Base/BaseFlexItem.cs/#L82">View Source</a>
+  </span>
+  <a id="Flexor_Base_BaseFlexItem_Resizable_" data-uid="Flexor.Base.BaseFlexItem.Resizable*"></a>
+  <h4 id="Flexor_Base_BaseFlexItem_Resizable" data-uid="Flexor.Base.BaseFlexItem.Resizable">Resizable</h4>
+  <div class="markdown level1 summary"><p>Defines the ability to resize a flex-item.</p>
+<p>Default is 'auto'.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+protected IResizable Resizable { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IResizable.html">IResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_Base_BaseFlexItem_Size.md&amp;value=---%0Auid%3A%20Flexor.Base.BaseFlexItem.Size%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/Base/BaseFlexItem.cs/#L63">View Source</a>
+  </span>
+  <a id="Flexor_Base_BaseFlexItem_Size_" data-uid="Flexor.Base.BaseFlexItem.Size*"></a>
+  <h4 id="Flexor_Base_BaseFlexItem_Size" data-uid="Flexor.Base.BaseFlexItem.Size">Size</h4>
+  <div class="markdown level1 summary"><p>Defines the size of a flex-item.</p>
+<p>Default is 'unspecified'.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+protected ISize Size { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ISize.html">ISize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_Base_BaseFlexItem_OnParametersSetAsync.md&amp;value=---%0Auid%3A%20Flexor.Base.BaseFlexItem.OnParametersSetAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/Base/BaseFlexItem.cs/#L110">View Source</a>
+  </span>
+  <a id="Flexor_Base_BaseFlexItem_OnParametersSetAsync_" data-uid="Flexor.Base.BaseFlexItem.OnParametersSetAsync*"></a>
+  <h4 id="Flexor_Base_BaseFlexItem_OnParametersSetAsync" data-uid="Flexor.Base.BaseFlexItem.OnParametersSetAsync">OnParametersSetAsync()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task OnParametersSetAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync()</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">Microsoft.AspNetCore.Components.IComponent</span>
+  </div>
+  <div>
+      <span class="xref">Microsoft.AspNetCore.Components.IHandleEvent</span>
+  </div>
+  <div>
+      <span class="xref">Microsoft.AspNetCore.Components.IHandleAfterRender</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_Base_BaseFlexItem.md&amp;value=---%0Auid%3A%20Flexor.Base.BaseFlexItem%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/Base/BaseFlexItem.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
