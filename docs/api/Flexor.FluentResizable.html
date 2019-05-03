@@ -1,0 +1,924 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class FluentResizable
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class FluentResizable
+   ">
+    <meta name="generator" content="docfx 2.42.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Flexor.FluentResizable">
+  
+  
+  <h1 id="Flexor_FluentResizable" data-uid="Flexor.FluentResizable" class="text-break">Class FluentResizable
+  </h1>
+  <div class="markdown level0 summary"><p>Define the ability to resize an item displayed in a flex-line.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">FluentResizable</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></div>
+    <div><a class="xref" href="Flexor.IFluentReactive-2.html">IFluentReactive</a>&lt;<a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a>, <a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a>&gt;</div>
+    <div><a class="xref" href="Flexor.IResizable.html">IResizable</a></div>
+    <div><a class="xref" href="Flexor.ICssBacked.html">ICssBacked</a></div>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Flexor.IResizable.html">IResizable</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Flexor.html">Flexor</a></h6>
+  <h6><strong>Assembly</strong>: Flexor.dll</h6>
+  <h5 id="Flexor_FluentResizable_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FluentResizable : IFluentResizable, IFluentReactive&lt;IFluentResizable, ResizableOption&gt;, IResizable, ICssBacked, IEquatable&lt;IResizable&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable__ctor.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L31">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable__ctor_" data-uid="Flexor.FluentResizable.#ctor*"></a>
+  <h4 id="Flexor_FluentResizable__ctor" data-uid="Flexor.FluentResizable.#ctor">FluentResizable()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Flexor.FluentResizable.html">FluentResizable</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FluentResizable()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable__ctor_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.%23ctor(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L40">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable__ctor_" data-uid="Flexor.FluentResizable.#ctor*"></a>
+  <h4 id="Flexor_FluentResizable__ctor_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.#ctor(Flexor.ResizableOption)">FluentResizable(ResizableOption)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Flexor.FluentResizable.html">FluentResizable</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FluentResizable(ResizableOption initialValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">initialValue</span></td>
+        <td><p>The initial <a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a> across all media query breakpoints.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_Class.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.Class%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L50">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_Class_" data-uid="Flexor.FluentResizable.Class*"></a>
+  <h4 id="Flexor_FluentResizable_Class" data-uid="Flexor.FluentResizable.Class">Class</h4>
+  <div class="markdown level1 summary"><p>Gets the CSS class definition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Class { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_Equals_Flexor_IResizable_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.Equals(Flexor.IResizable)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L144">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_Equals_" data-uid="Flexor.FluentResizable.Equals*"></a>
+  <h4 id="Flexor_FluentResizable_Equals_Flexor_IResizable_" data-uid="Flexor.FluentResizable.Equals(Flexor.IResizable)">Equals(IResizable)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(IResizable other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IResizable.html">IResizable</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnDesktop_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnDesktop(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L53">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnDesktop_" data-uid="Flexor.FluentResizable.OnDesktop*"></a>
+  <h4 id="Flexor_FluentResizable_OnDesktop_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnDesktop(Flexor.ResizableOption)">OnDesktop(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnDesktop(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnDesktopAndLarger_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnDesktopAndLarger(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L60">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnDesktopAndLarger_" data-uid="Flexor.FluentResizable.OnDesktopAndLarger*"></a>
+  <h4 id="Flexor_FluentResizable_OnDesktopAndLarger_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnDesktopAndLarger(Flexor.ResizableOption)">OnDesktopAndLarger(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnDesktopAndLarger(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnDesktopAndSmaller_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnDesktopAndSmaller(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L67">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnDesktopAndSmaller_" data-uid="Flexor.FluentResizable.OnDesktopAndSmaller*"></a>
+  <h4 id="Flexor_FluentResizable_OnDesktopAndSmaller_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnDesktopAndSmaller(Flexor.ResizableOption)">OnDesktopAndSmaller(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnDesktopAndSmaller(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnFullHD_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnFullHD(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L74">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnFullHD_" data-uid="Flexor.FluentResizable.OnFullHD*"></a>
+  <h4 id="Flexor_FluentResizable_OnFullHD_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnFullHD(Flexor.ResizableOption)">OnFullHD(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnFullHD(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnFullHDAndSmaller_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnFullHDAndSmaller(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L81">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnFullHDAndSmaller_" data-uid="Flexor.FluentResizable.OnFullHDAndSmaller*"></a>
+  <h4 id="Flexor_FluentResizable_OnFullHDAndSmaller_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnFullHDAndSmaller(Flexor.ResizableOption)">OnFullHDAndSmaller(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnFullHDAndSmaller(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnMobile_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnMobile(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L88">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnMobile_" data-uid="Flexor.FluentResizable.OnMobile*"></a>
+  <h4 id="Flexor_FluentResizable_OnMobile_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnMobile(Flexor.ResizableOption)">OnMobile(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnMobile(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnMobileAndLarger_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnMobileAndLarger(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L95">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnMobileAndLarger_" data-uid="Flexor.FluentResizable.OnMobileAndLarger*"></a>
+  <h4 id="Flexor_FluentResizable_OnMobileAndLarger_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnMobileAndLarger(Flexor.ResizableOption)">OnMobileAndLarger(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnMobileAndLarger(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnTablet_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnTablet(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L102">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnTablet_" data-uid="Flexor.FluentResizable.OnTablet*"></a>
+  <h4 id="Flexor_FluentResizable_OnTablet_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnTablet(Flexor.ResizableOption)">OnTablet(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnTablet(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnTabletAndLarger_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnTabletAndLarger(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L109">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnTabletAndLarger_" data-uid="Flexor.FluentResizable.OnTabletAndLarger*"></a>
+  <h4 id="Flexor_FluentResizable_OnTabletAndLarger_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnTabletAndLarger(Flexor.ResizableOption)">OnTabletAndLarger(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnTabletAndLarger(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnTabletAndSmaller_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnTabletAndSmaller(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L116">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnTabletAndSmaller_" data-uid="Flexor.FluentResizable.OnTabletAndSmaller*"></a>
+  <h4 id="Flexor_FluentResizable_OnTabletAndSmaller_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnTabletAndSmaller(Flexor.ResizableOption)">OnTabletAndSmaller(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnTabletAndSmaller(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnWidescreen_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnWidescreen(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L123">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnWidescreen_" data-uid="Flexor.FluentResizable.OnWidescreen*"></a>
+  <h4 id="Flexor_FluentResizable_OnWidescreen_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnWidescreen(Flexor.ResizableOption)">OnWidescreen(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnWidescreen(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnWidescreenAndLarger_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnWidescreenAndLarger(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L130">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnWidescreenAndLarger_" data-uid="Flexor.FluentResizable.OnWidescreenAndLarger*"></a>
+  <h4 id="Flexor_FluentResizable_OnWidescreenAndLarger_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnWidescreenAndLarger(Flexor.ResizableOption)">OnWidescreenAndLarger(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnWidescreenAndLarger(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable_OnWidescreenAndSmaller_Flexor_ResizableOption_.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable.OnWidescreenAndSmaller(Flexor.ResizableOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L137">View Source</a>
+  </span>
+  <a id="Flexor_FluentResizable_OnWidescreenAndSmaller_" data-uid="Flexor.FluentResizable.OnWidescreenAndSmaller*"></a>
+  <h4 id="Flexor_FluentResizable_OnWidescreenAndSmaller_Flexor_ResizableOption_" data-uid="Flexor.FluentResizable.OnWidescreenAndSmaller(Flexor.ResizableOption)">OnWidescreenAndSmaller(ResizableOption)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFluentResizable OnWidescreenAndSmaller(ResizableOption option)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.ResizableOption.html">ResizableOption</a></td>
+        <td><span class="parametername">option</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Flexor.IFluentResizable.html">IFluentResizable</a>
+  </div>
+  <div>
+      <a class="xref" href="Flexor.IFluentReactive-2.html">IFluentReactive&lt;TFluent, TProp&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="Flexor.IResizable.html">IResizable</a>
+  </div>
+  <div>
+      <a class="xref" href="Flexor.ICssBacked.html">ICssBacked</a>
+  </div>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/DerekChasse/Flexor/new/feature/DocFX/apiSpec/new?filename=Flexor_FluentResizable.md&amp;value=---%0Auid%3A%20Flexor.FluentResizable%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Source/Flexor/FluentResizable.cs/#L24" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
