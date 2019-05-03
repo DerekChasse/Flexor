@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Version 1.0.0 </title>
+    <title>Get Started With Flexor </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Version 1.0.0 ">
+    <meta name="title" content="Get Started With Flexor ">
     <meta name="generator" content="docfx 2.42.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -67,17 +67,38 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="version-100">Version 1.0.0</h1>
+<h1 id="get-started-with-flexor">Get Started With Flexor</h1>
 
-<h2 id="summary">Summary</h2>
-<p>We're happy to present Flexor version 1.0.0!</p>
-<h2 id="features">Features</h2>
+<h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>Blazor components</li>
-<li>Fluent configuration</li>
-<li>Demo site</li>
-<li>Blazor version v3.0.0-preview4</li>
+<li>Visual Studio 2019
+<ul>
+<li><a href="https://visualstudio.microsoft.com/">https://visualstudio.microsoft.com/</a></li>
 </ul>
+</li>
+<li>Dot Net Core SDK 3.0.0 preview4
+<ul>
+<li><a href="https://dotnet.microsoft.com/download/dotnet-core/3.0%5D">https://dotnet.microsoft.com/download/dotnet-core/3.0</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="startupcs">Startup.cs</h3>
+<p>Update <code>Startup.cs</code> to include the following.</p>
+<pre><code class="lang-csharp">...
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddFlexor();
+}
+...
+</code></pre>
+<h3 id="_importsrazor">_Imports.razor</h3>
+<p>Get intellisense for Flexor components and classes by adding the following to the root <code>_Imports.razor</code> file.</p>
+<pre><code class="lang-csharp">...
+@using Flexor
+...
+</code></pre>
+<h3 id="all-done">All Done!</h3>
+<p>Start using Flexor in your own Blazor components.  Take a look at the <a href="http://flexor.azurewebsites.net/">Demo site</a> for examples.</p>
 </article>
           </div>
           
@@ -86,7 +107,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Documentation/Flexor.DocGen/articles/version_1_0_0.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/DerekChasse/Flexor/blob/feature/DocFX/Documentation/Flexor.DocGen/articles/get_started.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
