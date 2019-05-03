@@ -3,11 +3,14 @@
     <img alt="Flexor Icon" src="docs/images/flexor_logo.png" width=40%>
 </P>
 
-## Build Status
-[![Build Status](https://derhasse.visualstudio.com/Flexor/_apis/build/status/Build%20and%20Package%20Master?branchName=master)](https://derhasse.visualstudio.com/Flexor/_build/latest?definitionId=43&branchName=master)
+## Status
+[![Build Status](https://derhasse.visualstudio.com/Flexor/_apis/build/status/Build%20and%20Package%20Master?branchName=master)](https://derhasse.visualstudio.com/Flexor/_build/latest?definitionId=43&branchName=master) ![Nuget](https://img.shields.io/nuget/dt/Flexor.svg?color=success&label=Nuget%20Downloads) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DerekChasse_Flexor&metric=alert_status)](https://sonarcloud.io/dashboard?id=DerekChasse_Flexor)
 
 ## Introduction
 Flexor is a collection of Blazor components and configurations which allow developers to take full advantage of Flexbox CSS.  Flexor is highly configurable, allowing developers to create fully responsive and reactive Blazor web applications.
+
+### Nuget
+https://www.nuget.org/packages/Flexor/
 
 ## Documentation
 The Flexor documentation main page is [here](https://derekchasse.github.io/Flexor/index.html).
