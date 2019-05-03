@@ -1,5 +1,7 @@
 # Flexor
-<img alt="Flexor Icon" src="docs/images/flexor_logo.png" width=20%>
+<p align="center">
+    <img alt="Flexor Icon" src="docs/images/flexor_logo.png" width=40%>
+</P>
 
 ## Build Status
 [![Build Status](https://derhasse.visualstudio.com/Flexor/_apis/build/status/Build%20and%20Package%20Master?branchName=master)](https://derhasse.visualstudio.com/Flexor/_build/latest?definitionId=43&branchName=master)
@@ -19,7 +21,7 @@ See Flexor in action live at the [demo site](http://flexor.azurewebsites.net).
 See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Acknowledgements
-[<img src ="docs/images/blazorise.png">]([https://github.com/stsrki/Blazorise)
+[<img src ="docs/images/blazorise.png" width=20%>]([https://github.com/stsrki/Blazorise)
 
 Blazorise was a huge inspiration for the fluent style configuration used within Flexor.
 ___  
@@ -27,7 +29,7 @@ ___
 
 Angular Flex Layout was the driving inspiration for this entire project.
 ___
-[<img src="docs/images/cb-wide.png">](https://www.codingblocks.net/about/) 
+[<img src="docs/images/cb-wide.png" width=20%>](https://www.codingblocks.net/about/) 
 
 The CodingBlocks community has been a great source of feedback and discussion in the design and implementation of Flexor.
   
