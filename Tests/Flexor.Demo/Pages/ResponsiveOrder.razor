@@ -1,0 +1,28 @@
+﻿@layout ResponsiveLayout
+
+@page "/responsive-order"
+
+<DisplayBox HeaderMessage=@this.headerMessage>
+    <FlexLine Class="boxes colored h-100 w-100">
+        <FlexItem Resizable="Resizable.Fill" Order="Order.IsFirst" Size="Size.IsPercent(25)">
+            Box #1
+        </FlexItem>
+
+        <FlexItem Resizable="Resizable.Fill" Order="Order.Is.OnDesktopAndSmaller(1).OnWidescreenAndLarger(3)" Size="Size.IsPercent(25)">
+            Box #2
+        </FlexItem>
+
+        <FlexItem Resizable="Resizable.Fill" Order="Order.Is2" Size="Size.IsPercent(25)">
+            Box #3
+        </FlexItem>
+
+        <FlexItem Resizable="Resizable.Fill" Order="Order.Is.OnDesktopAndSmaller(3).OnWidescreenAndLarger(1)" Size="Size.IsPercent(25)">
+            Box #4
+        </FlexItem>
+
+    </FlexLine>
+</DisplayBox>
+
+@functions {
+    MarkupString headerMessage = new MarkupString("Items with responsive <strong>Order</strong> configurations. ");
+}

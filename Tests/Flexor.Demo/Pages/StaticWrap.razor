@@ -1,0 +1,37 @@
+﻿@layout StaticLayout
+
+@page "/static-wrap"
+
+<DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
+    <FlexLine Wrap="Wrap.CanWrap" Class="boxes colored h-100 w-100">
+        <FlexItem Size="Size.IsPercent(30)" >
+            30
+        </FlexItem>
+        <FlexItem Size="Size.IsPercent(45)" >
+            45
+        </FlexItem>
+        <FlexItem Size="Size.IsPercent(19)" >
+            19
+        </FlexItem>
+        <FlexItem Size="Size.IsPercent(33)" >
+            33
+        </FlexItem>
+        <FlexItem Size="Size.IsPercent(67)" >
+            67
+        </FlexItem>
+        <FlexItem Size="Size.IsPercent(50)" >
+            50
+        </FlexItem>
+        <FlexItem Resizable="Resizable.Fill">
+            Fill
+        </FlexItem>
+    </FlexLine>
+
+</DisplayBox>
+
+@functions {
+
+    MarkupString headerMessage = new MarkupString("Using <strong>Wrap</strong> to wrap positioned items within a layout container.");
+
+
+}
