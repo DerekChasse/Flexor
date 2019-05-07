@@ -1,24 +1,24 @@
 @inherits LayoutComponentBase
 
-    <div class="flex-column justify-content-start align-items-stretch">
+    <FlexLine Direction="Direction.Column" JustifyContent="JustifyContent.Start" AlignItems="AlignItems.Center">
 
-        <div class="row">
-            <div class="col-12 text-center" style="font-size: 5em">
-                Flexor
-            </div>
-        </div>
+        <FlexItem Style="font-size: 5em">
+            Flexor
+        </FlexItem>
 
-        <div class="row">
-            <div class="col-12 text-center" >
-                By <strong> <a href="https://github.com/DerekChasse" target="_blank" class="">Derek Chasse</a></strong>
-            </div>
-        </div>
+        <FlexItem>
+            <p>By <strong> <a href="https://github.com/DerekChasse" target="_blank" class="">Derek Chasse</a></strong></p>
+        </FlexItem>
 
         <TopNavBar></TopNavBar>
 
-        <div class="flex-fill m-3">
+        <FlexItem Resizable="Resizable.Fill" AlignSelf="AlignSelf.Stretch" Class="m-3">
             @Body
+        </FlexItem>
 
-        </div>
 
-    </div>
+
+
+    </FlexLine>
+
+    

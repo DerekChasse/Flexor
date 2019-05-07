@@ -2,9 +2,9 @@
 
 @inherits LayoutComponentBase
 
-<div class="flex-column justify-content-start align-items-stretch">
-    <div class="">
-        <div class="flex-row justify-content-center">
+<FlexLine Direction="Direction.Column" JustifyContent="JustifyContent.Start" AlignItems="AlignItems.Stretch">
+    <FlexItem>
+        <FlexLine Direction="Direction.Row" JustifyContent="JustifyContent.Center">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link" href="/static-item-alignment">Item Alignment</a>
@@ -22,13 +22,14 @@
                     <a class="nav-link" href="/static-resizable">Sizing</a>
                 </li>
             </ul>
-        </div>
-    </div>
-</div>
+        </FlexLine>
+    </FlexItem>
+    <FlexItem Class="m-3">
+        @Body
+    </FlexItem>
 
-<div class="m-3">
-    @Body
-</div>
+</FlexLine>
+
 
 @functions {
 }
