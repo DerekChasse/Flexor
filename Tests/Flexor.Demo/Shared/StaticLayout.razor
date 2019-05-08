@@ -2,34 +2,30 @@
 
 @inherits LayoutComponentBase
 
-<FlexLine Direction="Direction.Column" JustifyContent="JustifyContent.Start" AlignItems="AlignItems.Stretch">
-    <FlexItem>
-        <FlexLine Direction="Direction.Row" JustifyContent="JustifyContent.Center">
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link" href="/static-item-alignment">Item Alignment</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/static-self-alignment">Self Alignment</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/static-fill">Fill</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/static-wrap">Wrap</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/static-resizable">Sizing</a>
-                </li>
-            </ul>
-        </FlexLine>
+<FlexLine Direction="Direction.Column" JustifyContent="JustifyContent.Start" AlignItems="AlignItems.Stretch" Class="w-100">
+    <FlexItem AlignSelf="AlignSelf.Center">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/static-item-alignment">Item Alignment</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/static-self-alignment">Self Alignment</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/static-fill">Fill</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/static-wrap">Wrap</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/static-resizable">Sizing</a>
+            </li>
+        </ul>
     </FlexItem>
     <FlexItem Class="m-3">
         @Body
     </FlexItem>
-
 </FlexLine>
-
 
 @functions {
 }

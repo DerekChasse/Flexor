@@ -2,37 +2,30 @@
 
 @inherits LayoutComponentBase
 
-<div class="flex-column justify-content-start align-items-stretch">
-    <div class="">
-        <div class="flex-row justify-content-center">
-
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link" href="/responsive-direction">Direction</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/responsive-size">Size</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/responsive-multiple-columns">Multiple Columns</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/responsive-order">Order</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/responsive-visibility">Visibility</a>
-                </li>
-            </ul>
-
-        </div>
-    </div>
-
-
-</div>
-
-<div class="m-3">
-    @Body
-</div>
+<FlexLine Direction="Direction.Column" JustifyContent="JustifyContent.Start" AlignItems="AlignItems.Stretch" Class="w-100">
+    <FlexItem AlignSelf="AlignSelf.Center">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="/responsive-direction">Direction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/responsive-size">Size</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/responsive-multiple-columns">Multiple Columns</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/responsive-order">Order</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/responsive-visibility">Visibility</a>
+            </li>
+        </ul>
+    </FlexItem>
+    <FlexItem Class="m-3">
+        @Body
+    </FlexItem>
+</FlexLine>
 
 @functions {
 }
