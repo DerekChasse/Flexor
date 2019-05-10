@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazaco" Version="1.1.0" />
     <PackageReference Include="Blazorise" Version="0.7.1-preview" />
     <PackageReference Include="Blazorise.Icons.Material" Version="0.7.1-preview" />
     <PackageReference Include="Blazorise.Material" Version="0.7.1-preview" />

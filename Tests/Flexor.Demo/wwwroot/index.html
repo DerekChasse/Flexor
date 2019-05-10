@@ -7,6 +7,7 @@
     <base href="/" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="lib/monaco-editor/min/vs/editor/editor.main.css" rel="stylesheet" />
     <link href="lib/daemonite-material/css/material.min.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />
 </head>
@@ -16,6 +17,10 @@
     <script src="lib/jquery/jquery.slim.min.js"></script>
     <script src="lib/popper.js/umd/popper.min.js"></script>
     <script src="lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    <script>var require = { paths: { 'vs': 'lib/monaco-editor/min/vs' } };</script>
+    <script src="lib/monaco-editor/min/vs/loader.js"></script>
+    <script src="lib/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+    <script src="lib/monaco-editor/min/vs/editor/editor.main.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>
 </html>

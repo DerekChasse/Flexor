@@ -2,9 +2,14 @@
 
 @page "/static-fill"
 
-<FlexLine Direction="Direction.Column" AlignItems="AlignItems.Stretch" Class="w-100">
-    <DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
-        <FlexLine Class="boxes colored h-100 w-100">
+
+    <FlexLine Direction="Direction.Column" Class="w-100">
+
+        <FlexLine JustifyContent="JustifyContent.Center" Class="mb-5">
+            <h4>Using <strong>Fill</strong> to occupy remaining width and height of the parent container.</h4>
+        </FlexLine>
+
+        <FlexLine Class="boxes colored card">
             <FlexItem Size="Size.IsPercent(30)">
                 30%
             </FlexItem>
@@ -13,10 +18,27 @@
                 Fill
             </FlexItem>
         </FlexLine>
+        
+        <FlexItem AlignSelf="AlignSelf.Center">
+            <CodeBox Value="sample"></CodeBox>
+        </FlexItem>
+        
 
-    </DisplayBox>
-</FlexLine>
+
+    </FlexLine>
+
+
 
 @functions {
-    MarkupString headerMessage = new MarkupString("Using <strong>Fill</strong> to occupy remaining width and height of the parent container.");
+    private string sample = @"
+&lt;FlexLine Class=&quot;boxes colored card&quot;&gt;
+    &lt;FlexItem Size=&quot;Size.IsPercent(30)&quot;&gt;
+        30%
+    &lt;/FlexItem&gt;
+
+    &lt;FlexItem Resizable=&quot;Resizable.Fill&quot;&gt;
+        Fill
+    &lt;/FlexItem&gt;
+&lt;/FlexLine&gt;";
+
 }

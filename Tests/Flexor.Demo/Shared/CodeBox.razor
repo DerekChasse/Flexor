@@ -1,0 +1,43 @@
+﻿@using Blazaco.Editor;
+@using Blazaco.Editor.Options;
+
+<MonacoEditor ref="editor" Model="@editorModel" />
+
+@functions {
+    private EditorModel editorModel { get; set; }
+    private MonacoEditor editor;
+
+
+    [Parameter]
+    protected string Value
+    {
+        get
+        {
+            return this.editor == null ? null : this.editor.GetValue().Result;
+        }
+        set
+        {
+            if (this.editor != null)
+            {
+                this.editor.SetValue(value);
+
+            }
+        }
+    }
+
+
+    protected override async Task OnInitAsync()
+    {
+        this.editorModel = new EditorModel()
+        {
+            Options = new EditorOptions
+            {
+                ReadOnly = true,
+                Language = "html"
+            }
+        };
+
+        await base.OnAfterRenderAsync();
+
+    }
+}

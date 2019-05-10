@@ -26,6 +26,10 @@
         "js/bootstrap.min.js",
         "js/bootstrap.min.js.map"
       ]
+    },
+    {
+      "library": "monaco-editor@0.15.6",
+      "destination": "wwwroot/lib/monaco-editor/"
     }
   ]
 }
