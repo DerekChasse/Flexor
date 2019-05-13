@@ -11,10 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Blazaco" Version="1.1.0" />
-    <PackageReference Include="Blazorise" Version="0.7.1-preview" />
-    <PackageReference Include="Blazorise.Icons.Material" Version="0.7.1-preview" />
-    <PackageReference Include="Blazorise.Material" Version="0.7.1-preview" />
+    <PackageReference Include="Blazaco" Version="1.2.0" />
+    <PackageReference Include="Blazorise" Version="0.7.2" />
+    <PackageReference Include="Blazorise.Icons.Material" Version="0.7.2" />
+    <PackageReference Include="Blazorise.Material" Version="0.7.2" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.0.0-preview4-19216-03" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.0.0-preview4-19216-03" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.0.0-preview4-19216-03" PrivateAssets="all" />

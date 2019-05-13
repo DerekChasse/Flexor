@@ -1,44 +1,35 @@
-﻿@layout StaticLayout
+﻿@using Blazaco.Editor;
+@using Blazaco.Editor.Options;
+
+@layout StaticLayout
 
 @page "/static-fill"
 
+<FlexLine Direction="Direction.Column" Class="w-100">
 
-    <FlexLine Direction="Direction.Column" Class="w-100">
-
-        <FlexLine JustifyContent="JustifyContent.Center" Class="mb-5">
-            <h4>Using <strong>Fill</strong> to occupy remaining width and height of the parent container.</h4>
-        </FlexLine>
-
-        <FlexLine Class="boxes colored card">
-            <FlexItem Size="Size.IsPercent(30)">
-                30%
-            </FlexItem>
-
-            <FlexItem Resizable="Resizable.Fill">
-                Fill
-            </FlexItem>
-        </FlexLine>
-        
-        <FlexItem AlignSelf="AlignSelf.Center">
-            <CodeBox Value="sample"></CodeBox>
-        </FlexItem>
-        
-
-
+    <FlexLine JustifyContent="JustifyContent.Center" Class="mb-5">
+        <h4>Using <strong>Fill</strong> to occupy remaining width and height of the parent container.</h4>
     </FlexLine>
-
-
+    <FlexLine Class="boxes colored uniform card">
+        <FlexItem Size="Size.IsPercent(30)">
+            30%
+        </FlexItem>
+        <FlexItem Resizable="Resizable.Fill">
+            Fill
+        </FlexItem>
+    </FlexLine>
+    <FlexItem AlignSelf="AlignSelf.Center" Class="mt-5">
+        <CodeBox Value="@this.value"></CodeBox>
+    </FlexItem>
+</FlexLine>
 
 @functions {
-    private string sample = @"
-&lt;FlexLine Class=&quot;boxes colored card&quot;&gt;
-    &lt;FlexItem Size=&quot;Size.IsPercent(30)&quot;&gt;
-        30%
-    &lt;/FlexItem&gt;
 
-    &lt;FlexItem Resizable=&quot;Resizable.Fill&quot;&gt;
-        Fill
-    &lt;/FlexItem&gt;
-&lt;/FlexLine&gt;";
-
+    private string value = 
+@"
+<FlexLine>
+    <FlexItem Size=""Size.IsPercent(30)"">30%</FlexItem>
+    <FlexItem Resizable=""Resizable.Fill"">Fill</FlexItem>
+</FlexLine>
+";
 }

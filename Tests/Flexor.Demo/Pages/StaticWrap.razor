@@ -2,36 +2,55 @@
 
 @page "/static-wrap"
 
-<DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
-    <FlexLine Wrap="Wrap.CanWrap" Class="boxes colored h-100 w-100">
-        <FlexItem Size="Size.IsPercent(30)" >
-            30
-        </FlexItem>
-        <FlexItem Size="Size.IsPercent(45)" >
-            45
-        </FlexItem>
-        <FlexItem Size="Size.IsPercent(19)" >
-            19
-        </FlexItem>
-        <FlexItem Size="Size.IsPercent(33)" >
-            33
-        </FlexItem>
-        <FlexItem Size="Size.IsPercent(67)" >
-            67
-        </FlexItem>
-        <FlexItem Size="Size.IsPercent(50)" >
-            50
-        </FlexItem>
-        <FlexItem Resizable="Resizable.Fill">
-            Fill
+
+    <FlexLine Direction="Direction.Column" Class="w-100">
+
+        <FlexLine JustifyContent="JustifyContent.Center" Class="mb-5">
+            <h4>Using <strong>Wrap</strong> to wrap positioned items within a layout container.</h4>
+        </FlexLine>
+        <FlexLine Wrap="Wrap.CanWrap" Class="boxes colored uniform card">
+            <FlexItem Size="Size.IsPercent(30)">
+                30
+            </FlexItem>
+            <FlexItem Size="Size.IsPercent(45)">
+                45
+            </FlexItem>
+            <FlexItem Size="Size.IsPercent(19)">
+                19
+            </FlexItem>
+            <FlexItem Size="Size.IsPercent(33)">
+                33
+            </FlexItem>
+            <FlexItem Size="Size.IsPercent(67)">
+                67
+            </FlexItem>
+            <FlexItem Size="Size.IsPercent(50)">
+                50
+            </FlexItem>
+            <FlexItem Resizable="Resizable.Fill">
+                Fill
+            </FlexItem>
+        </FlexLine>
+
+        <FlexItem AlignSelf="AlignSelf.Center" Class="mt-5">
+            <CodeBox Value="@this.value" Width="500" Height="225"></CodeBox>
         </FlexItem>
     </FlexLine>
 
-</DisplayBox>
-
 @functions {
 
-    MarkupString headerMessage = new MarkupString("Using <strong>Wrap</strong> to wrap positioned items within a layout container.");
+    private string value = 
+@"
+<FlexLine Wrap=""Wrap.CanWrap"">
+    <FlexItem Size=""Size.IsPercent(30)"">30</FlexItem>
+    <FlexItem Size=""Size.IsPercent(45)"">45</FlexItem>
+    <FlexItem Size=""Size.IsPercent(19)"">19</FlexItem>
+    <FlexItem Size=""Size.IsPercent(33)"">33</FlexItem>
+    <FlexItem Size=""Size.IsPercent(67)"">67</FlexItem>
+    <FlexItem Size=""Size.IsPercent(50)"">50</FlexItem>
+    <FlexItem Resizable=""Resizable.Fill"">Fill</FlexItem>
+</FlexLine>
+";
 
 
 }

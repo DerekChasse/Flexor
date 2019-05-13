@@ -15,71 +15,90 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 0.25em;
 }
 
-.colored div {
-    border-radius: 0.25rem;
+.uniform div {
+    min-height: 100px;
 }
 
-.one,
 .colored > div:nth-child(10n+1) {
     background-color: #048BA8;
+}
+
+.colored > div:nth-child(10n+2) {
+    background-color: #99C24D;
+}
+
+.colored > div:nth-child(10n+3) {
+    background-color: #9792E3;
+}
+
+.colored > div:nth-child(10n+4) {
+    background-color: #D6E681;
+}
+
+.colored > div:nth-child(10n+5) {
+    background-color: #DC493A;
+}
+
+.colored > div:nth-child(10n+6) {
+    background-color: #9FAF90;
+}
+
+.colored > div:nth-child(10n+7) {
+    background-color: #E4E3D3;
+}
+
+.colored > div:nth-child(10n+8) {
+    background-color: #7180B9;
+}
+
+.colored > div:nth-child(10n+9) {
+    background-color: #B0DAF1;
+}
+
+.varied > div:nth-child(10n+1) {
     min-width: 80px;
     min-height: 75px;
 }
 
-.two,
-.colored > div:nth-child(10n+2) {
-    background-color: #99C24D;
+.varied > div:nth-child(10n+2) {
     min-width: 55px;
     min-height: 80px;
 }
 
-.three,
-.colored > div:nth-child(10n+3) {
-    background-color: #9792E3;
+.varied > div:nth-child(10n+3) {
     min-width: 65px;
     min-height: 40px;
 }
 
-.four,
-.colored > div:nth-child(10n+4) {
-    background-color: #D6E681;
+.varied > div:nth-child(10n+4) {
     min-width: 70px;
     min-height: 35px;
 }
 
-.five,
-.colored > div:nth-child(10n+5) {
-    background-color: #DC493A;
+.varied > div:nth-child(10n+5) {
     min-width: 55px;
     min-height: 70px;
 }
 
-.six,
-.colored > div:nth-child(10n+6) {
-    background-color: #9FAF90;
+.varied > div:nth-child(10n+6) {
     min-width: 60px;
     min-height: 60px;
 }
 
-.seven,
-.colored > div:nth-child(10n+7) {
-    background-color: #E4E3D3;
+.varied > div:nth-child(10n+7) {
     min-width: 20px;
     min-height: 60px;
 }
 
-.eight,
-.colored > div:nth-child(10n+8) {
-    background-color: #7180B9;
+.varied > div:nth-child(10n+8) {
     min-width: 85px;
     min-height: 45px;
 }
 
-.nine,
-.colored > div:nth-child(10n+9) {
-    background-color: #B0DAF1;
+.varied > div:nth-child(10n+9) {
     min-width: 70px;
     min-height: 55px;
 }

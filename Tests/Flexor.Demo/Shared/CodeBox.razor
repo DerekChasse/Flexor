@@ -1,7 +1,7 @@
 ﻿@using Blazaco.Editor;
 @using Blazaco.Editor.Options;
 
-<MonacoEditor ref="editor" Model="@editorModel" />
+<MonacoEditor ref="editor" Model="@editorModel" Width=@this.Width Height=@this.Height />
 
 @functions {
     private EditorModel editorModel { get; set; }
@@ -11,33 +11,44 @@
     [Parameter]
     protected string Value
     {
-        get
-        {
-            return this.editor == null ? null : this.editor.GetValue().Result;
-        }
-        set
-        {
-            if (this.editor != null)
-            {
-                this.editor.SetValue(value);
-
-            }
-        }
+        get;
+        set;
     }
 
+    [Parameter]
+    protected int Width { get; set; } = 400;
+
+    [Parameter]
+    protected int Height { get; set; } = 200;
 
     protected override async Task OnInitAsync()
     {
+        await base.OnInitAsync();
+
         this.editorModel = new EditorModel()
         {
             Options = new EditorOptions
             {
                 ReadOnly = true,
-                Language = "html"
+                Language = "text/html",
+                Minimap = new MinimapOptions
+                {
+                    Enabled = false,
+                },
+                LineNumbers = "off",
+                HideCursorInOverviewRuler = true,
+                OverviewRulerBorder = false,
+                OverviewRulerLanes = 0,
+                RenderLineHighlight = "none",
+                Contextmenu = false,
+                ScrollBeyondLastLine = false,
             }
         };
+    }
 
-        await base.OnAfterRenderAsync();
-
+    protected override async Task OnAfterRenderAsync()
+    {
+        await base.OnAfterRenderAsync().ContinueWith(x => this.editor.SetValue(this.Value));
     }
 }
+
