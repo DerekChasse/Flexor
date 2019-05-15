@@ -2,8 +2,16 @@
 
 @page "/static-resizable"
 
-<DisplayBox HeaderMessage=@this.headerMessage ContentMinHeight="400">
-    <FlexLine Wrap="Wrap.CanWrap" Class="boxes colored h-100 w-100">
+
+
+<FlexLine Direction="Direction.Column" Class="w-100">
+
+    <FlexLine JustifyContent="JustifyContent.Center" Class="mb-5">
+        <h4>Using <strong>Resizability</strong> to size items within a layout container.</h4>
+    </FlexLine>
+
+
+    <FlexLine Wrap="Wrap.CanWrap" Class="boxes uniform colored card">
         <FlexItem Resizable="Resizable.None">
             This box will not resize.
         </FlexItem>
@@ -26,15 +34,30 @@
             This box will not shrink.
         </FlexItem>
         <FlexItem Resizable="Resizable.Fill" Class="bg-white">
-            
+
         </FlexItem>
     </FlexLine>
 
-</DisplayBox>
+    <FlexItem AlignSelf="AlignSelf.Center" Class="mt-5">
+        <CodeBox Value="@this.value" Height="500" Width="700"></CodeBox>
+    </FlexItem>
+</FlexLine>
+
+
+
 
 @functions {
-
-    MarkupString headerMessage = new MarkupString("Using <strong>Wrap</strong> to wrap positioned items within a layout container.");
-
-
+     private string value = 
+@"
+<FlexLine Wrap=""Wrap.CanWrap"">
+    <FlexItem Resizable=""Resizable.None"">This box will not resize.</FlexItem>
+    <FlexItem Resizable=""Resizable.Fill"">This box will fill.</FlexItem>
+    <FlexItem Resizable=""Resizable.NoGrow"">This box will not grow.</FlexItem>
+    <FlexItem Resizable=""Resizable.Grow"">This box will grow .</FlexItem>
+    <FlexItem Resizable=""Resizable.Initial"">This box will keep it's initial size.</FlexItem>
+    <FlexItem Resizable=""Resizable.Auto"">This box will resize automatically.</FlexItem>
+    <FlexItem Resizable=""Resizable.NoShrink"">This box will not shrink.</FlexItem>
+    <FlexItem Resizable=""Resizable.Fill"" ></FlexItem>
+</FlexLine>
+";
 }

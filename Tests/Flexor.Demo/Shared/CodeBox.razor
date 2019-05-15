@@ -1,7 +1,7 @@
 ﻿@using Blazaco.Editor;
 @using Blazaco.Editor.Options;
 
-<MonacoEditor ref="editor" Model="@editorModel" Width=@this.Width Height=@this.Height />
+<MonacoEditor ref="editor" Model="@editorModel" Height="600" Width="800"/>
 
 @functions {
     private EditorModel editorModel { get; set; }
@@ -46,8 +46,15 @@
         };
     }
 
+
+    public async void SetValue(string value)
+    {
+        await editor.SetValue(value);
+    }
+
     protected override async Task OnAfterRenderAsync()
     {
+        Console.WriteLine("CodeBox OnAfterRender");
         await base.OnAfterRenderAsync().ContinueWith(x => this.editor.SetValue(this.Value));
     }
 }

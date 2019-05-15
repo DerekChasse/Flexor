@@ -5,31 +5,123 @@
 
 @page "/static-fill"
 
-<FlexLine Direction="Direction.Column" Class="w-100">
 
-    <FlexLine JustifyContent="JustifyContent.Center" Class="mb-5">
-        <h4>Using <strong>Fill</strong> to occupy remaining width and height of the parent container.</h4>
-    </FlexLine>
-    <FlexLine Class="boxes colored uniform card">
-        <FlexItem Size="Size.IsPercent(30)">
-            30%
+
+<Blazorise.Card Margin="Blazorise.Margin.Is4.OnY" Class="w-100">
+    <Blazorise.CardHeader>
+        <Blazorise.CardTitle>Using <strong>Fill</strong> to occupy remaining width and height of the parent container.</Blazorise.CardTitle>
+    </Blazorise.CardHeader>
+    <Blazorise.CardBody>
+        <Blazorise.Tabs SelectedTabChanged="@OnSelectedTabChanged" IsJustified="true">
+            <Blazorise.Tab Name="sample" IsActive="@(selectedTab == "sample")">Sample</Blazorise.Tab>
+            <Blazorise.Tab Name="code" IsActive="@(selectedTab == "code")">Code</Blazorise.Tab>
+        </Blazorise.Tabs>
+
+        <Blazorise.TabsContent ref="tabs">
+            <Blazorise.TabPanel IsActive="@(selectedTab == "sample")">
+
+
+
+                <FlexLine Class="boxes colored uniform card s-100" Style="min-height: 400px">
+                    <FlexItem Size="Size.IsPercent(30)">
+                        30%
+                    </FlexItem>
+                    <FlexItem Resizable="Resizable.Fill">
+                        Fill
+                    </FlexItem>
+                </FlexLine>
+
+
+            </Blazorise.TabPanel>
+            <Blazorise.TabPanel IsActive="@(selectedTab == "code")">
+
+
+                <CodeBox ref="@this.codeBox" Height="500" Width="700"></CodeBox>
+
+
+            </Blazorise.TabPanel>
+        </Blazorise.TabsContent>
+    </Blazorise.CardBody>
+</Blazorise.Card>
+
+
+
+
+@*<FlexLine Direction="Direction.Column" Class="w-100">
+
+        <FlexLine JustifyContent="JustifyContent.Center" Class="mb-5">
+            <h4>Using <strong>Fill</strong> to occupy remaining width and height of the parent container.</h4>
+        </FlexLine>
+
+        <FlexItem AlignSelf="AlignSelf.Stretch">
+            <Blazorise.Tabs SelectedTabChanged="@this.OnSelectedTabChanged" IsFullWidth="true" IsJustified="true">
+                <Blazorise.Tab Name="sample" IsActive="@(this.selectedTab == "sample")">Sample</Blazorise.Tab>
+                <Blazorise.Tab Name="code" IsActive="@(this.selectedTab == "code")">Code</Blazorise.Tab>
+            </Blazorise.Tabs>
+            <Blazorise.TabsContent ref="@tabs">
+                <Blazorise.TabPanel Name="sample" IsActive="@(this.selectedTab == "sample")">
+
+                    <FlexLine Class="boxes colored uniform card">
+                        <FlexItem Size="Size.IsPercent(30)">
+                            30%
+                        </FlexItem>
+                        <FlexItem Resizable="Resizable.Fill">
+                            Fill
+                        </FlexItem>
+                    </FlexLine>
+
+                </Blazorise.TabPanel>
+
+                <Blazorise.TabPanel Name="code" IsActive="@(this.selectedTab == "code")">
+                    <CodeBox Value="@this.value" Height="500" Width="700"></CodeBox>
+                </Blazorise.TabPanel>
+
+            </Blazorise.TabsContent>
+
         </FlexItem>
-        <FlexItem Resizable="Resizable.Fill">
-            Fill
+    </FlexLine>*@
+
+@*<FlexLine Direction="Direction.Column" Class="w-100">
+
+        <FlexLine JustifyContent="JustifyContent.Center" Class="mb-5">
+            <h4>Using <strong>Fill</strong> to occupy remaining width and height of the parent container.</h4>
+        </FlexLine>
+        <FlexLine Class="boxes colored uniform card">
+            <FlexItem Size="Size.IsPercent(30)">
+                30%
+            </FlexItem>
+            <FlexItem Resizable="Resizable.Fill">
+                Fill
+            </FlexItem>
+        </FlexLine>
+        <FlexItem AlignSelf="AlignSelf.Center" Class="mt-5">
+            <CodeBox Value="@this.value" Height="500" Width="700"></CodeBox>
         </FlexItem>
-    </FlexLine>
-    <FlexItem AlignSelf="AlignSelf.Center" Class="mt-5">
-        <CodeBox Value="@this.value"></CodeBox>
-    </FlexItem>
-</FlexLine>
+    </FlexLine>*@
 
 @functions {
 
-    private string value = 
+    private CodeBox codeBox;
+    private Blazorise.TabsContent tabs;
+
+    private string selectedTab = "sample";
+
+    private string value =
 @"
 <FlexLine>
-    <FlexItem Size=""Size.IsPercent(30)"">30%</FlexItem>
-    <FlexItem Resizable=""Resizable.Fill"">Fill</FlexItem>
+<FlexItem Size=""Size.IsPercent(30)"">30%</FlexItem>
+<FlexItem Resizable=""Resizable.Fill"">Fill</FlexItem>
 </FlexLine>
 ";
+
+    private void OnSelectedTabChanged(string name)
+    {
+        this.selectedTab = name;
+        this.tabs.SelectPanel(name);
+
+        if (name == "code")
+        {
+            this.codeBox.SetValue(value);
+        }
+    }
 }
