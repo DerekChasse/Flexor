@@ -39,7 +39,7 @@ namespace Flexor
         /// <inheritdoc/>
         public Task AddDynamicStyle(string className, string classCSS)
         {
-            return this.runtime.InvokeAsync<object>("flexor.addDynamicStyle", className, classCSS);
+            return this.runtime.InvokeAsync<object>("flexor.addDynamicStyle", className, classCSS).AsTask();
         }
     }
 }

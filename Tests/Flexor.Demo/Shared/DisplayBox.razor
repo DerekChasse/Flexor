@@ -23,14 +23,14 @@
 @functions {
 
     [Parameter]
-    protected RenderFragment ChildContent { get; set; }
+    public RenderFragment ChildContent { get; set; }
 
     [Parameter]
-    protected int ContentMinHeight { get; set; } = 400;
+    public int ContentMinHeight { get; set; } = 400;
 
     [Parameter]
-    protected MarkupString? HeaderMessage { get; set; } = null;
+    public MarkupString? HeaderMessage { get; set; } = null;
 
     [Parameter]
-    protected MarkupString? FooterMessage { get; set; } = null;
+    public MarkupString? FooterMessage { get; set; } = null;
 }

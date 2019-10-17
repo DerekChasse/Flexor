@@ -21,7 +21,7 @@ namespace Flexor.Base
         /// Default is 'always'.
         /// </summary>
         [Parameter]
-        protected IVisible Visible
+        public IVisible Visible
         {
             get => this.visible;
             set
@@ -38,7 +38,7 @@ namespace Flexor.Base
         /// Custom CSS class to apply to the component.
         /// </summary>
         [Parameter]
-        protected string Class
+        public string Class
         {
             get => this.cssClass;
             set
@@ -55,7 +55,7 @@ namespace Flexor.Base
         /// Custom CSS style to apply to the component.
         /// </summary>
         [Parameter]
-        protected string Style
+        public string Style
         {
             get => this.cssStyle;
             set
@@ -72,7 +72,7 @@ namespace Flexor.Base
         /// The inner content of the component.
         /// </summary>
         [Parameter]
-        protected RenderFragment ChildContent
+        public RenderFragment ChildContent
         {
             get;
             set;

@@ -22,7 +22,7 @@ namespace Flexor.Base
         /// Default is 'row'.
         /// </summary>
         [Parameter]
-        protected IDirection Direction
+        public IDirection Direction
         {
             get => this.direction;
             set
@@ -41,7 +41,7 @@ namespace Flexor.Base
         /// Default is 'false'.
         /// </summary>
         [Parameter]
-        protected IWrap Wrap
+        public IWrap Wrap
         {
             get => this.wrap;
             set
@@ -60,7 +60,7 @@ namespace Flexor.Base
         /// Default is 'start'.
         /// </summary>
         [Parameter]
-        protected IJustifyContent JustifyContent
+        public IJustifyContent JustifyContent
         {
             get => this.justifyContent;
             set
@@ -68,6 +68,25 @@ namespace Flexor.Base
                 if (!this.justifyContent.Equals(value))
                 {
                     this.justifyContent = value;
+                    this.StateHasChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Defines the alignment of items across the flex-line's cross axis.
+        ///
+        /// Default is 'stretch'.
+        /// </summary>
+        [Parameter]
+        public IAlignItems AlignItems
+        {
+            get => this.alignItems;
+            set
+            {
+                if (!this.alignItems.Equals(value))
+                {
+                    this.alignItems = value;
                     this.StateHasChanged();
                 }
             }
@@ -85,24 +104,5 @@ namespace Flexor.Base
                 this.Visible.Class,
                 this.Wrap.Class,
                 this.Class);
-
-        /// <summary>
-        /// Defines the alignment of items across the flex-line's cross axis.
-        ///
-        /// Default is 'stretch'.
-        /// </summary>
-        [Parameter]
-        protected IAlignItems AlignItems
-        {
-            get => this.alignItems;
-            set
-            {
-                if (!this.alignItems.Equals(value))
-                {
-                    this.alignItems = value;
-                    this.StateHasChanged();
-                }
-            }
-        }
     }
 }

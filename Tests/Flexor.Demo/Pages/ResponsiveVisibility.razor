@@ -16,7 +16,7 @@
             FullHD
         </FlexItem>
 
-        <FlexItem Visible="Visible.When(ConditionMet)" Size="Size.IsPercent(20)" Class="align-items-center justify-content-center">
+        <FlexItem Visible="Visible.When(this.conditionMet)" Size="Size.IsPercent(20)" Class="align-items-center justify-content-center">
             Conditionally
         </FlexItem>
 
@@ -30,7 +30,7 @@
 <DisplayBox ContentMinHeight="80">
     <FlexLine Direction="Direction.Column" JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" bind="@ConditionMet" id="conditionCheck" />
+            <input class="form-check-input" type="checkbox" @bind="conditionMet" />
             <label class="form-check-label" for="conditionCheck">
                 Conditionally
             </label>
@@ -40,7 +40,7 @@
 
 @functions {
 
-    private bool ConditionMet { get; set; } = false;
+    private bool conditionMet = false;
 
     MarkupString headerMessage = new MarkupString("Items with responsive <strong>Visibility</strong> configurations. ");
 }
