@@ -19,12 +19,12 @@
 <DisplayBox ContentMinHeight="200">
     <div class="col-12 flex-column align-items-center">
         <div class="btn-group mt-3 mb-3 p-0" role="group">
-            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(AlignSelfOption.Auto, "aligned automatically"))>Auto</button>
-            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(AlignSelfOption.Baseline, "baseline aligned"))>Baseline</button>
-            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(AlignSelfOption.Center, "centered"))>Center</button>
-            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(AlignSelfOption.End, "end aligned"))>End</button>
-            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(AlignSelfOption.Start, "start aligned"))>Start</button>
-            <button class="btn btn-outline-primary" onclick=@(() => this.UpdateAlignSelf(AlignSelfOption.Stretch, "stretched"))>Stretch</button>
+            <button class="btn btn-outline-primary" @onclick=@(() => this.UpdateAlignSelf(AlignSelfOption.Auto, "aligned automatically"))>Auto</button>
+            <button class="btn btn-outline-primary" @onclick=@(() => this.UpdateAlignSelf(AlignSelfOption.Baseline, "baseline aligned"))>Baseline</button>
+            <button class="btn btn-outline-primary" @onclick=@(() => this.UpdateAlignSelf(AlignSelfOption.Center, "centered"))>Center</button>
+            <button class="btn btn-outline-primary" @onclick=@(() => this.UpdateAlignSelf(AlignSelfOption.End, "end aligned"))>End</button>
+            <button class="btn btn-outline-primary" @onclick=@(() => this.UpdateAlignSelf(AlignSelfOption.Start, "start aligned"))>Start</button>
+            <button class="btn btn-outline-primary" @onclick=@(() => this.UpdateAlignSelf(AlignSelfOption.Stretch, "stretched"))>Stretch</button>
         </div>
     </div>
 </DisplayBox>

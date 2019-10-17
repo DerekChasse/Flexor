@@ -23,7 +23,7 @@ namespace Flexor.Base
         /// Default is 'default'.
         /// </summary>
         [Parameter]
-        protected IOrder Order
+        public IOrder Order
         {
             get => this.order;
             set
@@ -42,7 +42,7 @@ namespace Flexor.Base
         /// Default is 'auto'.
         /// </summary>
         [Parameter]
-        protected IAlignSelf AlignSelf
+        public IAlignSelf AlignSelf
         {
             get => this.alignSelf;
             set
@@ -61,7 +61,7 @@ namespace Flexor.Base
         /// Default is 'unspecified'.
         /// </summary>
         [Parameter]
-        protected ISize Size
+        public ISize Size
         {
             get => this.size;
             set
@@ -80,7 +80,7 @@ namespace Flexor.Base
         /// Default is 'auto'.
         /// </summary>
         [Parameter]
-        protected IResizable Resizable
+        public IResizable Resizable
         {
             get => this.resizable;
             set
